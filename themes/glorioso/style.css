@@ -1,0 +1,426 @@
+@import "css/fullcalendar.css";
+	  
+
+/**************************
+* DEFAULT JQUERY-UI THEME * (User can switch to other jQuery-UI themes on-the-fly with ThemeSwitcher widget)
+**************************/
+
+body { font-size: 12px; font-family:"Segoe UI", Tahoma, Helvetica, "Helvetica Neue", Arial, sans-serif; }
+a {	text-decoration:none !important; }
+img { border: 0px; }
+
+/*******************************
+* FILAMENT GROUP WIDGET STYLES *
+*******************************/
+	.fg-button { outline: 0; margin:0; padding: .2em .5em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
+	#userdetails .fg-button { height: 18px; }
+	#userstuff .fg-button { height: 18px; }
+	.fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+	
+	a.fg-button { float:left; }
+	
+	/* remove extra button width in IE */
+	button.fg-button { width:auto; overflow:visible; }
+
+	.fg-button-icon-left { padding-left: 2.1em; }
+	.fg-button-icon-right { padding-right: 2.1em; }
+	.fg-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+	.fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+	
+	.fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */	
+	
+	.fg-buttonset { float:left; }
+	.fg-buttonset .fg-button { float: left; }
+	.fg-buttonset-single .fg-button, 
+	.fg-buttonset-multi .fg-button { margin-right: -1px;}
+	
+
+	.fg-toolbar { padding: .5em; margin: 0;  }
+	.fg-toolbar .fg-buttonset { margin-right:1.5em; margin-top:.5em;padding-left: 1px; }
+	.fg-toolbar .fg-button { font-size: 1em;  }
+
+/****************************/
+/* FLATNUX SPECIFIC CLASSES */
+/****************************/
+.boxtitle {
+	font-weight: bold;
+	}
+.flatnukeadmin {
+	color: #333333;
+	background-color: #E2DCCE;
+	display: block;
+	border: #ff0000 1px solid;
+	padding: 3px;
+	margin: 2px;
+	vertical-align: sub;
+}
+.flatnukeadmin legend {
+	font-weight: bolder;
+	font-size: medium;
+}
+
+.flatnux-block { margin: 0 0 .5em 1px; }
+.flatnux-block-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+.flatnux-block-header .ui-icon { float: right; }
+.flatnux-block-content { padding: 0.4em; }
+.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+.ui-sortable-placeholder * { visibility: hidden; }
+
+/*****************************
+* 3 COLUMN HOLY GRAIL LAYOUT *
+*****************************/
+
+	/* column container */
+	.top_colmask {
+		position:relative;	/* This fixes the IE7 overflow hidden bug */
+		clear:both;
+		float:left;
+		width:100%;			/* width of whole page */
+		overflow:hidden;		/* This chops off any overhanging divs */
+	}
+	/* common column settings */
+	.top_colright,
+	.top_colmid,
+	.top_colleft {
+		float:left;
+		width:100%;			/* width of page */
+		position:relative;
+	}
+	.top_col1,
+	.top_col2,
+	.top_col3 {
+		float:left;
+		position:relative;
+		padding:0 0 0 0;	/* no left and right padding on columns, we just make them narrower instead
+						only padding top and bottom is included here, make it whatever value you need */
+		overflow:hidden;
+	}
+	/* 3 Column settings */
+	.top_threecol {
+	/*	background:#eee;	*/	/* right column background colour */
+	}
+	.top_threecol .top_colmid {
+		right:30%;			/* width of the right column */
+	/*	background:#fff;*/		/* center column background colour */
+	}
+	.top_threecol .top_colleft {
+		right:60%			/* width of the middle column */
+	/*	background:#f4f4f4;*/	/* left column background colour */
+	}
+	.top_threecol .top_col1 {
+		width:60%;			/* width of center column content (column width minus padding on either side) */
+		left:100%;			/* 100% plus left padding of center column */
+	}
+	.top_threecol .top_col2 {
+		width:10%;			/* Width of left column content (column width minus padding on either side) */
+		left:30%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+	}
+	.top_threecol .top_col3 {
+		width:30%;			/* Width of right column content (column width minus padding on either side) */
+		left:90%;			/* Please make note of the brackets here:
+						(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+	}
+
+/*********************************
+* GLORIOSO THEME SINGLE ELEMENTS *
+*********************************/
+div#pagetop {
+	clear:both;
+	float:left;
+	width:100%;
+}
+
+div#pagebottom {
+	clear:both;
+	float:left;
+	width:100%;
+	text-align:center;
+	padding-bottom:40px;
+}
+
+div#loading {
+  position: absolute;
+	height: 250px;
+	width: 350px;
+	top: 50%;
+	left: 50%;
+	margin-left: -175px;
+	margin-top: -125px;
+	display:none;
+	padding:15px;
+	z-index:500;
+	text-align:center;
+	color:#FFFFFF;
+	font-family: "IM Fell DW Pica SC";
+	font-size: 14px;
+}
+.subsection {
+	display:none;
+	border-left:groove 1px White;
+	border-right:groove 1px White;
+	padding-bottom:1em;
+}
+div#vertical-menu .fg-button {
+	text-align:left;
+}
+img#gloriosocal {
+	position:relative;
+	left:0px;
+	vertical-align:middle;
+	cursor:pointer;
+	height:60px;
+	float:left;
+	margin-left:10px;
+}
+div#movie {
+    position: absolute;
+	clear:both;
+	top: 50%;
+	left: 50%;
+	width:760;
+	height:520;
+	margin-left:-380px;
+	margin-top:-260px;
+	display:none;
+	z-index:9000;
+}
+div#movieclose {
+	background-image:url(images/movie/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+	display:none;
+	z-index:10000;
+}
+.movie-button {
+	float:left;
+}
+div#movietoolbar {
+	display:none;
+	position:relative;
+	top:-35px;
+}
+div#volumeSetting {
+	position:relative;
+	left:80px;
+	top:-115px;
+	height:100px;
+	display:none;
+}
+span#moviepaused {
+	display:none;
+	position:absolute;
+	top:15px;
+	left:15px;
+	text-decoration:blink;
+	color:#FFF;
+	font-size:14px;
+	/* font-family:Backtothefuture; */
+	z-index:9999;
+}
+
+div#bufferprogress {
+	position:relative;
+	top:-5px;
+	height:5px;
+}
+
+div#userlogin-dropdown div {
+  cursor: pointer;
+}
+
+
+/***************************
+* CSS FOR BACKGROUND IMAGE *
+***************************/
+img.bg {
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1024px;
+
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+@media screen and (max-width: 1024px){
+	img.bg {
+		left: 50%;
+		margin-left: -512px; }
+}
+
+
+/****************************
+* FACEBOOK CONNECT ELEMENTS *
+****************************/
+img#fb_logout_image {
+	border: 1px solid White;
+	vertical-align:middle;
+}
+img#fb_logout_image:hover {
+	border: 1px solid #be9e00;
+}
+img#fb_login_image {
+	vertical-align:middle;
+}
+/*****************
+* THEMESWITCHER  *
+*****************/
+div#gloriosothemeswitcher-container { /*position:absolute; top:36px;right:5px;*/ }
+
+/************* 
+* SELECTMENU *
+*************/
+label,select,.ui-select-menu { float: left; margin-right: 10px; }
+select#select_langs { width: 60px; }
+/*select with custom icons*/
+body a.customicons { height: 2.8em;}
+body .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+body .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, body .rss .ui-selectmenu-item-icon { height: 24px; width: 24px; }
+body .video .ui-selectmenu-item-icon { background: url(sample_icons/24-video-square.png) 0 0 no-repeat; }
+body .podcast .ui-selectmenu-item-icon { background: url(sample_icons/24-podcast-square.png) 0 0 no-repeat; }
+body .rss .ui-selectmenu-item-icon { background: url(sample_icons/24-rss-square.png) 0 0 no-repeat; }
+body .it .ui-selectmenu-item-icon { background: url(/images/flags/it.png) 0 0 no-repeat; }
+body .en .ui-selectmenu-item-icon { background: url(/images/flags/en.png) 0 0 no-repeat; }
+body .es .ui-selectmenu-item-icon { background: url(/images/flags/es.png) 0 0 no-repeat; }
+body .fr .ui-selectmenu-item-icon { background: url(/images/flags/fr.png) 0 0 no-repeat; }
+body .de .ui-selectmenu-item-icon { background: url(/images/flags/de.png) 0 0 no-repeat; }
+body .ru .ui-selectmenu-item-icon { background: url(/images/flags/ru.png) 0 0 no-repeat; }
+
+/* Selectmenu
+----------------------------------*/
+.ui-selectmenu { display: block; position:relative; height:2em; text-decoration: none; overflow:hidden;}
+.ui-selectmenu-icon { position:absolute; right:6px; margin-top:-8px; top: 50%; }
+.ui-selectmenu-menu { padding:0; margin:0; list-style:none; position:absolute; top: 0; visibility: hidden; overflow: auto; }
+.ui-selectmenu-open { visibility: visible; }
+.ui-selectmenu-menu-popup { margin-top: -1px; }
+.ui-selectmenu-menu-dropdown { }
+.ui-selectmenu-menu li { padding:0; margin:0; display: block; border-top: 1px dotted transparent; border-bottom: 1px dotted transparent; border-right-width: 0 !important; border-left-width: 0 !important; font-weight: normal !important; }
+.ui-selectmenu-menu li a,.ui-selectmenu-status {line-height: 1.4em; display:block; padding:.3em 1em; outline:none; text-decoration:none; }
+.ui-selectmenu-menu li.ui-selectmenu-hasIcon a,
+.ui-selectmenu-hasIcon .ui-selectmenu-status { padding-left: 20px; position: relative; margin-left: 5px; }
+.ui-selectmenu-menu li .ui-icon, .ui-selectmenu-status .ui-icon { position: absolute; top: 1em; margin-top: -8px; left: 0; }
+.ui-selectmenu-status { line-height: 1.4em; }
+.ui-selectmenu-open li.ui-selectmenu-item-focus a {  }
+.ui-selectmenu-open li.ui-selectmenu-item-selected { }
+.ui-selectmenu-menu li span,.ui-selectmenu-status span { display:block; margin-bottom: .2em; }
+.ui-selectmenu-menu li .ui-selectmenu-item-header { font-weight: bold; }
+.ui-selectmenu-menu li .ui-selectmenu-item-content {  }
+.ui-selectmenu-menu li .ui-selectmenu-item-footer { opacity: .8; }
+/*for optgroups*/
+.ui-selectmenu-menu .ui-selectmenu-group { font-size: 1em; }
+.ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label { line-height: 1.4em; display:block; padding:.6em .5em 0; font-weight: bold; }
+.ui-selectmenu-menu .ui-selectmenu-group ul { margin: 0; padding: 0; }
+
+/* UI Widget
+------------------------------------*/
+.side-column .ui-widget-header {
+	cursor:move;
+}
+span.collapsable { cursor:pointer; }
+
+.ui-button { 
+  min-height: 24px;
+  margin-top:0px;
+}
+#gloriosothemeswitcher {
+  float:right;
+  margin-right:20px;
+  min-height: 24px;
+}
+/* jQuery Tools tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	background:transparent url(/themes/glorioso/images/tooltip/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;
+  z-index:9999;	
+}
+.tooltip.bottom {
+	background:transparent url(/themes/glorioso/images/tooltip/black_arrow_bottom.png);
+}
+.tooltip-dx {
+	background-color:#000;
+	border:1px solid #fff;
+	padding:10px 15px;
+	width:200px;
+	display:none;
+	color:#fff;
+	text-align:left;
+	font-size:12px;
+  z-index:9999;	
+	/* outline radius for mozilla/firefox only */
+	-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;
+}
+
+div#userlogin-dropdown div {
+  padding:3px;
+}
+.userloginspan {
+  border-bottom: inset 2px LightGray;
+}
+
+}
+.jqtooltip {
+  position:relative;
+}
+
+/* Google Fonts */
+#toptitle {
+  font-family:'IM Fell DW Pica SC';
+  font-size:24px;
+  color:#000080;
+}
+#span_username {
+  font-family:'Reenie Beanie';
+  color:Green;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* MY OWN CLOCK CREATION */
+		#currentdate {
+			color: DarkRed;
+			font-weight: bold;
+			font-size: 14px;
+			margin:3px;
+		}
+		#clock {
+			color: #F0F0F0;
+			font-size:16px;
+			font-family: "Courier New", Courier, monospace;
+			font-weight:bold;
+			margin:6px;
+			text-align:center;
+			background:#969696;
+			width:60%;
+			margin:10px auto;
+			border: #000000 1px solid;
+			text-shadow: #6374AB 2px -2px 2px;
+		}
+
+/* FULLCALENDAR EVENTS */
+    div#create_cal_event_wrapper {
+      display:none;
+    }
+		#create_cal_event_form {
+			border: 2px groove Red;
+			background: LightYellow;
+			padding: 30px;
+		}
+
+		#ui-datepicker-div {
+        	z-index: 500;
+    	}
