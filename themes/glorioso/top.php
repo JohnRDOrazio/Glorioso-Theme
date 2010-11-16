@@ -32,7 +32,7 @@ echo ($_THEME_CFG['top_pic']!="") ? "<a href=\"index.php?mod=Preghiera_a_San_Lin
 <div id="pagetop_rightelement" style="vertical-align:middle;height:65px;border:3px outset #D2D3B3;border-left:1px outset #D2D3B3;">
 
 	<!-- CLOCK -->
-	<img id="gloriosocal" src="/themes/glorioso/images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario Parrocchiale" />
+	<img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario Parrocchiale" />
 	<!-- Calendar feed as defined in config.php -->
 	<input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
 	<?php include("fullcalendar.php"); ?>
