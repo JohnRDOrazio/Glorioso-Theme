@@ -80,7 +80,7 @@ function create_menu()
 	$accesskey = "";
 	$title = "Menu";
 	$css_class = "";
-	OpenBlock ( "{$_FN['siteurl']}/images/menu.png", $title );
+	OpenBlock ( "{$_FN['siteurl']}images/menu.png", $title );
 	echo "<div id=\"vertical-menu\" class=\"fn-menu\">";
 	$tl=($_FN['lang'] != $_FN['lang_default'])?"?lang={$_FN['lang']}":"";
 	if($_FN['home_section']==""){
@@ -333,7 +333,7 @@ function create_h_menu($separator="|"){
 			if ($string != "")
 			{
 				
-				OpenBlock ( "{$_FN['siteurl']}/images/block.png", $title );
+				OpenBlock ( "{$_FN['siteurl']}images/block.png", $title );
 				echo "$string";
 				//ripristino mod nel caso venga cambiato dal blocco
 				$mod = $modlist[$kk];
