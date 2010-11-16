@@ -80,16 +80,16 @@ $_THEME_CFG['forumborder'] = "00ff11"; //{color}
 $_THEME_CFG['forumback'] = "bcdbba"; //{color}
 #[it]URL gif animato durante caricamento Ajax 
 #[en]URL animated gif during Ajax loading
-$_THEME_CFG['ajax_gif'] = "/themes/glorioso/images/ajax/ui-anim_basic_16x16.gif"; //{image}
+$_THEME_CFG['ajax_gif'] = "images/ajax/ui-anim_basic_16x16.gif"; //{image}
 #[it]Titolo nella sezione superiore centrale della pagina
 #[en]Title in the upper central section of the page
 $_THEME_CFG['top_title'] = "Flatnux Site powered by Glorioso Theme";
 #[it]URL immagine logo nella sezione superiore sinistra della pagina
 #[en]URL logo image the upper left section of the page
-$_THEME_CFG['top_logo'] = "/themes/glorioso/images/pagetop/logo-glorioso.png"; //{image}
+$_THEME_CFG['top_logo'] = "images/pagetop/logo-glorioso.png"; //{image}
 #[it]URL immagine nella sezione superiore centrale della pagina
 #[en]URL image in the upper central section of the page
-$_THEME_CFG['top_pic'] = "/themes/glorioso/images/pagetop/logo-glorioso.png"; //{image}
+$_THEME_CFG['top_pic'] = "images/pagetop/logo-glorioso.png"; //{image}
 
 /* Librerie Javascript e API PHP */
 
