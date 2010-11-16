@@ -288,7 +288,7 @@ body .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, bo
 body .video .ui-selectmenu-item-icon { background: url(sample_icons/24-video-square.png) 0 0 no-repeat; }
 body .podcast .ui-selectmenu-item-icon { background: url(sample_icons/24-podcast-square.png) 0 0 no-repeat; }
 body .rss .ui-selectmenu-item-icon { background: url(sample_icons/24-rss-square.png) 0 0 no-repeat; }
-body .ui-selectmenu-item-icon { background-image: url(images/flags/flags_sprite.png) no-repeat top left; }
+body .ui-selectmenu-item-icon { background: url(images/flags/flags_sprite.png) no-repeat top left; }
 body .it .ui-selectmenu-item-icon { background-position: -52px -1280px; }
 body .en .ui-selectmenu-item-icon { background-position: -156px -1280px; }
 body .es .ui-selectmenu-item-icon { background-position: -156px -240px; }
