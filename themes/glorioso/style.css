@@ -288,12 +288,216 @@ body .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, bo
 body .video .ui-selectmenu-item-icon { background: url(sample_icons/24-video-square.png) 0 0 no-repeat; }
 body .podcast .ui-selectmenu-item-icon { background: url(sample_icons/24-podcast-square.png) 0 0 no-repeat; }
 body .rss .ui-selectmenu-item-icon { background: url(sample_icons/24-rss-square.png) 0 0 no-repeat; }
-body .it .ui-selectmenu-item-icon { background: url(/images/flags/it.png) 0 0 no-repeat; }
-body .en .ui-selectmenu-item-icon { background: url(/images/flags/en.png) 0 0 no-repeat; }
-body .es .ui-selectmenu-item-icon { background: url(/images/flags/es.png) 0 0 no-repeat; }
-body .fr .ui-selectmenu-item-icon { background: url(/images/flags/fr.png) 0 0 no-repeat; }
-body .de .ui-selectmenu-item-icon { background: url(/images/flags/de.png) 0 0 no-repeat; }
-body .ru .ui-selectmenu-item-icon { background: url(/images/flags/ru.png) 0 0 no-repeat; }
+body .ui-selectmenu-item-icon { background: url(images/flags/flags_sprite.png) no-repeat top left; }
+body .it .ui-selectmenu-item-icon { background-position: -52px -1280px; }
+body .en .ui-selectmenu-item-icon { background-position: -156px -1280px; }
+body .es .ui-selectmenu-item-icon { background-position: -156px -240px; }
+body .fr .ui-selectmenu-item-icon { background-position: -52px -320px; }
+body .de .ui-selectmenu-item-icon { background-position: -52px -480px; }
+body .ru .ui-selectmenu-item-icon { background-position: -104px -1680px; }
+
+/* flags spritemap (da http://www.jackrebel.com/wp-content/uploads/2009/09/flag_style.css) */
+.sprite {
+    width: 32px;
+    height: 22px;
+}
+
+
+.sprite-afghanistan_small { background-position: 0 0; } 
+.sprite-albania_small { background-position: 0 -40px; } 
+.sprite-algeria_small { background-position: 0 -80px; } 
+.sprite-andorra_small { background-position: 0 -120px; } 
+.sprite-angola_small { background-position: 0 -160px; } 
+.sprite-antiguabarbuda_small { background-position: 0 -200px; } 
+.sprite-argentina_small { background-position: 0 -240px; } 
+.sprite-armenia_small { background-position: 0 -280px; } 
+.sprite-australia_small { background-position: 0 -320px; } 
+.sprite-austria_small { background-position: 0 -360px; } 
+.sprite-azerbaijan_small { background-position: 0 -400px; } 
+.sprite-bahamas_small { background-position: 0 -440px; } 
+.sprite-bahrain_small { background-position: 0 -480px; } 
+.sprite-bangladesh_small { background-position: 0 -520px; } 
+.sprite-barbados_small { background-position: 0 -560px; } 
+.sprite-belarus_small { background-position: 0 -600px; } 
+.sprite-belgium_small { background-position: 0 -640px; } 
+.sprite-belize_small { background-position: 0 -680px; } 
+.sprite-benin_small { background-position: 0 -720px; } 
+.sprite-bhutan_small { background-position: 0 -760px; } 
+.sprite-bolivia_small { background-position: 0 -800px; } 
+.sprite-bosnia_herzegovina_small { background-position: 0 -840px; } 
+.sprite-botswana_small { background-position: 0 -880px; } 
+.sprite-brazil_small { background-position: 0 -920px; } 
+.sprite-brunei_small { background-position: 0 -960px; } 
+.sprite-bulgaria_small { background-position: 0 -1000px; } 
+.sprite-burkinafaso_small { background-position: 0 -1040px; } 
+.sprite-burma_small { background-position: 0 -1080px; } 
+.sprite-burundi_small { background-position: 0 -1120px; } 
+.sprite-cambodia_small { background-position: 0 -1160px; } 
+.sprite-cameroon_small { background-position: 0 -1200px; } 
+.sprite-canada_small { background-position: 0 -1240px; } 
+.sprite-centralafricanrep_small { background-position: 0 -1280px; } 
+.sprite-chad_small { background-position: 0 -1320px; } 
+.sprite-chile_small { background-position: 0 -1360px; } 
+.sprite-china_small { background-position: 0 -1400px; } 
+.sprite-colombia_small { background-position: 0 -1440px; } 
+.sprite-comoros_small { background-position: 0 -1480px; } 
+.sprite-congo_small { background-position: 0 -1520px; } 
+.sprite-costarica_small { background-position: 0 -1560px; } 
+.sprite-croatia_small { background-position: 0 -1600px; } 
+.sprite-cuba_small { background-position: 0 -1640px; } 
+.sprite-cyprus_small { background-position: 0 -1680px; } 
+.sprite-czechrepublic_small { background-position: 0 -1720px; } 
+.sprite-demrepcongo_small { background-position: 0 -1760px; } 
+.sprite-denmark_small { background-position: 0 -1800px; } 
+.sprite-djibouti_small { background-position: 0 -1840px; } 
+.sprite-dominica_small { background-position: 0 -1880px; } 
+.sprite-dominicanrep_small { background-position: 0 -1920px; } 
+.sprite-ecuador_small { background-position: 0 -1960px; } 
+.sprite-egypt_small { background-position: -52px 0; } 
+.sprite-elsalvador_small { background-position: -52px -40px; } 
+.sprite-eq_guinea_small { background-position: -52px -80px; } 
+.sprite-eritrea_small { background-position: -52px -120px; } 
+.sprite-estonia_small { background-position: -52px -160px; } 
+.sprite-ethiopia_small { background-position: -52px -200px; } 
+.sprite-fiji_small { background-position: -52px -240px; } 
+.sprite-finland_small { background-position: -52px -280px; } 
+.sprite-france_small { background-position: -52px -320px; } 
+.sprite-gabon_small { background-position: -52px -360px; } 
+.sprite-gambia_small { background-position: -52px -400px; } 
+.sprite-georgia_small { background-position: -52px -440px; } 
+.sprite-germany_small { background-position: -52px -480px; } 
+.sprite-ghana_small { background-position: -52px -520px; } 
+.sprite-greece_small { background-position: -52px -560px; } 
+.sprite-grenada_small { background-position: -52px -600px; } 
+.sprite-grenadines_small { background-position: -52px -640px; } 
+.sprite-guatemala_small { background-position: -52px -680px; } 
+.sprite-guinea_small { background-position: -52px -720px; } 
+.sprite-guineabissau_small { background-position: -52px -760px; } 
+.sprite-guyana_small { background-position: -52px -800px; } 
+.sprite-haiti_small { background-position: -52px -840px; } 
+.sprite-honduras_small { background-position: -52px -880px; } 
+.sprite-hong_kong_small { background-position: -52px -920px; } 
+.sprite-hungary_small { background-position: -52px -960px; } 
+.sprite-iceland_small { background-position: -52px -1000px; } 
+.sprite-india_small { background-position: -52px -1040px; } 
+.sprite-indonesia_small { background-position: -52px -1080px; } 
+.sprite-iran_small { background-position: -52px -1120px; } 
+.sprite-iraq_small { background-position: -52px -1160px; } 
+.sprite-ireland_small { background-position: -52px -1200px; } 
+.sprite-israel_small { background-position: -52px -1240px; } 
+.sprite-italy_small { background-position: -52px -1280px; } 
+.sprite-ivorycoast_small { background-position: -52px -1320px; } 
+.sprite-jamaica_small { background-position: -52px -1360px; } 
+.sprite-japan_small { background-position: -52px -1400px; } 
+.sprite-jordan_small { background-position: -52px -1440px; } 
+.sprite-kazakhstan_small { background-position: -52px -1480px; } 
+.sprite-kenya_small { background-position: -52px -1520px; } 
+.sprite-kiribati_small { background-position: -52px -1560px; } 
+.sprite-kuwait_small { background-position: -52px -1600px; } 
+.sprite-kyrgyzstan_small { background-position: -52px -1640px; } 
+.sprite-laos_small { background-position: -52px -1680px; } 
+.sprite-latvia_small { background-position: -52px -1720px; } 
+.sprite-lebanon_small { background-position: -52px -1760px; } 
+.sprite-liberia_small { background-position: -52px -1800px; } 
+.sprite-libya_small { background-position: -52px -1840px; } 
+.sprite-liechtenstein_small { background-position: -52px -1880px; } 
+.sprite-lithuania_small { background-position: -52px -1920px; } 
+.sprite-luxembourg_small { background-position: -52px -1960px; } 
+.sprite-macau_small { background-position: -104px 0; } 
+.sprite-macedonia_small { background-position: -104px -40px; } 
+.sprite-madagascar_small { background-position: -104px -80px; } 
+.sprite-malawi_small { background-position: -104px -120px; } 
+.sprite-malaysia_small { background-position: -104px -160px; } 
+.sprite-maldives_small { background-position: -104px -200px; } 
+.sprite-mali_small { background-position: -104px -240px; } 
+.sprite-malta_small { background-position: -104px -280px; } 
+.sprite-mauritania_small { background-position: -104px -320px; } 
+.sprite-mauritius_small { background-position: -104px -360px; } 
+.sprite-mexico_small { background-position: -104px -400px; } 
+.sprite-micronesia_small { background-position: -104px -440px; } 
+.sprite-moldova_small { background-position: -104px -480px; } 
+.sprite-monaco_small { background-position: -104px -520px; } 
+.sprite-mongolia_small { background-position: -104px -560px; } 
+.sprite-morocco_small { background-position: -104px -600px; } 
+.sprite-mozambique_small { background-position: -104px -640px; } 
+.sprite-namibia_small { background-position: -104px -680px; } 
+.sprite-nauru_small { background-position: -104px -720px; } 
+.sprite-nepal_small { background-position: -104px -760px; } 
+.sprite-neth_antilles_small { background-position: -104px -800px; } 
+.sprite-netherlands_small { background-position: -104px -840px; } 
+.sprite-newzealand_small { background-position: -104px -880px; } 
+.sprite-nicaragua_small { background-position: -104px -920px; } 
+.sprite-niger_small { background-position: -104px -960px; } 
+.sprite-nigeria_small { background-position: -104px -1000px; } 
+.sprite-north_korea_small { background-position: -104px -1040px; } 
+.sprite-norway_small { background-position: -104px -1080px; } 
+.sprite-oman_small { background-position: -104px -1120px; } 
+.sprite-pakistan_small { background-position: -104px -1160px; } 
+.sprite-panama_small { background-position: -104px -1200px; } 
+.sprite-papuanewguinea_small { background-position: -104px -1240px; } 
+.sprite-paraguay_small { background-position: -104px -1280px; } 
+.sprite-peru_small { background-position: -104px -1320px; } 
+.sprite-philippines_small { background-position: -104px -1360px; } 
+.sprite-poland_small { background-position: -104px -1400px; } 
+.sprite-portugal_small { background-position: -104px -1440px; } 
+.sprite-puertorico_small { background-position: -104px -1480px; } 
+.sprite-qatar_small { background-position: -104px -1520px; } 
+.sprite-question_small { background-position: -104px -1560px; } 
+.sprite-rawanda_small { background-position: -104px -1600px; } 
+.sprite-romania_small { background-position: -104px -1640px; } 
+.sprite-russia_small { background-position: -104px -1680px; } 
+.sprite-sao_tome_small { background-position: -104px -1720px; } 
+.sprite-saudiarabia_small { background-position: -104px -1760px; } 
+.sprite-senegal_small { background-position: -104px -1800px; } 
+.sprite-serbia_small { background-position: -104px -1840px; } 
+.sprite-seychelles_small { background-position: -104px -1880px; } 
+.sprite-sierraleone_small { background-position: -104px -1920px; } 
+.sprite-singapore_small { background-position: -104px -1960px; } 
+.sprite-slovakia_small { background-position: -156px 0; } 
+.sprite-slovenia_small { background-position: -156px -40px; } 
+.sprite-solomon_islands_small { background-position: -156px -80px; } 
+.sprite-somalia_small { background-position: -156px -120px; } 
+.sprite-south_korea_small { background-position: -156px -160px; } 
+.sprite-southafrica_small { background-position: -156px -200px; } 
+.sprite-spain_small { background-position: -156px -240px; } 
+.sprite-srilanka_small { background-position: -156px -280px; } 
+.sprite-stkitts_nevis_small { background-position: -156px -320px; } 
+.sprite-stlucia_small { background-position: -156px -360px; } 
+.sprite-sudan_small { background-position: -156px -400px; } 
+.sprite-suriname_small { background-position: -156px -440px; } 
+.sprite-sweden_small { background-position: -156px -480px; } 
+.sprite-switzerland_small { background-position: -156px -520px; } 
+.sprite-syria_small { background-position: -156px -560px; } 
+.sprite-taiwan_small { background-position: -156px -600px; } 
+.sprite-tajikistan_small { background-position: -156px -640px; } 
+.sprite-tanzania_small { background-position: -156px -680px; } 
+.sprite-thailand_small { background-position: -156px -720px; } 
+.sprite-togo_small { background-position: -156px -760px; } 
+.sprite-tonga_small { background-position: -156px -800px; } 
+.sprite-trinidadandtobago_small { background-position: -156px -840px; } 
+.sprite-tunisia_small { background-position: -156px -880px; } 
+.sprite-turkey_small { background-position: -156px -920px; } 
+.sprite-turkmenistan_small { background-position: -156px -960px; } 
+.sprite-tuvala_small { background-position: -156px -1000px; } 
+.sprite-uae_small { background-position: -156px -1040px; } 
+.sprite-uganda_small { background-position: -156px -1080px; } 
+.sprite-uk_small { background-position: -156px -1120px; } 
+.sprite-ukraine_small { background-position: -156px -1160px; } 
+.sprite-ukusa_small { background-position: -156px -1200px; } 
+.sprite-uruguay_small { background-position: -156px -1240px; } 
+.sprite-usa_small { background-position: -156px -1280px; } 
+.sprite-ussr_small { background-position: -156px -1320px; } 
+.sprite-uzbekistan_small { background-position: -156px -1360px; } 
+.sprite-vanuatu_small { background-position: -156px -1400px; } 
+.sprite-venezuela_small { background-position: -156px -1440px; } 
+.sprite-vietnam_small { background-position: -156px -1480px; } 
+.sprite-western_samoa_small { background-position: -156px -1520px; } 
+.sprite-yemen_small { background-position: -156px -1560px; } 
+.sprite-yugoslavia_small { background-position: -156px -1600px; } 
+.sprite-zaire_small { background-position: -156px -1640px; } 
+.sprite-zambia_small { background-position: -156px -1680px; } 
+.sprite-zimbabwe_small { background-position: -156px -1720px; } 
+
 
 /* Selectmenu
 ----------------------------------*/
