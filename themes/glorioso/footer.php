@@ -3,21 +3,11 @@ if ( strpos(strtolower($_SERVER['SCRIPT_NAME']),strtolower(basename(__FILE__))) 
 	header("Location: ../../index.php");
 	die("...");
 	}
-
-/**
- * Visualizza i crediti di Flatnuke
- * 
- * @author Alessandro Vernassa <speleoalex@gmail.com>
- * 
- **/
-function MyShowCredits()
-{
-	global $_FN;
+global $_FN;
 	?>
-<div id="jqueryfooter" style="text-align:center;vertical-align:middle;width:287px;height:75px;margin:0 auto;">
-<a href="http://jquery.com"><img style="vertical-align:middle;border:0px;height:66px;" src="images/validate/jQuery-alpha-trans.png" alt="jQuery: The Write Less, Do More, Javascript Library" title="jQuery: The Write Less, Do More, Javascript Library" /></a>
-<a href="http://jqueryui.com/"><img style="vertical-align:middle;border:0px;height:66px;" src="images/validate/logo_ui.png" alt="jQuery UI" title="jQuery UI" /></a>
-</div>
+
+<!-- FOOTER  -->
+<div id="pagebottom" style="font-size:.8em;">
 <span>
 <a href="http://flatnux.sourceforge.net"> <img style="vertical-align:middle;border:0px;" src="images/validate/flatnuke_powered.png"	alt="Powered by FlatNuX!" title="Powered by FlatNuX!" /></a>
 <a href="http://validator.w3.org/check/referer"> <img style="vertical-align:middle;border:0px;" src="images/validate/xhtml.png"	alt="Valid HTML 5!" title="Valid HTML 5!" /></a>
@@ -39,11 +29,6 @@ Site&nbsp;Admin:&nbsp;<a href="mailto:<?php echo $_FN['admin_mail']?>"><?php ech
 <br />
 <?php echo _LEGAL?>
 </span>
-<?php } ?>
-
-<!-- FOOTER  -->
-<div id="pagebottom" style="font-size:.8em;">
-		<?php MyShowCredits(); ?>
 
 
 	<span>
