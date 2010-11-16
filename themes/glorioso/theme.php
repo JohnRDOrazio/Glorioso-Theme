@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************/
-/* Glory -> Theme for Flatnux -> Flat Text Based Content Management System     */
+/* fLOSt -> Flatnux Open Social Theme                                          */
 /* ============================================                                */
 /*                                                                             */
 /* Copyright (c) 2010-2011 by John R. D'Orazio                                 */
@@ -19,45 +19,7 @@
 /* You should have received a copy of the GNU General Public License           */
 /* along with this program.  If not, see <http://www.gnu.org/licenses/>.       */
 /*******************************************************************************/
-//*->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->*//
-//****************************************************************************************************//
-//* Alcune delle caratteristiche di questo TEMA:|	Some of the characteristics of this THEME:		 *//
-//*  1. Utilizza encoding UTF-8 di default		|	 1. It uses UTF-8 encoding as default			 *//
-//*  2. Utilizza doctype HTML 5       				|	 2. It uses the HTML 5 doctype				 *//
-//*  3. Utilizza le librerie jQuery e jQuery-UI	|	 3. It uses the jQuery and jQuery-UI libraries	 *//
-//*  4. Dà la possibilità di scegliere tra tante|	 4. It gives you the possibility of choosing	 *//
-//*     altre librerie javascript				|		from many other javascript libraries		 *//
-//*  5. Ha uno schema lineare ed è				|	 5.	It has a straightforward outline and is		 *//
-//*     standards compliant						|		standards compliant							 *//
-//*  6. E' un concentrato di tanti temi in uno	|	 6.	It's actually a lot of themes in one		 *//
-//*	   mettendo a tua disposizione tutti i temi |		putting all of the jQuery-UI themes at your	 *//
-//*	   di jQuery-UI che si possono cambiare		|	 	fingertips letting you change from one to the*//
-//*	   al volo con il widget Themeswitcher		|		other on the fly with the Themeswitcher widget//
-//*	7. E' compatibile con gli standard richiesti|	 7. It's compatible with Facebook Connect and	 *//
-//*	   da Facebook Connect e Google Friend Connect|		Google Friend Connect standards				 *//
-//*	   offrendo una buona integrazione			|		offering a good integration					 *//
-//****************************************************************************************************//
-//*->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->-<->*//
-	/*																								//
-	 --Questo tema è basato sul metodo "3 column Holy Grail" no CSS hacks di Matthew James Taylor--
-	--This theme is based on the "3 column Holy Grail" no CSS hacks method by Matthew James Taylor--
-	
-					\vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\
-	   				>http://matthewjamestaylor.com/blog/perfect-3-column.htm<
-					\^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
-		--Questo tema è basato sul jQuery-UI CSS Framework come implementato dal Filament Group--
-		--This theme is based on the jQuery-UI CSS Framework as implemented by the Filament Group--
-		
-		\vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\
-		>http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/<
-		\^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
-					--Questo tema sfrutta le potenzialità di jQuery-UI:
-						per es. i blocchi laterali si possono trascinare e riordinare--
-					--This theme takes advantage of the power of jQuery-UI:
-						for example the side blocks are draggable and sortable--
-						
-			--Questo tema è completamente cross-browser | This theme is fully cross-browser--
-	*/																								//
+
 if ( strpos(strtolower($_SERVER['SCRIPT_NAME']),strtolower(basename(__FILE__))) )
 {
 	header("Location: ../../index.php");
