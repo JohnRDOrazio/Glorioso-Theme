@@ -132,12 +132,17 @@ div#pagetop {
 
 div#pagebottom {
 	clear:both;
-	float:left;
-	width:100%;
 	text-align:center;
-	padding-bottom:40px;
+	padding-bottom:40px; /* leave space for google friend connect social bar */
 }
 
+div#validate-icons .validate-icon { height:15px; width:80px; display:block; background: url(images/validate/validate.png) 0 0 no-repeat; }
+div#validate-icons .validate-icon.flatnux { background-position: 0 -112px; }
+div#validate-icons .validate-icon.html { background-position: 0 -166px; }
+div#validate-icons .validate-icon.css { background-position: 0 -48px; }
+div#validate-icons .validate-icon.rss { background-position: 0 -16px; }
+div#validate-icons .validate-icon.jquery { background-position: 0 -86px; }
+div#validate-icons .validate-icon.jquery-ui { background-position: 0 -99px; }
 div#loading {
   position: absolute;
 	height: 250px;
