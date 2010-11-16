@@ -176,9 +176,9 @@ echo ($_THEME_CFG['top_pic']!="") ? "<img style=\"float:right;height:60px;vertic
 		$level = getlevel($_FN['user']);
 			echo "<div id=\"USERPAN_LEVEL\" class=\"jqtooltip-dx\" title=\"".fn_i18n("_LEVEL") . " ". $level ."<br />Fai parte dei seguenti gruppi: ". $groups[0]['group'] ."\" style=\"float:left;text-align:center;margin:.2em 15px;vertical-align:middle;border:ridge 1px White;padding:0px 3px 3px 3px;\">";
 			for ( $i = 0;$i < $level;$i++  )
-				echo "<img  src=\"images/useronline/level_y.gif\" alt=\"level\" style=\"vertical-align:middle;\" />";
+				echo "<img  src=\"{$_FN['siteurl']}/images/useronline/level_y.gif\" alt=\"level\" style=\"vertical-align:middle;\" />";
 			for (;$i < 10;$i++  )
-				echo "<img  src=\"images/useronline/level_n.gif\" alt=\"level\" style=\"vertical-align:middle;\" />";
+				echo "<img  src=\"{$_FN['siteurl']}/images/useronline/level_n.gif\" alt=\"level\" style=\"vertical-align:middle;\" />";
 			print "</div>";
 		//-disegno la barra del livello -<
     echo "</div>";
