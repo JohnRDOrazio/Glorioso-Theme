@@ -138,11 +138,12 @@ div#pagebottom {
 div#validate-icons { width:494px; margin: 0 auto; }
 div#validate-icons .validate-icon { height:15px; width:80px; display:block; float:left; margin: 0 2px; background: url(images/validate/validate.png) 0 0 no-repeat; }
 div#validate-icons .validate-icon.flatnux { background-position: 0 -96px; }
-div#validate-icons .validate-icon.html { background-position: 0 -171px; }
+div#validate-icons .validate-icon.html { background-position: 0 -166px; }
 div#validate-icons .validate-icon.css { background-position: 0 -48px; }
 div#validate-icons .validate-icon.rss { background-position: 0 -16px; }
 div#validate-icons .validate-icon.jquery { height:18px; background-position: 0 -128px; }
 div#validate-icons .validate-icon.jquery-ui { height:18px; background-position: 0 -147px; }
+div#credits-links { clear:both; }
 div#loading {
   position: absolute;
 	height: 250px;
