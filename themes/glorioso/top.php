@@ -13,7 +13,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 
 <?php
 echo ($_THEME_CFG['top_title']!="") ? "<div style=\"float:left;width:80%;\" id=\"toptitle\">{$_THEME_CFG['top_title']}</div>" : "";
-echo ($_THEME_CFG['top_pic']!="") ? "<a href=\"index.php?mod=Preghiera_a_San_Lino\"><img style=\"float:right;height:60px;vertical-align:middle;cursor:pointer;\" src=\"".$_THEME_CFG['top_pic']."\" alt=\"theme-pic\" title=\"Preghiera a San Lino\" /></a>" : "";
+echo ($_THEME_CFG['top_pic']!="") ? "<img style=\"float:right;height:60px;vertical-align:middle;cursor:pointer;\" src=\"".$_THEME_CFG['top_pic']."\" alt=\"theme-pic\" />" : "";
 
 ?>
 </div>
@@ -22,7 +22,7 @@ echo ($_THEME_CFG['top_pic']!="") ? "<a href=\"index.php?mod=Preghiera_a_San_Lin
 <div class="top_col2">
 	<div id="pagetop_leftelement" style="vertical-align:middle;height:65px;border:3px outset #D2D3B3;border-right:1px outset #D2D3B3;text-align:center;">
 	<?php
-		echo ($_THEME_CFG['top_logo']!="") ? "<a href=\"index.php?mod=Biografia_di_San_Lino\"><img style=\"height:65px;position:relative;cursor:pointer;\" src=\"".$_THEME_CFG['top_logo']."\" alt=\"theme-logo\" title=\"Biografia San Lino\" /></a>" : "";	
+		echo ($_THEME_CFG['top_logo']!="") ? "<img style=\"height:65px;position:relative;cursor:pointer;\" src=\"".$_THEME_CFG['top_logo']."\" alt=\"theme-logo\" />" : "";	
 	?>
 	</div>
 </div>
@@ -32,7 +32,7 @@ echo ($_THEME_CFG['top_pic']!="") ? "<a href=\"index.php?mod=Preghiera_a_San_Lin
 <div id="pagetop_rightelement" style="vertical-align:middle;height:65px;border:3px outset #D2D3B3;border-left:1px outset #D2D3B3;">
 
 	<!-- CLOCK -->
-	<img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario Parrocchiale" />
+	<img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario degli Eventi" />
 	<!-- Calendar feed as defined in config.php -->
 	<input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
 	<?php include("fullcalendar.php"); ?>
