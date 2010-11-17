@@ -430,36 +430,6 @@ $(document).ready(function(){
 
 	$("#pagetop_bottommargin1").hide();
 
-
-
-/* ADD A SILLY ANIMATION FOR NO REASON TO THE JQUERY LOGO AT THE BOTTOM OF THE DOCUMENT */
-
-	$('#jqueryfooter').hover(function(){
-
-			$(this).effect("bounce", { times:3 }, 100);
-
-		},
-
-		function(){
-
-			$(this).animate({
-
-			    width: '587px'
-
-			  }, 500,'easeOutBounce', function() {
-
-			  	$(this).animate({
-
-				    width: '287px'
-
-				  }, 500,'easeInOutElastic');
-
-			  });
-
-		});
-
-	
-
 /****************************************************************
 
  *          TOP USERPANEL CONFIGURATION                         *
