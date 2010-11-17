@@ -18,8 +18,8 @@
 		$titlesun = getLang("sections/{$_FN['vmod']}/lang.xml",$title);
 		$_FN['sitetitle'] = "$sitename &raquo;  $titlesun";
 	}
-	if (file_exists ( "sections/" . $_FN ['vmod'] . "/sethead.php" ))
-		include ( "sections/" . $_FN ['vmod'] . "/sethead.php" );
+	if (file_exists ( "sections/" . $_FN['vmod'] . "/sethead.php" ))
+		include ( "sections/" . $_FN['vmod'] . "/sethead.php" );
 	echo "\t<title>{$_FN['sitetitle']}</title>\n";
 	echo "\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" . _CHARSET . "\" $close_tag>\n";
 	echo "\t<meta name=\"Content-Language\" content=\"{$_FN['lang']}\" $close_tag>\n";
@@ -28,7 +28,7 @@
 	echo "\t<meta name=\"DISTRIBUTION\" content=\"GLOBAL\" $close_tag>\n";
 	echo "\t<meta name=\"AUTHOR\" content=\"{$_FN['sitename']}\" $close_tag>\n";
 	echo "\t<meta name=\"COPYRIGHT\" content=\"Copyright (c) 2005 by {$_FN['sitename']}\" $close_tag>\n";
-	if ($_FN ['keywords'] != "")
+	if ($_FN['keywords'] != "")
 		echo "\t<meta name=\"KEYWORDS\" content=\"{$_FN['keywords']}\" $close_tag>\n";
 	echo "\t<meta name=\"DESCRIPTION\" content=\"{$_FN['sitename']}\" $close_tag>\n";
 	echo "\t<meta name=\"ROBOTS\" content=\"INDEX, FOLLOW\" $close_tag>\n";
@@ -38,8 +38,8 @@
 	//GOOGLE WEBMASTER TOOLS:
 	echo "\t<meta name=\"google-site-verification\" content=\"60-SUicz0IlmNrSx4pHddi-wIXeD2CpEgoV90AsCiX4\" $close_tag>\n";
 	echo "\t<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\" $close_tag>\n";
-  if (file_exists ( "" . $_FN ['datadir'] . "/{$_FN['lang']}/backend.xml" ))
-		echo "\t<link rel=\"alternate\" type=\"application/rss+xml\" title=\"{$_FN['sitename']}\" href=\"{$_FN['siteurl']}/{$_FN ['datadir']}/{$_FN['lang']}/backend.xml\" $close_tag>\n";
+  if (file_exists ( "" . $_FN['datadir'] . "/{$_FN['lang']}/backend.xml" ))
+		echo "\t<link rel=\"alternate\" type=\"application/rss+xml\" title=\"{$_FN['sitename']}\" href=\"{$_FN['siteurl']}{$_FN['datadir']}/{$_FN['lang']}/backend.xml\" $close_tag>\n";
 	if (file_exists ( "themes/{$_FN['theme']}/header.php" )) //aggiunte personalizzate per l'header
 		include ( "themes/{$_FN['theme']}/header.php" );
 		
