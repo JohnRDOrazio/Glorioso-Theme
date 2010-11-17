@@ -12,12 +12,12 @@ $_THEME_CFG['showblocksright'] = 1;
 #[it]Visualizza blocchi a sinistra {1=SI,0=NO}
 #[en]View left blocks {1=YES,0=NO}
 $_THEME_CFG['showblocksleft'] = 1;
-#[it]Larghezza colonna sinistra (%)
+#[it]Larghezza colonna sinistra (px)
 #[en]Left column width (%)
-$_THEME_CFG['leftcolwidth'] = "20";
-#[it]Larghezza colonna destra (%)
+$_THEME_CFG['leftcolwidth'] = "200";
+#[it]Larghezza colonna destra (px)
 #[en]Right column width (%)
-$_THEME_CFG['rightcolwidth'] = "16";
+$_THEME_CFG['rightcolwidth'] = "150";
 #[it]Visualizza il menu verticale a sinistra {1=SI,0=NO}
 #[en]View vertical menu on the left {1=YES,0=NO}
 $_THEME_CFG['showmenuleft'] = 1;
