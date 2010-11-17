@@ -340,7 +340,7 @@ $("div#userlogin").click(function(){
 });
 $("div#userlogin").toggle(
   function(){
-    $(this).animate({"margin-top":"-60px"})
+    $(this).animate({"margin-top":"-20px"})
   },
   function(){
     $(this).animate({"margin-top":"-5px"})
