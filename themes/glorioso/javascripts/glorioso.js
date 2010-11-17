@@ -858,13 +858,13 @@ $("div#userlogin").toggle(
 
 				mysubsection = $(this).next('div');
 
-				$(".subsection").not(mysubsection).slideUp(1000,"easeInBounce");
+				$(".subsection").not(mysubsection).slideUp(1000,"easeIn");
 
 				}
 
 			//Else all subsections will be closed
 
-			else { $(".subsection").slideUp(1000,"easeInBounce"); }
+			else { $(".subsection").slideUp(1000,"easeIn"); }
 
 			}
 
@@ -876,13 +876,13 @@ $("div#userlogin").toggle(
 
 				mysubsection = $(this).next('div');
 
-				$(this).siblings('.subsection').not(mysubsection).slideUp(1000,"easeInBounce");
+				$(this).siblings('.subsection').not(mysubsection).slideUp(1000,"easeIn");
 
 				}
 
 			else {
 
-				$(this).siblings('.subsection').slideUp(1000,"easeInBounce");
+				$(this).siblings('.subsection').slideUp(1000,"easeIn");
 
 			}
 
@@ -896,7 +896,7 @@ $("div#userlogin").toggle(
 
 		if( $(this).next('div').hasClass('subsection') && $(this).next('div').html()!="" ) {
 
-			$(this).next('div').slideToggle(3000,"easeOutElastic");
+			$(this).next('div').slideToggle(3000,"easeOut");
 
 			}
 
