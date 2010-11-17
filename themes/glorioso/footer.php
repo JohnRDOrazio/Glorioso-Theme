@@ -4,9 +4,6 @@ if ( strpos(strtolower($_SERVER['SCRIPT_NAME']),strtolower(basename(__FILE__))) 
 	die("...");
 	}
 	?>
-
-<!-- FOOTER  -->
-<div id="pagebottom">
   <div id="validate-icons">
     <a class="validate-icon flatnux" href="http://flatnux.sourceforge.net"></a>
     <a class="validate-icon html" href="http://validator.w3.org/check/referer"></a>
@@ -36,5 +33,3 @@ if ( strpos(strtolower($_SERVER['SCRIPT_NAME']),strtolower(basename(__FILE__))) 
   		?>
   	</span>
   </div>
-</div>
-<!-- END FOOTER -->
