@@ -39,7 +39,7 @@ echo ($_THEME_CFG['top_pic']!="") ? "<img style=\"float:right;height:60px;vertic
 
 	<input type="hidden" id="current_timestamp" value="<?php echo time(); ?>" />
 	<input type="hidden" id="current_langset" value="<?php echo $_FN['lang']; ?>" />
-	<div style="float:right;vertical-align:middle;text-align:center;width:200px;">
+	<div style="float:right;vertical-align:middle;text-align:center;">
 	<div id="currentdate" style="margin-bottom:5px;text-align:center;clear:both;"><?php if($_FN['lang']=='en'){echo strftime('%A, %B %e, %Y', time());}else{echo strftime('%A, %e %B %Y', time());} ?></div>
 	<div id="clock" style="padding:0px 3px;text-align:center;clear:both;"><?php if($_FN['lang']=='en'){echo strftime('%r', time());} else {echo strftime('%T', time());} ?></div>
 	</div>
