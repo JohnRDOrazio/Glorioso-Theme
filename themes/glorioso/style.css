@@ -133,9 +133,15 @@ div#pagetop {
 div#pagebottom {
 	clear:both;
 	text-align:center;
-	padding-bottom:40px; /* leave space for google friend connect social bar */
-        font-size: .8em;
+  font-size: .8em;
 }
+div#top_horizontal_menu {
+  margin-bottom:3px;
+}
+div#bottom_horizontal_menu {
+  margin-top:3px;
+}
+
 div#validate-icons { width:504px; margin: 0 auto; } /* width = width of all icons plus margins */
 div#validate-icons .validate-icon { height:15px; width:80px; display:block; float:left; margin: 0 2px; background: url(images/validate/validate.png) 0 0 no-repeat; }
 div#validate-icons .validate-icon.flatnux { background-position: 0 -96px; }
