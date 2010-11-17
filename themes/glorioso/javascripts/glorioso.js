@@ -638,11 +638,11 @@ $("input#glorioso_adminonoff").click(function(){
 
 				hide: {effect:'easeOut',speed:1000},
 
-        width:'100%',
+        width:'98%',
 
         title:'Configurazione Tema Glorioso',
 
-        position:[0,0]
+        position:[5,5]
 
         });
 
