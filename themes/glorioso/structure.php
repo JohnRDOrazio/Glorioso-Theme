@@ -87,11 +87,10 @@ if ($_THEME_CFG['use_gan']==1){   ?>
 	<span id="moviepaused">PAUSE</span>
 </div>
 <div id="pagetop" class="top_colmask top_threecol">
-			<?php echo local_to_abs("themes/$theme/top.php");
-			global $_FN;
-			if (isadmin() && $_FN['fneditmode']!=0)
-				echo "<span class=\"flatnukeadmin\"><a href=\"index.php?opindex=modcont&amp;file=themes/$theme/top.html\" >"._MODIFICA."</a></span>";
-			?>
+			<?php
+      echo local_to_abs("themes/$theme/top.php");
+			echo local_to_abs("themes/$theme/userbar.php");
+      ?>
 </div>
 
 <!-- START PAGEMIDDLE -->
