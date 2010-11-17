@@ -511,26 +511,6 @@ function FN_CloseFootNews()
 		</tr>
 	</table>";
 }
-function get_footer_array()
-{
-	global $_FN;
-	global $admin_mail, $admin;
-	$ret_strings['img_fn'] = "<a href=\"http://flatnux.sf.org/\" target=\"_blank\" title=\"FlatNux\">";
-	$ret_strings['img_fn'] .= "<img style=\"vertical-align:middle;border:0px;\" src=\"".fromtheme("images/validate/flatnuke_powered.png")."\" alt=\"FlatNux\" /></a>";
-	$ret_strings['img_w3c'] = "<a href=\"http://validator.w3.org/check/referer\" target=\"_blank\" title=\"Valid HTML 4.01!\">";
-	$ret_strings['img_w3c'] .= "<img style=\"vertical-align:middle;border:0px;\" src=\"".fromtheme("images/validate/valid_html401.png")."\" alt=\"Valid HTML 4.01!\" /></a>";
-	$ret_strings['img_css'] = "<a href=\"http://jigsaw.w3.org/css-validator/check/referer\" target=\"_blank\" title=\"Valid CSS!\">";
-	$ret_strings['img_css'] .= "<img style=\"vertical-align:middle;border:0px;\" src=\"".fromtheme("images/validate/valid_css.png")."\" alt=\"Valid CSS!\" /></a>";
-	$ret_strings['img_rss'] = "<a href=\"{$_FN['datadir']}/{$_FN['lang']}/backend.xml\" target=\"_blank\" title=\"Get RSS 2.0 Feed\">";
-	$ret_strings['img_rss'] .= "<img style=\"vertical-align:middle;border:0px;\" src=\"".fromtheme("images/validate/rss20_powered.png")."\" alt=\"Get RSS 2.0 Feed\" /></a>";
-	$ret_strings['img_mail'] = "<a href=\"mailto:" . email_mask ( $admin_mail ) . "\" title=\"Site admin: " . $admin . "\">";
-	$ret_strings['img_mail'] .= "<img style=\"vertical-align:middle;border:0px;\" src=\"".fromtheme("images/validate/email.png")."\" alt=\"Mail me!\" /></a>";
-	$ret_strings['legal'] = _LEGAL;
-	$time2 = get_microtime ();
-	$ret_strings['time'] = "Page generated in " . sprintf ( "%.4f", abs ( $time2 - $_FN['timestart'] ) ) . " seconds.";
-	
-	return $ret_strings;
-}
 
 function xmldb_get_lang_img($lang)
 {
@@ -588,9 +568,8 @@ function getlangs(){
         			$getvars .= "&amp;$key=$value";
         		}
         	}
-        	$image = fromtheme("images/flags/$l.png");
         	$ltitle = getLang("languages/$l.php.xml",$l,$l);
-        	$htmllanguages[] = "<a accesskey=\"$a\" title=\"$ltitle\" href=\"" . fn_rewritelink("index.php?mod={$_FN['idmod']}&amp;lang={$l}$getvars") . "\">" . "<img style=\"border:0px;\" src=\"$image\" alt=\"$ltitle\" />" . "</a>";
+        	$htmllanguages[] = "<a accesskey=\"$a\" title=\"$ltitle\" href=\"" . fn_rewritelink("index.php?mod={$_FN['idmod']}&amp;lang={$l}$getvars") . "\"></a>";
         	if ($l==$_FN['lang']){$selected="selected=\"selected\"";} else {$selected = "";}
                 $selectlanguages[] = "<option $selected class=\"$l\" value=\"". fn_rewritelink("index.php?mod={$_FN['idmod']}&amp;lang={$l}$getvars") . "\" title=\"$ltitle\">$l</option>";
         }
