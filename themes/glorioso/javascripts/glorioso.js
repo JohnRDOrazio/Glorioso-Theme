@@ -469,8 +469,8 @@ $('#calendarviewer').fullCalendar({
   	width: 500,
   	modal: true,
   	autoOpen: false,
-  	show: {effect:'easeInQuad',speed:1000},
-  	hide: {effect:'easeOutQuad',speed:1000}
+  	show: {effect:'explode',speed:1000},
+  	hide: {effect:'explode',speed:1000}
 });
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
 gcalfeedurl = $("input#gcal-feed").val();
