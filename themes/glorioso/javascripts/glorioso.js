@@ -186,13 +186,6 @@ $(document).ready(function(){
 		$(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
 		$(this).parents(".flatnux-block:first").find(".flatnux-block-content").slideToggle(500,"easeOutElastic");
 		});
-/* ADD A FEW GRADIENTS TO THE PAGE WITH JQUERY GRADIENT PLUGIN */
-	$('div#pagetop_leftelement').gradient({ from: 'FFFFFF', to: 'DFDCCD', direction: 'vertical' });
-	$('div#pagetop_rightelement').gradient({ from: 'FFFFFF', to: 'DFDCCD', direction: 'vertical' });
-	$('div#pagetop_midelement').gradient({ from: 'DFDCCD', to: 'FFFFFF', direction: 'vertical' });
-	$('.pagetop_topmargin').gradient({ from: 'FFFFFF', to: 'DBDCE3' });
-	$('.pagetop_bottommargin').gradient({ from: 'DBDCE3', to: 'FFFFFF' });
-	$("#pagetop_bottommargin1").hide();
 /****************************************************************
  *          TOP USERPANEL CONFIGURATION                         *
  ***************************************************************/
