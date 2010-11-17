@@ -1,0 +1,42 @@
+Tema per flatnux che si può chiamare "tutto compreso".
+Sono partito dall'idea dell'integrazione con Facebook Connect. Ho visto che altri CMS hanno delle funzionalità di facebook connect già pronte da integrare, e ho pensato che sarebbe bene offrire dei pacchetti già pronti da installare che richiedano il minimo di configurazione. Leggi le altre caratteristiche di questo tema sotto.
+
+Sto sviluppando un tema per flatnux che si può chiamare "tutto compreso".
+Sono partito dall'idea dell'integrazione con Facebook Connect. Ho visto che altri CMS hanno delle funzionalità di facebook connect già pronte da integrare, e ho pensato che sarebbe bene offrire dei pacchetti già pronti da installare che richiedano il minimo di configurazione.
+
+Da qualche mese ho conosciuto pure la libreria jQuery che è molto funzionale, la ritengo la migliore e più completa che esiste oggi. Caratteristica importante del del jQuery è l'essere cross-browser, togliendo quindi tutti i mal di testa del javascript per il programmatore per riuscire ad accontentare tutti i browser...
+
+Il jQuery ha anche un'ottima libreria di widget e funzionalità UI, con un suo frameword CSS. Ho sfruttato questo framework per questo tema. Questo significa che il singolo utente ha a sua disposizione la scelta tra tutti i temi jQuery UI da applicare al volo, senza ricaricare la pagina, attraverso il Themeswitcher widget che ho posto sulla barra dei comandi. Ho creato infatti una barra di comandi per riportare molte cose dai blocchi laterali in un unica barra superiore in modo da sfruttare al meglio lo spazio sulla pagina.
+
+Altra cosa che ho voluto sfruttare in questo tema è la funzionalità ajax, che è offerta anche attraverso la libreria jQuery. Il menu di navigazione tra le sezioni è posto non a tutta pagina, ma solo sopra la sezione centrale, e carica dinamicamente le varie sezioni senza ricaricare tutta la pagina. Io ho trovato che questo velocizza molto l'uso di un sito flatnux e migliora la qualità della navigazione.
+
+Poi ho pensato di includere anche la possibilità di avere un calendario per gli eventi, in cui si possono inserire e togliere eventi, magari collegato a un Google Calendar oppure collegato con gli eventi di facebook. Perciò ho incluso anche la libreria PHP del Zend Framework necessaria per interagire con le funzionalità di un account google tra cui un Google Calendar. Infatti si può aggiornare il Google Calendar direttamente sul sito, inserendo eventi in un'apposito riquadro div accessibile a chi è amministratore news su sito flatnux.
+Ho aggiunto anche un orologio che inizialmente legge il timestamp del server e poi si aggiorna con il javascript per non appesantire il server di continue richieste.
+
+Devo ancora finire alcuni aspetti. Per esempio l'integrazione con facebook è ancora iniziale, il menu di navigazione delle sottosezioni è ancora da finire, il menu di navigazione laterale è da rifare...
+
+In ogni modo ho cercato di fare in modo che il tutto fosse il più possibile configurabile attraverso il pannello di controllo di flatnux.
+
+Alcune delle caratteristiche di questo TEMA:
+
+1. Utilizza encoding UTF-8 di default. Questo significa che bisognerebbe probabilemente modificare il CHARSET definito in "/languages/it.php" in "UTF-8".
+Significa anche che alcune scritte del CMS possano inizialmente non rendere correttamente, bisogna convertire l'encoding di queste pagine in UTF-8. La scelta del UTF-8 è dovuta al fatto che anche Facebook e Google utilizzano questo encoding che sta diventando lo standard per l'internazionalità.
+
+2. Utilizza doctype XHTML 1.1, che è strict, richiesto per le funzionalità Facebook e Google.
+
+3. Utilizza le librerie jQuery e jQuery-UI, caricate dinamicamente con il Google jsAPI dal repository Google.
+4. Dà anche  la possibilità  di scegliere tra tante altre librerie javascript	semplicemente de-commentando le righe interessate nel head.php. Verranno anch'esse caricate dinamicamente dal repository di Google.
+6. E' un concentrato di tanti temi in uno mettendo a disposizione del singolo utente tutti i temi di jQuery-UI con un solo click del mouse e senza ricaricare la pagina, utilizzando il widget Themeswitcher.
+7. Offre una prima integrazione con Facebook Connect e Google Friend Connect
+
+--Questo tema è basato sul metodo "3 column Holy Grail" no CSS hacks di Matthew James Taylor--
+>http://matthewjamestaylor.com/blog/perfect-3-column.htm<
+
+--Questo tema è basato sul jQuery-UI CSS Framework come implementato dal Filament Group--
+>http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/<
+
+--Questo tema sfrutta le potenzialità  di jQuery-UI: per es. i blocchi laterali si possono trascinare e riordinare--
+
+--Questo tema è cross-browser
+
+John R. D'Orazio
