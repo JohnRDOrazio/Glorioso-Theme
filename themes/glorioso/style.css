@@ -66,61 +66,6 @@ img { border: 0px; }
 .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
 .ui-sortable-placeholder * { visibility: hidden; }
 
-/*****************************
-* 3 COLUMN HOLY GRAIL LAYOUT *
-*****************************/
-
-	/* column container */
-	.top_colmask {
-		position:relative;	/* This fixes the IE7 overflow hidden bug */
-		clear:both;
-		float:left;
-		width:100%;			/* width of whole page */
-		overflow:hidden;		/* This chops off any overhanging divs */
-	}
-	/* common column settings */
-	.top_colright,
-	.top_colmid,
-	.top_colleft {
-		float:left;
-		width:100%;			/* width of page */
-		position:relative;
-	}
-	.top_col1,
-	.top_col2,
-	.top_col3 {
-		float:left;
-		position:relative;
-		padding:0 0 0 0;	/* no left and right padding on columns, we just make them narrower instead
-						only padding top and bottom is included here, make it whatever value you need */
-		overflow:hidden;
-	}
-	/* 3 Column settings */
-	.top_threecol {
-	/*	background:#eee;	*/	/* right column background colour */
-	}
-	.top_threecol .top_colmid {
-		right:30%;			/* width of the right column */
-	/*	background:#fff;*/		/* center column background colour */
-	}
-	.top_threecol .top_colleft {
-		right:60%			/* width of the middle column */
-	/*	background:#f4f4f4;*/	/* left column background colour */
-	}
-	.top_threecol .top_col1 {
-		width:60%;			/* width of center column content (column width minus padding on either side) */
-		left:100%;			/* 100% plus left padding of center column */
-	}
-	.top_threecol .top_col2 {
-		width:10%;			/* Width of left column content (column width minus padding on either side) */
-		left:30%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
-	}
-	.top_threecol .top_col3 {
-		width:30%;			/* Width of right column content (column width minus padding on either side) */
-		left:90%;			/* Please make note of the brackets here:
-						(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
-	}
-
 /*********************************
 * GLORIOSO THEME SINGLE ELEMENTS *
 *********************************/
