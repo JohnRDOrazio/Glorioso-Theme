@@ -155,7 +155,7 @@ if ($_THEME_CFG['show_bottom_horizontal_menu']==1) {
 <!-- END PAGEMIDDLE -->
 
 <!-- FOOTER  -->
-<div id="pagebottom" <?php echo ($_THEME_CFG['use_gfc']==1&&$_THEME_CFG['gfc_social']!="") ? "style=\"padding-bottom:40px;\" : "";?>>
+<div id="pagebottom" <?php echo ($_THEME_CFG['use_gfc']==1&&$_THEME_CFG['gfc_social']!="") ? "style=\"padding-bottom:40px;\"" : "";?>>
 <?php
 include("themes/".$_FN['theme']."/footer.php");
 ?>
