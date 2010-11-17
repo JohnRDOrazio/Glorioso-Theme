@@ -40,25 +40,21 @@ global $_FN,$_FB,$_THEME_CFG;
 
 *******************************/
 
-$_THEME_CFG['centercolwidth'] = 100-$_THEME_CFG['leftcolwidth']-$_THEME_CFG['rightcolwidth']-1;
+$_THEME_CFG['centercolwidth'] = 100%;
 
-$_THEME_CFG['centercolleftmarg'] = $_THEME_CFG['leftcolwidth']+0.5;
+$_THEME_CFG['centercolleftmarg'] = $_THEME_CFG['leftcolwidth']+1;
 
-$_THEME_CFG['centercolleftmarg'] = number_format($_THEME_CFG['centercolleftmarg'], 2, '.', '');
+$_THEME_CFG['centercolrightmarg'] = $_THEME_CFG['leftcolwidth']+1;
 
 if($_THEME_CFG['showblocksright'] == 0){
 
   $_THEME_CFG['rightcolwidth']=0;
-
-  $_THEME_CFG['centercolwidth'] = 100-$_THEME_CFG['leftcolwidth']-2;
 
   }
 
 if($_THEME_CFG['showblocksleft'] == 0){
 
   $_THEME_CFG['leftcolwidth']=0;
-
-  $_THEME_CFG['centercolwidth'] = 100-$_THEME_CFG['rightcolwidth']-1;
 
   }
 
