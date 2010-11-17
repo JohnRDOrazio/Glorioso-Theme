@@ -178,7 +178,6 @@ else{
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-periodicalupdater.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-fullcalendar.min.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-fullcalendar-gcal.js\"></script>\n" : "";
-	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-gradient.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-ui-selectmenu.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-tools-min.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_1pixeloutaudioplayer']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/1pixeloutplayer/audio-player.js\"></script>\n" : "";
