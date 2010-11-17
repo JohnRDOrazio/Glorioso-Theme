@@ -360,7 +360,7 @@ t=setTimeout(function(){startTime(mynewtimestamp, mylangset);},1000);
 
 
 
-AudioPlayer.setup("/themes/glorioso/javascripts/1pixeloutplayer/player.swf", {  
+AudioPlayer.setup("themes/glorioso/javascripts/1pixeloutplayer/player.swf", {  
 
 	transparentpagebg: "yes",
 
