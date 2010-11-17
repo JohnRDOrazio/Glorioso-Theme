@@ -708,9 +708,9 @@ if ($("div#facebooklogin").length!=0){
 
   					autoOpen: false,
 
-  					show: {effect:'bounce',speed:1000},
+  					show: {effect:'fadeIn',speed:1000},
 
-  					hide: {effect:'bounce',speed:1000}
+  					hide: {effect:'fadeOut',speed:1000}
 
       });
 
@@ -750,9 +750,9 @@ if ($("div#gfc-button").length!=0){
 
   					autoOpen: false,
 
-  					show: {effect:'bounce',speed:1000},
+  					show: {effect:'fadeIn',speed:1000},
 
-  					hide: {effect:'bounce',speed:1000}
+  					hide: {effect:'fadeOut',speed:1000}
 
       });
 
@@ -1072,9 +1072,9 @@ $('#calendarviewer').fullCalendar({
 
   	autoOpen: false,
 
-  	show: {effect:'bounce',speed:1000},
+  	show: {effect:'easeInQuad',speed:1000},
 
-  	hide: {effect:'bounce',speed:1000}
+  	hide: {effect:'easeOutQuad',speed:1000}
 
 });
 
