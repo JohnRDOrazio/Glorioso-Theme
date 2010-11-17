@@ -247,30 +247,30 @@ $("input#glorioso_adminonoff").click(function(){
       var jpck_css = document.createElement('link');
       jpck_css.rel = 'stylesheet';
       jpck_css.type = 'text/css';
-      jpck_css.href = '/themes/glorioso/css/jPicker.css';
+      jpck_css.href = 'themes/glorioso/css/jPicker.css';
       document.getElementsByTagName('head')[0].appendChild(jpck_css);
       var jpck_css = document.createElement('link');
       jpck_css.rel = 'stylesheet';
       jpck_css.type = 'text/css';
-      jpck_css.href = '/themes/glorioso/css/jPicker-1.1.5.min.css';
+      jpck_css.href = 'themes/glorioso/css/jPicker-1.1.5.min.css';
       document.getElementsByTagName('head')[0].appendChild(jpck_css);
       var jpck = document.createElement('script');
       jpck.type = 'text/javascript';
       jpck.async = true;
-      jpck.src = '/themes/glorioso/javascripts/jpicker-1.1.5.min.js';
+      jpck.src = 'themes/glorioso/javascripts/jpicker-1.1.5.min.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(jpck);
     }
-    $.get("/themes/glorioso/ajax/flopt.php",{opindex:"true",file:"themes/glorioso/config.php"},function(data){
+    $.get("themes/glorioso/ajax/flopt.php",{opindex:"true",file:"themes/glorioso/config.php"},function(data){
        $("div#theme_edit_dialog").html(data).dialog({
 				modal: true,
 				autoOpen: true,
-				show: {effect:'easeIn',speed:1000},
-				hide: {effect:'easeOut',speed:1000},
+				show: {effect:'explode',speed:1000},
+				hide: {effect:'explode',speed:1000},
         width:'98%',
         title:'Configurazione Tema Glorioso',
         position:[5,5]
         });
-       $("input.cfg_colorpicker").jPicker({images:{clientPath:'/themes/glorioso/images/jPicker/'},color:{alphaSupport:true}}).attr("size","8"); 
+       $("input.cfg_colorpicker").jPicker({images:{clientPath:'themes/glorioso/images/jPicker/'},color:{alphaSupport:true}}).attr("size","8"); 
     });
   });
 /* LOGIN / LOGOUT FUNCTIONALITY */
