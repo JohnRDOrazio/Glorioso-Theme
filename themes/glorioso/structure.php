@@ -93,8 +93,11 @@ if ($_THEME_CFG['use_gan']==1){   ?>
 				echo "<span class=\"flatnukeadmin\"><a href=\"index.php?opindex=modcont&amp;file=themes/$theme/top.html\" >"._MODIFICA."</a></span>";
 			?>
 </div>
+
+<!-- START PAGEMIDDLE -->
 <div id="centercontentwrapper" style="clear:both;padding-left:<?php echo $_THEME_CFG['centercolleftmarg'];?>px;padding-right:<?php echo $_THEME_CFG['centercolrightmarg'];?>px;">
-<!-- Column 3 start --> 
+
+<!-- START COLUMN CENTER --> 
 <div id="col3wrapper" style="float:left;position:relative;width:100%;">
 <?php if ($_THEME_CFG['show_top_horizontal_menu']==1) { 
 	echo "<div id=\"top_horizontal_menu\" class=\"fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix\"><div class=\"fg-buttonset fg-buttonset-single ui-helper-clearfix fn-menu\">";
@@ -118,8 +121,8 @@ if ($_THEME_CFG['show_bottom_horizontal_menu']==1) {
 }
 ?>
 </div>				
-<!-- Column 3 end --> 
-<!-- Column 1 start --> 
+<!-- START COLUMN CENTER --> 
+<!-- START COLUMN LEFT --> 
 <div id="col1wrapper" class="side-column" style="float:left;position:relative;width:<?php echo $_THEME_CFG['leftcolwidth']?>px;margin-left:-100%;right:<?php echo $_THEME_CFG['centercolleftmarg']?>px;">
 <?php
 	if ($_THEME_CFG['showmenuleft'] != 0)
@@ -132,8 +135,8 @@ if ($_THEME_CFG['show_bottom_horizontal_menu']==1) {
 	}
 ?>
 </div>
-<!-- Column 1 end --> 
-<!-- Column 2 start --> 
+<!-- END COLUMN LEFT --> 
+<!-- START COLUMN RIGHT --> 
 <div id="col2wrapper" class="side-column" style="float:left;position:relative;width:<?php echo $_THEME_CFG['rightcolwidth']?>px;margin-right:-100%;">
 <?php
 	if ($_THEME_CFG['showmenuright'] != 0)
@@ -146,10 +149,20 @@ if ($_THEME_CFG['show_bottom_horizontal_menu']==1) {
 	}
 ?>
 </div>
-<!-- Column 2 end --> 
+<!-- END COLUMN RIGHT --> 
+
 </div>
+<!-- END PAGEMIDDLE -->
+
+<!-- FOOTER  -->
+<div id="pagebottom" <?php echo ($_THEME_CFG['use_gfc']==1&&$_THEME_CFG['gfc_social']!="") ? "style=\"padding-bottom:40px;\" : "";?>>
 <?php
 include("themes/".$_FN['theme']."/footer.php");
+?>
+</div>
+<!-- END FOOTER -->
+
+<?php
 if ($_THEME_CFG['use_fb']==1){
   echo "
   <div id=\"fb-root\"></div>
