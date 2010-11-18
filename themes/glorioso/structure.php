@@ -94,7 +94,7 @@ if ($_THEME_CFG['use_gan']==1){   ?>
 </div>
 
 <!-- START PAGEMIDDLE -->
-<div id="centercontentwrapper" style="clear:both;padding-left:<?php echo $_THEME_CFG['centercolleftmarg'];?>px;padding-right:<?php echo $_THEME_CFG['centercolrightmarg'];?>px;">
+<div id="pagecenter" style="clear:both;padding-left:<?php echo $_THEME_CFG['centercolleftmarg'];?>px;padding-right:<?php echo $_THEME_CFG['centercolrightmarg'];?>px;">
 
 <!-- START COLUMN CENTER --> 
 <div id="col3wrapper" style="float:left;position:relative;width:100%;">
