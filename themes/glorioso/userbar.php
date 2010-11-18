@@ -147,7 +147,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
       		<?php if ($_THEME_CFG['use_fb']==1){ ?>
           <!-- facebook login button -->		
       		<div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='Entra in questo sito con il tuo account facebook per avere funzioni sociali sul sito Parrocchia San Lino'>
-      					<img src="/themes/glorioso/images/social/fb_login-button.png" alt="Facebook Login" /> 
+      					<img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
       		</div>    
           <?php } ?>
       		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
