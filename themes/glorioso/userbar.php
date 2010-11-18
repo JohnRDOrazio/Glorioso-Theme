@@ -211,16 +211,32 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 	<div id="gloriosothemeswitcher" class="jqtooltip-dx" title="Scegli il tema che più ti piace, si applicherà al volo!"></div>
 </div>
 <!-- END TOP DIV: SEARCH - ADMIN - LANG - THEME -->
-<?php if ($_THEME_CFG['use_fb']==1){ ?>
-<!-- START BOTTOM DIV: FACEBOOK -->
+<!-- START BOTTOM RIGHT DIV: FACEBOOK AND CLOCK -->
 <div style="border-top:inset 1px red;margin: 5px 0px 0px 5px;" class="ui-helper-clearfix">
   <!-- FACEBOOK LIKE AND FACEBOOK BOOKMARK ON THE LINE BELOW, TO THE LEFT -->
+<?php if ($_THEME_CFG['use_fb']==1){ ?>
   	<div id="fb_bookmark_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Aggiungi un segnalibro al tuo home su facebook per raggiungere facilmente questa applicazione!"><fb:bookmark /></div>
     <div id="fb_like_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Fai sapere ai tuoi amici che ti piace questo sito!"><fb:like layout="button_count" colorscheme="light" href="<?php echo $_FN['siteurl'] ?>"></fb:like></div>
   	<!-- <div style="float:right;margin:0px 5px 0px 5px;"><fb:chat-invite></fb:chat-invite></div> -->
-</div>
-<!-- END BOTTOM RIGHT DIV ON USERBAR: FACEBOOK -->
 <?php } ?>
+  <!-- CLOCK -->
+  <div style="float:right;position:relative;">
+    <img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario degli Eventi" />
+    <!-- Calendar feed as defined in config.php -->
+    <input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
+    <?php include("fullcalendar.php"); ?>
+    <!-- PHP timestamp -->
+    <input type="hidden" id="current_timestamp" value="<?php echo time(); ?>" />
+    <input type="hidden" id="current_langset" value="<?php echo $_FN['lang']; ?>" />
+    <div style="text-align:center;">
+      <div id="currentdate"><?php if($_FN['lang']=='en'){echo strftime('%A, %B %e, %Y', time());}else{echo strftime('%A, %e %B %Y', time());} ?></div>
+      <div id="clock"><?php if($_FN['lang']=='en'){echo strftime('%r', time());} else {echo strftime('%T', time());} ?></div>
+    </div>
+  </div>
+  <!-- END CLOCK -->
+
+</div>
+<!-- END BOTTOM RIGHT DIV ON USERBAR: FACEBOOK AND CLOCK -->
 </div>
 <!-- END DIV UTENTE (RIGHT DIV) -->
 </div><!-- END TOOLBAR -->
