@@ -202,7 +202,8 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 		// whether logged in or not:
 		// nnn
 		?>
-	</div> <!-- END USERSTUFF BUTTONSET -->
+	</div>
+  <!-- END USERSTUFF BUTTONSET -->
 	<!-- SHOW/HIDE, LANG and THEME right floated -->
 	<div id="toolbar-hide" style="float:right;" class="fg-button fg-button-icon-left ui-corner-top"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span>HIDE</div>
 	<div class="jqtooltip-dx" title="Visualizza questo sito in altre lingue (anche se non è ancora tradotto... Beh vedi tu!!!)" style="float:right;"><?php getlangs(); ?></div>
@@ -223,14 +224,5 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 </div>
 <!-- END DIV UTENTE (RIGHT DIV) -->
 </div><!-- END TOOLBAR -->
-<?php if(!$_THEME_CFG['backimage']){ ?>
-  <div class="pagetop_topmargin" style="height:10px;border:1px solid #FFFFFF;border-bottom:0px;clear:both;">
-</div>
-<?php }?>
+
 </div><!-- END TOOLBAR WRAPPER -->
-<?php if(!$_THEME_CFG['backimage']){ ?>
-  <div class="pagetop_bottommargin" style="clear:both;height:10px;border:1px solid #FFFFFF;border-top:0px;">
-</div>
-<?php }
-else{ echo "<div style=\"clear:both;height:20px;\"></div>"; }
-?>
