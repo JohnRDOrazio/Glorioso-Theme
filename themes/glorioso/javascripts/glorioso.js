@@ -516,16 +516,16 @@ $("button#btn_cancel_create_event").click(function(){
 $("img#gloriosocal").hover(function(){
 	thisimg = this;
 	$(thisimg).animate({
-		left: "5px"
+		left: "+=5px"
 		}, 20,function(){
 			$(thisimg).animate({
-				left: "-5px"
+				left: "-=5px"
 				}, 20,function(){
 					$(thisimg).animate({
-						left: "5px"
+						left: "+=5px"
 						}, 20,function(){
 							$(thisimg).animate({
-								left: "-5px"
+								left: "-=5px"
 								}, 20)
 						});
 				});
@@ -533,16 +533,16 @@ $("img#gloriosocal").hover(function(){
 	function(){
 	thisimg = this;
 	$(thisimg).animate({
-		left: "5px"
+		left: "+=5px"
 		}, 20,function(){
 			$(thisimg).animate({
-				left: "-5px"
+				left: "-=5px"
 				}, 20,function(){
 					$(thisimg).animate({
-						left: "5px"
+						left: "+=5px"
 						}, 20,function(){
 							$(thisimg).animate({
-								left: "-5px"
+								left: "-=5px"
 								}, 20)
 						});
 				});
