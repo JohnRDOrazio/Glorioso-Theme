@@ -93,13 +93,13 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 			if ($_FB['me']){ 
 	?>
 				<span id="fb_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='Esci sia da facebook che da questo sito' >
-					<img id="fb_logout_image" src="/themes/glorioso/images/social/fb_logout_small.gif" alt="Connect" />
+					<img id="fb_logout_image" src="images/social/fb_logout_small.gif" alt="Connect" />
 				</span>				
 	<?php }
 	    elseif ($_GFC['session']){
   ?>
 				<span id="gfc_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='Esci sia da google friend connect che da questo sito' >
-					<img src="/themes/glorioso/images/social/google_logo.png" alt="Connect" width=16 />
+					<img src="images/social/google_logo.png" alt="Connect" width=16 />
 					Logout
 				</span>
   <?php
