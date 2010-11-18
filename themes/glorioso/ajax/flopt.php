@@ -177,11 +177,8 @@ function gl_editconffile($file, $from = false)
 				else
 				{
 					$onchange = "";
-					$script = "onchange=\"this.options[this.selectedIndex].onfocus()\"";
-					$script .= " onkeyup=\"this.options[this.selectedIndex].onfocus()\"";
 					$divid = "conf_$i";
-					echo "<select $script $onchange name=\"conf_value$j\"  >";
-					$script = "document.getElementById('$divid').innerHTML = '" . addslashes("") . "'";
+					echo "<select name=\"conf_value$j\"  >";
 					foreach ( $options as $val )
 					{
 						$valdesc = trim($val);
@@ -191,7 +188,7 @@ function gl_editconffile($file, $from = false)
 							$val = trim($t[0]);
 							$valdesc = trim($t[1]);
 							$s = ($val == trim($line[1],"\" ")) ? "selected=\"selected\"" : "";
-							echo "<option onfocus=\"$script\" $s value=\"$val\">$valdesc</option>";
+							echo "<option $s value=\"$val\">$valdesc</option>";
 						}
 					}
 					echo "</select>";
