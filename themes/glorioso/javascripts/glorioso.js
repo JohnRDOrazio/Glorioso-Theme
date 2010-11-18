@@ -209,13 +209,13 @@ $(".jqtooltip-dx").tooltip({
 		$("div#adminonoff").hide();
 	}
 /* ACTIVATE TOOLBAR HIDE - SHOW BUTTON */
-	$("#toolbar-hide").click(function(){
-		$("#toolbar-wrapper").hide();
+	$("div#toolbar-hide").click(function(){
+    $("div#toolbar-wrapper").slideUp();
 		$("div#toolbar-show").show();
 	});
-	$("#toolbar-show").click(function(){
-		$("div#toolbar-show").hide();
-		$("#toolbar-wrapper").show();
+	$("div#toolbar-show").click(function(){
+    $("div#toolbar-show").hide();
+		$("div#toolbar-wrapper").slideDown();
 	});
 /* MAKE PANEL BUTTONS */
 $("button#CTRLPAN_SEARCH").button({
