@@ -83,19 +83,6 @@ echo ($_THEME_CFG['top_pic']!="") ? "<img style=\"float:right;height:60px;vertic
 <div class="top_col3">
 <div id="pagetop_rightelement" style="vertical-align:middle;height:65px;border:3px outset #D2D3B3;border-left:1px outset #D2D3B3;">
 
-	<!-- CLOCK -->
-	<img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario degli Eventi" />
-	<!-- Calendar feed as defined in config.php -->
-	<input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
-	<?php include("fullcalendar.php"); ?>
-
-	<input type="hidden" id="current_timestamp" value="<?php echo time(); ?>" />
-	<input type="hidden" id="current_langset" value="<?php echo $_FN['lang']; ?>" />
-	<div style="float:right;vertical-align:middle;text-align:center;">
-	<div id="currentdate" style="margin-bottom:5px;text-align:center;clear:both;"><?php if($_FN['lang']=='en'){echo strftime('%A, %B %e, %Y', time());}else{echo strftime('%A, %e %B %Y', time());} ?></div>
-	<div id="clock" style="padding:0px 3px;text-align:center;clear:both;"><?php if($_FN['lang']=='en'){echo strftime('%r', time());} else {echo strftime('%T', time());} ?></div>
-	</div>
-	<!-- END CLOCK -->
 
 </div>
 </div>
