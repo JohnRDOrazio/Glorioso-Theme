@@ -475,7 +475,7 @@ $('#calendarviewer').fullCalendar({
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
 gcalfeedurl = $("input#gcal-feed").val();
 if(gcalfeedurl!=""){
-  $("div#calendarviewer").fullcalendar({
+  $("div#calendarviewer").fullCalendar({
     events: $.fullCalendar.gcalFeed(gcalfeedurl,
           {
             className:       'gcal-event',
