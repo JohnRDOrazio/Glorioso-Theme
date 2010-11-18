@@ -122,13 +122,12 @@ div#vertical-menu .fg-button {
 	text-align:left;
 }
 img#gloriosocal {
-	position:relative;
-	left:0px;
+  position:absolute;
+  left:-60px;
+  top:5px;
 	vertical-align:middle;
 	cursor:pointer;
-	height:60px;
-	float:left;
-	margin-left:10px;
+	width:60px;
 }
 div#movie {
     position: absolute;
