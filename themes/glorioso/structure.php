@@ -88,8 +88,8 @@ if ($_THEME_CFG['use_gan']==1){   ?>
 </div>
 <div id="pagetop" class="top_colmask top_threecol">
 			<?php
-      echo local_to_abs("themes/$theme/top.php");
 			echo local_to_abs("themes/$theme/userbar.php");
+      echo local_to_abs("themes/$theme/top.php");
       ?>
 </div>
 
