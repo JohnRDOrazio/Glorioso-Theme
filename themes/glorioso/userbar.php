@@ -5,7 +5,7 @@ $loginurl = $_FN["self"]."?mod=login";
 $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 ?>
 <div style="clear:both;"></div>
-<div id="toolbar-show"  class="fg-button fg-button-icon-left ui-corner-bottom" style="display:none;position:absolute;right:5px;top:68px;border:2px groove White;border-top:none;z-index:999999;"><span class="ui-icon ui-icon-arrowthickstop-1-s"></span>SHOW</div>
+<div id="toolbar-show"  class="fg-button fg-button-icon-left ui-corner-bottom" style="display:none;position:absolute;right:5px;top:0px;border:2px groove White;border-top:none;z-index:999999;"><span class="ui-icon ui-icon-arrowthickstop-1-s"></span>SHOW</div>
 <!-- TOOLBAR WRAPPER -->
 <div id="toolbar-wrapper">
 <!-- PAGE WIDE TOOLBAR -->
