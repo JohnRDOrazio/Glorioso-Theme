@@ -61,7 +61,7 @@
 
 /* function useful for social sessions verification */
 function opensocialregistration(params){
-  $.get("/themes/glorioso/ajax/social_registration_form.php",params,function(htmlcontent){
+  $.get("themes/glorioso/ajax/social_registration_form.php",params,function(htmlcontent){
     if( $("div#socialregistration").length==0){
       $("body").append("<div id='socialregistration'></div>");
       $("div#socialregistration").dialog({
