@@ -121,14 +121,6 @@ div#loading {
 div#vertical-menu .fg-button {
 	text-align:left;
 }
-img#gloriosocal {
-  position:absolute;
-  left:-60px;
-  top:5px;
-	vertical-align:middle;
-	cursor:pointer;
-	width:60px;
-}
 div#movie {
     position: absolute;
 	clear:both;
@@ -552,23 +544,33 @@ div#userlogin-dropdown div {
 }
 
 /* MY OWN CLOCK CREATION */
+    img#gloriosocal {
+      position:absolute;
+      left:-40px;
+      top:5px;
+    	vertical-align:middle;
+    	cursor:pointer;
+    	width:40px;
+    }
 		#currentdate {
-			color: DarkRed;
+      text-align:center;
+      clear:both;
+      color: DarkRed;
 			font-weight: bold;
 			font-size: 14px;
-			margin:3px;
 		}
 		#clock {
-			color: #F0F0F0;
+			border:White 1px inset;
+      text-align:center;
+      clear:both;
+      color: #F0F0F0;
 			font-size:16px;
 			font-family: "Courier New", Courier, monospace;
 			font-weight:bold;
-			margin:6px;
 			text-align:center;
 			background:#969696;
 			width:60%;
-			margin:10px auto;
-			border: #000000 1px solid;
+      margin: 0 auto;
 			text-shadow: #6374AB 2px -2px 2px;
 		}
 
