@@ -228,29 +228,23 @@ div#gloriosothemeswitcher-container { /*position:absolute; top:36px;right:5px;*/
 /************* 
 * SELECTMENU *
 *************/
-label,select,.ui-select-menu { float: left; margin-right: 10px; }
-select#select_langs { width: 60px; }
+/*.ui-select-menu { float: left; margin-right: 10px; }*/
+select#select_langs { width: 80px; }
 /*select with custom icons*/
 body a.customicons { height: 2.8em;}
-body .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+body .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left:30px !important; }
 body .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, body .rss .ui-selectmenu-item-icon { height: 24px; width: 24px; }
 body .video .ui-selectmenu-item-icon { background: url(sample_icons/24-video-square.png) 0 0 no-repeat; }
 body .podcast .ui-selectmenu-item-icon { background: url(sample_icons/24-podcast-square.png) 0 0 no-repeat; }
 body .rss .ui-selectmenu-item-icon { background: url(sample_icons/24-rss-square.png) 0 0 no-repeat; }
-body .ui-selectmenu-item-icon { background: url(images/flags/flags_sprite.png) no-repeat top left; }
-body .it .ui-selectmenu-item-icon { background-position: -52px -1280px; }
-body .en .ui-selectmenu-item-icon { background-position: -156px -1280px; }
-body .es .ui-selectmenu-item-icon { background-position: -156px -240px; }
-body .fr .ui-selectmenu-item-icon { background-position: -52px -320px; }
-body .de .ui-selectmenu-item-icon { background-position: -52px -480px; }
-body .ru .ui-selectmenu-item-icon { background-position: -104px -1680px; }
+body .it .ui-selectmenu-item-icon { width:32px;height:22px;background: url(images/flags/flags-sprite.png) -52px -1280px no-repeat; }
+body .en .ui-selectmenu-item-icon { width:32px;height:22px;background: url(images/flags/flags-sprite.png) -156px -1280px no-repeat; }
+body .es .ui-selectmenu-item-icon { width:32px;height:22px;background: url(images/flags/flags-sprite.png) -156px -240px no-repeat; }
+body .fr .ui-selectmenu-item-icon { width:32px;height:22px;background: url(images/flags/flags-sprite.png) -52px -320px no-repeat; }
+body .de .ui-selectmenu-item-icon { width:32px;height:22px;background: url(images/flags/flags-sprite.png) -52px -480px no-repeat; }
+body .ru .ui-selectmenu-item-icon { width:32px;height:22px;background: url(images/flags/flags-sprite.png) -104px -1680px no-repeat; }
 
 /* flags spritemap (da http://www.jackrebel.com/wp-content/uploads/2009/09/flag_style.css) */
-.sprite {
-    width: 32px;
-    height: 22px;
-}
-
 
 .sprite-afghanistan_small { background-position: 0 0; } 
 .sprite-albania_small { background-position: 0 -40px; } 
@@ -457,11 +451,11 @@ body .ru .ui-selectmenu-item-icon { background-position: -104px -1680px; }
 .ui-selectmenu-menu-popup { margin-top: -1px; }
 .ui-selectmenu-menu-dropdown { }
 .ui-selectmenu-menu li { padding:0; margin:0; display: block; border-top: 1px dotted transparent; border-bottom: 1px dotted transparent; border-right-width: 0 !important; border-left-width: 0 !important; font-weight: normal !important; }
-.ui-selectmenu-menu li a,.ui-selectmenu-status {line-height: 1.4em; display:block; padding:.3em 1em; outline:none; text-decoration:none; }
+.ui-selectmenu-menu li a,.ui-selectmenu-status {line-height: 1.6em; display:block; padding:.3em 1em; outline:none; text-decoration:none; }
 .ui-selectmenu-menu li.ui-selectmenu-hasIcon a,
-.ui-selectmenu-hasIcon .ui-selectmenu-status { padding-left: 20px; position: relative; margin-left: 5px; }
+.ui-selectmenu-hasIcon .ui-selectmenu-status { padding-left: 35px; position: relative; margin-left: 5px; }
 .ui-selectmenu-menu li .ui-icon, .ui-selectmenu-status .ui-icon { position: absolute; top: 1em; margin-top: -8px; left: 0; }
-.ui-selectmenu-status { line-height: 1.4em; }
+.ui-selectmenu-status { line-height: 1.6em; }
 .ui-selectmenu-open li.ui-selectmenu-item-focus a {  }
 .ui-selectmenu-open li.ui-selectmenu-item-selected { }
 .ui-selectmenu-menu li span,.ui-selectmenu-status span { display:block; margin-bottom: .2em; }
@@ -470,7 +464,7 @@ body .ru .ui-selectmenu-item-icon { background-position: -104px -1680px; }
 .ui-selectmenu-menu li .ui-selectmenu-item-footer { opacity: .8; }
 /*for optgroups*/
 .ui-selectmenu-menu .ui-selectmenu-group { font-size: 1em; }
-.ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label { line-height: 1.4em; display:block; padding:.6em .5em 0; font-weight: bold; }
+.ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label { line-height: 1.6em; display:block; padding:.6em .5em 0; font-weight: bold; }
 .ui-selectmenu-menu .ui-selectmenu-group ul { margin: 0; padding: 0; }
 
 /* UI Widget
@@ -551,7 +545,7 @@ div#userlogin-dropdown div {
     }
     img#gloriosocal {
       position:absolute;
-      left:-40px;
+      left:-20px;
       top:5px;
     	vertical-align:middle;
     	cursor:pointer;
