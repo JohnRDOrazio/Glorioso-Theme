@@ -60,7 +60,21 @@ global $_THEME_CFG;
 			window.location=url;
 	}
 	// -->
-</script>
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=");
+  if (c_start!=-1)
+    {
+    c_start=c_start + c_name.length+1;
+    c_end=document.cookie.indexOf(";",c_start);
+    if (c_end==-1) c_end=document.cookie.length;
+    return unescape(document.cookie.substring(c_start,c_end));
+    }
+  }
+return "";
+}</script>
 
 <?php
 
@@ -119,7 +133,9 @@ if($_THEME_CFG['use_jsapi'] == 1) {
                                                     window.timesloaded++;
                                                   }
                                                if (window.timesloaded > 1) {
-                                                  window.top.location.href = 'index.php?mod=login&opmod=profile';
+                                                  gfcsession = getCookie('fcauth{$_THEME_CFG["gfc_site"]}');
+                                                  if(gfcsession!=null&&gfcsession!=''){ window.top.location.href = 'index.php?mod=login&opmod=profile'; }
+                                                  else{ window.top.location.href = 'index.php?mod=login&op=logout'; }
                                                   }
                                               }
                                         });" : "";
