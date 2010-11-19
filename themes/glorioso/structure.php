@@ -11,14 +11,39 @@
 /* the Free Software Foundation; either version 2 of the License.       */
 /************************************************************************/
 global $_FN,$_FB,$_THEME_CFG;
+
+/* LOCALE VARIABLES */
+switch($_FN['lang']){
+  case "en":
+    $lcl="en_US";
+    break;
+  case "it":
+    $lcl="it_IT";
+    break;
+  case "de":
+    $lcl="de_DE";
+    break;
+  case "fr":
+    $lcl="fr_FR";
+    break;
+  case "es":
+    $lcl="es_Es";
+    break;
+  case "ru":
+    $lcl="ru_RU";
+    break;
+  default:
+    $lcl="en_US";
+}
+
 ($_THEME_CFG['right_column_color']!="") ? $_THEME_CFG['right_column_color']="background-color:#{$_THEME_CFG['right_column_color']};" : "";
 ($_THEME_CFG['center_column_color']!="") ? $_THEME_CFG['center_column_color']="background-color:#{$_THEME_CFG['center_column_color']};" : "";
 ($_THEME_CFG['left_column_color']!="") ? $_THEME_CFG['left_column_color']="background-color:#{$_THEME_CFG['left_column_color']};" : "";
 ($_THEME_CFG['bodycolor']!="") ? $_THEME_CFG['bodycolor']="background-color:#{$_THEME_CFG['bodycolor']};" : "";
+
 /*******************************
 * CALCULATE STYLES FOR COLUMNS *
 *******************************/
-
 $_THEME_CFG['centercolleftmarg'] = $_THEME_CFG['leftcolwidth']+1;
 $_THEME_CFG['centercolrightmarg'] = $_THEME_CFG['rightcolwidth']+1;
 if($_THEME_CFG['showblocksright'] == 0){
@@ -42,6 +67,27 @@ else{
 	if($_THEME_CFG['backimage_attachment']!=""){ $_THEME_CFG['backimage_attachment']="background-attachment:{$_THEME_CFG['backimage_attachment']};"; }
 	echo "<body style=\"{$_THEME_CFG['bodycolor']}{$_THEME_CFG['backimage']}{$_THEME_CFG['backimage_repeat']}{$_THEME_CFG['backimage_attachment']}\">";
 }
+if ($_THEME_CFG['use_fb']==1){
+  echo "<div id=\"fb-root\"></div>
+<script type=\"text/javascript\">
+ window.fbAsyncInit = function() {
+     FB.init({
+       appId  : '{$_THEME_CFG['fb_app_id']}',
+       status : true, // check login status
+       cookie : true, // enable cookies to allow the server to access the session
+       xfbml  : true  // parse XFBML
+     });
+   };
+
+  (function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/{$lcl}/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>";
+}
+
 if ($_THEME_CFG['use_gan']==1){   ?>
 <!-- Account Google Analytics -->
 <script type="text/javascript">
@@ -86,7 +132,7 @@ if ($_THEME_CFG['use_gan']==1){   ?>
 	</div>
 	<span id="moviepaused">PAUSE</span>
 </div>
-<div id="pagetop" class="top_colmask top_threecol">
+<div id="pagetop">
 			<?php
 			echo local_to_abs("themes/$theme/userbar.php");
       echo local_to_abs("themes/$theme/top.php");
@@ -162,24 +208,6 @@ include("themes/".$_FN['theme']."/footer.php");
 <!-- END FOOTER -->
 
 <?php
-if ($_THEME_CFG['use_fb']==1){
-  echo "
-  <div id=\"fb-root\"></div>
-  <script type=\"text/javascript\" src=\"http://connect.facebook.net/it_IT/all.js\"></script>
-  <!-- Render facebook XFBML -->
-  <script type=\"text/javascript\">
-    FB.init({appId: \"{$_THEME_CFG['fb_app_id']}\", status: true, cookie: true, xfbml: true});
-    /*
-    FB.Event.subscribe('auth.sessionChange', function(response) {
-      if (response.session) {
-        // A user has logged in, and a new cookie has been saved
-      } else {
-        // The user has logged out, and the cookie has been cleared
-      }
-    });
-    */
-  </script>";
-}
 if ($_THEME_CFG['use_gfc']==1){
   echo "
   <div id=\"{$_THEME_CFG['gfc_social']}\"></div>
