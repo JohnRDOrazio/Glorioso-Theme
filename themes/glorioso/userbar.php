@@ -219,7 +219,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
     <div id="fb_like_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Fai sapere ai tuoi amici che ti piace questo sito!"><fb:like layout="button_count" colorscheme="light" href="<?php echo $_FN['siteurl'] ?>"></fb:like></div>
 <?php } ?>
   <!-- CLOCK -->
-  <div style="float:right;position:relative;">
+  <div id="clockwrapper">
     <img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario degli Eventi" />
     <!-- Calendar feed as defined in config.php -->
     <input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
