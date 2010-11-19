@@ -90,13 +90,13 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 			echo "<div id='userprofile' class='jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-priority-primary ui-corner-left' onclick='location.href=\"{$_FN['self']}?mod=login&amp;opmod=profile\"' title='"._VIEW_USERPROFILE."'>";      
       echo "<span class='ui-icon ui-icon-person'></span></div>";
 	    //if logged in with facebook connect, show facebook logout (which also logs out of the site)
-			if ($_FB['me']){ 
+			if ($_THEME_CFG['use_fb']==1&&$_FB['me']){ 
 	?>
 				<span id="fb_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='Esci sia da facebook che da questo sito' >
 					<img id="fb_logout_image" src="images/social/fb_logout_small.gif" alt="Connect" />
 				</span>				
 	<?php }
-	    elseif ($_GFC['session']){
+	    elseif ($_THEME_CFG['use_gfc']==1&&$_GFC['session']){
   ?>
 				<span id="gfc_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='Esci sia da google friend connect che da questo sito' >
 					<img src="images/social/google_logo.png" alt="Connect" width=16 />
