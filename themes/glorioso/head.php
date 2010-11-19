@@ -58,25 +58,6 @@
 			window.location=url;
 	}
 	// -->
-
-/* function useful for social sessions verification */
-function opensocialregistration(params){
-  $.get("themes/glorioso/ajax/social_registration_form.php",params,function(htmlcontent){
-    if( $("div#socialregistration").length==0){
-      $("body").append("<div id='socialregistration'></div>");
-      $("div#socialregistration").dialog({
-					width: 300,
-          modal: true,
-					autoOpen: false,
-					show: {effect:'bounce',speed:1000},
-					hide: {effect:'bounce',speed:1000}      
-      });
-    }
-    $("div#socialregistration").html(htmlcontent);
-    $("div#socialregistration").dialog("open");  
-  });
-}
-
 </script>
 
 <?php
