@@ -478,6 +478,11 @@ $('#calendarviewer').fullCalendar({
                   day: 'dddd d/M'  // Monday 9/7
                   },
     theme:           true,
+    eventClick: function(event) {
+            // opens events in a popup window
+            window.open(event.url, 'gcalevent', 'width=700,height=600');
+            return false;
+    },  
     loading: function(bool) {
             if (bool) {
                     $('#loading').show();
@@ -496,20 +501,13 @@ $('#calendarviewer').fullCalendar({
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
 gcalfeedurl = $("input#gcal-feed").val();
 if(gcalfeedurl!=""){
-  $("div#calendarviewer").fullCalendar({
-    events: $.fullCalendar.gcalFeed(gcalfeedurl,
+  $("div#calendarviewer").fullCalendar( 'addEventSource', $.fullCalendar.gcalFeed(gcalfeedurl,
           {
             className:       'gcal-event',
             editable:        true,
             currentTimezone: 'Europe/Rome'
           }
-    ),
-    eventClick: function(event) {
-            // opens events in a popup window
-            window.open(event.url, 'gcalevent', 'width=700,height=600');
-            return false;
-    }  
-  });
+    ));
 }
 /* SE L'UTENTE E' AMMINISTRATORE DELLE NEWS, ALLORA PUO' INSERIRE EVENTI */
 $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
