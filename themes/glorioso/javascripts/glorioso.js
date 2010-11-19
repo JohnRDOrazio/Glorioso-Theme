@@ -182,7 +182,7 @@ m=checkTime(m);
 s=checkTime(s);
 $("div#clock").html(h+":"+m+":"+s+ap);
 mynewtimestamp = mynewtimestamp+1000;
-t=setTimeout(function(){startTime(mynewtimestamp, mylangset);},1000);
+setTimeout(function(){startTime(mynewtimestamp, mylangset);},1000);
 }
 // END OF CLOCK FUNCTIONALITY SETUP
 AudioPlayer.setup("themes/glorioso/javascripts/1pixeloutplayer/player.swf", {  
