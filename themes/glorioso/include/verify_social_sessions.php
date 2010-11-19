@@ -1,4 +1,43 @@
 <?php
+if (!function_exists('curl_init')) {
+  throw new Exception('fLOSt Theme needs the CURL PHP extension for OpenSocial functionality.');
+}
+if (!function_exists('json_decode')) {
+  throw new Exception('fLOSt Theme needs the JSON PHP extension for OpenSocial functionality.');
+}
+  /**
+   * Makes an HTTP request. This method can be overriden by subclasses if
+   * developers want to do fancier things or use something other than curl to
+   * make the request.
+   *
+   * @param String $url the URL to make the request to
+   * @param Array $params the parameters to use for the POST body
+   * @param CurlHandler $ch optional initialized curl handle
+   * @return String the response text
+   */
+function makeOpenSocialRequest($url)
+{
+$timeout=5;
+$max_retries=5;
+$useragent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11";
+$curl=curl_init();
+curl_setopt ( $curl, CURLOPT_URL,$url);
+curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, 1 );
+curl_setopt ( $curl, CURLOPT_CONNECTTIMEOUT, $timeout );
+curl_setopt ( $curl, CURLOPT_USERAGENT, $useragent );
+$retry=0;
+$data="";
+while($data=="" AND $retry < $max_retries)
+{
+$data=curl_exec($curl);
+$retry++;
+}
+curl_close($curl);
+ 
+// response will be in json format, decode it and return
+return json_decode($data);
+}
+
 /***********************************************************************
 *  CHECK SESSION (FLATNUX / FACEBOOK / GOOGLE FRIEND CONNECT / OPENID) *
 ***********************************************************************/ 
@@ -160,13 +199,10 @@ if ($_THEME_CFG['use_gfc']==1){
   define('GFC_ACCESS_TOKEN', $_GFC['session']['access_token']);
   if ($_GFC['session']){
     $answer = chk_profile_flds("gfc"); // jsalert($answer);
-    $_GFC['userInfo'] = file_get_contents("http://www.google.com/friendconnect/api/people/@me/@self?fcauth=".GFC_ACCESS_TOKEN);
-    $_GFC['supportedfields'] = file_get_contents("http://www.google.com/friendconnect/api/people/@supportedFields?fcauth=".GFC_ACCESS_TOKEN);
-    $_GFC['connections'] = file_get_contents("http://www.google.com/friendconnect/api/people/@me/@all?fcauth=".GFC_ACCESS_TOKEN);
-    $_GFC['friends'] = file_get_contents("http://www.google.com/friendconnect/api/people/@me/@friends?fcauth=".GFC_ACCESS_TOKEN);
-    $_GFC['userInfo'] = json_decode($_GFC['userInfo']);
-    $_GFC['connections'] = json_decode($_GFC['connections']);
-    $_GFC['friends'] = json_decode($_GFC['friends']);
+    $_GFC['userInfo'] =  makeOpenSocialRequest("http://www.google.com/friendconnect/api/people/@me/@self?fcauth=".GFC_ACCESS_TOKEN);
+    $_GFC['supportedfields'] =  makeOpenSocialRequest("http://www.google.com/friendconnect/api/people/@supportedFields?fcauth=".GFC_ACCESS_TOKEN);
+    $_GFC['connections'] =  makeOpenSocialRequest("http://www.google.com/friendconnect/api/people/@me/@all?fcauth=".GFC_ACCESS_TOKEN);
+    $_GFC['friends'] =  makeOpenSocialRequest("http://www.google.com/friendconnect/api/people/@me/@friends?fcauth=".GFC_ACCESS_TOKEN);
     $_GFC['uid'] = $_GFC['userInfo']->entry->id;
     $_GFC['username'] = $_GFC['userInfo']->entry->displayName;
     $_GFC['auth'] = new osapiFCAuth(GFC_ACCESS_TOKEN);
