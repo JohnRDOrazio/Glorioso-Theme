@@ -1,5 +1,7 @@
 <?php
 
+global $_THEME_CFG;
+
 /************************************************************
 *         START TO BUILD DOCUMENT                           *
 ************************************************************/
@@ -61,13 +63,6 @@
 </script>
 
 <?php
-
-/* VERIFY POSSIBLE SOCIAL SESSIONS AND MANAGE SOCIAL USER REGISTRATION */
-set_include_path(get_include_path() . PATH_SEPARATOR . 'themes/glorioso/include/');
-require_once("verify_social_sessions.php");
-
-global $_THEME_CFG;
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * Google Javascript loader api.															*
@@ -168,6 +163,10 @@ else{
 
 	/* Preferisco usare questa funzione che ho definito in "themes/THISTHEME/theme.php" piuttosto che "IncludeJavascripts()" definita in "include/functions.php" di Flatnux, perché quest'ultima carica i javascripts di "include/javascripts" in ordine casuale mentre la mia li carica in ordine logico-alfabetico. Caricando in ordine logico-alfabetico permette di rispettare eventuali dipendenze tra plugins aggiungendo un numero iniziale, similmente ai blocchi e alle sezioni di Flatnux. */
 	MyIncludeJavascripts ();
+
+/* VERIFY POSSIBLE SOCIAL SESSIONS AND MANAGE SOCIAL USER REGISTRATION */
+set_include_path(get_include_path() . PATH_SEPARATOR . 'themes/glorioso/include/');
+require_once("verify_social_sessions.php");
 
 
 echo "\n</head>\n";
