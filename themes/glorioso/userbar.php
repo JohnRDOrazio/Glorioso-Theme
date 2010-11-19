@@ -215,9 +215,8 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 <div style="border-top:inset 1px red;margin: 5px 0px 0px 5px;" class="ui-helper-clearfix">
   <!-- FACEBOOK LIKE AND FACEBOOK BOOKMARK ON THE LINE BELOW, TO THE LEFT -->
 <?php if ($_THEME_CFG['use_fb']==1){ ?>
-  	<div id="fb_bookmark_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Aggiungi un segnalibro al tuo home su facebook per raggiungere facilmente questa applicazione!"><fb:bookmark /></div>
+  	<div id="fb_bookmark_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Aggiungi un segnalibro al tuo home su facebook per raggiungere facilmente questa applicazione!"><fb:bookmark></fb:bookmark></div>
     <div id="fb_like_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Fai sapere ai tuoi amici che ti piace questo sito!"><fb:like layout="button_count" colorscheme="light" href="<?php echo $_FN['siteurl'] ?>"></fb:like></div>
-  	<!-- <div style="float:right;margin:0px 5px 0px 5px;"><fb:chat-invite></fb:chat-invite></div> -->
 <?php } ?>
   <!-- CLOCK -->
   <div style="float:right;position:relative;">
@@ -237,6 +236,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 
 </div>
 <!-- END BOTTOM RIGHT DIV ON USERBAR: FACEBOOK AND CLOCK -->
+
 </div>
 <!-- END DIV UTENTE (RIGHT DIV) -->
 </div><!-- END TOOLBAR -->
