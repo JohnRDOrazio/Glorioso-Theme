@@ -335,7 +335,7 @@ if ($("div#gfc-button").length!=0){
     });
   });
 }
-if ($("span#gfc-logout").length!=0){
+if ($("span#gfc_logout").length!=0){
   $('span#gfc_logout').click(function(){
     if($("div#logoutmsg").length==0){
       $("body").append("<div id='logoutmsg'></div>");
