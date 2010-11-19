@@ -544,9 +544,14 @@ div#userlogin-dropdown div {
 }
 
 /* MY OWN CLOCK CREATION */
+    div#clockwrapper{
+      float:right;
+      position:relative;
+      width:200px;
+    }
     img#gloriosocal {
       position:absolute;
-      left:-40px;
+      left:-20px;
       top:5px;
     	vertical-align:middle;
     	cursor:pointer;
@@ -569,7 +574,7 @@ div#userlogin-dropdown div {
 			font-weight:bold;
 			text-align:center;
 			background:#969696;
-			width:60%;
+			width:150px;
       margin: 0 auto;
 			text-shadow: #6374AB 2px -2px 2px;
 		}
