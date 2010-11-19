@@ -330,13 +330,11 @@ if ($("span#fb_logout").length!=0){
 }
 if ($("div#gfc-button").length!=0){
   $("div#gfc-button").click(function(){
-    google.friendconnect.requestSignIn(function(response){
-      alert(response);
-    });
+    google.friendconnect.requestSignIn();
   });
 }
 if ($("span#gfc_logout").length!=0){
-  $('span#gfc_logout').click(function(){
+  $("span#gfc_logout").click(function(){
     if($("div#logoutmsg").length==0){
       $("body").append("<div id='logoutmsg'></div>");
       $("div#logoutmsg").dialog({
@@ -348,7 +346,6 @@ if ($("span#gfc_logout").length!=0){
     }
     $("div#logoutmsg").html("Stai uscendo sia da google friend connect che dal sito parrocchiale...").dialog("open");
     google.friendconnect.requestSignOut();
-    location.href='index.php?mod=login&op=logout';
   });
 }
 $("div#userlogin").hover(function(){
