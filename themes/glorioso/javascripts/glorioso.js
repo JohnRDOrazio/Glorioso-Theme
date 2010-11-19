@@ -112,21 +112,23 @@ $.ajaxSetup({
 */
 // PARSE THE URL QUERY STRING
 function getArgs() {
-  var args = new Object();
-  var query = location.search.substring(1); 
-  var pairs = query.split("&"); 
-  for(var i = 0; i < pairs.length; i++) {
-    var pos = pairs[i].indexOf('='); 
+  var argsobj,query,pairs,i,pos,argname,value; 
+  argsobj = new Object();
+  query = location.search.substring(1); 
+  pairs = query.split("&"); 
+  for(i = 0; i < pairs.length; i++) {
+    pos = pairs[i].indexOf('='); 
     if (pos == -1) continue; 
-    var argname = pairs[i].substring(0,pos); 
-    var value = pairs[i].substring(pos+1);
-    args[argname] = unescape(value); 
+    argname = pairs[i].substring(0,pos); 
+    value = pairs[i].substring(pos+1);
+    argsobj[argname] = unescape(value); 
   }
-  return args; 
+  return argsobj; 
 }
-var args = getArgs();
+var args,weekday,month;
+args = getArgs();
 // CLOCK FUNCTIONALITY
-var weekday=new Array(7);
+weekday=new Array(7);
 weekday[0]="Domenica";
 weekday[1]="Lunedì";
 weekday[2]="Martedì";
@@ -134,7 +136,7 @@ weekday[3]="Mercoledì";
 weekday[4]="Giovedì";
 weekday[5]="Venerdì";
 weekday[6]="Sabato";
-var month=new Array(12);
+month=new Array(12);
 month[0]="Gennaio";
 month[1]="Febbraio";
 month[2]="Marzo";
@@ -152,19 +154,20 @@ function checkTime(i) {
 	return i;
 }
 function startTime(withthistimestamp, withlangset){
+  var today,h,m,s,dy,dt,mo,y,ap,mynewtimestamp,mylangset;
   mynewtimestamp=null;
   mylangset=null;
   mynewtimestamp=withthistimestamp;
   mylangset=withlangset;
-var today=new Date(mynewtimestamp);
-var h=today.getHours();
-var m=today.getMinutes();
-var s=today.getSeconds();
-var dy=today.getDay();
-var dt=today.getDate();
-var mo=today.getMonth();
-var y=today.getFullYear();
-var ap="";
+  today=new Date(mynewtimestamp);
+  h=today.getHours();
+  m=today.getMinutes();
+  s=today.getSeconds();
+  dy=today.getDay();
+  dt=today.getDate();
+  mo=today.getMonth();
+  y=today.getFullYear();
+  ap="";
 if(mylangset=="en"){
 	ap = " AM";
 	if (h > 11) { ap = " PM"; }
@@ -263,17 +266,15 @@ $("input#glorioso_adminonoff").click(function(){
 /* ACTIVATE THEME CONFIGURATION BUTTON ON TOOLBAR */
   $("#THEME_CFG").click(function(){
     if($.jPicker===undefined){
-      var jpck_css = document.createElement('link');
+ var jpck_css,jpck;     
+ jpck_css = document.createElement('link');
       jpck_css.rel = 'stylesheet';
       jpck_css.type = 'text/css';
       jpck_css.href = 'themes/glorioso/css/jPicker.css';
       document.getElementsByTagName('head')[0].appendChild(jpck_css);
-      var jpck_css = document.createElement('link');
-      jpck_css.rel = 'stylesheet';
-      jpck_css.type = 'text/css';
       jpck_css.href = 'themes/glorioso/css/jPicker-1.1.5.min.css';
       document.getElementsByTagName('head')[0].appendChild(jpck_css);
-      var jpck = document.createElement('script');
+      jpck = document.createElement('script');
       jpck.type = 'text/javascript';
       jpck.async = true;
       jpck.src = 'themes/glorioso/javascripts/jpicker-1.1.5.min.js';
