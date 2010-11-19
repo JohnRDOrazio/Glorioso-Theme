@@ -1,3 +1,22 @@
+/* function useful for social sessions verification */
+function opensocialregistration(params){
+  $.get("themes/glorioso/ajax/social_registration_form.php",params,function(htmlcontent){
+    if( $("div#socialregistration").length==0){
+      $("body").prepend("<div id='socialregistration'></div>");
+      $("div#socialregistration").dialog({
+					width: 600,
+          modal: true,
+					autoOpen: false,
+					show: {effect:'easeInQuad',speed:1000},
+					hide: {effect:'easeOutQuad',speed:1000}      
+      });
+    }
+    $("div#socialregistration").html(htmlcontent);
+    $("div#socialregistration").dialog("open");  
+  });
+}
+
+
 jQuery(function(){
 	$.extend($.fn.disableTextSelect = function() {
 		return this.each(function(){
@@ -293,7 +312,9 @@ if ($("div#facebooklogin").length!=0){
       }
     }, {perms:'email,user_birthday,status_update,read_stream,publish_stream,create_event,rsvp_event,sms'});  
   });
-  $('#fb_logout').click(function(){
+}
+if ($("span#fb_logout").length!=0){
+  $('span#fb_logout').click(function(){
     if($("#logoutmsg").length==0){
       $("body").append("<div id='logoutmsg'></div>");
       $("div#logoutmsg").dialog({
@@ -313,8 +334,10 @@ if ($("div#gfc-button").length!=0){
       alert(response);
     });
   });
-  $('#gfc_logout').click(function(){
-    if($("#logoutmsg").length==0){
+}
+if ($("span#gfc-logout").length!=0){
+  $('span#gfc_logout').click(function(){
+    if($("div#logoutmsg").length==0){
       $("body").append("<div id='logoutmsg'></div>");
       $("div#logoutmsg").dialog({
   					modal: true,
