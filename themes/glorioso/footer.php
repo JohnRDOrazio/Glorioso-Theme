@@ -10,7 +10,7 @@ if ( strpos(strtolower($_SERVER['SCRIPT_NAME']),strtolower(basename(__FILE__))) 
     <a class="validate-icon css" href="http://jigsaw.w3.org/css-validator/check/referer"></a>
     <a class="validate-icon rss" href="<?php echo $_FN['datadir']?>/<?php	echo $_FN['lang']?>/backend.xml"></a>
     <a class="validate-icon jquery" href="http://jquery.com/" title="jQuery JavaScript Library"></a>
-    <a class="validate-icon jquery-ui" href="http://jquery-ui.com" title="jQuery UI"></a>
+    <a class="validate-icon jquery-ui" href="http://jqueryui.com" title="jQuery UI"></a>
   </div>
   <div id="credits-links">
   Powered&nbsp;by&nbsp;<a  style="font-weight:bold;" href="http://flatnux.sourceforge.net">FlatNuX</a>&nbsp;&copy;&nbsp;2003-2005
