@@ -16,24 +16,31 @@ global $_FN,$_FB,$_THEME_CFG;
 switch($_FN['lang']){
   case "en":
     $lcl="en_US";
+    define("GFC_LOGIN","Sign in with Google");
     break;
   case "it":
     $lcl="it_IT";
+    define("GFC_LOGIN","Accedi con Google");
     break;
   case "de":
     $lcl="de_DE";
+    define("GFC_LOGIN","Melden Sie sich mit Google");
     break;
   case "fr":
     $lcl="fr_FR";
+    define("GFC_LOGIN","Connectez-vous avec Google");
     break;
   case "es":
     $lcl="es_Es";
+    define("GFC_LOGIN","Ingresar con Google");
     break;
   case "ru":
     $lcl="ru_RU";
+    define("GFC_LOGIN","Войти с Google");
     break;
   default:
     $lcl="en_US";
+    define("GFC_LOGIN","Sign in with Google");
 }
 
 ($_THEME_CFG['right_column_color']!="") ? $_THEME_CFG['right_column_color']="background-color:#{$_THEME_CFG['right_column_color']};" : "";
