@@ -16,7 +16,7 @@ function opensocialregistration(params){
   });
 }
 
-
+/* Function for disabling text selection on given elements (useful when using the sortable plugin) */
 jQuery(function(){
 	$.extend($.fn.disableTextSelect = function() {
 		return this.each(function(){
@@ -30,13 +30,15 @@ jQuery(function(){
 		});
 	});
 });
-// create custom animation algorithm for jQuery called "bouncy"
+
+/* create custom animation algorithm for jQuery called "bouncy" */
 $.easing.bouncy = function (x, t, b, c, d) {
     var s = 1.70158;
     if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
     return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
 }
-// create custom tooltip effect for jQuery Tooltip
+
+/* create custom tooltip effect for jQuery Tooltip */
 $.tools.tooltip.addEffect("bouncy",
 	// opening animation
 	function(done) {
@@ -50,6 +52,7 @@ $.tools.tooltip.addEffect("bouncy",
 		});
 	}
 );
+
 /* Italian initialisation for the jQuery UI date picker plugin. */
 /* Written by Antonello Pasella (antonello.pasella@gmail.com). */
 jQuery(function($){
@@ -73,6 +76,7 @@ jQuery(function($){
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['it']);
 });
+
 /*	ATTENTION! MAKE SURE YOU DO ALL AJAX CALLS ON DOCUMENT READY 
 	OTHERWISE AJAXSTART WON'T BE ABLE TO FIND THE DIV TO SHOW
 	AND WILL RETURN AN ERROR! */
@@ -88,7 +92,9 @@ jQuery(function($){
     $("#debuglog").append("<li style='font-weight:bold;'>Ajax requests queuing...</li>");
   	$("div#loading").show();
 	});
-/*  
+
+/* the following is simply for debugging ajax requests, to see if al requests go through successfully... */  
+/*
 $(document).ajaxError(function(event, request, settings){
      $("#debuglog").append("<li style='color:Red;>Error requesting page " + settings.url + "</li>");
   });
@@ -103,7 +109,8 @@ $(document).ajaxError(function(event, request, settings){
   $(document).ajaxSuccess(function(event, request, settings){
      $("#debuglog").append("<li style='color:Green;'>Successful Request! "+ settings.url +"</li>");
   });
-
+*/
+/*
 $.ajaxSetup({
     'beforeSend' : function(xhr) {
       if(xhr.overrideMimeType){
@@ -111,7 +118,8 @@ $.ajaxSetup({
     }}
 });
 */
-// PARSE THE URL QUERY STRING
+
+/* FUNCTION THAT PARSES THE URL QUERY STRING */
 function getArgs() {
   var argsobj,query,pairs,i,pos,argname,value; 
   argsobj = new Object();
@@ -126,70 +134,63 @@ function getArgs() {
   }
   return argsobj; 
 }
-var args,weekday,month;
-args = getArgs();
-// CLOCK FUNCTIONALITY
-weekday=new Array(7);
-weekday[0]="Domenica";
-weekday[1]="Lunedì";
-weekday[2]="Martedì";
-weekday[3]="Mercoledì";
-weekday[4]="Giovedì";
-weekday[5]="Venerdì";
-weekday[6]="Sabato";
-month=new Array(12);
-month[0]="Gennaio";
-month[1]="Febbraio";
-month[2]="Marzo";
-month[3]="Aprile";
-month[4]="Maggio";
-month[5]="Giugno";
-month[6]="Luglio";
-month[7]="Agosto";
-month[8]="Settembre";
-month[9]="Ottobre";
-month[10]="Novembre";
-month[11]="Dicembre";
+
+/* CLOCK FUNCTIONALITY */
+
+/* Add a "0" in front of numbers 0-9 */
 function checkTime(i) {
 	if (i<10){i="0" + i;}
 	return i;
 }
+
 function startTime(withthistimestamp, withlangset){
-  var today,h,m,s,dy,dt,mo,y,ap,mynewtimestamp,mylangset;
-  mynewtimestamp=null;
-  mylangset=null;
-  mynewtimestamp=withthistimestamp;
-  mylangset=withlangset;
-  today=new Date(mynewtimestamp);
-  h=today.getHours();
-  m=today.getMinutes();
-  s=today.getSeconds();
-  dy=today.getDay();
-  dt=today.getDate();
-  mo=today.getMonth();
-  y=today.getFullYear();
-  ap="";
-if(mylangset=="en"){
-	ap = " AM";
-	if (h > 11) { ap = " PM"; }
-	if (h > 12) { h = h - 12; }
-	if (h == 0) { h = 12; }
-	if(s==0&&m==0&&h==12){ $("div#currentdate").html(weekday[dy]+', '+month[mo]+' '+dt+', '+y); }
+  var mynewtimestamp=null,mylangset=null,mynewtimestamp=withthistimestamp,mylangset=withlangset,today=new Date(mynewtimestamp),h=today.getHours(),m=today.getMinutes(),s=today.getSeconds(),dy=today.getDay(),dt=today.getDate(),mo=today.getMonth(),y=today.getFullYear(),ap="";
+
+  if(mylangset=="en"){
+  	ap = " AM";
+  	if (h > 11) { ap = " PM"; }
+  	if (h > 12) { h = h - 12; }
+  	if (h == 0) { h = 12; }
+  	if(s==0&&m==0&&h==12){ $("div#currentdate").html(weekday.en[dy]+', '+month.en[mo]+' '+dt+', '+y); }
+  }
+  else if(mylangset=="it"){ 
+    if(s==0&&m==0&&h==0){ $("div#currentdate").html(weekday.it[dy]+', '+dt+' '+month.it[mo]+' '+y); }
+  }
+
+  // add a zero in front of numbers<10
+  h=checkTime(h);
+  m=checkTime(m);
+  s=checkTime(s);
+
+  $("div#clock").html(h+":"+m+":"+s+ap);
+  mynewtimestamp += 1000;
+  t = setTimeout(function(){startTime(mynewtimestamp, mylangset);},1000);
 }
-else if(s==0&&m==0&&h==0){ $("div#currentdate").html(weekday[dy]+', '+dt+' '+month[mo]+' '+y); }
-// add a zero in front of numbers<10
-h=checkTime(h);
-m=checkTime(m);
-s=checkTime(s);
-$("div#clock").html(h+":"+m+":"+s+ap);
-mynewtimestamp = mynewtimestamp+1000;
-setTimeout(function(){startTime(mynewtimestamp, mylangset);},1000);
-}
-// END OF CLOCK FUNCTIONALITY SETUP
+
+/* Initialize 1pixeloutAudioPlayer */
 AudioPlayer.setup("themes/glorioso/javascripts/1pixeloutplayer/player.swf", {  
 	transparentpagebg: "yes",
 	width: 200
     });  
+
+/* DECLARE GLOBAL VARIABLES */
+
+var weekday={
+  "it":["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"],
+  "en":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+  "es":["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+  "de":["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+  "fr":["Dimanche", "Lundi", "mardi", "mercredi", "Jeudi", "Vendredi", "Saturday"],
+  "ru":["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+},month={
+  "it":["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],
+  "en":["January","February","March","April","May","June","July","August","September","October","November","December"],
+  "es":["Enero", "Febrero", "Marzo", "Abril", "May", "junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+  "de":["Januar", "Februar", "März", "April", "könnte", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+  "fr":["Janvier", "Février", "Mars", "Avril", "May", "Juin", "Juillet", "août", "Septembre", "Octobre", "Novembre", "Décembre"],
+  "ru":["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+},args = getArgs(),t=null;
+
 /********************
  ** DOCUMENT READY **
  ********************/
