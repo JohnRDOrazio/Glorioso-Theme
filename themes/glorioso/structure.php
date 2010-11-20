@@ -231,6 +231,7 @@ if ($_THEME_CFG['use_gfc']==1){
   google.friendconnect.container.renderSocialBar(
    { id: '{$_THEME_CFG["gfc_social"]}',
      site: '{$_THEME_CFG["gfc_site"]}',
+     locale: '{$_FN["lang"]}',
      'view-params':{\"scope\":\"SITE\",\"allowAnonymousPost\":\"true\",\"features\":\"video,comment\",\"showWall\":\"true\"} },skin);
   </script>";
 }
