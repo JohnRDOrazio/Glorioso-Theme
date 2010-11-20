@@ -88,7 +88,8 @@ jQuery(function($){
     $("#debuglog").append("<li style='font-weight:bold;'>Ajax requests queuing...</li>");
   	$("div#loading").show();
 	});
-  $(document).ajaxError(function(event, request, settings){
+/*  
+$(document).ajaxError(function(event, request, settings){
      $("#debuglog").append("<li style='color:Red;>Error requesting page " + settings.url + "</li>");
   });
   $(document).ajaxComplete(function(event, request, settings){
@@ -102,7 +103,7 @@ jQuery(function($){
   $(document).ajaxSuccess(function(event, request, settings){
      $("#debuglog").append("<li style='color:Green;'>Successful Request! "+ settings.url +"</li>");
   });
-/*
+
 $.ajaxSetup({
     'beforeSend' : function(xhr) {
       if(xhr.overrideMimeType){
