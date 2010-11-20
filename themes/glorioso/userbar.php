@@ -154,7 +154,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
           <!-- google friend connect button-->
             <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='Entra in questo sito con il tuo account google per avere funzioni sociali sul sito Parrocchia San Lino'></div>
             <script type="text/javascript">
-              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text":"Login with Google" });
+              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text": "<?php echo GFC_LOGIN ?>" });
             </script>
           <?php } ?>
           <!--  Registration button  --> 
