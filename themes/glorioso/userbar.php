@@ -92,13 +92,13 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 	    //if logged in with facebook connect, show facebook logout (which also logs out of the site)
 			if ($_THEME_CFG['use_fb']==1&&$_FB['me']){ 
 	?>
-				<span id="fb_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='Esci sia da facebook che da questo sito' >
+				<span id="fb_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _FB_LOGOUT ?>' >
 					<img id="fb_logout_image" src="images/social/fb_logout_small.gif" alt="Connect" />
 				</span>				
 	<?php }
 	    elseif ($_THEME_CFG['use_gfc']==1&&$_GFC['session']){
   ?>
-				<span id="gfc_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='Esci sia da google friend connect che da questo sito' >
+				<span id="gfc_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _GFC_LOGOUT ?>' >
 					<img src="images/social/google_logo.png" alt="Connect" width=16 />
 					Logout
 				</span>
@@ -106,7 +106,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
       }
       //else if user is only logged into the site and not to facebook connect, show flatnux logout
       else {  ?>
-		    	<div class='jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-state-active ui-priority-primary ui-corner-right' title='Esci da questo sito'><span class="ui-icon ui-icon-power"></span><a href="<?php echo $logouturl ?>"><?php echo _LOGOUT ?></a></div>
+		    	<div class='jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-state-active ui-priority-primary ui-corner-right' title='<?php echo _FN_LOGOUT ?>'><span class="ui-icon ui-icon-power"></span><a href="<?php echo $logouturl ?>"><?php echo _LOGOUT ?></a></div>
 	<?php } ?>
 	</div><!-- END USERDETAILS BUTTONSET -->
 <?php
@@ -132,34 +132,34 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
         <div id="login-span-wrapper">
           <span id="login-span">LOGIN</span>
           <?php if ($_THEME_CFG['use_fb']==1){ ?>
-          <img src="images/social/logo-facebook-small.png" width=16 style="margin-left:10px;" title="login con facebook connect" />
+          <img src="images/social/logo-facebook-small.png" width=16 style="margin-left:10px;" title="<?php echo _FB_LOGIN ?>" />
           <?php }
                 if ($_THEME_CFG['use_gfc']==1){ ?>
-          <img src="images/social/google_logo.png" width=16 style="margin-left:10px;" title="login con il tuo account google" />
+          <img src="images/social/google_logo.png" width=16 style="margin-left:10px;" title="<?php echo _GFC_LOGIN ?>" />
           <?php } ?>
           <span style="float:right;" class="ui-icon ui-icon-carat-1-s"></span>
         </div>
         <div id="userlogin-dropdown" class="ui-corner-all" style="display:none;">
       	  <!-- link to site login page -->
-          <div id='flatnuxlogin' class='jqtooltip-dx ui-corner-all' title='Entra in questo sito (ti potrai registrare se ancora non l&apos;hai fatto).' rel="<?php echo find_section('login')?>">
+          <div id='flatnuxlogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FN_LOGIN ?>' rel="<?php echo find_section('login')?>">
             <a href="<?php echo $loginurl ?>"><span class="ui-icon ui-icon-power" style="float:left;"></span><?php echo _LOGIN ?></a>
           </div>
       		<?php if ($_THEME_CFG['use_fb']==1){ ?>
           <!-- facebook login button -->		
-      		<div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='Entra in questo sito con il tuo account facebook per avere funzioni sociali sul sito Parrocchia San Lino'>
+      		<div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FB_LOGIN ?>'>
       					<img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
       		</div>    
           <?php } ?>
       		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
           <!-- google friend connect button-->
-            <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='Entra in questo sito con il tuo account google per avere funzioni sociali sul sito Parrocchia San Lino'></div>
+            <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='<?php echo _GFC_LOGIN_BTN ?>'></div>
             <script type="text/javascript">
               google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text": "<?php echo GFC_LOGIN ?>" });
             </script>
           <?php } ?>
           <!--  Registration button  --> 
       	  <?php if ( $_FN['enable_registration'] == 1 ) {  ?>
-      		<div class="jqtooltip-dx ui-corner-all" title="Registrati ora se ancora non l'hai fatto!">
+      		<div class="jqtooltip-dx ui-corner-all" title="<?php echo _FN_REGISTER ?>">
             <span class="ui-icon ui-icon-star" style="float:left;"></span><a href="<?php echo $urlregistrazione ?>"><?php echo fn_i18n("_REGORA"); ?></a>
           </div>
       	  <?php } ?>
@@ -177,7 +177,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 <!-- TOP DIV: SEARCH - ADMIN - LANG - THEME -->
 <div style="margin: 5px 0px 0px 5px;" class="ui-helper-clearfix">
 	<!-- SEARCH FIELD -->
-		<button id="CTRLPAN_SEARCH" style="float:left;" class="jqtooltip-dx" onclick="location.href='<?php echo $_FN['self']?>?mod=search'" title="Effettua una ricerca sul sito">
+		<button id="CTRLPAN_SEARCH" style="float:left;" class="jqtooltip-dx" onclick="location.href='<?php echo $_FN['self']?>?mod=search'" title="<?php echo _USERBAR_SEARCH ?>">
       <?php echo _CERCA;?>
     </button>
 	<!-- USERSTUFF BUTTONSET -->
@@ -185,8 +185,8 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 	<?php if ($_FN ['user'] != "") { // if already logged in
 		//CONTROLCENTER
 	    if (isadmin ()) {	?>
-			<input type="checkbox" id="CTRLPAN_ADMIN" /><label for="CTRLPAN_ADMIN" class="jqtooltip-dx" title="<?php echo _MANAGEFLATNUKE;?> (Pannello di Controllo)">CtlPan</label>
-	    <input type="checkbox" id="THEME_CFG" /><label for="THEME_CFG" class="jqtooltip-dx" title="Configura il tema (config.php)">Cfg Theme</label>
+			<input type="checkbox" id="CTRLPAN_ADMIN" /><label for="CTRLPAN_ADMIN" class="jqtooltip-dx" title="<?php echo _MANAGEFLATNUKE;?>">CtlPan</label>
+	    <input type="checkbox" id="THEME_CFG" /><label for="THEME_CFG" class="jqtooltip-dx" title="<?php echo _USERBAR_THEMECFG ?>">Cfg Theme</label>
       <?php }
 		//FILEMANAGER
 		if ( user_can_edit_section($_FN['vmod']) )
@@ -206,21 +206,21 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
   <!-- END USERSTUFF BUTTONSET -->
 	<!-- SHOW/HIDE, LANG and THEME right floated -->
 	<div id="toolbar-hide" style="float:right;" class="fg-button fg-button-icon-left ui-corner-top"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span>HIDE</div>
-	<div class="jqtooltip-dx" title="Visualizza questo sito in altre lingue (anche se non è ancora tradotto... Beh vedi tu!!!)" style="float:right;"><?php getlangs(); ?></div>
+	<div class="jqtooltip-dx" title="<?php echo _USERBAR_LANGS ?>" style="float:right;"><?php getlangs(); ?></div>
 	<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
-	<div id="gloriosothemeswitcher" class="jqtooltip-dx" title="Scegli il tema che più ti piace, si applicherà al volo!"></div>
+	<div id="gloriosothemeswitcher" class="jqtooltip-dx" title="<?php echo _USERBAR_THEMESWITCHER ?>"></div>
 </div>
 <!-- END TOP DIV: SEARCH - ADMIN - LANG - THEME -->
 <!-- START BOTTOM RIGHT DIV: FACEBOOK AND CLOCK -->
 <div style="border-top:inset 1px red;margin: 5px 0px 0px 5px;" class="ui-helper-clearfix">
   <!-- FACEBOOK LIKE AND FACEBOOK BOOKMARK ON THE LINE BELOW, TO THE LEFT -->
 <?php if ($_THEME_CFG['use_fb']==1){ ?>
-  	<div id="fb_bookmark_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Aggiungi un segnalibro al tuo home su facebook per raggiungere facilmente questa applicazione!"><fb:bookmark></fb:bookmark></div>
-    <div id="fb_like_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="Fai sapere ai tuoi amici che ti piace questo sito!"><fb:like layout="button_count" colorscheme="light" href="<?php echo $_FN['siteurl'] ?>"></fb:like></div>
+  	<div id="fb_bookmark_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="<?php echo _USERBAR_BOOKMARK ?>"><fb:bookmark></fb:bookmark></div>
+    <div id="fb_like_btn" class="jqtooltip-dx" style="float:left;margin-right:5px;" title="<?php echo _USERBAR_LIKE ?>"><fb:like layout="button_count" colorscheme="light" href="<?php echo $_FN['siteurl'] ?>"></fb:like></div>
 <?php } ?>
   <!-- CLOCK -->
   <div id="clockwrapper">
-    <img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="Visualizza il Calendario degli Eventi" />
+    <img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="<?php echo _USERBAR_CAL ?>" />
     <!-- Calendar feed as defined in config.php -->
     <input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
     <?php include("fullcalendar.php"); ?>
