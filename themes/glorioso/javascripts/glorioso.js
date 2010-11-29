@@ -309,7 +309,8 @@ if ($("div#facebooklogin").length!=0){
         } else {
           // user is logged in, but did not grant any permissions
         }
-      location.reload();
+        ( args['opmod']=='profile' ) ? location.reload() : location.href="index.php?mod=login&opmod=profile";
+
       } else {
         // user is not logged in
       }
