@@ -328,7 +328,7 @@ if ($("span#fb_logout").length!=0){
   					hide: {effect:'fadeOut',speed:1000}
       });
     }
-    $("div#logoutmsg").html("Stai uscendo sia da facebook che dal sito parrocchiale...").dialog("open");
+    $("div#logoutmsg").html("Stai uscendo sia da facebook che da questo sito...").dialog("open");
     FB.logout(function(response) { location.href='index.php?mod=login&op=logout'; });
   });
 }
@@ -348,7 +348,7 @@ if ($("span#gfc_logout").length!=0){
   					hide: {effect:'fadeOut',speed:1000}
       });
     }
-    $("div#logoutmsg").html("Stai uscendo sia da google friend connect che dal sito parrocchiale...").dialog("open");
+    $("div#logoutmsg").html("Stai uscendo sia da google friend connect che da questo sito...").dialog("open");
     google.friendconnect.requestSignOut();
   });
 }
