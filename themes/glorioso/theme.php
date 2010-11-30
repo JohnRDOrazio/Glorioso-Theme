@@ -322,13 +322,12 @@ function create_h_menu($separator="|"){
 				$title = getLang ( $filelang, $title );
 			}
 			
-			if (ob_start ())
-			{
-				
+			if (extension_loaded('gzip')) {//check extension is loaded
+        if(!ob_start('ob_gzhandler')) ob_start();//start HTML compression, if not normal buffer input mode
 				fn_include ( "blocks/$edge/$mod" );
 				$string = ob_get_contents ();
 				ob_end_clean ();
-			}
+      }
 			// se il blocco e' vuoto esco
 			if ($string != "")
 			{
