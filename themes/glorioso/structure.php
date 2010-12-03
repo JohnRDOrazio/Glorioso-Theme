@@ -193,6 +193,38 @@ if ($_THEME_CFG['use_fb']==1){
 </script>";
 }
 
+if ($_THEME_CFG['use_messlive']==1){
+  echo "<script type=\"text/javascript\">
+var dataContext;
+var auth;
+
+// Callback for when the Application successfully loads.
+function appLoaded(appLoadedEventArgs) {
+    auth = Microsoft.Live.App.get_auth();
+}
+
+// Callback for when Sign in completes. Check whether it was successful.
+function signInCompleted() {
+    if (auth.get_state() === Microsoft.Live.AuthState.failed) {
+        Sys.Debug.trace('Authentication failed.');
+        return;
+    }
+    else if (auth.get_state() === Microsoft.Live.AuthState.authenticated) {
+        Sys.Debug.trace('Authentication succeeded.');
+        dataContext = Microsoft.Live.App.get_dataContext();
+        location.href = '?mod=login&opmod=profile';
+    }
+}
+
+function signOutCompleted() {
+    // Perform actions upon signing out.
+    Sys.Debug.trace('Good-bye.');
+    location.href = '?mod=login&op=logout';
+}
+</script>
+";
+}
+
 if ($_THEME_CFG['use_gan']==1){   ?>
 <!-- Account Google Analytics -->
 <script type="text/javascript">
