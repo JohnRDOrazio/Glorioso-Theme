@@ -47,7 +47,10 @@ require_once("social_registration_functions.php");
  * Create single providers and sessions according to Theme Settings   *
  * *******************************************************************/ 
 if ($_THEME_CFG['use_fb']==1){
-  session_start();  
+  if( !isset( $_SESSION ) ) { session_start(); }
+  if( isset( $_SESSION['REMOTE_ADDR'] ) && $_SESSION['REMOTE_ADDR'] != $_SERVER['REMOTE_ADDR'] ) 
+  { session_regenerate_id(); $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR']; }
+  if( !isset( $_SESSION['REMOTE_ADDR'] ) ) { $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR']; }
   define('FACEBOOK_APP_ID', $_THEME_CFG['fb_app_id']);
   define('FACEBOOK_SECRET', $_THEME_CFG['fb_secret']);
   $_SESSION['FB'] = Array();
@@ -194,7 +197,10 @@ if ($_THEME_CFG['use_fb']==1){
   } // END IF FB ME (session)
 }
 if ($_THEME_CFG['use_gfc']==1){
-  session_start();  
+  if( !isset( $_SESSION ) ) { session_start(); }
+  if( isset( $_SESSION['REMOTE_ADDR'] ) && $_SESSION['REMOTE_ADDR'] != $_SERVER['REMOTE_ADDR'] ) 
+  { session_regenerate_id(); $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR']; }
+  if( !isset( $_SESSION['REMOTE_ADDR'] ) ) { $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR']; }
   define('GFC_SITE_ID', $_THEME_CFG['gfc_site']);
   $_SESSION['GFC'] = Array();
   $_GFC = &$_SESSION['GFC'];
@@ -283,7 +289,10 @@ if ($_THEME_CFG['use_gfc']==1){
 }
 if($_THEME_CFG['use_messlive']==1){
   // Get the session running
-  session_start();
+  if( !isset( $_SESSION ) ) { session_start(); }
+  if( isset( $_SESSION['REMOTE_ADDR'] ) && $_SESSION['REMOTE_ADDR'] != $_SERVER['REMOTE_ADDR'] ) 
+  { session_regenerate_id(); $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR']; }
+  if( !isset( $_SESSION['REMOTE_ADDR'] ) ) { $_SESSION['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR']; }
   
   // Application Specific Globals
   define('WRAP_CLIENT_ID', '$_THEME_CFG["messlive_appid"]');
