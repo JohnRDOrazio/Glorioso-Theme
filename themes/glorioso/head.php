@@ -1,6 +1,29 @@
 <?php
 
 global $_THEME_CFG;
+// define iso-coded lang parameters
+switch($_FN['lang']){
+  case "it":
+    define("_FN_LANG","it_IT");
+    break;
+  case "en":
+    define("_FN_LANG","en_US");
+    break;
+  case "de":
+    define("_FN_LANG","de_DE");
+    break;
+  case "es":
+    define("_FN_LANG","es_ES");
+    break;
+  case "fr":
+    define("_FN_LANG","fr_FR");
+    break;
+  case "ru":
+    define("_FN_LANG","ru_RU");
+    break;
+  default:
+    define("_FN_LANG","it_IT");
+}
 
 /************************************************************
 *         START TO BUILD DOCUMENT                           *
@@ -12,7 +35,7 @@ global $_THEME_CFG;
 	$xmlns_wl = "xmlns:wl=\"http://apis.live.net/js/2010\"";
 	$close_tag = "";
 	echo theme_doctype ();  // html 5, defined in theme.php
-	echo "<html $xmlns $xmlns_fb $xmlns_wl lang=\"{$_FN['lang']}\">\n";
+	echo "<html $xmlns $xmlns_fb $xmlns_wl lang=\"_FN_LANG}\">\n";
 	echo "<head>\n";
 	$sitename = $_FN['sitetitle'] ;
 	if ( $_FN['vmod'] != "" )
@@ -26,7 +49,7 @@ global $_THEME_CFG;
 		include ( "sections/" . $_FN['vmod'] . "/sethead.php" );
 	echo "\t<title>{$_FN['sitetitle']}</title>\n";
 	echo "\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" . _CHARSET . "\" $close_tag>\n";
-	echo "\t<meta name=\"Content-Language\" content=\"{$_FN['lang']}\" $close_tag>\n";
+	echo "\t<meta name=\"Content-Language\" content=\"{_FN_LANG}\" $close_tag>\n";
 	echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta http-equiv=\"EXPIRES\" content=\"0\" $close_tag>\n";
 	echo "\t<meta name=\"DISTRIBUTION\" content=\"GLOBAL\" $close_tag>\n";
