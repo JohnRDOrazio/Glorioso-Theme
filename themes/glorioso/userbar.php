@@ -161,9 +161,9 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
           <?php } ?>
       		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
           <!-- google friend connect button-->
-            <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='<?php echo _GFC_LOGIN_BTN ?>'></div>
+            <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='<?php echo _GFC_LOGIN ?>'></div>
             <script type="text/javascript">
-              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"standard", "text": "<?php echo _GFC_LOGIN ?>" });
+              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text":"<?php echo _GFC_LOGIN_BTN ?>" });
             </script>
           <?php } ?>
           <?php if ($_THEME_CFG['use_fb']==1){ ?>
