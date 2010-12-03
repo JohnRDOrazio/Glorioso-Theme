@@ -7,10 +7,12 @@ global $_THEME_CFG;
 ************************************************************/
 
 	// start HTML headers
-	$xmlns_fb = "xmlns:fb=\"http://www.facebook.com/2008/fbml\"";
+	$xmlns = "xmlns=\"http://www.w3.org/1999/xhtml\"";
+  $xmlns_fb = "xmlns:fb=\"http://www.facebook.com/2008/fbml\"";
+	$xmlns_wl = "xmlns:wl=\"http://apis.live.net/js/2010\"";
 	$close_tag = "";
 	echo theme_doctype ();  // html 5, defined in theme.php
-	echo "<html $xmlns_fb lang=\"{$_FN['lang']}\">\n";
+	echo "<html $xmlns $xmlns_fb $xmlns_wl lang=\"{$_FN['lang']}\">\n";
 	echo "<head>\n";
 	$sitename = $_FN['sitetitle'] ;
 	if ( $_FN['vmod'] != "" )
