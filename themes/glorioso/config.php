@@ -211,6 +211,18 @@ $_THEME_CFG['fb_app_id'] = "";
 #[en]If you want to link the facebook connect functionality of your site with a facebook profile or a group that you have administrative rights for, insert the ID here:
 $_THEME_CFG['fb_gid'] = "";
 
+/* Messenger Live Connect */
+
+#[it]Voglio usare Messenger Live Connect   {1=SI,0=NO}
+#[en]I would like to use Messenger Connect  {1=YES,0=NO}
+$_THEME_CFG['use_messlive'] = 0;
+#[it]ID Cliente Applicazione Messenger Live
+#[en]Messenger Live Application Client ID
+$_THEME_CFG['messlive_app_id'] = "";
+#[it]Chiave segreta applicazione Messenger Live Connect
+#[en]Messenger Live Connect application secret key
+$_THEME_CFG['messlive_secret'] = "";
+
 /* Orkut */
 
 #[it]Voglio usare Orkut Connect   {1=SI,0=NO}
