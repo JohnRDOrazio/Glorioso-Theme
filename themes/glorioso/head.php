@@ -179,6 +179,9 @@ else{
   echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery.address-1.3.min.js\"></script>\n" : "";
   echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/glorioso.js\"></script>" : "";
 
+	/* Messenger Live Connect */
+	echo ($_THEME_CFG['use_messlive']==1) ? "<script type=\"text/javascript\" src=\"http://js.live.net/4.1/loader.js\"></script>" : "";
+
 	/* Preferisco usare questa funzione che ho definito in "themes/THISTHEME/theme.php" piuttosto che "IncludeJavascripts()" definita in "include/functions.php" di Flatnux, perché quest'ultima carica i javascripts di "include/javascripts" in ordine casuale mentre la mia li carica in ordine logico-alfabetico. Caricando in ordine logico-alfabetico permette di rispettare eventuali dipendenze tra plugins aggiungendo un numero iniziale, similmente ai blocchi e alle sezioni di Flatnux. */
 	MyIncludeJavascripts ();
 
