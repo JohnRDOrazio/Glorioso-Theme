@@ -47,9 +47,11 @@ require_once("social_registration_functions.php");
  * Create single providers and sessions according to Theme Settings   *
  * *******************************************************************/ 
 if ($_THEME_CFG['use_fb']==1){
+  session_start();  
   define('FACEBOOK_APP_ID', $_THEME_CFG['fb_app_id']);
   define('FACEBOOK_SECRET', $_THEME_CFG['fb_secret']);
-  $_FB = Array();
+  $_SESSION['FB'] = Array();
+  $_FB = &$_SESSION['FB'];
   $_FB['provider'] = new Facebook(array(
     'appId'  => FACEBOOK_APP_ID,
     'secret' => FACEBOOK_SECRET,
@@ -192,8 +194,10 @@ if ($_THEME_CFG['use_fb']==1){
   } // END IF FB ME (session)
 }
 if ($_THEME_CFG['use_gfc']==1){
+  session_start();  
   define('GFC_SITE_ID', $_THEME_CFG['gfc_site']);
-  $_GFC = Array();
+  $_SESSION['GFC'] = Array();
+  $_GFC = &$_SESSION['GFC'];
   $_GFC['provider'] = new osapiFriendConnectProvider();
   $_GFC['session'] = getSocialSession("gfc",$_THEME_CFG['gfc_site']);
   define('GFC_ACCESS_TOKEN', $_GFC['session']['access_token']);
@@ -276,6 +280,29 @@ if ($_THEME_CFG['use_gfc']==1){
       }     
     } // END IF NOT SET GET "SPEC" (which means some sort of specific action)
   } // END IF WE HAVE A GOOGLE FRIEND ACCOUNT SESSION
+}
+if($_THEME_CFG['use_messlive']==1){
+  // Get the session running
+  session_start();
+  
+  // Application Specific Globals
+  define('WRAP_CLIENT_ID', '$_THEME_CFG["messlive_appid"]');
+  define('WRAP_CLIENT_SECRET','$_THEME_CFG["messlive_secret"]');
+  define('WRAP_CALLBACK', 'http://' . $_SERVER['HTTP_HOST'] . '/themes/include/messengerlive_connect/OAuthWrapCallback.php');
+  define('WRAP_CHANNEL_URL', 'http:// ' . $_SERVER['HTTP_HOST'] . '/themes/include/messengerlive_connect/channel.htm');
+  
+  // Live URLs required for making requests.
+  define('WRAP_CONSENT_URL', 'https://consent.live.com/Connect.aspx');
+  define('WRAP_ACCESS_URL', 'https://consent.live.com/AccessToken.aspx');
+  define('WRAP_REFRESH_URL', 'https://consent.live.com/RefreshToken.aspx');
+  
+  require_once('OAuthWrapHandler.php');
+  $_SESSION['MESSLIVE'] = Array();
+  $_MESSLIVE = &$_SESSION['MESSLIVE'];
+  $_MESSLIVE['provider'] = new OAuthWrapHandler();
+  $_MESSLIVE['provider']->processRequest();
+
+
 }
 /*********************************************************************/
 /* Unfortunately none of the following are yet at all simple to use  */

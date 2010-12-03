@@ -102,7 +102,12 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 					<img src="images/social/google_logo.png" alt="Connect" width=16 />
 					Logout
 				</span>
-  <?php
+  <?php }
+      elseif ($_THEME_CFG['use_messlive']==1&&$_MESSLIVE['session']){
+  ?>
+        <span id="messlive_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _MESSLIVE_LOGOUT ?>' >
+          <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted" />
+        </span>
       }
       //else if user is only logged into the site and not to facebook connect, show flatnux logout
       else {  ?>
@@ -132,11 +137,15 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
         <div id="login-span-wrapper">
           <span id="login-span">LOGIN</span>
           <?php if ($_THEME_CFG['use_fb']==1){ ?>
-          <img src="images/social/logo-facebook-small.png" width=16 style="margin-left:10px;" title="<?php echo _FB_LOGIN ?>" />
+          <img src="images/social/logo-facebook-small.png" style="width:16px;margin-left:10px;" title="<?php echo _FB_LOGIN ?>" />
           <?php }
                 if ($_THEME_CFG['use_gfc']==1){ ?>
-          <img src="images/social/google_logo.png" width=16 style="margin-left:10px;" title="<?php echo _GFC_LOGIN ?>" />
-          <?php } ?>
+          <img src="images/social/google_logo.png" style="width:16px;margin-left:10px;" title="<?php echo _GFC_LOGIN ?>" />
+          <?php } 
+                if ($_THEME_CFG['use_messlive']==1){ ?>
+          <img src="images/social/windowsLiveLogo.png" style="width:16px;margin-left:10px;" title="<?php echo _MESSLIVE_LOGIN ?>" />
+          <?php }
+          ?>
           <span style="float:right;" class="ui-icon ui-icon-carat-1-s"></span>
         </div>
         <div id="userlogin-dropdown" class="ui-corner-all" style="display:none;">
@@ -146,9 +155,9 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
           </div>
       		<?php if ($_THEME_CFG['use_fb']==1){ ?>
           <!-- facebook login button -->		
-      		<div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FB_LOGIN ?>'>
-      					<img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
-      		</div>    
+      		  <div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FB_LOGIN ?>'>
+      		    <img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
+      		  </div>    
           <?php } ?>
       		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
           <!-- google friend connect button-->
@@ -156,6 +165,12 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
             <script type="text/javascript">
               google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text": "<?php echo GFC_LOGIN ?>" });
             </script>
+          <?php } ?>
+          <?php if ($_THEME_CFG['use_fb']==1){ ?>
+          <!-- messenger live login button -->    
+            <div id='messlivelogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _MESSLIVE_LOGIN ?>'>
+              <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted" /> 
+            </div>    
           <?php } ?>
           <!--  Registration button  --> 
       	  <?php if ( $_FN['enable_registration'] == 1 ) {  ?>

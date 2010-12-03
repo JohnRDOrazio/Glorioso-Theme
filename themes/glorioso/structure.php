@@ -21,6 +21,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Sign out from {$_FN['sitename']} and from Google Friend Connect");
     define("_FB_LOGIN","Sign in to {$_FN['sitename']} with Facebook Connect");
     define("_FB_LOGOUT","Sign out from {$_FN['sitename']} and from Facebook");
+    define("_MESSLIVE_LOGIN","Sign in to {$_FN['sitename']} with Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Sign out from {$_FN['sitename']} and from Messenger Live Connect");
     define("_FN_LOGIN","Sign in to {$_FN['sitename']} (or create a new account)");
     define("_FN_LOGOUT","Sign out from {$_FN['sitename']}");
     define("_FN_REGISTER","Create a new account on {$_FN['sitename']}");
@@ -39,6 +41,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Esci da {$_FN['sitename']} e da Google Friend Connect");
     define("_FB_LOGIN","Accedi a {$_FN['sitename']} con Facebook Connect");
     define("_FB_LOGOUT","Esci da {$_FN['sitename']} e da Facebook");
+    define("_MESSLIVE_LOGIN","Accedi a {$_FN['sitename']} con Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Esci da {$_FN['sitename']} e da Messenger Live Connect");
     define("_FN_LOGIN","Entra in questo sito (oppure registra un nuovo account)");
     define("_FN_LOGOUT","Esci da {$_FN['sitename']}");
     define("_FN_REGISTER","Registra un nuovo account su {$_FN['sitename']}");
@@ -57,6 +61,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Beenden {$_FN['sitename']} und Google Friend Connect");
     define("_FB_LOGIN","Melden Sie sich bei {$_FN['sitename']} mit Facebook Connect");
     define("_FB_LOGOUT","Beenden {$_FN['sitename']} und Facebook");
+    define("_MESSLIVE_LOGIN","Melden Sie sich bei {$_FN['sitename']} mit Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Beenden {$_FN['sitename']} und Messenger Live Connect");
     define("_FN_LOGIN","Melden Sie sich bei {$_FN['sitename']} (Oder ein neues Konto eröffnen)");
     define("_FN_LOGOUT","Beenden {$_FN['sitename']}");
     define("_FN_REGISTER","Erstellen Sie ein neues Konto auf {$_FN['sitename']}");
@@ -75,6 +81,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Sortir de {$_FN['sitename']} et de Google Friend Connect");
     define("_FB_LOGIN","Connectez-vous à {$_FN['sitename']} avec Facebook Connect");
     define("_FB_LOGOUT","Sortir de {$_FN['sitename']} et de Facebook");
+    define("_MESSLIVE_LOGIN","Connectez-vous à {$_FN['sitename']} avec Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Sortir de {$_FN['sitename']} et de Messenger Live Connect");
     define("_FN_LOGIN","Connectez-vous à {$_FN['sitename']} (Ou créer un nouveau compte)");
     define("_FN_LOGOUT","Sortir de {$_FN['sitename']}");
     define("_FN_REGISTER","Créez-vous un nouveau compte sur {$_FN['sitename']}");
@@ -93,6 +101,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Sal de {$_FN['sitename']} y de Google Friend Connect");
     define("_FB_LOGIN","Ingresa a {$_FN['sitename']} con Facebook Connect");
     define("_FB_LOGOUT","Sal de {$_FN['sitename']} y de Facebook");
+    define("_MESSLIVE_LOGIN","Ingresa a {$_FN['sitename']} con Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Sal de {$_FN['sitename']} y de Messenger Live Connect");
     define("_FN_LOGIN","Ingresa a {$_FN['sitename']} (O crear una cuenta nueva)");
     define("_FN_LOGOUT","Sal de {$_FN['sitename']}");
     define("_FN_REGISTER","Crea una nueva cuenta en {$_FN['sitename']}");
@@ -111,6 +121,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Выйти из {$_FN['sitename']} и от Google Friend Connect");
     define("_FB_LOGIN","Войти на {$_FN['sitename']} с Facebook Connect");
     define("_FB_LOGOUT","Выход из {$_FN['sitename']} и Facebook");
+    define("_MESSLIVE_LOGIN","Войти на {$_FN['sitename']} с Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Выйти из {$_FN['sitename']} и от Messenger Live Connect");
     define("_FN_LOGIN","Войти на {$_FN['sitename']} (или зарегистрировать новую учетную запись)");
     define("_FN_LOGOUT","Выход из {$_FN['sitename']}");
     define("_FN_REGISTER","Создать новую учетную запись на {$_FN['sitename']}");
@@ -129,6 +141,8 @@ switch($_FN['lang']){
     define("_GFC_LOGOUT","Sign out from {$_FN['sitename']} and from Google Friend Connect");
     define("_FB_LOGIN","Sign in to {$_FN['sitename']} with Facebook Connect");
     define("_FB_LOGOUT","Sign out from {$_FN['sitename']} and from Facebook");
+    define("_MESSLIVE_LOGIN","Sign in to {$_FN['sitename']} with Messenger Live Connect");
+    define("_MESSLIVE_LOGOUT","Sign out from {$_FN['sitename']} and from Messenger Live Connect");
     define("_FN_LOGIN","Sign in to {$_FN['sitename']} (or create a new account)");
     define("_FN_LOGOUT","Sign out from {$_FN['sitename']}");
     define("_FN_REGISTER","Create a new account on {$_FN['sitename']}");
@@ -194,9 +208,17 @@ if ($_THEME_CFG['use_fb']==1){
 }
 
 if ($_THEME_CFG['use_messlive']==1){
-  echo "<script type=\"text/javascript\">
-var dataContext;
-var auth;
+  echo "<div id=\"messlive-root\">
+        <wl:app
+          channel-url={WRAP_CHANNEL_URL}
+          callback-url={WRAP_CALLBACK}
+          client-id={WRAP_CLIENT_ID}
+          scope=\"WL_Profiles.View,WL_Contacts.View\"
+          onload=\"appLoaded\">
+        </wl:app>  
+        </div>
+<script type=\"text/javascript\">
+var dataContext,auth;
 
 // Callback for when the Application successfully loads.
 function appLoaded(appLoadedEventArgs) {
@@ -212,6 +234,7 @@ function signInCompleted() {
     else if (auth.get_state() === Microsoft.Live.AuthState.authenticated) {
         Sys.Debug.trace('Authentication succeeded.');
         dataContext = Microsoft.Live.App.get_dataContext();
+        listContacts();
         location.href = '?mod=login&opmod=profile';
     }
 }
@@ -220,6 +243,22 @@ function signOutCompleted() {
     // Perform actions upon signing out.
     Sys.Debug.trace('Good-bye.');
     location.href = '?mod=login&op=logout';
+}
+// Load contacts and list them.
+function listContacts() {
+    var contactCollection;
+    dataContext.loadAll(Microsoft.Live.DataType.contacts, function(args) {
+        if (args.get_resultCode() !== Microsoft.Live.AsyncResultCode.success) {
+            Sys.Debug.trace('listContacts: Error retrieving contacts. ' + args.get_error().message);
+            return;
+        }
+        contactCollection = args.get_data();
+        Sys.Debug.trace('listContacts: Successfully retrieved contacts: ' + contactCollection.get_length() + ' entries');
+        // Contacts loaded. Show the displayname for each:
+        for (var i = 0; i < contactCollection.get_length(); i++) {
+            Sys.Debug.trace('listContacts: Contact ' + i + ': ' + contactCollection.get_item(i).get_formattedName());
+        }
+    })
 }
 </script>
 ";
