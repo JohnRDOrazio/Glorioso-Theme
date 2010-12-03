@@ -163,7 +163,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
           <!-- google friend connect button-->
             <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='<?php echo _GFC_LOGIN_BTN ?>'></div>
             <script type="text/javascript">
-              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"short", "text": "<?php echo _GFC_LOGIN ?>" });
+              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"standard", "text": "<?php echo _GFC_LOGIN ?>" });
             </script>
           <?php } ?>
           <?php if ($_THEME_CFG['use_fb']==1){ ?>
