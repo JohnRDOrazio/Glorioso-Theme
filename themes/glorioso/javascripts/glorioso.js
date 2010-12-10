@@ -135,37 +135,108 @@ function getArgs() {
   return argsobj; 
 }
 
-/* CLOCK FUNCTIONALITY */
+/* JQCLOCK PLUGIN */
+(function($, undefined) {
 
-/* Add a "0" in front of numbers 0-9 */
-function checkTime(i) {
-	if (i<10){i="0" + i;}
-	return i;
-}
-
-function startTime(withthistimestamp, withlangset){
-  var mynewtimestamp=null,mylangset=null,mynewtimestamp=withthistimestamp,mylangset=withlangset,today=new Date(mynewtimestamp),h=today.getHours(),m=today.getMinutes(),s=today.getSeconds(),dy=today.getDay(),dt=today.getDate(),mo=today.getMonth(),y=today.getFullYear(),ap="";
-
-  if(mylangset=="en"){
-  	ap = " AM";
-  	if (h > 11) { ap = " PM"; }
-  	if (h > 12) { h = h - 12; }
-  	if (h == 0) { h = 12; }
-  	if(s==0&&m==0&&h==12){ $("div#currentdate").html(weekday.en[dy]+', '+month.en[mo]+' '+dt+', '+y); }
+$.clock = { version: "1.0.0", locale: {} }
+  
+$.fn.clock = function(options) {
+  var locale = {
+    "it":{
+      "weekdays":["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"],
+      "months":["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"]
+    },
+    "en":{
+      "weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "months":["January","February","March","April","May","June","July","August","September","October","November","December"]
+    },
+    "es":{
+      "weekdays":["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+      "months":["Enero", "Febrero", "Marzo", "Abril", "May", "junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    },
+    "de":{
+      "weekdays":["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+      "months":["Januar", "Februar", "März", "April", "könnte", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+    },
+    "fr":{
+      "weekdays":["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+      "months":["Janvier", "Février", "Mars", "Avril", "May", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+    },
+    "ru":{
+      "weekdays":["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+      "months":["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+    }
   }
-  else if(mylangset=="it"){ 
-    if(s==0&&m==0&&h==0){ $("div#currentdate").html(weekday.it[dy]+', '+dt+' '+month.it[mo]+' '+y); }
-  }
 
-  // add a zero in front of numbers<10
-  h=checkTime(h);
-  m=checkTime(m);
-  s=checkTime(s);
+  return this.each(function(){
+    $.extend(locale,$.clock.locale);
+    options = options || {};  
+    if(options=="destroy"){ $(this).updateClock($(this),"destroy"); }
+    if(options.timestamp!=undefined){
+      mytimestamp = options.timestamp;
+      mytimestamp = new Date(options.timestamp);
+    }
+    else{ 
+      options.timestamp = new Date();
+      mytimestamp = options.timestamp;
+      options.timestamp = options.timestamp.getTime();
+    }
+    options.langSet = options.langSet || "en";
+    options.format = options.format || ((options.langSet!="en") ? "24" : "12");
+    options.calendar = options.calendar || "true";
 
-  $("div#clock").html(h+":"+m+":"+s+ap);
-  mynewtimestamp += 1000;
-  t = setTimeout(function(){startTime(mynewtimestamp, mylangset);},1000);
+    options.timestamp += 1000;
+    var addleadingzero = function(i){
+      if (i<10){i="0" + i;}
+      return i;    
+    },
+    h=mytimestamp.getHours(),
+    m=mytimestamp.getMinutes(),
+    s=mytimestamp.getSeconds(),
+    dy=mytimestamp.getDay(),
+    dt=mytimestamp.getDate(),
+    mo=mytimestamp.getMonth(),
+    y=mytimestamp.getFullYear(),
+    ap="",
+    calend="";
+  
+    if(options.format=="12"){
+      ap=" AM";
+      if (h > 11) { ap = " PM"; }
+      if (h > 12) { h = h - 12; }
+      if (h == 0) { h = 12; }
+    }
+
+    // add a zero in front of numbers 0-9
+    h=addleadingzero(h);
+    m=addleadingzero(m);
+    s=addleadingzero(s);
+
+    if(options.calendar!="false") {
+      if (options.langSet=="en") {
+        calend = "<span class='clockdate'>"+locale[options.langSet].weekdays[dy]+', '+locale[options.langSet].months[mo]+' '+dt+', '+y+"</span>";
+      }
+      else {
+        calend = "<span class='clockdate'>"+locale[options.langSet].weekdays[dy]+', '+dt+' '+locale[options.langSet].months[mo]+' '+y+"</span>";
+      }
+    }
+    if ( !$(this).hasClass("jqclock") ) {
+      $(this).addClass("jqclock");
+    }
+    $(this).html(calend+"<span class='clocktime'>"+h+":"+m+":"+s+ap+"</span>");
+    $(this).updateClock($(this),{"calendar":options.calendar,"timestamp":options.timestamp,"langSet":options.langSet,"format":options.format});
+  });
 }
+  t = new Array();
+  $.fn.updateClock = function(el,myoptions) {
+    var el_id = $(el).attr("id");
+    if(myoptions=="destroy"){ clearTimeout(t[el_id]); }
+    else { t[el_id] = setTimeout(function() {$(el).clock(myoptions)}, 1000); }
+    }
+
+  return this;
+
+})(jQuery);
 
 /* Initialize 1pixeloutAudioPlayer */
 AudioPlayer.setup("themes/glorioso/javascripts/1pixeloutplayer/player.swf", {  
@@ -175,21 +246,7 @@ AudioPlayer.setup("themes/glorioso/javascripts/1pixeloutplayer/player.swf", {
 
 /* DECLARE GLOBAL VARIABLES */
 
-var weekday={
-  "it":["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"],
-  "en":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-  "es":["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-  "de":["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
-  "fr":["Dimanche", "Lundi", "mardi", "mercredi", "Jeudi", "Vendredi", "Saturday"],
-  "ru":["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
-},month={
-  "it":["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],
-  "en":["January","February","March","April","May","June","July","August","September","October","November","December"],
-  "es":["Enero", "Febrero", "Marzo", "Abril", "May", "junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-  "de":["Januar", "Februar", "März", "April", "könnte", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
-  "fr":["Janvier", "Février", "Mars", "Avril", "May", "Juin", "Juillet", "août", "Septembre", "Octobre", "Novembre", "Décembre"],
-  "ru":["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
-},args = getArgs(),t=null;
+var args = getArgs(),t=null;
 
 /********************
  ** DOCUMENT READY **
@@ -428,21 +485,14 @@ $("div#userlogin").toggle(
 		//do not follow any anchors hrefs
 		return false;
 		});
-////////////////////////////////////////////////////////////////////
-//****************************************************************//
-// Begin updating clock div according to server time              //
-////////////////////////////////////////////////////////////////////
+
+/* Initialize clock */
 currenttimestamp = parseFloat($("input#current_timestamp").val() );
 currentlangset =($("input#current_langset").val() );
 currenttimestamp=currenttimestamp*1000;
-startTime(currenttimestamp, currentlangset);
-////////////////////////////////////////////////////////////////////
-// END OF BEGIN UPDATING CLOCK ACCORDING TO SERVER TIME           //
-//****************************************************************//
-////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////
-// CALENDARIO                                                     //
-////////////////////////////////////////////////////////////////////
+$("#clock").clock(currenttimestamp, currentlangset);
+
+// CALENDARIO
 $('#calendarviewer').fullCalendar({
     header: {
             left: 'prev,next today',
@@ -501,6 +551,7 @@ $('#calendarviewer').fullCalendar({
   	show: {effect:'explode',speed:1000},
   	hide: {effect:'explode',speed:1000}
 });
+
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
 gcalfeedurl = $("input#gcal-feed").val();
 if(gcalfeedurl!=""){
@@ -512,6 +563,7 @@ if(gcalfeedurl!=""){
           }
     ));
 }
+
 /* SE L'UTENTE E' AMMINISTRATORE DELLE NEWS, ALLORA PUO' INSERIRE EVENTI */
 $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
   if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
@@ -570,9 +622,8 @@ $("img#gloriosocal").hover(function(){
 				});
 		});
 	});
-////////////////////////////////////////////////////////////////////
-// CALENDAR EVENT CREATION                                        //
-////////////////////////////////////////////////////////////////////
+
+// CALENDAR EVENT CREATION
 $("button#btn_cal_create_event").click(function(){
   $("div#create_cal_event_wrapper").slideUp("slow");
   formdata = $("form#create_cal_event").serialize();
@@ -590,10 +641,8 @@ $("button#btn_cal_create_event").click(function(){
 $("input#startDate,input#endDate").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy-mm-dd',yearRange: '-10:+3'});
 $.datepicker.setDefaults($.datepicker.regional['']);
 $("input#startDate,input#endDate").datepicker('option', $.extend($.datepicker.regional['it']));
-////////////////////////////////////////////////////////////////////
-// END OF CALENDAR EVENT CREATION                                 //
-//****************************************************************//
-////////////////////////////////////////////////////////////////////
+
 //$(".fc-sun .fc-content").addClass("ui-highlight");
 //I can't quite seem to figure out how to change the text color on sundays
+
 });
