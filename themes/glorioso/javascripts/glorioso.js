@@ -102,10 +102,11 @@ $(document).ready(function(){
 							stop: function(event, ui) { $("body,body *").enableSelection(); }
 							});
 /* MAKE THE SIDE BLOCKS COLLAPSABLE */	
-	$(".flatnux-block-header .ui-icon").click(function() {
+	$(".flatnux-block-header .ui-icon-minusthick,.ui-icon-plusthick").click(function() {
 		$(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
 		$(this).parents(".flatnux-block:first").find(".flatnux-block-content").slideToggle(500,"easeOutElastic");
 		});
+
 /****************************************************************
  *          TOP USERPANEL CONFIGURATION                         *
  ***************************************************************/
