@@ -17,65 +17,17 @@ function opensocialregistration(params){
 }
 
 /* Function for disabling text selection on given elements (useful when using the sortable plugin) */
-jQuery(function(){
-	$.extend($.fn.disableTextSelect = function() {
-		return this.each(function(){
-			if($.browser.mozilla){//Firefox
-				$(this).css('MozUserSelect','none');
-			}else if($.browser.msie){//IE
-				$(this).bind('selectstart',function(){return false;});
-			}else{//Opera, etc.
-				$(this).mousedown(function(){return false;});
-			}
-		});
-	});
-});
+jQuery(function(){$.extend($.fn.disableTextSelect=function(){return this.each(function(){if($.browser.mozilla){$(this).css("MozUserSelect","none")}else{if($.browser.msie){$(this).bind("selectstart",function(){return false})}else{$(this).mousedown(function(){return false})}}})})});
 
 /* create custom animation algorithm for jQuery called "bouncy" */
-$.easing.bouncy = function (x, t, b, c, d) {
-    var s = 1.70158;
-    if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
-    return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
-}
+$.easing.bouncy=function(e,f,a,i,h){var g=1.70158;if((f/=h/2)<1){return i/2*(f*f*(((g*=(1.525))+1)*f-g))+a}return i/2*((f-=2)*f*(((g*=(1.525))+1)*f+g)+2)+a};
 
 /* create custom tooltip effect for jQuery Tooltip */
-$.tools.tooltip.addEffect("bouncy",
-	// opening animation
-	function(done) {
-		this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
-	},
-	// closing animation
-	function(done) {
-		this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
-			$(this).hide();
-			done.call();
-		});
-	}
-);
+$.tools.tooltip.addEffect("bouncy",function(a){this.getTip().animate({top:"+=15"},500,"bouncy",a).show()},function(a){this.getTip().animate({top:"-=15"},500,"bouncy",function(){$(this).hide();a.call()})});
 
 /* Italian initialisation for the jQuery UI date picker plugin. */
 /* Written by Antonello Pasella (antonello.pasella@gmail.com). */
-jQuery(function($){
-	$.datepicker.regional['it'] = {
-		closeText: 'Chiudi',
-		prevText: '&#x3c;Prec',
-		nextText: 'Succ&#x3e;',
-		currentText: 'Oggi',
-		monthNames: ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno',
-			'Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
-		monthNamesShort: ['Gen','Feb','Mar','Apr','Mag','Giu',
-			'Lug','Ago','Set','Ott','Nov','Dic'],
-		dayNames: ['Domenica','Luned&#236','Marted&#236','Mercoled&#236','Gioved&#236','Venerd&#236','Sabato'],
-		dayNamesShort: ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'],
-		dayNamesMin: ['Do','Lu','Ma','Me','Gi','Ve','Sa'],
-		weekHeader: 'Sm',
-		//dateFormat: 'dd/mm/yy',
-		firstDay: 1,
-		isRTL: false,
-		showMonthAfterYear: false,
-		yearSuffix: ''};
-	$.datepicker.setDefaults($.datepicker.regional['it']);
-});
+jQuery(function(a){a.datepicker.regional.it={closeText:"Chiudi",prevText:"&#x3c;Prec",nextText:"Succ&#x3e;",currentText:"Oggi",monthNames:["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"],monthNamesShort:["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"],dayNames:["Domenica","Luned&#236","Marted&#236","Mercoled&#236","Gioved&#236","Venerd&#236","Sabato"],dayNamesShort:["Dom","Lun","Mar","Mer","Gio","Ven","Sab"],dayNamesMin:["Do","Lu","Ma","Me","Gi","Ve","Sa"],weekHeader:"Sm",firstDay:1,isRTL:false,showMonthAfterYear:false,yearSuffix:""};a.datepicker.setDefaults(a.datepicker.regional.it)});
 
 /*	ATTENTION! MAKE SURE YOU DO ALL AJAX CALLS ON DOCUMENT READY 
 	OTHERWISE AJAXSTART WON'T BE ABLE TO FIND THE DIV TO SHOW
@@ -120,20 +72,7 @@ $.ajaxSetup({
 */
 
 /* FUNCTION THAT PARSES THE URL QUERY STRING */
-function getArgs() {
-  var argsobj,query,pairs,i,pos,argname,value; 
-  argsobj = new Object();
-  query = location.search.substring(1); 
-  pairs = query.split("&"); 
-  for(i = 0; i < pairs.length; i++) {
-    pos = pairs[i].indexOf('='); 
-    if (pos == -1) continue; 
-    argname = pairs[i].substring(0,pos); 
-    value = pairs[i].substring(pos+1);
-    argsobj[argname] = unescape(value); 
-  }
-  return argsobj; 
-}
+function getArgs(){var b,f,e,c,g,a,d;b=new Object();f=location.search.substring(1);e=f.split("&");for(c=0;c<e.length;c++){g=e[c].indexOf("=");if(g==-1){continue}a=e[c].substring(0,g);d=e[c].substring(g+1);b[a]=unescape(d)}return b};
 
 /* JQCLOCK PLUGIN */
 (function(a,b){a.clock={version:"1.0.0",locale:{}};t=new Array();a.fn.clock=function(d){var c={it:{weekdays:["Domenica","Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato"],months:["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"]},en:{weekdays:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],months:["January","February","March","April","May","June","July","August","September","October","November","December"]},es:{weekdays:["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],months:["Enero","Febrero","Marzo","Abril","May","junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]},de:{weekdays:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],months:["Januar","Februar","März","April","könnte","Juni","Juli","August","September","Oktober","November","Dezember"]},fr:{weekdays:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],months:["Janvier","Février","Mars","Avril","May","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]},ru:{weekdays:["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],months:["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"]}};return this.each(function(){a.extend(c,a.clock.locale);d=d||{};d.timestamp=d.timestamp||"z";y=new Date();y=y.getTime();d.sysdiff=0;if(d.timestamp!="z"){m=new Date(d.timestamp);d.sysdiff=d.timestamp-y}d.langSet=d.langSet||"en";d.format=d.format||((d.langSet!="en")?"24":"12");d.calendar=d.calendar||"true";if(!a(this).hasClass("jqclock")){a(this).addClass("jqclock")}var e=function(g){if(g<10){g="0"+g}return g},f=function(j,n){var r=a(j).attr("id");if(n=="destroy"){clearTimeout(t[r])}else{m=new Date(new Date().getTime()-n.sysdiff);var p=m.getHours(),l=m.getMinutes(),v=m.getSeconds(),u=m.getDay(),i=m.getDate(),k=m.getMonth(),q=m.getFullYear(),o="",g="",w=n.langSet;if(n.format=="12"){o=" AM";if(p>11){o=" PM"}if(p>12){p=p-12}if(p==0){p=12}}p=e(p);l=e(l);v=e(v);if(n.calendar!="false"){if(w=="en"){g="<span class='clockdate'>"+c[w].weekdays[u]+", "+c[w].months[k]+" "+i+", "+q+"</span>"}else{g="<span class='clockdate'>"+c[w].weekdays[u]+", "+i+" "+c[w].months[k]+" "+q+"</span>"}}a(j).html(g+"<span class='clocktime'>"+p+":"+l+":"+v+o+"</span>");t[r]=setTimeout(function(){f(a(j),n)},1000)}};f(a(this),d)})};return this})(jQuery);
