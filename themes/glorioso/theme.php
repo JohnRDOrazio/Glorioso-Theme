@@ -444,7 +444,9 @@ function FN_CloseSection()
 function OpenBlock($img, $title)
 {
 	echo "<div class=\"ui-widget ui-widget-content ui-corner-all ui-helper-clearfix flatnux-block\">";
-	echo "<div class=\"ui-widget-header ui-corner-all flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span><img src=\"$img\" alt=\"$title\" />&nbsp;$title</div>";
+	$cfgbtn = "";
+        if( isadmin() ){ $cfgbtn = "<span class=\"ui-icon ui-icon-wrench flatnux-block-cfg\"></span>"; }
+        echo "<div class=\"ui-widget-header ui-corner-all flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span>{$cfgbtn}<img src=\"$img\" alt=\"$title\" />&nbsp;$title</div>";
 	echo "<div class=\"flatnux-block-content\">";
 }
 function CloseBlock()
