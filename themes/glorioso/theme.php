@@ -316,7 +316,7 @@ function create_h_menu($separator="|"){
 			$tmp = preg_replace ( "/^[0-9]+_|^none_/i", "", $tmp );
 			$title = str_replace ( "_", "&nbsp;", $tmp );
 			$filelang = "blocks/$edge/" . preg_replace ( "/^[0-9]+_|^none_/si", "", $mod ) . ".xml";
-			//echo "'$filelang'";
+			$cfgfile = "blocks/$edge/" . $tmp . "/config.php";
 			if (file_exists ( $filelang ))
 			{
 				$title = getLang ( $filelang, $title );
@@ -331,7 +331,7 @@ function create_h_menu($separator="|"){
 			if ($string != "")
 			{
 				
-				OpenBlock ( "{$_FN['siteurl']}images/block.png", $title );
+				OpenBlock ( "{$_FN['siteurl']}images/block.png", $title, $cfgfile );
 				echo "$string";
 				//ripristino mod nel caso venga cambiato dal blocco
 				$mod = $modlist[$kk];
@@ -441,12 +441,12 @@ function FN_CloseSection()
 {
 	CloseTableTitle();
 }
-function OpenBlock($img, $title)
+function OpenBlock($img, $title, $cfgfile="")
 {
-	echo "<div class=\"ui-widget ui-widget-content ui-corner-all ui-helper-clearfix flatnux-block\">";
+  echo "<div class=\"ui-widget ui-widget-content ui-corner-all ui-helper-clearfix flatnux-block\">";
 	$cfgbtn = "";
-        if( isadmin() ){ $cfgbtn = "<span class=\"ui-icon ui-icon-wrench flatnux-block-cfg\"></span>"; }
-        echo "<div class=\"ui-widget-header ui-corner-all flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span>{$cfgbtn}<img src=\"$img\" alt=\"$title\" />&nbsp;$title</div>";
+  if( file_exists($cfgfile) && isadmin() ){ $cfgbtn = "<span class=\"ui-icon ui-icon-wrench flatnux-block-cfg\" onclick=\"opencfg('$cfgfile','$title')\"></span>"; }
+  echo "<div class=\"ui-widget-header ui-corner-all flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span>{$cfgbtn}<img src=\"$img\" alt=\"$title\" />&nbsp;$title</div>";
 	echo "<div class=\"flatnux-block-content\">";
 }
 function CloseBlock()
