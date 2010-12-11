@@ -83,9 +83,11 @@ AudioPlayer.setup("themes/glorioso/javascripts/1pixeloutplayer/player.swf", {
 	width: 200
     });  
 
-/* DECLARE GLOBAL VARIABLES */
+/* OPEN CONFIGURATION FILES IN DIALOG */
+function opencfg(e,b){if($.jPicker===undefined){var a=document.createElement("link"),d=document.createElement("script"),c=document.getElementsByTagName("head")[0];a.rel="stylesheet";a.type="text/css";a.href="themes/glorioso/css/jPicker.css";c.appendChild(a);a.href="themes/glorioso/css/jPicker-1.1.5.min.css";c.appendChild(a);d.type="text/javascript";d.src="themes/glorioso/javascripts/jpicker-1.1.5.min.js";c.appendChild(d)}$.get("themes/glorioso/ajax/flopt.php",{opindex:"true",file:e},function(f){$("div#theme_edit_dialog").html(f).dialog({modal:true,autoOpen:true,show:{effect:"explode",speed:1000},hide:{effect:"explode",speed:1000},title:"Configurazione "+b,position:[5,5]});$("input.cfg_colorpicker").jPicker({images:{clientPath:"themes/glorioso/images/jPicker/"},color:{alphaSupport:true}}).attr("size","8")})};
 
-var args = getArgs(),t=null;
+/* DECLARE GLOBAL VARIABLES */
+var args = getArgs();
 
 /********************
  ** DOCUMENT READY **
@@ -162,36 +164,14 @@ $("input#glorioso_adminonoff").click(function(){
   query = (query!="") ? query+="&" : "?";
   ($(this).attr("rel")=='glorioso_adminon') ? location.href="index.php"+query+"fneditmode=0" : location.href="index.php"+query+"fneditmode=1";
 });
+
 /* ACTIVATE THEME CONFIGURATION BUTTON ON TOOLBAR */
-  $("#THEME_CFG").click(function(){
-    if($.jPicker===undefined){
- var jpck_css,jpck;     
- jpck_css = document.createElement('link');
-      jpck_css.rel = 'stylesheet';
-      jpck_css.type = 'text/css';
-      jpck_css.href = 'themes/glorioso/css/jPicker.css';
-      document.getElementsByTagName('head')[0].appendChild(jpck_css);
-      jpck_css.href = 'themes/glorioso/css/jPicker-1.1.5.min.css';
-      document.getElementsByTagName('head')[0].appendChild(jpck_css);
-      jpck = document.createElement('script');
-      jpck.type = 'text/javascript';
-      jpck.async = true;
-      jpck.src = 'themes/glorioso/javascripts/jpicker-1.1.5.min.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(jpck);
-    }
-    $.get("themes/glorioso/ajax/flopt.php",{opindex:"true",file:"themes/glorioso/config.php"},function(data){
-       $("div#theme_edit_dialog").html(data).dialog({
-				modal: true,
-				autoOpen: true,
-				show: {effect:'explode',speed:1000},
-				hide: {effect:'explode',speed:1000},
-        width:'98%',
-        title:'Configurazione Tema Glorioso',
-        position:[5,5]
-        });
-       $("input.cfg_colorpicker").jPicker({images:{clientPath:'themes/glorioso/images/jPicker/'},color:{alphaSupport:true}}).attr("size","8"); 
-    });
-  });
+cfgfile = "themes/glorioso/config.php";
+cfgtitle = "Tema Glorioso";
+$("#THEME_CFG").click(function(){
+  opencfg(cfgfile,cfgtitle);
+});
+
 /* LOGIN / LOGOUT FUNCTIONALITY */
 $("div#flatnuxlogin").click(function(){
    location.href = $(this).find("a").attr("href");
