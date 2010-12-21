@@ -297,7 +297,7 @@ function checkusernameexists($username){
 *     SOCIAL CONNECT (E ANCHE PER EVITARE ERRORI NEL SISTEMA DI REGISTRAZIONE      *
 *     DI FLATNUX); PUO' SEMPRE CAMBIARE PASSWORD IN SEGUITO)                       *
 ***********************************************************************************/ 
-function registersocialuser($provider,$whichcase,$username,$passwd,$uid,$profileinfo){
+function registersocialuser($provider,$whichcase,$username,$passwd="",$uid,$profileinfo){
   global $_FN;
   require_once("include/xmldb.php");
   $newvalues = array();
