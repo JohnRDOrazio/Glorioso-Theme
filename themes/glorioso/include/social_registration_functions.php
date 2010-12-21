@@ -320,8 +320,7 @@ function registersocialuser($provider,$whichcase,$username,$passwd,$uid,$profile
  	$newvalues[$provideruid] = $uid;
         $newvalues['passwd'] = ( ($passwd!="") ? $passwd : createRndPass() ); 
   switch($whichcase){
-    case "notyettaken": // simplest, first registration
-      $newvalues['passwd'] = createRndPass();	
+    case "notyettaken": // simplest, first registration	
       if(fn_add_user($username, $newvalues)){
         @ mail($profileinfo['name']." <".$profileinfo['email'].">","Benvenuto a {$_FN['sitename']}","Ciao {$profileinfo['name']} e benvenuto a {$_FN['sitename']}! Ti sei appena registrato al nostro sito attraverso {$providername} Connect. Puoi ora accedere facilmente al sito con il tuo account {$providername} utilizzando il pulsante {$providername} LOGIN; altrimenti puoi accedere con il pulsante login del sito con queste credenziali: \n \nUSERNAME: {$username} \n \nPASSWORD: {$newvalues['passwd']} \n \nSperiamo di rivederti spesso! \n{$_FN['admin']}, Amministratore di {$_FN['sitename']}","From: {$_FN['sitename']} <{$_FN['site_email_address']}>\r\n" . "Reply-To: {$_FN['site_email_address']}\r\n" . "X-Mailer: PHP/" . phpversion());
         return "created";
