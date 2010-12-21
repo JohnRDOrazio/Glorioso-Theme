@@ -297,7 +297,7 @@ function checkusernameexists($username){
 *     SOCIAL CONNECT (E ANCHE PER EVITARE ERRORI NEL SISTEMA DI REGISTRAZIONE      *
 *     DI FLATNUX); PUO' SEMPRE CAMBIARE PASSWORD IN SEGUITO)                       *
 ***********************************************************************************/ 
-function registersocialuser($provider,$whichcase,$username,$uid,$profileinfo){
+function registersocialuser($provider,$whichcase,$username,$passwd,$uid,$profileinfo){
   global $_FN;
   require_once("include/xmldb.php");
   $newvalues = array();
@@ -317,7 +317,8 @@ function registersocialuser($provider,$whichcase,$username,$uid,$profileinfo){
 	$newvalues['group'] = "users";
 	$newvalues['level'] = 0;
  	$newvalues['username'] = $username;
- 	$newvalues[$provideruid] = $uid; 
+ 	$newvalues[$provideruid] = $uid;
+        $newvalues['passwd'] = ( ($passwd!="") ? $passwd : createRndPass() ); 
   switch($whichcase){
     case "notyettaken": // simplest, first registration
       $newvalues['passwd'] = createRndPass();	
@@ -342,7 +343,6 @@ function registersocialuser($provider,$whichcase,$username,$uid,$profileinfo){
       return "error updating";
       break;
     case "alternativeusername": // USER DOES NOT YET EXIST BUT MUST USE OTHER USERNAME
-      $newvalues['passwd'] = createRndPass();
       if(fn_add_user($username, $newvalues)){
         @ mail("{$profileinfo['name']} <{$profileinfo['email']}>","Benvenuto a {$_FN['sitename']}","Ciao {$profileinfo['name']} e benvenuto a {$_FN['sitename']}! Ti sei appena registrato al nostro sito attraverso {$providername} Connect. Puoi ora accedere facilmente al sito con il tuo account {$providername} utilizzando il pulsante {$providername} LOGIN; altrimenti puoi accedere con il pulsante login del sito con queste credenziali: \n \nUSERNAME: {$username} \n \nPASSWORD: {$newvalues['passwd']} \n \nSperiamo di rivederti spesso! \n{$_FN['admin']}, Amministratore di {$_FN['sitename']}","From: {$_FN['sitename']} <{$_FN['site_email_address']}>\r\n" . "Reply-To: {$_FN['site_email_address']}\r\n" . "X-Mailer: PHP/" . phpversion());
         return "created";
