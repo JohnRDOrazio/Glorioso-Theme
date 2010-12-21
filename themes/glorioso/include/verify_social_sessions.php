@@ -130,7 +130,7 @@ if ($_THEME_CFG['use_fb']==1){
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'existandsameusername'){
-      $result = registersocialuser("fb",$_GET['spec'],$_FB['userInfo'][0]->username,,$_FB['uid'],$_FB['me']);
+      $result = registersocialuser("fb",$_GET['spec'],$_FB['uid'],$_FB['me'],$_FB['userInfo'][0]->username);
       if($result=="updated"){ 
         fn_login($_FB['userInfo'][0]->username); ?>
         <script type="text/javascript">opensocialregistration('{stato:"collegato"}');</script>
@@ -138,7 +138,7 @@ if ($_THEME_CFG['use_fb']==1){
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'usernamealreadyexists' ){
-      $result = registersocialuser("fb",$_POST['alreadyusername'],$_POST['username'],,$_FB['uid'],$_FB['me']);
+      $result = registersocialuser("fb",$_POST['alreadyusername'],$_FB['uid'],$_FB['me'],$_POST['username']);
       if($_POST['alreadyusername']=="associatewithold"&&$result=="updated"){ 
         fn_login($_POST['username']); ?>
         <script type="text/javascript">opensocialregistration('{stato:"linkedtoold"}');</script>
@@ -158,7 +158,7 @@ if ($_THEME_CFG['use_fb']==1){
         $currentusername = $_POST['username'];
       }
       $currentpasswd = $_POST['password'];
-      $result = registersocialuser("fb",$_GET['spec'],$currentusername,$currentpasswd,$_FB['uid'],$_FB['me']);
+      $result = registersocialuser("fb",$_GET['spec'],$_FB['uid'],$_FB['me'],$currentusername,$currentpasswd);
       if($result=="updated"){
         fn_login($currentusername);  ?>
         <script type="text/javascript">opensocialregistration('{stato:"linkedtoold"}');</script>
@@ -173,7 +173,7 @@ if ($_THEME_CFG['use_fb']==1){
       if(!$result){
         $result = checkusernameexists($_FB['userInfo'][0]->username);
         if(!$result||$result===false) {   // IF USERNAME IS NOT YET TAKEN
-          $result = registersocialuser("fb","notyettaken",$_FB['userInfo'][0]->username,,$_FB['uid'],$_FB['me']);
+          $result = registersocialuser("fb","notyettaken",$_FB['uid'],$_FB['me'],$_FB['userInfo'][0]->username);
           if ($result = "created"){
             fn_login($_FB['userInfo'][0]->username);  ?>
             <script type="text/javascript">opensocialregistration();</script>
@@ -227,14 +227,14 @@ if ($_THEME_CFG['use_gfc']==1){
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'existandsameusername'){
-      $result = registersocialuser("gfc",$_GET['spec'],$_GFC['username'],,$_GFC['uid'],$_GFC['userInfo']->entry);
+      $result = registersocialuser("gfc",$_GET['spec'],$_GFC['uid'],$_GFC['userInfo']->entry,$_GFC['username']);
       if($result=="updated"){ 
         fn_login($_GFC['username']);
         echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"collegato\"}');</script>";
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'usernamealreadyexists' ){
-      $result = registersocialuser("gfc",$_POST['alreadyusername'],$_POST['username'],,$_GFC['uid'],$_GFC['userInfo']->entry);
+      $result = registersocialuser("gfc",$_POST['alreadyusername'],$_GFC['uid'],$_GFC['userInfo']->entry,$_POST['username']);
       if($_POST['alreadyusername']=="associatewithold"&&$result=="updated"){ 
         fn_login($_POST['username']);
         echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\"}');</script>";
@@ -252,7 +252,7 @@ if ($_THEME_CFG['use_gfc']==1){
         $currentusername = $_POST['username'];
       }
       $currentpasswd = $_POST['password'];
-      $result = registersocialuser("gfc",$_GET['spec'],$currentusername,$currentpasswd,$_GFC['uid'],$_GFC['userInfo']->entry);
+      $result = registersocialuser("gfc",$_GET['spec'],$_GFC['uid'],$_GFC['userInfo']->entry,$currentusername,$currentpasswd);
       if($result=="updated"){
         fn_login($currentusername);
         echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\"}');</script>";
@@ -266,7 +266,7 @@ if ($_THEME_CFG['use_gfc']==1){
       if(!$result){
         $result = checkusernameexists($_GFC['username']);
         if(!$result||$result===false) {   // IF USERNAME IS NOT YET TAKEN
-          $result = registersocialuser("gfc","notyettaken",$_GFC['username'],$_GFC['uid'],,$_GFC['userInfo']->entry);
+          $result = registersocialuser("gfc","notyettaken",$_GFC['uid'],$_GFC['userInfo']->entry,$_GFC['username']);
           if ($result = "created"){
             fn_login($_GFC['username']);
             echo "<script type=\"text/javascript\">opensocialregistration();</script>";
