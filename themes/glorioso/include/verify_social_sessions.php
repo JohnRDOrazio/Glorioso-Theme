@@ -157,7 +157,8 @@ if ($_THEME_CFG['use_fb']==1){
       elseif($_POST['choiceusername']=='preferold'){
         $currentusername = $_POST['username'];
       }
-      $result = registersocialuser("fb",$_GET['spec'],$currentusername,$_FB['uid'],$_FB['me']);
+      $currentpasswd = $_POST['passwd'];
+      $result = registersocialuser("fb",$_GET['spec'],$currentusername,$currentpasswd,$_FB['uid'],$_FB['me']);
       if($result=="updated"){
         fn_login($currentusername);  ?>
         <script type="text/javascript">opensocialregistration('{stato:"linkedtoold"}');</script>
@@ -250,7 +251,8 @@ if ($_THEME_CFG['use_gfc']==1){
       elseif($_POST['choiceusername']=='preferold'){
         $currentusername = $_POST['username'];
       }
-      $result = registersocialuser("gfc",$_GET['spec'],$currentusername,$_GFC['uid'],$_GFC['userInfo']->entry);
+      $currentpasswd = $_POST['passwd'];
+      $result = registersocialuser("gfc",$_GET['spec'],$currentusername,$currentpasswd,$_GFC['uid'],$_GFC['userInfo']->entry);
       if($result=="updated"){
         fn_login($currentusername);
         echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\"}');</script>";
