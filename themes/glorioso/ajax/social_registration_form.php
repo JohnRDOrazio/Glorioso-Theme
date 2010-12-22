@@ -2,10 +2,10 @@
 
 $(document).ready(function(){
   $("form").submit(function(){
-      $("span.formcheck-icon").removeClass("ui-icon ui-icon-check ui-icon-alert");
+      $(".formcheck-icon").removeClass("ui-icon ui-icon-check ui-icon-alert");
       $("#msg",$(this)).html("");
       if ( $(this).attr("id")=="linkoldaccount"){
-        if($("input#choice1").is(':checked')===false&&$("input#choice2").is(':checked')===false ){
+        if($("#choice1").is(':checked')===false&&$("#choice2").is(':checked')===false ){
           $("[for^='choice']").each(function(){
             $(this).parent().next().children(".formcheck-icon").addClass("ui-icon ui-icon-alert");
           }); 
@@ -13,12 +13,12 @@ $(document).ready(function(){
           return false;
         }
       }
-      if ( $("input#password",$(this)).val() == $("input#password2",$(this)).val() ){
+      if ( $("#password",$(this)).val() == $("#password2",$(this)).val() ){
         $("[type='password']").each(function(){
           $(this).parent().next().children(".formcheck-icon").addClass("ui-icon ui-icon-check");
         }); 
-        username = $("input#username",$(this)).val();
-        password = $("input#password",$(this)).val();
+        username = $("#username",$(this)).val();
+        password = $("#password",$(this)).val();
         $.get("themes/glorioso/ajax/userpasscheck.php",{"username":username,"password":password},function(data){
           if ( data=="not a user" ){
             $("#username").parent().next().children(".formcheck-icon").addClass("ui-icon ui-icon-alert");
@@ -31,14 +31,10 @@ $(document).ready(function(){
             return false;
           }
           else if ( data=="password correct" ) {
-            //alert(data);
-            //$(this).submit();
-            return true;          
             //$("div#socialregistration").dialog("close");
+            return true;          
           }
         });
-        
-        return false;
       }
       else{
         $("[type='password']").each(function(){
