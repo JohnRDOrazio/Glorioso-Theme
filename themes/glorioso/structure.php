@@ -33,6 +33,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Bookmark {$_FN['sitename']} on your Facebook Home so that you can come back easily!");
     define("_USERBAR_LIKE","Let your friends know that you like {$_FN['sitename']}!");
     define("_USERBAR_CAL","View the Event Calendar of {$_FN['sitename']}");
+    define("_GFCBAR_HEADER_TEXT","Comments");
+    define("_GFCBAR_COMMENT_TEXT","- add your comment here -");
     break;
   case "it":
     $lcl="it_IT";
@@ -53,6 +55,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Aggiungi un segnalibro alla tua pagina iniziale su Facebook per tornare facilmente a {$_FN['sitename']}!");
     define("_USERBAR_LIKE","Fai sapere ai tuoi amici che ti piace {$_FN['sitename']}!");
     define("_USERBAR_CAL","Visualizza il Calendario degli Eventi di {$_FN['sitename']}");
+    define("_GFCBAR_HEADER_TEXT","Commenti");
+    define("_GFCBAR_COMMENT_TEXT","- aggiungi il tuo commento qui -");
     break;
   case "de":
     $lcl="de_DE";
@@ -73,6 +77,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Bookmarken Sie {$_FN['sitename']} auf Ihrem Facebook Homepage, so dass Sie leicht zurück kommen!");
     define("_USERBAR_LIKE","Erzählen Sie Ihren Freunden, dass Sie {$_FN['sitename']} gefällt!");
     define("_USERBAR_CAL","Sehen Sie sich die Veranstaltungen Kalender von {$_FN['sitename']}");
+    define("_GFCBAR_HEADER_TEXT","Kommentare");
+    define("_GFCBAR_COMMENT_TEXT","- Fügen Sie Ihren Kommentar hier -");
     break;
   case "fr":
     $lcl="fr_FR";
@@ -93,6 +99,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Ajouter un signet pour {$_FN['sitename']} sur votre page d'accueil Facebook pour que vous puissiez revenir facilement!");
     define("_USERBAR_LIKE","Faites savoir à vos amis que vous aimez {$_FN['sitename']}!");
     define("_USERBAR_CAL","Voir le Calendrier des Événements de {$_FN['sitename']}");
+    define("_GFCBAR_HEADER_TEXT","Commentaires");
+    define("_GFCBAR_COMMENT_TEXT","- Ajoutez votre commentaire ici -");
     break;
   case "es":
     $lcl="es_Es";
@@ -113,6 +121,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Añade un marcador a su página inicial de Facebook, para facilitar el acceso a {$_FN['sitename']}!");
     define("_USERBAR_LIKE","Dile a tus amigos que te gusta {$_FN['sitename']}!");
     define("_USERBAR_CAL","Ve el Calendario de Eventos de {$_FN['sitename']}");
+    define("_GFCBAR_HEADER_TEXT","Comentarios");
+    define("_GFCBAR_COMMENT_TEXT","- añade tu comentario aquí -");
     break;
   case "ru":
     $lcl="ru_RU";
@@ -133,6 +143,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Закладка {$_FN['sitename']} на вашем того, домашняя страница, чтобы можно было вернуться легко!");
     define("_USERBAR_LIKE","Расскажите своим друзьям, что вам нравится {$_FN['sitename']}!");
     define("_USERBAR_CAL","Открыть Календарь событий из {$_FN['sitename']}");
+    define("_GFCBAR_HEADER_TEXT","Комментарии");
+    define("_GFCBAR_COMMENT_TEXT","- добавить свой комментарий здесь -");
     break;
   default:
     $lcl="en_US";
@@ -153,6 +165,8 @@ switch($_FN['lang']){
     define("_USERBAR_BOOKMARK","Bookmark {$_FN['sitename']} on your Facebook Home so that you can come back easily!");
     define("_USERBAR_CAL","View the Event Calendar of {$_FN['sitename']}");
     define("_USERBAR_LIKE","Let your friends know that you like {$_FN['sitename']}!");
+    define("_GFCBAR_HEADER_TEXT","Comments");
+    define("_GFCBAR_COMMENT_TEXT","- add your comment here -");
 }
 
 ($_THEME_CFG['right_column_color']!="") ? $_THEME_CFG['right_column_color']="background-color:#{$_THEME_CFG['right_column_color']};" : "";
@@ -402,8 +416,8 @@ if ($_THEME_CFG['use_gfc']==1){
   skin['CONTENT_SECONDARY_TEXT_COLOR'] = '#666666';
   skin['CONTENT_HEADLINE_COLOR'] = '#333333';
   skin['POSITION'] = 'bottom';
-  skin['DEFAULT_COMMENT_TEXT'] = '- aggiungi qui il tuo commento -';
-  skin['HEADER_TEXT'] = 'Commenti';
+  skin['DEFAULT_COMMENT_TEXT'] = '"._GFCBAR_COMMENT_TEXT."';
+  skin['HEADER_TEXT'] = '"._GFCBAR_HEADER_TEXT."';
   google.friendconnect.container.renderSocialBar(
    { id: '{$_THEME_CFG["gfc_social"]}',
      site: '{$_THEME_CFG["gfc_site"]}',
