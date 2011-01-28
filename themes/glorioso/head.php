@@ -48,8 +48,11 @@ switch($_FN['lang']){
 	if (file_exists ( "sections/" . $_FN['vmod'] . "/sethead.php" ))
 		include ( "sections/" . $_FN['vmod'] . "/sethead.php" );
 	echo "\t<title>{$_FN['sitetitle']}</title>\n";
-	echo "\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" . _CHARSET . "\" $close_tag>\n";
-	echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
+	/* as of html this has been simplified!
+ * echo "\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" . _CHARSET . "\" $close_tag>\n";
+*/
+echo "\t<meta charset=\"" . _CHARSET . "\" $close_tag>\n";	
+echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
 	echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta http-equiv=\"EXPIRES\" content=\"0\" $close_tag>\n";
 	echo "\t<meta name=\"DISTRIBUTION\" content=\"GLOBAL\" $close_tag>\n";
