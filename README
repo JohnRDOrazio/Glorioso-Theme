@@ -1,13 +1,5 @@
 Tema per flatnux con funzionalità di registrazione / accesso utenti con open-id ("single sign-in"). Apre la strada a contenuti sociali per siti flatnux.
 
-Questo tema utilizza jQuery e il framework CSS di jQuery UI (una libreria di widget e interfacce utente basata su jQuery).  Questo significa che il singolo utente ha a sua disposizione la scelta tra tutti i temi jQuery UI da applicare al volo, senza ricaricare la pagina, attraverso il Themeswitcher widget posto sulla barra utente in alto alla pagina. (La barra utente riporta molti servizi dai blocchi laterali in un unica barra superiore in modo da sfruttare al meglio lo spazio sulla pagina.)
-
-Questo tema utilizza funzionalità ajax (utilizzando jQuery). Il menu di navigazione orizzontale (in alto alla pagina) non è posto non a tutta pagina, ma solo sopra la sezione centrale, e carica dinamicamente le varie sezioni senza ricaricare tutta la pagina. L'utilizzo dell'ajax velocizza molto siti flatnux che hanno più librerie e funzionalità, perché ricarica soltanto una parte della pagina anziché tutta la pagina.
-
-Incluso nel tema è anche un calendario degli eventi per jquery, il "fullcalendar" di arshaw che è collegabile a un Google Calendar. Possibilità future: collegare con eventi di facebook. Perciò è inclusa nel tema anche la libreria PHP del Zend Framework necessaria per interagire con i servizi e gli API di Google (per esempio un Google Calendar).
-
-Vi è anche un orologio che è un plugin per jquery scritto da me, prende il timestamp del server e poi lo aggiorna ogni secondo utilizzando l'offset dal timestamp client (in questo modo si ottiene l'ora esatta senza appesantire il server di continue richieste).
-
 Il tema è configurabile attraverso il pannello di controllo di flatnux oppure direttamente dalla barra utente in alto alla pagina.
 
 Alcune delle caratteristiche di questo TEMA:
@@ -16,6 +8,9 @@ Alcune delle caratteristiche di questo TEMA:
 2. Utilizza encoding UTF-8 di default. Questo significa che bisognerebbe probabilemente modificare il CHARSET definito in "/languages/it.php" in "UTF-8".
 Significa anche che alcune scritte del CMS possano inizialmente non rendere correttamente, bisogna convertire l'encoding di queste pagine in UTF-8. La scelta del UTF-8 è dovuta al fatto che anche Facebook e Google utilizzano questo encoding che sta diventando lo standard per l'internazionalità.
 3. Utilizza le librerie jQuery e jQuery-UI, caricate dinamicamente con il Google jsAPI dal repository Google. Sono incluse anche alcune implementazioni del Filament Group (http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/). I blocchi laterali si possono anche aprire e chiudere, trascinare e riordinare. Con il Themeswitcher widget il singolo utente può scegliere al volo tra tutti i temi jQuery-UI, senza ricaricare la pagina.
-4. Dà anche  la possibilità  di scegliere tra tante altre librerie javascript, il loro caricamento è configurabile dal pannello di controllo (ora c'è anche un pulsante di configurazione per l'amministratore del sito flatnux sulla barra utente in alto alla pagina).
-5. Offre una prima integrazione con Facebook Connect e Google Friend Connect
-6. Questo tema è cross-browser.
+4. Utilizza funzionalità ajax (utilizzando jQuery). Il menu di navigazione orizzontale (in alto alla pagina) non è posto non a tutta pagina, ma solo sopra la sezione centrale, e carica dinamicamente le varie sezioni senza ricaricare tutta la pagina. L'utilizzo dell'ajax velocizza molto siti flatnux che hanno più librerie e funzionalità, perché ricarica soltanto una parte della pagina anziché tutta la pagina.
+5. Calendario degli eventi per jquery, il "fullcalendar" di arshaw che è collegabile a un Google Calendar. Perciò è inclusa nel tema anche la libreria PHP del Zend Framework necessaria per interagire con i servizi e gli API di Google (per esempio un Google Calendar). Possibilità future: collegare con eventi di facebook.
+6. Orologio perpetuo (è un plugin per jquery scritto da me, prende il timestamp del server e poi lo aggiorna ogni secondo utilizzando l'offset dal timestamp client; in questo modo si ottiene l'ora esatta senza appesantire il server di continue richieste).
+7. Dà anche  la possibilità  di scegliere tra tante altre librerie javascript, il loro caricamento è configurabile dal pannello di controllo (ora c'è anche un pulsante di configurazione per l'amministratore del sito flatnux sulla barra utente in alto alla pagina).
+8. Offre una prima integrazione con Facebook Connect e Google Friend Connect.
+9. Questo tema è cross-browser.
