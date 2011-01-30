@@ -551,14 +551,16 @@ div#userlogin-dropdown div {
     	cursor:pointer;
     	width:40px;
     }
-		#currentdate {
+    .jqclock { text-align:center; } 
+		.clockdate {
       text-align:center;
       clear:both;
       color: DarkRed;
 			font-weight: bold;
 			font-size: 14px;
+			display: block;
 		}
-		#clock {
+		.clocktime {
 			border:White 1px inset;
       text-align:center;
       clear:both;
@@ -568,9 +570,10 @@ div#userlogin-dropdown div {
 			font-weight:bold;
 			text-align:center;
 			background:#969696;
-			width:150px;
+			width:60%;
       margin: 0 auto;
 			text-shadow: #6374AB 2px -2px 2px;
+			display: block;
 		}
 
 /* FULLCALENDAR EVENTS */
