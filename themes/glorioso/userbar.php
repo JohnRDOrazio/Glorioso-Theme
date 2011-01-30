@@ -242,12 +242,10 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
     <!-- PHP timestamp -->
     <input type="hidden" id="current_timestamp" value="<?php echo time(); ?>" />
     <input type="hidden" id="current_langset" value="<?php echo $_FN['lang']; ?>" />
-    <div style="text-align:center;">
-      <div id="currentdate"><?php if($_FN['lang']=='en'){echo strftime('%A, %B %e, %Y', time());}else{echo strftime('%A, %e %B %Y', time());} ?></div>
-      <div id="clock"><?php if($_FN['lang']=='en'){echo strftime('%r', time());} else {echo strftime('%T', time());} ?></div>
-    </div>
+    <div id="clock"></div>
   </div>
   <!-- END CLOCK -->
+
 
 
 </div>
