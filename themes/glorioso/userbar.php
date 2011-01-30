@@ -249,6 +249,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
   </div>
   <!-- END CLOCK -->
 
+
 </div>
 <!-- END BOTTOM RIGHT DIV ON USERBAR: FACEBOOK AND CLOCK -->
 
