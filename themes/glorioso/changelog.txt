@@ -1,4 +1,4 @@
-Jan 2011: 
+January 2011: 
 ->started changelog!
 ->fixed various bugs
 ->updated clock functionality to new jquery plugin
