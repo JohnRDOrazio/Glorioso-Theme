@@ -310,7 +310,7 @@ $("div#userlogin").toggle(
 currenttimestamp = parseFloat($("input#current_timestamp").val() );
 currentlangset =($("input#current_langset").val() );
 currenttimestamp=currenttimestamp*1000;
-$("#clock").clock(currenttimestamp, currentlangset);
+$("#clock").clock({"timestamp":currenttimestamp, "langSet":currentlangset});
 
 // CALENDARIO
 $('#calendarviewer').fullCalendar({
