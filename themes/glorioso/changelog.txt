@@ -3,3 +3,4 @@ January 2011:
 ->fixed various bugs
 ->updated clock functionality to new jquery plugin
 ->began experimenting with messenger live
+->updated jPicker to v 1.1.6, fullcalendar to v 1.4.10
