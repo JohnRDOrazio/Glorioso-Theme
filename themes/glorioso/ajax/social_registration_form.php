@@ -82,8 +82,8 @@ $(document).ready(function(){
   if (!isset($_GET['stato']) ){
 ?>
 <div style="text-align:center">
-  <span>Ti sei iscritto al sito con successo utilizzando Facebook Connect!</span><br />
-  <span>Se avevi già un account su questo sito, puoi anche collegarlo con il nuovo account Facebook Connect.</span><br />
+  <span>Ti sei iscritto con successo a <?php echo $_FN["sitename"] ?> utilizzando <?php echo $_GET["container"] ?>!</span><br />
+  <span>Se avevi già un account su questo sito, puoi anche collegarlo con il nuovo account che è stato creato utilizzando <?php echo $_GET["container"] ?>.</span><br />
   <span>Se vuoi collegarlo ad un account esistente, inserisci qui di seguito username e password del tuo account esistente.</span>
 </div>
 <div style="margin:15px;padding:10px;border:ridge 2px LightGray;">
@@ -109,12 +109,12 @@ $(document).ready(function(){
       </tr>
       <tr>
         <td><input name="choiceusername" id="choice1" type="radio" value="preferfb" /></td>
-        <td><label for="choice1"> Preferisci username facebook, sovrascrivendo il vecchio username</label></td>
+        <td><label for="choice1"> Preferisci username <?php echo $_GET["container"] ?>, sovrascrivendo username di <?php echo $_FN["sitename"] ?></label></td>
         <td><span class="formcheck-icon"></span></td>
       </tr>
       <tr>
         <td><input name="choiceusername" id="choice2" type="radio" value="preferold" /></td>
-        <td><label for="choice2"> Preferisci username account esistente, sovrascrivendo username di facebook</label></td>
+        <td><label for="choice2"> Preferisci username <?php echo $_FN["sitename"] ?>, sovrascrivendo username di <?php echo $_GET["container"] ?></label></td>
         <td><span class="formcheck-icon"></span></td>
       </tr>
     </table>
@@ -130,9 +130,9 @@ $(document).ready(function(){
 ?> 
 <br /><br />
 <div style="text-align:center;">
-  <span>Ti stai registrando a questo sito attraverso Facebook Connect.</span><br />
+  <span>Ti stai registrando a <?php echo $_FN["sitename"] ?> attraverso <?php echo $_GET["container"] ?>.</span><br />
   <span>Vedo che c&apos;è già un account con lo stesso tuo username &apos;<?php echo $_GET['username']; ?>&apos;.</span><br />
-  <span>Se l&apos;account utente sul sito è tuo, puoi collegarlo con l&apos;account creato con Facebook Connect</span><br />
+  <span>Se l&apos;account utente sul sito è tuo, puoi collegarlo con l&apos;account appena creato attraverso <?php echo $_GET["container"] ?></span><br />
   <span>semplicemente inserendo la password:</span>
 </div>
 <div style="margin:15px;padding:10px;border:ridge 2px LightGray;">
@@ -154,10 +154,10 @@ $(document).ready(function(){
   </form>	
 </div>
 <div style="text-align:center;">
-  <span>Se invece l&apos;account non è tuo, ma sei già registrato sul sito,</span><br />
-  <span>puoi inserire qui le tue credenziali per collegare l&apos;account di Facebook Connect con il vecchio account.</span><br />
+  <span>Se invece l&apos;account non è tuo, ma sei già registrato a <?php echo $_FN["sitename"] ?>,</span><br />
+  <span>puoi inserire qui le tue credenziali per collegare l&apos;account di <?php echo $_GET["container"] ?> con l&apos;account già esistente.</span><br />
   <span>Se invece non hai ancora un account sul sito, dovrai scegliere un altro nome utente</span><br />
-  <span>per completare la registrazione, perché il tuo nome utente di Facebook è già preso da un altro.</span><br />
+  <span>per completare la registrazione, perché il tuo nome utente di <?php echo $_GET["container"] ?> è già preso da un altro.</span><br />
   <span>Si prega in tal caso di indicare un nome utente alternativo (non c&apos;è bisogno di una password):</span>
 </div>
 <div style="margin:15px;padding:10px;border:ridge 2px LightGray;">
@@ -187,23 +187,23 @@ $(document).ready(function(){
   }
   elseif(isset($_GET['stato']) && $_GET['stato'] == 'collegato' ){
     echo "<div style='text-align:center;'>";
-    echo "<span>Congratulazioni! Hai collegato con successo il tuo account di Facebook Connect con il tuo account sul sito.</span>";
+    echo "<span>Congratulazioni! Hai collegato con successo il tuo account di {$_GET["container"]} con il tuo account esistente.</span>";
     echo "</div>";
   }
   elseif(isset($_GET['stato']) && $_GET['stato'] == 'altuser' ){
     echo "<div style='text-align:center;'>";
-    echo "<span>Congratulazioni, ti sei registrato con successo attraverso Facebook Connect e indicando un username alternativo!</span>";
+    echo "<span>Congratulazioni, ti sei registrato con successo attraverso {$_GET["container"]} utilizzando un nome utente alternativo.</span>";
     echo "</div>";
   }
   elseif(isset($_GET['stato']) && $_GET['stato'] == 'linkedtoold' ){
     echo "<div style='text-align:center;'>";
-    echo "<span>Congratulazioni, hai collegato con successo il nuovo account Facebook Connect con il tuo account precedente.</span>";
+    echo "<span>Congratulazioni, hai collegato con successo il nuovo account creato con {$_GET["container"]} con il tuo account esistente.</span>";
     echo "</div>";
   }
   elseif(isset($_GET['stato']) && $_GET['stato'] == 'revoke' ){
     echo "<div style='text-align:center;'>";
     echo "<div id=\"msg\" style=\"text-align:center;color:#FF0000;\"></div>";
-    echo "<span>Hai chiesto di revocare le autorizzazioni di questa applicazione su facebook. Vuoi anche cancellare il tuo account su questo sito?</span>";
+    echo "<span>Hai chiesto di revocare le autorizzazioni di questa applicazione su {$_GET["container"]}. Vuoi anche cancellare il tuo account su {$_FN["sitename"]}?</span>";
     echo "<form id=\"revoke\" name=\"revoke\" method='POST' action=\"index.php?spec=deleteaccount\">";
     echo "<label>USERNAME: <input type='text' name='username' /></label><br />";
     echo "<label>PASSWORD: <input type='password' name='password' /></label><br />";
@@ -214,7 +214,7 @@ $(document).ready(function(){
   }
   elseif(isset($_GET['stato']) && $_GET['stato'] == 'deleted' ){
     echo "<div style='text-align:center;'>";
-    echo "<span>Oltre a revocare le autorizzazioni di questa applicazione su facebook hai anche cancellato il tuo account utente. Non puoi più effettuare il login su questo sito.</span>";
+    echo "<span>Oltre a revocare le autorizzazioni di questa applicazione su {$_GET["container"]} hai anche cancellato il tuo account utente su {$_FN["sitename"]}. Non puoi più effettuare il login su questo sito.</span>";
     echo "<span>Ti è stato inviato un email di conferma di questa azione. Chiediamo scusa se c'è stato qualche disservizio o inconveniente, anzi preghiamo di comunicarci i modi in cui possiamo migliorare il nostro servizio.</span>";
     echo "</div>";
   }
