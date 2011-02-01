@@ -1,6 +1,6 @@
 Tema per flatnux con funzionalità di registrazione / accesso utenti con open-id ("single sign-in"). Apre la strada a contenuti sociali per siti flatnux.
 
-Il tema è configurabile attraverso il pannello di controllo di flatnux oppure direttamente dalla barra utente in alto alla pagina.
+Il tema è configurabile attraverso il pannello di controllo di flatnux oppure direttamente dalla barra utente del tema in alto alla pagina.
 
 Alcune delle caratteristiche di questo TEMA:
 
@@ -14,3 +14,21 @@ Significa anche che alcune scritte del CMS possano inizialmente non rendere corr
 7. Dà anche  la possibilità  di scegliere tra tante altre librerie javascript, il loro caricamento è configurabile dal pannello di controllo (ora c'è anche un pulsante di configurazione per l'amministratore del sito flatnux sulla barra utente in alto alla pagina).
 8. Offre una prima integrazione con Facebook Connect e Google Friend Connect.
 9. Questo tema è cross-browser.
+-----------------------------------------------------------------
+ENGLISH:
+Theme for flatnux with user registration / access functionality with open-id ("single sign-in"). Paves the way for flatnux social content sites. 
+
+The theme is configurable through the flatnux control panel or directly from the theme user bar at the top of the page. 
+
+Some of the features of this theme: 
+
+1. Uses HTML 5. 
+2. Uses UTF-8 encoding by default. This means that you will have to set the charset in "/languages/it.php" to "UTF-8". 
+It also means that some of the writings in the CMS may not initially render properly, you must convert the encoding of these pages to UTF-8. The choice of UTF-8 is due to the fact that Facebook and Google use this encoding which is becoming the standard for internationality. 
+3. Uses jQuery and jQuery-UI libraries, dynamically loaded with Google JSAPI from the Google repository. Also included are some implementations of the Filament Group (http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/). The side blocks can also be opened and closed, dragged and rearranged. With the Themeswitcher widget the individual user can choose between all of the jQuery-UI themes on the fly, without reloading the page. 
+4. Uses AJAX (using jQuery). The horizontal menu (top of the page) is placed over the middle section, and dynamically loads the various sections without reloading the entire page. The use of Ajax speeds up flatnux sites that have more features and libraries, because it loads only the center section of the page rather than the whole page with all the blocks and scripts. 
+5. Includes a jQuery Event Calendar, the "fullcalendar" made by arshaw, which can be connected to a Google Calendar. Therefore,alsothe PHP Zend Framework library is included, because it is needed to interact with the Google services and APIs (eg Google Calendar). Future possibilities: Connect with Facebook events. 
+6. Perpetual clock (it is a jQuery plugin written by me, takes the timestamp of the server and then updates it every second using the timestamp offset from the client, so you get the exact time without overloading the server with continuous requests). 
+7. It also gives the possibility of choosing from a number of other javascript libraries, loading them is configurable from the flatnux control panel or from the theme configuration button on the user bar at the top of the page (the button is only visible to administrators). 
+8. Provides an initial integration with Facebook Connect and Google Friend Connect. 
+9. This theme is cross-browser.
