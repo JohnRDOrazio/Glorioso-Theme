@@ -87,7 +87,7 @@ if ($_THEME_CFG['use_fb']==1){
   	// Chiediamo all'utente se vuole cancellare anche 
     // l'account dal sito, oppure se vuole solo dissociare
     // l'account dal provider sociale
-    echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"revoke\"}');</script>";
+    echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"revoke\",container:\"Facebook\"}');</script>";
   }
   if ($_FB['me']){
     $answer = chk_profile_flds("facebook");
@@ -125,7 +125,7 @@ if ($_THEME_CFG['use_fb']==1){
     if(isset($_GET['spec']) && $_GET['spec'] == 'deleteaccount' ){
       $result = deleteuseraccount("fb ",$_FB['uid']);
       if($result=="deleted"){ ?>
-        <script type="text/javascript">opensocialregistration('{stato:"deleted"}');</script>
+        <script type="text/javascript">opensocialregistration('{stato:"deleted",container:"Facebook"}');</script>
       <?php
       }
     }
@@ -133,7 +133,7 @@ if ($_THEME_CFG['use_fb']==1){
       $result = registersocialuser("fb",$_GET['spec'],$_FB['uid'],$_FB['me'],$_FB['userInfo'][0]->username);
       if($result=="updated"){ 
         fn_login($_FB['userInfo'][0]->username); ?>
-        <script type="text/javascript">opensocialregistration('{stato:"collegato"}');</script>
+        <script type="text/javascript">opensocialregistration('{stato:"collegato",container:"Facebook"}');</script>
       <?php
       }
     }
@@ -141,12 +141,12 @@ if ($_THEME_CFG['use_fb']==1){
       $result = registersocialuser("fb",$_POST['alreadyusername'],$_FB['uid'],$_FB['me'],$_POST['username']);
       if($_POST['alreadyusername']=="associatewithold"&&$result=="updated"){ 
         fn_login($_POST['username']); ?>
-        <script type="text/javascript">opensocialregistration('{stato:"linkedtoold"}');</script>
+        <script type="text/javascript">opensocialregistration('{stato:"linkedtoold",container:"Facebook"}');</script>
       <?php
       }
       elseif($_POST['alreadyusername']=="alternativeusername"&&$result=="created"){ 
         fn_login($_POST['username']); ?>
-        <script type="text/javascript">opensocialregistration('{stato:"altuser"}');</script>
+        <script type="text/javascript">opensocialregistration('{stato:"altuser",container:"Facebook"}');</script>
       <?php
       }
     }
@@ -161,7 +161,7 @@ if ($_THEME_CFG['use_fb']==1){
       $result = registersocialuser("fb",$_GET['spec'],$_FB['uid'],$_FB['me'],$currentusername,$currentpasswd);
       if($result=="updated"){
         fn_login($currentusername);  ?>
-        <script type="text/javascript">opensocialregistration('{stato:"linkedtoold"}');</script>
+        <script type="text/javascript">opensocialregistration('{stato:"linkedtoold",container:"Facebook"}');</script>
       <?php
       }
     }
@@ -176,12 +176,12 @@ if ($_THEME_CFG['use_fb']==1){
           $result = registersocialuser("fb","notyettaken",$_FB['uid'],$_FB['me'],$_FB['userInfo'][0]->username);
           if ($result = "created"){
             fn_login($_FB['userInfo'][0]->username);  ?>
-            <script type="text/javascript">opensocialregistration();</script>
+            <script type="text/javascript">opensocialregistration('{container:"Facebook"}');</script>
           <?php
           }
         }
         else{ 
-          echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"esistente\",username:\"{$_FB['userInfo'][0]->username}\"}');</script>";
+          echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"esistente\",username:\"{$_FB['userInfo'][0]->username}\",container:\"Facebook\"}');</script>";
         }
       } // End first time registration as social user
       // If does exist then user is already registered as social user,
@@ -223,25 +223,25 @@ if ($_THEME_CFG['use_gfc']==1){
     if(isset($_GET['spec']) && $_GET['spec'] == 'deleteaccount' ){
       $result = deleteuseraccount("gfc ",$_GFC['uid']);
       if($result=="deleted"){
-        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"deleted\"}');</script>";
+        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"deleted\",container:\"Google Friend Connect\"}');</script>";
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'existandsameusername'){
       $result = registersocialuser("gfc",$_GET['spec'],$_GFC['uid'],$_GFC['userInfo']->entry,$_GFC['username']);
       if($result=="updated"){ 
         fn_login($_GFC['username']);
-        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"collegato\"}');</script>";
+        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"collegato\",container:\"Google Friend Connect\"}');</script>";
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'usernamealreadyexists' ){
       $result = registersocialuser("gfc",$_POST['alreadyusername'],$_GFC['uid'],$_GFC['userInfo']->entry,$_POST['username']);
       if($_POST['alreadyusername']=="associatewithold"&&$result=="updated"){ 
         fn_login($_POST['username']);
-        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\"}');</script>";
+        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\",container:\"Google Friend Connect\"}');</script>";
       }
       elseif($_POST['alreadyusername']=="alternativeusername"&&$result=="created"){ 
         fn_login($_POST['username']);
-        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"altuser\"}');</script>";
+        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"altuser\",container:\"Google Friend Connect\"}');</script>";
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'linkoldaccount' ){
@@ -255,7 +255,7 @@ if ($_THEME_CFG['use_gfc']==1){
       $result = registersocialuser("gfc",$_GET['spec'],$_GFC['uid'],$_GFC['userInfo']->entry,$currentusername,$currentpasswd);
       if($result=="updated"){
         fn_login($currentusername);
-        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\"}');</script>";
+        echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"linkedtoold\",container:\"Google Friend Connect\"}');</script>";
       }
     }
     // If no specific action has yet been taken, we don't have any GET parameters...
@@ -269,11 +269,11 @@ if ($_THEME_CFG['use_gfc']==1){
           $result = registersocialuser("gfc","notyettaken",$_GFC['uid'],$_GFC['userInfo']->entry,$_GFC['username']);
           if ($result = "created"){
             fn_login($_GFC['username']);
-            echo "<script type=\"text/javascript\">opensocialregistration();</script>";
+            echo "<script type=\"text/javascript\">opensocialregistration('{container:\"Google Friend Connect\"}');</script>";
           }
         }
         else{ 
-          echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"esistente\",username:\"{$_FB['userInfo'][0]->username}\"}');</script>";
+          echo "<script type=\"text/javascript\">opensocialregistration('{stato:\"esistente\",username:\"{$_FB['userInfo'][0]->username}\",container:\"Google Friend Connect\"}');</script>";
         }
       } // End first time registration as social user
       // If does exist then user is already registered as social user,
