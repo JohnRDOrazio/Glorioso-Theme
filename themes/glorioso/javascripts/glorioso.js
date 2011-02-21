@@ -33,33 +33,45 @@ jQuery(function(a){a.datepicker.regional.it={closeText:"Chiudi",prevText:"&#x3c;
 	OTHERWISE AJAXSTART WON'T BE ABLE TO FIND THE DIV TO SHOW
 	AND WILL RETURN AN ERROR! */
   $(document).ajaxStop(function(event, request, settings) {
-    $("#debuglog").append("<li style='font-weight:bold;'>Ajax requests have all finished.</li>");
-    $("div#loading").hide();
-	  if($("div#adminonoff").length!=0){
-		  $("div#adminonoff").hide();
+    if($("#debuglog").length!=0){
+      $("#debuglog").append("<li style='font-weight:bold;'>Ajax requests have all finished.</li>");
+    }
+    $("#loading").hide();
+	  if($("#adminonoff").length!=0){
+		  $("#adminonoff").hide();
 	  }
 	  if(typeof(FB)!="undefined"){ FB.XFBML.parse(); }
 	});
   $(document).ajaxStart(function(event, request, settings) {
-    $("#debuglog").append("<li style='font-weight:bold;'>Ajax requests queuing...</li>");
-  	$("div#loading").show();
+    if($("#debuglog").length!=0){
+      $("#debuglog").append("<li style='font-weight:bold;'>Ajax requests queuing...</li>");
+    }
+  	$("#loading").show();
 	});
 
-/* the following is simply for debugging ajax requests, to see if al requests go through successfully... */  
+/* the following is simply for debugging ajax requests, to see if all requests go through successfully... */  
 /*
 $(document).ajaxError(function(event, request, settings){
-     $("#debuglog").append("<li style='color:Red;>Error requesting page " + settings.url + "</li>");
+    if($("#debuglog").length!=0){
+      $("#debuglog").append("<li style='color:Red;>Error requesting page " + settings.url + "</li>");
+    }
   });
   $(document).ajaxComplete(function(event, request, settings){
-     settings = (settings===undefined) ? {url:""} : settings;
-     settings.url = (settings.url===undefined) ? "" : settings.url;
-     $("#debuglog").append("<li style='color:Orange;';>Request Complete. "+settings.url+"</li><hr />");
+    settings = (settings===undefined) ? {url:""} : settings;
+    settings.url = (settings.url===undefined) ? "" : settings.url;
+    if($("#debuglog").length!=0){
+      $("#debuglog").append("<li style='color:Orange;';>Request Complete. "+settings.url+"</li><hr />");
+    }
   });
   $(document).ajaxSend(function(event, request, settings){
-    $("#debuglog").append("<li style='color:Blue;'>Starting request at " + settings.url + "</li><hr />");
+    if($("#debuglog").length!=0){
+      $("#debuglog").append("<li style='color:Blue;'>Starting request at " + settings.url + "</li><hr />");
+    }
   });
   $(document).ajaxSuccess(function(event, request, settings){
-     $("#debuglog").append("<li style='color:Green;'>Successful Request! "+ settings.url +"</li>");
+    if($("#debuglog").length!=0){
+      $("#debuglog").append("<li style='color:Green;'>Successful Request! "+ settings.url +"</li>");
+    }
   });
 */
 /*
