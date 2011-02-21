@@ -532,12 +532,12 @@ function shift_brightness($hexcolor, $shiftvalue)
 	$B = hexdec(substr($hexcolor, 4,2))+($shiftvalue);
 	// if new values are over the 255 limit, keep them at 255
 	$R = ($R>255?255:$R);
-	$G = ($R>255?255:$G);
-	$B = ($R>255?255:$B);
+	$G = ($G>255?255:$G);
+	$B = ($B>255?255:$B);
 	// of if the new values are under the 0 limit, keep them at 0
 	$R = ($R<0?0:$R);
-	$G = ($R<0?0:$G);
-	$B = ($R<0?0:$B);
+	$G = ($G<0?0:$G);
+	$B = ($B<0?0:$B);
 	
 	// convert the new values back from decimal to hex
 	$R = dechex($R);
