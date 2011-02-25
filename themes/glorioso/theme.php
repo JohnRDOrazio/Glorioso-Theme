@@ -517,13 +517,31 @@ function xmldb_get_lang_img($lang)
 	return "<img alt=\"$lang\" style=\"border:0px;\" src=\"".fromtheme("images/flags/$lang.png")."\" />";
 }
 
-function theme_doctype()
-{
-  /* return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" 
-   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">"; */
-	return "<!DOCTYPE html>\n";   // unfortunately Internet Explorer isn't ready yet,
-                                  // even in IE9 it is interpreted as quirks mode!
+function theme_doctype(){
+  $browser = get_browser(null, true);
+  switch $browser['browser'] {
+    case "MSIE":
+      if( $browser['majorver'] < 8 ) {
+        return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
+      }
+      else {
+        return "<!DOCTYPE html>\n";
+      }
+      break;
+    case "Firefox":
+      if( $browser['majorver'] > 2 && $browser['minorver'] > 4 ) {
+        return "<!DOCTYPE html>\n";
+      }
+      else {
+        return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
+      }
+      break;
+    default:
+      return "<!DOCTYPE html>\n";
+  }
+  
 }
+
 function shift_brightness($hexcolor, $shiftvalue)
 {
 	// convert RGB hex values to decimal and calculate new values
