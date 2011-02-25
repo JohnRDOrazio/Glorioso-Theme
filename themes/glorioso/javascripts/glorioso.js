@@ -728,4 +728,3 @@ $("input#startDate,input#endDate").datepicker('option', $.extend($.datepicker.re
 //I can't quite seem to figure out how to change the text color on sundays
 
 });
-/* There seem to be lots of cache errors in github lately, this should take care of it */
