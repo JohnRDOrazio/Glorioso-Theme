@@ -222,7 +222,6 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 	<!-- SHOW/HIDE, LANG and THEME right floated -->
 	<div id="toolbar-hide" style="float:right;" class="fg-button fg-button-icon-left ui-corner-top"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span>HIDE</div>
 	<div class="jqtooltip-dx" title="<?php echo _USERBAR_LANGS ?>" style="float:right;"><?php getlangs(); ?></div>
-	<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
 	<div id="gloriosothemeswitcher" class="jqtooltip-dx" title="<?php echo _USERBAR_THEMESWITCHER ?>"></div>
 </div>
 <!-- END TOP DIV: SEARCH - ADMIN - LANG - THEME -->
