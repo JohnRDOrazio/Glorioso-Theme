@@ -659,7 +659,7 @@ class Browser
     { 
         if (!array_key_exists($name, $this->props)) 
         { 
-            die "No such property or function $name)" ; 
+            die ("No such property or function $name") ; 
         } 
         return $this->props[$name] ; 
     } 
