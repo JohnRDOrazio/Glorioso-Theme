@@ -518,24 +518,32 @@ function xmldb_get_lang_img($lang)
 }
 
 function theme_doctype(){
-  $browser = get_browser(null, true);
-  switch $browser['browser'] {
-    case "MSIE":
-      if( $browser['majorver'] < 8 ) {
+  $browser = new Browser ; 
+  switch ($browser->Name) {
+      case "msie":
+      if( $browser->Version < 8 ) {
         return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
       }
       else {
         return "<!DOCTYPE html>\n";
       }
       break;
-    case "Firefox":
-      if( $browser['majorver'] > 2 && $browser['minorver'] > 4 ) {
-        return "<!DOCTYPE html>\n";
-      }
-      else {
+    case "firefox":
+      if( $browser->Version < 3.5 ) {
         return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
       }
+      else {
+        return "<!DOCTYPE html>\n";
+      }
       break;
+    case "safari":
+      if ( $browser->Version < 4 ) {
+        return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
+      }
+      else {
+        return "<!DOCTYPE html>\n";
+      }
+      break;  
     default:
       return "<!DOCTYPE html>\n";
   }
@@ -621,4 +629,51 @@ function MyIncludeJavascripts() {
 		}
 	}
 }
+
+class Browser 
+{ 
+    private $props    = array("Version" => "0.0.0", 
+                                "Name" => "unknown", 
+                                "Agent" => "unknown") ; 
+
+    public function __Construct() 
+    { 
+        $browsers = array("firefox", "msie", "opera", "chrome", "safari", 
+                            "mozilla", "seamonkey",    "konqueror", "netscape", 
+                            "gecko", "navigator", "mosaic", "lynx", "amaya", 
+                            "omniweb", "avant", "camino", "flock", "aol"); 
+
+        $this->Agent = strtolower($_SERVER['HTTP_USER_AGENT']); 
+        foreach($browsers as $browser) 
+        { 
+            if (preg_match("#($browser)[/ ]?([0-9.]*)#", $this->Agent, $match)) 
+            { 
+                $this->Name = $match[1] ; 
+                $this->Version = $match[2] ; 
+                break ; 
+            } 
+        } 
+    } 
+
+    public function __Get($name) 
+    { 
+        if (!array_key_exists($name, $this->props)) 
+        { 
+            die "No such property or function $name)" ; 
+        } 
+        return $this->props[$name] ; 
+    } 
+
+    public function __Set($name, $val) 
+    { 
+        if (!array_key_exists($name, $this->props)) 
+        { 
+            SimpleError("No such property or function.", "Failed to set $name", $this->props) ; 
+            die ; 
+        } 
+        $this->props[$name] = $val ; 
+    } 
+
+} 
+
 ?>
