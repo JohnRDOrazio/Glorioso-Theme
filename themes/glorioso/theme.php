@@ -519,8 +519,8 @@ function xmldb_get_lang_img($lang)
 
 function theme_doctype($charset="UTF-8"){
   $browser = new Browser ; 
-  $xhtml = array("doctype" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">","metacharset" => "<META http-equiv=\"Content-Type\" content=\"text/html; charset=\"".$charset."\">");
-  $html5 = array("doctype" => "<!DOCTYPE html>", "metacharset" => "<META CHARSET='".$charset."'>");
+  $xhtml = array("doctype" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">","metacharset" => "<META http-equiv=\"Content-Type\" content=\"text/html; charset=\"".$charset."\">","closetag" => "/");
+  $html5 = array("doctype" => "<!DOCTYPE html>", "metacharset" => "<META CHARSET='".$charset."'>","closetag" => "");
 switch ($browser->Name) {
       case "msie":
       if( $browser->Version < 8 ) {
