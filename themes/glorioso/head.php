@@ -34,7 +34,8 @@ switch($_FN['lang']){
   $xmlns_fb = "xmlns:fb=\"http://www.facebook.com/2008/fbml\"";
 	$xmlns_wl = "xmlns:wl=\"http://apis.live.net/js/2010\"";
 	$close_tag = "";
-	echo theme_doctype ();  // html 5, defined in theme.php
+	$htmlver = theme_doctype(_CHARSET);  // will give HTML5 for browsers that support it, otherwise XHTML 1.1. Defined in theme.php.
+        echo $htmlver['doctype']."\n";
 	echo "<html $xmlns $xmlns_fb $xmlns_wl lang=\""._FN_LANG."\">\n";
 	echo "<head>\n";
 	$sitename = $_FN['sitetitle'] ;
@@ -48,10 +49,7 @@ switch($_FN['lang']){
 	if (file_exists ( "sections/" . $_FN['vmod'] . "/sethead.php" ))
 		include ( "sections/" . $_FN['vmod'] . "/sethead.php" );
 	echo "\t<title>{$_FN['sitetitle']}</title>\n";
-	/* as of html this has been simplified!
- * echo "\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=" . _CHARSET . "\" $close_tag>\n";
-*/
-echo "\t<meta charset=\"" . _CHARSET . "\" $close_tag>\n";	
+echo "\t".$htmlver['metacharset']."\n";	
 echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
 	echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta http-equiv=\"EXPIRES\" content=\"0\" $close_tag>\n";
