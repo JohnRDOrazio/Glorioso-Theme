@@ -64,7 +64,7 @@ echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_ta
 	echo "\t<meta name=\"RATING\" content=\"GENERAL\" $close_tag>\n";
   echo $_THEME_CFG['use_jqueryui'] ? "<link href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{$_THEME_CFG['jqueryui_default']}/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\"/>" : "";
 	//GOOGLE WEBMASTER TOOLS:
-	echo "\t<meta name=\"google-site-verification\" content=\"60-SUicz0IlmNrSx4pHddi-wIXeD2CpEgoV90AsCiX4\" $close_tag>\n";
+	echo "\t<meta name=\"google-site-verification\" content=\"{$_THEME_CFG['webmastertoolscode']}\" $close_tag>\n";
 	echo "\t<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\" $close_tag>\n";
   if (file_exists ( "" . $_FN['datadir'] . "/{$_FN['lang']}/backend.xml" ))
 		echo "\t<link rel=\"alternate\" type=\"application/rss+xml\" title=\"{$_FN['sitename']}\" href=\"{$_FN['siteurl']}{$_FN['datadir']}/{$_FN['lang']}/backend.xml\" $close_tag>\n";
