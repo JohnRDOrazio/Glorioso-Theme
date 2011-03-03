@@ -91,7 +91,7 @@ $_THEME_CFG['top_logo'] = "images/pagetop/logo-glorioso.png"; //{image}
 #[en]URL image in the upper central section of the page
 $_THEME_CFG['top_pic'] = "images/pagetop/logo-glorioso.png"; //{image}
 
-/* Librerie Javascript e API PHP */
+/* Javascript Libraries and PHP APIs */
 
 #[it]Voglio utilizzare Google JSApi (richiede una chiave; altrimenti le librerie js selezionate verranno caricate dal repository di Google) {1=SI,0=NO}
 #[en]I want to use Google JSApi (requires a key; otherwise the js libraries will be loaded from Google's repository) {1=YES,0=NO}
@@ -168,6 +168,9 @@ $_THEME_CFG['use_gan'] = 0;
 #[it]Google Analytics Account
 #[en]Google Analytics Account
 $_THEME_CFG['gan_account'] = "";
+#[it]Google Webmaster Tools Verification Code
+#[en]Google Webmaster Tools Verification Code
+$_THEME_CFG['webmastertoolscode'] ="";
 
 /* Google Calendar */
 
