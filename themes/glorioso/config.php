@@ -160,7 +160,7 @@ $_THEME_CFG['use_1pixeloutaudioplayer'] = 1;
 #[en]I would like !!! to disable !!! webtoolkit MD5 - caution it is necessary for greater security (default = NO!))  {1=YES,0=NO}
 $_THEME_CFG['notuse_webtoolkitMD5'] = 0;
 
-/* Google Analytics */
+/* Google Analytics - Webmaster Tools */
 
 #[it]Voglio usare Google Analytics   {1=SI,0=NO}
 #[en]I would like to use Google Analytics  {1=YES,0=NO}
