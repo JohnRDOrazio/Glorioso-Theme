@@ -517,35 +517,37 @@ function xmldb_get_lang_img($lang)
 	return "<img alt=\"$lang\" style=\"border:0px;\" src=\"".fromtheme("images/flags/$lang.png")."\" />";
 }
 
-function theme_doctype(){
+function theme_doctype($charset="UTF-8"){
   $browser = new Browser ; 
-  switch ($browser->Name) {
+  $xhtml = array("doctype" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">","metacharset" => "<META http-equiv=\"Content-Type\" content=\"text/html; charset=\"".$charset."\">");
+  $html5 = array("doctype" => "<!DOCTYPE html>", "metacharset" => "<META CHARSET='".$charset."'>");
+switch ($browser->Name) {
       case "msie":
       if( $browser->Version < 8 ) {
-        return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
+        return $xhtml;
       }
       else {
-        return "<!DOCTYPE html>\n";
+        return $html;
       }
       break;
     case "firefox":
       if( $browser->Version < 3.5 ) {
-        return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
+        return $xhtml;
       }
       else {
-        return "<!DOCTYPE html>\n";
+        return $html;
       }
       break;
     case "safari":
       if ( $browser->Version < 4 ) {
-        return "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">";
+        return $xhtml;
       }
       else {
-        return "<!DOCTYPE html>\n";
+        return $html;
       }
       break;  
     default:
-      return "<!DOCTYPE html>\n";
+      return $html;
   }
   
 }
