@@ -527,7 +527,7 @@ switch ($browser->Name) {
         return $xhtml;
       }
       else {
-        return $html;
+        return $html5;
       }
       break;
     case "firefox":
@@ -535,7 +535,7 @@ switch ($browser->Name) {
         return $xhtml;
       }
       else {
-        return $html;
+        return $html5;
       }
       break;
     case "safari":
@@ -543,11 +543,11 @@ switch ($browser->Name) {
         return $xhtml;
       }
       else {
-        return $html;
+        return $html5;
       }
       break;  
     default:
-      return $html;
+      return $html5;
   }
   
 }
