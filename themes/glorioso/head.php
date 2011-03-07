@@ -33,9 +33,9 @@ switch($_FN['lang']){
 	$xmlns = "xmlns=\"http://www.w3.org/1999/xhtml\"";
   $xmlns_fb = "xmlns:fb=\"http://www.facebook.com/2008/fbml\"";
 	$xmlns_wl = "xmlns:wl=\"http://apis.live.net/js/2010\"";
-	$close_tag = $htmlver['closetag'];
 	$htmlver = theme_doctype(_CHARSET);  // will give HTML5 for browsers that support it, otherwise XHTML 1.1. Defined in theme.php.
-        echo $htmlver['doctype']."\n";
+	$close_tag = $htmlver['closetag'];
+  echo $htmlver['doctype']."\n";
 	echo "<html $xmlns $xmlns_fb $xmlns_wl lang=\""._FN_LANG."\">\n";
 	echo "<head>\n";
 	$sitename = $_FN['sitetitle'] ;
