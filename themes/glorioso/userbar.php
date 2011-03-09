@@ -211,7 +211,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
     }
 		//ADMIN ON/OFF
 		if ( isadmin() || can_modify($_FN['user'],"sections/{$_FN['vmod']}") ){
-			echo ( $_FN['fneditmode'] != 0 ) ? "<input type=\"checkbox\" id=\"glorioso_adminonoff\" name=\"glorioso_adminonoff\" rel=\"glorioso_adminon\" checked /><label for=\"glorioso_adminonoff\" class=\"jqtooltip-dx\" title=\"" . fn_i18n("_EDITMODEOFF"). "\">OFF</label>" : "<input type=\"checkbox\" id=\"glorioso_adminonoff\" name=\"glorioso_adminonoff\" rel=\"glorioso_adminoff\" /><label for=\"glorioso_adminonoff\" class=\"jqtooltip-dx\" title=\"". fn_i18n("_EDITMODEON") ."\" />ON</label>";
+			echo ( $_FN['fneditmode'] != 0 ) ? "<input type=\"checkbox\" id=\"glorioso_adminonoff\" name=\"glorioso_adminonoff\" rel=\"glorioso_adminon\" checked /><label for=\"glorioso_adminonoff\" class=\"jqtooltip-dx\" title=\"" . fn_i18n("_EDITMODEOFF"). "\">OFF</label>" : "<input type=\"checkbox\" id=\"glorioso_adminonoff\" name=\"glorioso_adminonoff\" rel=\"glorioso_adminoff\" /><label for=\"glorioso_adminonoff\" class=\"jqtooltip-dx\" title=\"". fn_i18n("_EDITMODEON") ."\">ON</label>";
 			}		
 		}
 		// whether logged in or not:
