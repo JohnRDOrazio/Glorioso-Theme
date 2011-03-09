@@ -77,7 +77,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
             case (mp_count($_FN['user']) > 10):
               $mp_imgsrc = "images/mp/mail10+.png";   
           }
-      		echo "<div style='float:left;margin-left:15px;'><a href=\"index.php?mod=".$MP_section."\"><img id='MPimg' class='jqtooltip-dx' style='width:32px;' src=$mp_imgsrc title='"._MP." ".mp_count($_FN['user'])." "._NOREADMP."' /></a></div>";
+      		echo "<div style='float:left;margin-left:15px;'><a href=\"index.php?mod=".$MP_section."\"><img id='MPimg' class='jqtooltip-dx' style='width:32px;' src='".$mp_imgsrc."' title='"._MP." ".mp_count($_FN['user'])." "._NOREADMP."' /></a></div>";
           }
       else
       		echo _LOGINMP;
