@@ -190,7 +190,7 @@ else{
 	echo ($_THEME_CFG['use_swfobject']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/swfobject/2/swfobject.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_yui']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/yui/2/build/yuiloader/yuiloader-min.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_extcore']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/ext-core/3/ext-core.js\"></script>\n" : "";
-	echo ($_THEME_CFG['use_chromeframe']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js\"></script>\n" : "";
+	echo ($_THEME_CFG['use_chromeframe']==1) ? "<!--[if IE]>\n<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js\"></script>\n<style>\n .chromeFrameInstallDefaultStyle { width: 100%; border: 5px solid blue; } \n</style>\n<div id=\"prompt\">\n<!-- if IE without GCF, prompt goes here -->\n</div>\n    <script type=\"text/javascript\">\n window.attachEvent(\"onload\", function() { CFInstall.check({ mode: \"inline\", node: \"prompt\" }); });\n </script>\n<![endif]-->" : "";
 }	
 
 	/* Alcuni plugins per jquery: */
