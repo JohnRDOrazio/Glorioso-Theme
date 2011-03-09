@@ -189,9 +189,8 @@ if($_THEME_CFG['showblocksleft'] == 0){
 /***************
 * INIZIO BODY  *
 ***************/
-$onload = ($_THEME_CFG['use_chromeframe']==!) ? "onLoad='CFInstall.check({ mode: \"overlay\", destination: \"http://{$_FN['siteurl']}index.php?mod={$_FN['mod']}\" })' " : "";
 if($_THEME_CFG['full_page_backimage']==1){
-	echo "<body style=\"{$_THEME_CFG['bodycolor']}\" $onload>";
+	echo "<body style=\"{$_THEME_CFG['bodycolor']}\" >";
 	echo "<img class=\"bg\" src=\"{$_THEME_CFG['backimage']}\" />";
 	//echo "<div id=\"body-content\">";
 }
@@ -199,7 +198,7 @@ else{
 	if($_THEME_CFG['backimage']!=""){ $_THEME_CFG['backimage']="background-image:url({$_THEME_CFG['backimage']});"; }
 	if($_THEME_CFG['backimage_repeat']!=""){ $_THEME_CFG['backimage_repeat']="background-repeat:{$_THEME_CFG['backimage_repeat']};"; }
 	if($_THEME_CFG['backimage_attachment']!=""){ $_THEME_CFG['backimage_attachment']="background-attachment:{$_THEME_CFG['backimage_attachment']};"; }
-	echo "<body style=\"{$_THEME_CFG['bodycolor']}{$_THEME_CFG['backimage']}{$_THEME_CFG['backimage_repeat']}{$_THEME_CFG['backimage_attachment']}\" $onload>";
+	echo "<body style=\"{$_THEME_CFG['bodycolor']}{$_THEME_CFG['backimage']}{$_THEME_CFG['backimage_repeat']}{$_THEME_CFG['backimage_attachment']}\" >";
 }
 if ($_THEME_CFG['use_fb']==1){
   echo "<div id=\"fb-root\"></div>
