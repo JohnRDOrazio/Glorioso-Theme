@@ -201,7 +201,7 @@ else{
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-tools-min.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_1pixeloutaudioplayer']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/1pixeloutplayer/audio-player.js\"></script>\n" : "";
 	echo ($_THEME_CFG['notuse_webtoolkitMD5']==0) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/webtoolkit.md5.js\"></script>\n" : "";
-  echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery.address-1.3.min.js\"></script>\n" : "";
+  echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery.address-1.3.2.min.js\"></script>\n" : "";
   echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/glorioso.js\"></script>" : "";
 
 	/* Messenger Live Connect */
