@@ -118,7 +118,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
     echo "<div style='clear:both;'>";
     //-disegno la barra del livello ->
 		$level = getlevel($_FN['user']);
-			echo "<div id=\"USERPAN_LEVEL\" class=\"jqtooltip-dx\" title=\"".fn_i18n("_LEVEL") . " ". $level ."<br />Fai parte dei seguenti gruppi: ". $groups[0]['group'] ."\" style=\"float:left;text-align:center;margin:.2em 15px;vertical-align:middle;border:ridge 1px White;padding:0px 3px 3px 3px;\">";
+			echo "<div id=\"USERPAN_LEVEL\" class=\"jqtooltip-dx\" title=\"".fn_i18n("_LEVEL") . " ". $level ."&lt;br /&gt;Fai parte dei seguenti gruppi: ". $groups[0]['group'] ."\" style=\"float:left;text-align:center;margin:.2em 15px;vertical-align:middle;border:ridge 1px White;padding:0px 3px 3px 3px;\">";
 			for ( $i = 0;$i < $level;$i++  )
 				echo "<img  src=\"{$_FN['siteurl']}images/useronline/level_y.gif\" alt=\"level\" style=\"vertical-align:middle;\" />";
 			for (;$i < 10;$i++  )
@@ -206,7 +206,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 		//FILEMANAGER
 		if ( user_can_edit_section($_FN['vmod']) )
 		{ ?>
-			<input type="checkbox" id="CTRLPAN_FILEMNGR" /><label for="CTRLPAN_FILEMNGR" class="jqtooltip-dx" title="<?php echo strtoupper(fn_i18n('_MANAGEFILE')); ?> :<br /> <?php echo fn_i18n('_FILESINSECTION'); ?>">FileMngr</label>
+			<input type="checkbox" id="CTRLPAN_FILEMNGR" /><label for="CTRLPAN_FILEMNGR" class="jqtooltip-dx" title="<?php echo strtoupper(fn_i18n('_MANAGEFILE')); ?> :&lt;br /&gt; <?php echo fn_i18n('_FILESINSECTION'); ?>">FileMngr</label>
 	<?php
     }
 		//ADMIN ON/OFF
@@ -234,7 +234,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 <?php } ?>
   <!-- CLOCK -->
   <div id="clockwrapper">
-    <img id="gloriosocal" src="images/pagetop/calendario.gif" alt="Calendario" title="<?php echo _USERBAR_CAL ?>" />
+    <img id="gloriosocal" src="images/pagetop/calendario.gif" class="jqtooltip-dx" alt="Calendario" title="<?php echo _USERBAR_CAL ?>" />
     <!-- Calendar feed as defined in config.php -->
     <input type="hidden" id="gcal-feed" value="<?php echo $_THEME_CFG['gcal_feed']?>" />
     <?php include("fullcalendar.php"); ?>
