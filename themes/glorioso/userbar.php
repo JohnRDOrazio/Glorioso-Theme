@@ -166,7 +166,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
               google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text":"<?php echo _GFC_LOGIN_BTN ?>" });
             </script>
           <?php } ?>
-          <?php if ($_THEME_CFG['use_fb']==1){ ?>
+          <?php if ($_THEME_CFG['use_messlive']==1){ ?>
           <!-- messenger live login button -->    
             <div id='messlivelogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _MESSLIVE_LOGIN ?>'>
               <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted" /> 
