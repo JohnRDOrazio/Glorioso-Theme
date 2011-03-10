@@ -172,7 +172,7 @@ $.fn.themeswitcher = function(settings){
 		fontFamily: 'Trebuchet MS, Verdana, sans-serif',
 		fontSize: '11px',
 		color: '#666',
-		background: '#eee url(http://jqueryui.com/themeroller/themeswitchertool/images/buttonbg.png) 50% 50% repeat-x',
+		background: '#eee url(themes/glorioso/images/themeswitcher/buttonbg.png) 50% 50% repeat-x',
 		border: '1px solid #ccc',
 		'-moz-border-radius': '6px',
 		'-webkit-border-radius': '6px',
@@ -217,7 +217,7 @@ $.fn.themeswitcher = function(settings){
 		float: 'right',
 		width: '16px',
 		height: '16px',
-		background: 'url(http://jqueryui.com/themeroller/themeswitchertool/images/icon_color_arrow.gif) 50% 50% no-repeat'
+		background: 'url(themes/glorioso/images/themeswitcher/icon_color_arrow.gif) 50% 50% no-repeat'
 	});	
 	//pane css
 	switcherpane.css({
@@ -249,7 +249,7 @@ $.fn.themeswitcher = function(settings){
 		function(){ 
 			$(this).css({
 				'borderColor':'#555',
-				'background': 'url(http://jqueryui.com/themeroller/themeswitchertool/images/menuhoverbg.png) 50% 50% repeat-x',
+				'background': 'url(themes/glorioso/images/themeswitcher/menuhoverbg.png) 50% 50% repeat-x',
 				cursor: 'pointer'
 			}); 
 		},
