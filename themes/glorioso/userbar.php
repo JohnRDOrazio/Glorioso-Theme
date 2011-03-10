@@ -108,7 +108,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
         <span id="messlive_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _MESSLIVE_LOGOUT ?>' >
           <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted" />
         </span>
-      }
+     <?php }
       //else if user is only logged into the site and not to facebook connect, show flatnux logout
       else {  ?>
 		    	<div class='jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-state-active ui-priority-primary ui-corner-right' title='<?php echo _FN_LOGOUT ?>'><span class="ui-icon ui-icon-power"></span><a href="<?php echo $logouturl ?>"><?php echo _LOGOUT ?></a></div>
