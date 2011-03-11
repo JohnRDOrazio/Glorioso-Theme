@@ -191,6 +191,34 @@ else{
 	echo ($_THEME_CFG['use_yui']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/yui/2/build/yuiloader/yuiloader-min.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_extcore']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/ext-core/3/ext-core.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_chromeframe']==1) ? "<!--[if IE]>\n<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js\"></script>\n<style>\n .chromeFrameInstallDefaultStyle { width: 100%; border: 5px solid blue; } \n</style>\n<div id=\"prompt\">\n<!-- if IE without GCF, prompt goes here -->\n</div>\n    <script type=\"text/javascript\">\n window.attachEvent(\"onload\", function() { CFInstall.check({ mode: \"inline\", node: \"prompt\" }); });\n </script>\n<![endif]-->" : "";
+
+  echo "<script type='text/javascript'>";
+  echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: [ 'IM Fell DW Pica SC', 'Reenie Beanie' ] }});" : "";      
+  echo ($_THEME_CFG['use_gfc']==1) ? "google.friendconnect.container.setParentUrl('/');
+                                      google.friendconnect.container.loadOpenSocialApi({
+                                          site: '".$_THEME_CFG["gfc_site"]."',
+                                          onload: function(securityToken) {
+                                               if (!window.timesloaded) {
+                                                    window.timesloaded = 1;
+                                                  } else {
+                                                    window.timesloaded++;
+                                                  }
+                                               if (window.timesloaded > 1) {
+                                                  gfcsession = getCookie('fcauth".$_THEME_CFG["gfc_site"]."');
+                                                  if(gfcsession!=null&&gfcsession!=''){ 
+                                                    // if google talk gadget...
+                                                    window.open(\"https://www.google.com/accounts/ServiceLogin?service\x3dtalk\x26passive\x3dtrue\x26skipvpage\x3dtrue\x26continue\x3dhttps://talkgadget.google.com/talkgadget/auth?verify%3Dtrue%26http%3Dtrue\", \"_blank\", \"scrollbars=1,resizable=1\");
+                                                    // end if google talk gadget...
+                                                    window.top.location.href = 'index.php?mod=login&opmod=profile'; 
+                                                  }
+                                                  else{ 
+                                                    window.top.location.href = 'index.php?mod=login&op=logout'; 
+                                                  }
+                                                }
+                                          }
+                                      });" : "";
+  echo "</script>";  
+
 }	
 
 	/* Alcuni plugins per jquery: */
