@@ -116,7 +116,9 @@ $.fn.themeswitcher = function(settings){
 		cookieName: 'jquery-ui-theme',
 		onOpen: function(){},
 		onClose: function(){},
-		onSelect: function(){}
+		onSelect: function(){
+      $('<div id="effect" class="ui-widget-content ui-corner-all" style="display:none;position:absolute;height:100px;width:200px;top:50%;margin-top:-50px;left:50%;margin-left:-100px;text-align:center;"><h3 class="ui-widget-header ui-corner-all">Glorioso Message</h3><p>A new theme has been applied.</p></div>').appendTo('body').fadeIn(1000).fadeTo(1000,1).fadeOut(1000,function(){ $(this).remove(); });
+}
 	}, settings);
 
 	//markup 
