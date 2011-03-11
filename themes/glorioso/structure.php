@@ -35,6 +35,7 @@ switch($_FN['lang']){
     define("_USERBAR_CAL","View the Event Calendar of {$_FN['sitename']}");
     define("_GFCBAR_HEADER_TEXT","Comments");
     define("_GFCBAR_COMMENT_TEXT","- add your comment here -");
+    define("_GUEST","Visitor");
     break;
   case "it":
     $lcl="it_IT";
@@ -57,6 +58,7 @@ switch($_FN['lang']){
     define("_USERBAR_CAL","Visualizza il Calendario degli Eventi di {$_FN['sitename']}");
     define("_GFCBAR_HEADER_TEXT","Commenti");
     define("_GFCBAR_COMMENT_TEXT","- aggiungi il tuo commento qui -");
+    define("_GUEST","Ospite");
     break;
   case "de":
     $lcl="de_DE";
@@ -79,6 +81,7 @@ switch($_FN['lang']){
     define("_USERBAR_CAL","Sehen Sie sich die Veranstaltungen Kalender von {$_FN['sitename']}");
     define("_GFCBAR_HEADER_TEXT","Kommentare");
     define("_GFCBAR_COMMENT_TEXT","- Fügen Sie Ihren Kommentar hier -");
+    define("_GUEST","Gast");
     break;
   case "fr":
     $lcl="fr_FR";
@@ -101,6 +104,7 @@ switch($_FN['lang']){
     define("_USERBAR_CAL","Voir le Calendrier des Événements de {$_FN['sitename']}");
     define("_GFCBAR_HEADER_TEXT","Commentaires");
     define("_GFCBAR_COMMENT_TEXT","- Ajoutez votre commentaire ici -");
+    define("_GUEST","Visiteur");
     break;
   case "es":
     $lcl="es_Es";
@@ -123,6 +127,7 @@ switch($_FN['lang']){
     define("_USERBAR_CAL","Ve el Calendario de Eventos de {$_FN['sitename']}");
     define("_GFCBAR_HEADER_TEXT","Comentarios");
     define("_GFCBAR_COMMENT_TEXT","- añade tu comentario aquí -");
+    define("_GUEST","Huésped");
     break;
   case "ru":
     $lcl="ru_RU";
@@ -145,7 +150,8 @@ switch($_FN['lang']){
     define("_USERBAR_CAL","Открыть Календарь событий из {$_FN['sitename']}");
     define("_GFCBAR_HEADER_TEXT","Комментарии");
     define("_GFCBAR_COMMENT_TEXT","- добавить свой комментарий здесь -");
-    break;
+    define("_GUEST","Посетитель");    
+break;
   default:
     $lcl="en_US";
     define("_GFC_LOGIN_BTN","Sign in with Google");
@@ -167,6 +173,7 @@ switch($_FN['lang']){
     define("_USERBAR_LIKE","Let your friends know that you like {$_FN['sitename']}!");
     define("_GFCBAR_HEADER_TEXT","Comments");
     define("_GFCBAR_COMMENT_TEXT","- add your comment here -");
+    define("_GUEST","Visitor");
 }
 
 ($_THEME_CFG['right_column_color']!="") ? $_THEME_CFG['right_column_color']="background-color:#{$_THEME_CFG['right_column_color']};" : "";
