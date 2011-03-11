@@ -130,7 +130,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 /*********************** END LOGGED IN USER **********************/
 /*********************** START NOT LOGGED IN *********************/
 	else { 
-		echo "<div style='float:left;'>"._BENVENUTO."<span id=\"span_username\"> Ospite </span>!</div>";
+		echo "<div style='float:left;'>"._BENVENUTO."<span id=\"span_username\"> "._GUEST." </span>!</div>";
   ?>
   <div id="userlogin-wrapper" style="float:right;">
 	    <div id="userlogin" class="ui-corner-all ui-state-default" style="position:absolute;margin-left:-210px;margin-top:-5px;width:200px;padding:5px;z-index:9998;">
