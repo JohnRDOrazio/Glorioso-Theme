@@ -653,6 +653,22 @@ if(gcalfeedurl!=""){
 $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
   data = $.trim(data);
   if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
+    $("#fc_ev_startDate.datepicker","#create_cal_event").datepicker({
+                                                  changeYear: true,
+                                                  changeMonth: true,
+                                                  dateFormat: 'yy-mm-dd',
+                                                  yearRange: '-10:+3',
+                                                  onSelect: function(dateText, inst){ $("#fc_ev_endDate").datepicker("option","minDate",dateText) }
+                                              });
+    $("#fc_ev_endDate.datepicker","#create_cal_event").datepicker({
+                                                  changeYear: true,
+                                                  changeMonth: true,
+                                                  dateFormat: 'yy-mm-dd',
+                                                  yearRange: '-10:+3',
+                                                  onSelect: function(dateText, inst){ $("#fc_ev_startDate").datepicker("option","maxDate",dateText) }
+                                              });
+    $.datepicker.setDefaults($.datepicker.regional['']);
+    $(".datepicker","#create_cal_event").datepicker('option', $.extend($.datepicker.regional['it']));    
     $('#calendarviewer').dialog("option","buttons",{
 		"Aggiorna": function() {
 			$('#calendarviewer').fullCalendar('refetchEvents');
@@ -660,6 +676,24 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
 			},
 		"Aggiungi evento": function() {
 			$("#create_cal_event_wrapper").dialog("open");
+      $("#fc_ev_startDate").blur(function(){
+        $("#fc_ev_endDate").attr("min",$(this).val());
+      });      
+      $("#fc_ev_endDate").blur(function(){
+        $("#fc_ev_startDate").attr("max",$(this).val());
+      });      
+      $("#fc_ev_endTime").focus(function(){
+        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
+          $(this).attr("min",$("#fc_ev_startTime").val());
+        }
+        else{ $(this).removeAttr("min"); }
+      });
+      $("#fc_ev_startTime").focus(function(){
+        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
+          $(this).attr("max",$("#fc_ev_endTime").val());
+        }
+        else{ $(this).removeAttr("max"); }
+      });
 			}
 		});
     $("#create_cal_event_wrapper").dialog({
@@ -677,7 +711,7 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
                       data: formdata,
                       success: function(data) {
                     	  $("#create_cal_event_wrapper").dialog("close");
-                        $("#TIP").html("<span>Evento creato con successo.</span><br /><span>ID evento: "+data+"</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
+                        $("#TIP").html("<span>Evento creato con successo.</span><br /><br />ID evento: <span style='word-wrap: break-word;color:DarkGreen;font-weight:bold;'>"+data+"</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
                     	  $('#calendarviewer').fullCalendar('refetchEvents');
                     	  $('#calendarviewer').fullCalendar('rerenderEvents');
                       }
@@ -686,9 +720,6 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
             "Annulla":function(){$(this).dialog("close");}
           }      
     });
-    $("#fc_ev_startDate,#fc_ev_endDate").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy-mm-dd',yearRange: '-10:+3'});
-    $.datepicker.setDefaults($.datepicker.regional['']);
-    $("#fc_ev_startDate,#fc_ev_endDate").datepicker('option', $.extend($.datepicker.regional['it']));
 	}
 });
 
