@@ -637,7 +637,7 @@ $('#calendarviewer').fullCalendar({
 });
 
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
-gcalfeedurl = $("input#gcal-feed").val();
+gcalfeedurl = $("#gcal-feed").val();
 if(gcalfeedurl!=""){
   $("#calendarviewer").fullCalendar( 'addEventSource', $.fullCalendar.gcalFeed(gcalfeedurl,
           {
@@ -648,30 +648,60 @@ if(gcalfeedurl!=""){
     ));
 }
 
+
 /* SE L'UTENTE E' AMMINISTRATORE DELLE NEWS, ALLORA PUO' INSERIRE EVENTI */
 $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
- data = $.trim(data); 
-if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
+  data = $.trim(data);
+  if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
     $('#calendarviewer').dialog("option","buttons",{
 		"Aggiorna": function() {
 			$('#calendarviewer').fullCalendar('refetchEvents');
 			$('#calendarviewer').fullCalendar('rerenderEvents');
 			},
 		"Aggiungi evento": function() {
-			$("#create_cal_event_wrapper").slideDown("slow");
+			$("#create_cal_event_wrapper").dialog("open");
 			}
 		});
+    $("#create_cal_event_wrapper").dialog({
+					width: 600,
+          modal: true,
+					autoOpen: false,
+					show: {effect:'fade',speed:2000},
+					hide: {effect:'drop',speed:1000},
+          buttons: {
+            "Crea evento":function(){
+                    formdata = $("#create_cal_event").serialize();
+                    $.ajax({
+                      type: "POST",
+                      url: "/themes/glorioso/ajax/createEvent.php",
+                      data: formdata,
+                      success: function(data) {
+                    	  $("#create_cal_event_wrapper").dialog("close");
+                        $("#TIP").html("<span>Evento creato con successo</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
+                    	  $('#calendarviewer').fullCalendar('refetchEvents');
+                    	  $('#calendarviewer').fullCalendar('rerenderEvents');
+                      }
+                    });            
+            },
+            "Annulla":function(){$(this).dialog("close");}
+          }      
+    });
+    $("#fc_ev_startDate,#fc_ev_endDate").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy-mm-dd',yearRange: '-10:+3'});
+    $.datepicker.setDefaults($.datepicker.regional['']);
+    $("#fc_ev_startDate,#fc_ev_endDate").datepicker('option', $.extend($.datepicker.regional['it']));
 	}
 });
+
+
+//$(".fc-sun .fc-content").addClass("ui-highlight");
+//I can't quite seem to figure out how to change the text color on sundays
+
 $("#gloriosocal").click(function(){
   $('#calendarviewer').dialog('open');
   $('#calendarviewer').fullCalendar('render');
   return false;
   });
-$("#create_cal_event_wrapper").draggable({ handle: '#create_cal_event_handle', containment: 'document' });
-$("#btn_cancel_create_event").click(function(){
-	$("#create_cal_event_wrapper").slideUp("slow");
-});
+
 $("#gloriosocal").hover(function(){
 	thisimg = this;
 	$(thisimg).animate({
@@ -723,11 +753,5 @@ $("#btn_cal_create_event").click(function(){
     }
   });
 });
-$("#startDate,input#endDate").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy-mm-dd',yearRange: '-10:+3'});
-$.datepicker.setDefaults($.datepicker.regional['']);
-$("#startDate,input#endDate").datepicker('option', $.extend($.datepicker.regional['it']));
-
-//$(".fc-sun .fc-content").addClass("ui-highlight");
-//I can't quite seem to figure out how to change the text color on sundays
 
 });
