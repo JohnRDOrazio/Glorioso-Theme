@@ -632,14 +632,14 @@ $('#calendarviewer').fullCalendar({
   	width: 500,
   	modal: true,
   	autoOpen: false,
-  	show: {effect:'explode',speed:1000},
+  	show: {effect:'fade',speed:3000},
   	hide: {effect:'explode',speed:1000}
 });
 
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
 gcalfeedurl = $("input#gcal-feed").val();
 if(gcalfeedurl!=""){
-  $("div#calendarviewer").fullCalendar( 'addEventSource', $.fullCalendar.gcalFeed(gcalfeedurl,
+  $("#calendarviewer").fullCalendar( 'addEventSource', $.fullCalendar.gcalFeed(gcalfeedurl,
           {
             className:       'gcal-event',
             editable:        true,
@@ -650,28 +650,29 @@ if(gcalfeedurl!=""){
 
 /* SE L'UTENTE E' AMMINISTRATORE DELLE NEWS, ALLORA PUO' INSERIRE EVENTI */
 $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
-  if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
+ data = $.trim(data); 
+if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
     $('#calendarviewer').dialog("option","buttons",{
 		"Aggiorna": function() {
 			$('#calendarviewer').fullCalendar('refetchEvents');
 			$('#calendarviewer').fullCalendar('rerenderEvents');
 			},
 		"Aggiungi evento": function() {
-			$("div#create_cal_event_wrapper").slideDown("slow");
+			$("#create_cal_event_wrapper").slideDown("slow");
 			}
 		});
 	}
 });
-$("img#gloriosocal").click(function(){
+$("#gloriosocal").click(function(){
   $('#calendarviewer').dialog('open');
   $('#calendarviewer').fullCalendar('render');
   return false;
   });
 $("#create_cal_event_wrapper").draggable({ handle: '#create_cal_event_handle', containment: 'document' });
-$("button#btn_cancel_create_event").click(function(){
-	$("div#create_cal_event_wrapper").slideUp("slow");
+$("#btn_cancel_create_event").click(function(){
+	$("#create_cal_event_wrapper").slideUp("slow");
 });
-$("img#gloriosocal").hover(function(){
+$("#gloriosocal").hover(function(){
 	thisimg = this;
 	$(thisimg).animate({
 		left: "+=5px"
@@ -708,23 +709,23 @@ $("img#gloriosocal").hover(function(){
 	});
 
 // CALENDAR EVENT CREATION
-$("button#btn_cal_create_event").click(function(){
-  $("div#create_cal_event_wrapper").slideUp("slow");
-  formdata = $("form#create_cal_event").serialize();
+$("#btn_cal_create_event").click(function(){
+  $("#create_cal_event_wrapper").slideUp("slow");
+  formdata = $("#create_cal_event").serialize();
   $.ajax({
     type: "POST",
     url: "/themes/glorioso/ajax/createEvent.php",
     data: formdata,
     success: function(data) {
-	  $("div#TIP").html("<span>Evento creato con successo</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
+	  $("#TIP").html("<span>Evento creato con successo</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
 	  $('#calendarviewer').fullCalendar('refetchEvents');
 	  $('#calendarviewer').fullCalendar('rerenderEvents');
     }
   });
 });
-$("input#startDate,input#endDate").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy-mm-dd',yearRange: '-10:+3'});
+$("#startDate,input#endDate").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy-mm-dd',yearRange: '-10:+3'});
 $.datepicker.setDefaults($.datepicker.regional['']);
-$("input#startDate,input#endDate").datepicker('option', $.extend($.datepicker.regional['it']));
+$("#startDate,input#endDate").datepicker('option', $.extend($.datepicker.regional['it']));
 
 //$(".fc-sun .fc-content").addClass("ui-highlight");
 //I can't quite seem to figure out how to change the text color on sundays
