@@ -519,8 +519,8 @@ function xmldb_get_lang_img($lang)
 
 function theme_doctype($charset="UTF-8"){
   $browser = new Browser ; 
-  $xhtml = array("doctype" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">","metacharset" => "<META http-equiv=\"Content-Type\" content=\"text/html; charset=".$charset."\" />","closetag" => "/","metachromeframe" => "<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame\n Remove this if you use the .htaccess -->\n <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />");
-  $html5 = array("doctype" => "<!DOCTYPE html>", "metacharset" => "<META CHARSET='".$charset."'>","closetag" => "","metachromeframe" => "");
+  $xhtml = array("doctype" => "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">","htmlversion" => "xhtml11","metacharset" => "<META http-equiv=\"Content-Type\" content=\"text/html; charset=".$charset."\" />","closetag" => "/","metachromeframe" => "<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame\n Remove this if you use the .htaccess -->\n <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />");
+  $html5 = array("doctype" => "<!DOCTYPE html>","htmlversion" => "html5","metacharset" => "<META CHARSET='".$charset."'>","closetag" => "","metachromeframe" => "");
 switch ($browser->Name) {
       case "msie":
       if( $browser->Version < 8 ) {
