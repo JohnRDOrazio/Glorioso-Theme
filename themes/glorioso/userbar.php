@@ -93,7 +93,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 			if ($_THEME_CFG['use_fb']==1&&$_FB['me']){ 
 	?>
 				<span id="fb_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _FB_LOGOUT ?>' >
-					<img id="fb_logout_image" src="images/social/fb_logout_small.gif" alt="Connect" />
+					<img id="fb_logout_image" src="images/social/fb_logout.png" alt="Connect" />
 				</span>				
 	<?php }
 	    elseif ($_THEME_CFG['use_gfc']==1&&$_GFC['session']){
