@@ -111,12 +111,15 @@ $_THEME_CFG['use_jqueryui'] = 1;
 #[en]I would like to load local jQuery UI without Tabs (default NO): {1=YES,0=NO}
 $_THEME_CFG['use_jqueryui_lcl'] = 0;
 
-#[it]Tema jQuery UI predefinito da caricare dal repository google (predefinito 'redmond') {}
-#[en]jQuery UI default theme to load from the google repository (default 'redmond') {}
+#[it]Tema jQuery UI predefinito da caricare dal repository google (predefinito 'redmond') {base=Base,black-tie=Black Tie,blitzer=Blitzer,cupertino=Cupertino,dark-hive=Dark Hive,dot-luv=Dot Luv,eggplant=Eggplant,excite-bike=Excite Bike,flick=Flick,hot-sneaks=Hot Sneaks,humanity=Humanity,le-frog=Le Frog,mint-choc=Mint Chocolate,overcast=Overcast,pepper-grinder=Pepper Grinder,redmond=Redmond,smoothness=Smoothness,south-street=South Street,start=Start,sunny=Sunny,swanky-purse=Swanky Purse,trontastic=Trontastic,ui-darkness=UI Darkness,ui-lightness=UI Lightness,vader=Vader}
+#[en]jQuery UI default theme to load from the google repository (default 'redmond') {base=Base,black-tie=Black Tie,blitzer=Blitzer,cupertino=Cupertino,dark-hive=Dark Hive,dot-luv=Dot Luv,eggplant=Eggplant,excite-bike=Excite Bike,flick=Flick,hot-sneaks=Hot Sneaks,humanity=Humanity,le-frog=Le Frog,mint-choc=Mint Chocolate,overcast=Overcast,pepper-grinder=Pepper Grinder,redmond=Redmond,smoothness=Smoothness,south-street=South Street,start=Start,sunny=Sunny,swanky-purse=Swanky Purse,trontastic=Trontastic,ui-darkness=UI Darkness,ui-lightness=UI Lightness,vader=Vader}
 $_THEME_CFG['jqueryui_default'] = "redmond";
 #[it]Voglio usare Google Webfont Api   {1=SI,0=NO}
 #[en]I would like to use Google Webfont Api  {1=YES,0=NO}
 $_THEME_CFG['use_webfont'] = 1;
+#[it]Stringa dei fonts (separati da virgola) che si vuole caricare attraverso Google Font API (consultare il Google Font Directory http://code.google.com/webfonts) 
+#[en]Comma separated string of the fonts that you want to load from the Google Font API (see the Google Font Directory http://code.google.com/webfonts)    
+$_THEME_CFG['googlefonts'] = "IM Fell DW Pica SC,Reenie Beanie";
 
 // this one is not implemented in the theme!
 #[it]Voglio caricare jQuery Tools completo (attenzione: jqTools Tabs va in conflitto con jQueryUI Tabs, perciò solo se no jQueryUI; predefinito = NO)     {1=SI,0=NO}
@@ -126,9 +129,6 @@ $_THEME_CFG['use_jqtools'] = 0;
 #[it]Voglio caricare jQuery Tools locale (jqTools senza Tabs, ok con jQueryUI completo; predefinito = SI')  {1=SI,0=NO}
 #[en]I would like to load local jQuery Tools (jqTools without Tabs, goes well with full jQuery UI; default = YES)  {1=YES,0=NO}
 $_THEME_CFG['use_jqtools_lcl'] = 1;
-#[it]Stringa dei fonts che si vuole caricare attraverso Google Font API (consultare il Google Font Directory http://code.google.com/webfonts) 
-#[en]String of the fonts that you want to load from the Google Font API (see the Google Font Directory http://code.google.com/webfonts)    
-$_THEME_CFG['googlefonts'] = "";
 #[it]Voglio caricare Prototype     {1=SI,0=NO}
 #[en]I would like to load Prototype {1=YES,0=NO}
 $_THEME_CFG['use_prototype'] = 0;
