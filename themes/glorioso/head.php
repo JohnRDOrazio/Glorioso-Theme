@@ -1,6 +1,6 @@
 <?php
 
-global $_THEME_CFG;
+global $_THEME_CFG,$htmlver;
 // define iso-coded lang parameters
 switch($_FN['lang']){
   case "it":
