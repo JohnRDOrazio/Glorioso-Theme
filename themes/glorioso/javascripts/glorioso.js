@@ -677,7 +677,7 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
                       data: formdata,
                       success: function(data) {
                     	  $("#create_cal_event_wrapper").dialog("close");
-                        $("#TIP").html("<span>Evento creato con successo</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
+                        $("#TIP").html("<span>Evento creato con successo.</span><br /><span>ID evento: "+data+"</span>").fadeIn("fast").fadeTo(5000, 1).fadeOut("slow");
                     	  $('#calendarviewer').fullCalendar('refetchEvents');
                     	  $('#calendarviewer').fullCalendar('rerenderEvents');
                       }
