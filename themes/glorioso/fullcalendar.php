@@ -1,16 +1,16 @@
-<?php global $_THEME_CFG; ?>
+<?php global $_THEME_CFG,$_FN; ?>
 <!-- CALENDAR (GOOGLE) -->
-<div id="calendarviewer" title="CALENDARIO"></div>
+<div id="calendarviewer" title="CALENDARIO DEGLI EVENTI - <?php echo $_FN['sitename'] ?>"></div>
 <!-- </div> -->
 <div id="create_cal_event_wrapper" title="CREA UN NUOVO EVENTO">
 <div id="create_cal_event_form" class="ui-corner-bottom ui-corner-tr">
 <form id="create_cal_event" method="" action="">
   <table>
-    <tr><td><label for="fc_ev_title">TITOLO EVENTO:</label></td><td><input type="text" name="ev-title" id="fc_ev_title" value="" /></td></tr>
-    <tr><td><label for="fc_ev_desc">DESCRIZIONE EVENTO:</label></td><td><input type="text" name="ev-desc" id="fc_ev_desc" value="" /></td></tr>
-    <tr><td><label for="fc_ev_where">DOVE:</label></td><td><input type="text" name="ev-where" id="fc_ev_where" value="" /></td></tr>
-    <tr><td><label for="fc_ev_startDate">COMINCIA:</label></td><td><input type="text" name="ev-startDate" id="fc_ev_startDate" value="" /></td></tr>
-    <tr><td><label for="fc_ev_startTime">ORARIO INIZIO:</label></td><td><select name="ev-startTime" id="fc_ev_startTime">
+    <tr><td><label for="fc_ev_title">TITOLO EVENTO:</label></td><td><input type="text" name="fc_ev_title" id="fc_ev_title" value="" /></td></tr>
+    <tr><td><label for="fc_ev_desc">DESCRIZIONE EVENTO:</label></td><td><input type="text" name="fc_ev_desc" id="fc_ev_desc" value="" /></td></tr>
+    <tr><td><label for="fc_ev_where">DOVE:</label></td><td><input type="text" name="fc_ev_where" id="fc_ev_where" value="" /></td></tr>
+    <tr><td><label for="fc_ev_startDate">COMINCIA:</label></td><td><input type="text" name="fc_ev_startDate" id="fc_ev_startDate" value="" /></td></tr>
+    <tr><td><label for="fc_ev_startTime">ORARIO INIZIO:</label></td><td><select name="fc_ev_startTime" id="fc_ev_startTime">
     <option>01:00</option>
     <option>01:30</option>
     <option>02:00</option>
@@ -61,8 +61,8 @@
     <option>24:30</option>
   </select>
   </td></tr>
-  <tr><td><label for="fc_ev_endDate">FINISCE:</label></td><td><input type="text" name="ev-endDate" id="fc_ev_endDate" value="" /></td></tr>
-  <tr><td><label for="fc_ev_endTime">ORARIO FINE:</label></td><td><select name="ev-endTime" id="fc_ev_endTime">
+  <tr><td><label for="fc_ev_endDate">FINISCE:</label></td><td><input type="text" name="fc_ev_endDate" id="fc_ev_endDate" value="" /></td></tr>
+  <tr><td><label for="fc_ev_endTime">ORARIO FINE:</label></td><td><select name="fc_ev_endTime" id="fc_ev_endTime">
     <option>01:00</option>
     <option>01:30</option>
     <option>02:00</option>
