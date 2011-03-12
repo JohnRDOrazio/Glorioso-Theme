@@ -1,9 +1,10 @@
 <?php
 
+set_include_path($_SERVER['DOCUMENT_ROOT']."themes/glorioso/include/" . PATH_SEPARATOR . get_include_path() );
 /**
  * @see Zend_Loader
  */
-include_once '../include/Zend/Loader.php';
+require_once 'Zend/Loader.php';
 /**
  * @see Zend_Gdata
  */
@@ -39,6 +40,7 @@ Zend_Loader::loadClass('Zend_Gdata_Calendar');
   $newEvent->title = $gdataCal->newTitle($_POST["fc_ev_title"]);
   $newEvent->where = array($gdataCal->newWhere($_POST["fc_ev_where"]));
   $newEvent->content = $gdataCal->newContent($_POST["fc_ev_desc"]);
+  $newEntry->content->type = 'text';
 
   $when = $gdataCal->newWhen();
   $startDate = $_POST["fc_ev_startDate"];
