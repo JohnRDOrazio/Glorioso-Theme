@@ -1,9 +1,4 @@
 @import "css/fullcalendar.css";
-	  
-
-/**************************
-* DEFAULT JQUERY-UI THEME * (User can switch to other jQuery-UI themes on-the-fly with ThemeSwitcher widget)
-**************************/
 
 body { font-size: 12px; font-family:"Segoe UI", Tahoma, Helvetica, "Helvetica Neue", Arial, sans-serif; }
 a {	text-decoration:none !important; }
@@ -69,34 +64,34 @@ img { border: 0px; }
 /*********************************
 * GLORIOSO THEME SINGLE ELEMENTS *
 *********************************/
-div#pagetop {
+#pagetop {
 	clear:both;
 	float:left;
 	width:100%;
 }
 
-div#pagebottom {
+#pagebottom {
 	clear:both;
 	text-align:center;
   font-size: .8em;
 }
-div#top_horizontal_menu {
+#top_horizontal_menu {
   margin-bottom:3px;
 }
-div#bottom_horizontal_menu {
+#bottom_horizontal_menu {
   margin-top:3px;
 }
 
-div#validate-icons { width:504px; margin: 0 auto; } /* width = width of all icons plus margins */
-div#validate-icons .validate-icon { height:15px; width:80px; display:block; float:left; margin: 0 2px; background: url(images/validate/validate.png) 0 0 no-repeat; }
-div#validate-icons .validate-icon.flatnux { background-position: 0 -96px; }
-div#validate-icons .validate-icon.html { background-position: 0 -166px; }
-div#validate-icons .validate-icon.css { background-position: 0 -48px; }
-div#validate-icons .validate-icon.rss { background-position: 0 -16px; }
-div#validate-icons .validate-icon.jquery { height:18px; background-position: 0 -128px; }
-div#validate-icons .validate-icon.jquery-ui { height:18px; background-position: 0 -147px; }
-div#credits-links { clear:both; }
-div#loading {
+#validate-icons { width:504px; margin: 0 auto; } /* width = width of all icons plus margins */
+#validate-icons .validate-icon { height:15px; width:80px; display:block; float:left; margin: 0 2px; background: url(images/validate/validate.png) 0 0 no-repeat; }
+#validate-icons .validate-icon.flatnux { background-position: 0 -96px; }
+#validate-icons .validate-icon.html { background-position: 0 -166px; }
+#validate-icons .validate-icon.css { background-position: 0 -48px; }
+#validate-icons .validate-icon.rss { background-position: 0 -16px; }
+#validate-icons .validate-icon.jquery { height:18px; background-position: 0 -128px; }
+#validate-icons .validate-icon.jquery-ui { height:18px; background-position: 0 -147px; }
+#credits-links { clear:both; }
+#loading {
   position: absolute;
 	height: 250px;
 	width: 350px;
@@ -118,10 +113,10 @@ div#loading {
 	border-right:groove 1px White;
 	padding-bottom:1em;
 }
-div#vertical-menu .fg-button {
+#vertical-menu .fg-button {
 	text-align:left;
 }
-div#movie {
+#movie {
     position: absolute;
 	clear:both;
 	top: 50%;
@@ -133,7 +128,7 @@ div#movie {
 	display:none;
 	z-index:9000;
 }
-div#movieclose {
+#movieclose {
 	background-image:url(images/movie/close.png);
 	position:absolute;
 	right:-15px;
@@ -147,19 +142,19 @@ div#movieclose {
 .movie-button {
 	float:left;
 }
-div#movietoolbar {
+#movietoolbar {
 	display:none;
 	position:relative;
 	top:-35px;
 }
-div#volumeSetting {
+#volumeSetting {
 	position:relative;
 	left:80px;
 	top:-115px;
 	height:100px;
 	display:none;
 }
-span#moviepaused {
+#moviepaused {
 	display:none;
 	position:absolute;
 	top:15px;
@@ -171,13 +166,13 @@ span#moviepaused {
 	z-index:9999;
 }
 
-div#bufferprogress {
+#bufferprogress {
 	position:relative;
 	top:-5px;
 	height:5px;
 }
 
-div#userlogin-dropdown div {
+#userlogin-dropdown div {
   cursor: pointer;
 }
 
@@ -210,26 +205,31 @@ img.bg {
 /****************************
 * FACEBOOK CONNECT ELEMENTS *
 ****************************/
-img#fb_logout_image {
+#fb_logout_image {
 	border: 1px solid White;
 	vertical-align:middle;
 }
-img#fb_logout_image:hover {
+#fb_logout_image:hover {
 	border: 1px solid #be9e00;
 }
-img#fb_login_image {
+#fb_login_image {
 	vertical-align:middle;
 }
 /*****************
 * THEMESWITCHER  *
 *****************/
-div#gloriosothemeswitcher-container { /*position:absolute; top:36px;right:5px;*/ }
+#gloriosothemeswitcher-container { /*position:absolute; top:36px;right:5px;*/ }
+#gloriosothemeswitcher {
+  float:right;
+  margin-right:20px;
+  min-height: 24px;
+}
 
 /************* 
 * SELECTMENU *
 *************/
 /*.ui-select-menu { float: left; margin-right: 10px; }*/
-select#select_langs { width: 80px; }
+#select_langs { width: 80px; }
 /*select with custom icons*/
 body a.customicons { height: 2.8em;}
 body .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left:30px !important; }
@@ -478,11 +478,7 @@ body .ru .ui-selectmenu-item-icon { width:32px;height:22px;background: url(image
   min-height: 24px;
   margin-top:0px;
 }
-#gloriosothemeswitcher {
-  float:right;
-  margin-right:20px;
-  min-height: 24px;
-}
+
 /* jQuery Tools tooltip styling. by default the element to be styled is .tooltip  */
 .tooltip {
 	display:none;
@@ -511,18 +507,17 @@ body .ru .ui-selectmenu-item-icon { width:32px;height:22px;background: url(image
 	-moz-box-shadow:0 0 10px #000;
 	-webkit-box-shadow:0 0 10px #000;
 }
+.jqtooltip {
+  position:relative;
+}
 
-div#userlogin-dropdown div {
+#userlogin-dropdown div {
   padding:3px;
 }
 .userloginspan {
   border-bottom: inset 2px LightGray;
 }
 
-}
-.jqtooltip {
-  position:relative;
-}
 
 /* Google Fonts */
 #toptitle {
@@ -538,12 +533,12 @@ div#userlogin-dropdown div {
 }
 
 /* MY OWN CLOCK CREATION */
-    div#clockwrapper{
+#clockwrapper{
       float:right;
       position:relative;
       width:200px;
     }
-    img#gloriosocal {
+#gloriosocal {
       position:absolute;
       left:-40px;
       top:5px;
@@ -577,7 +572,7 @@ div#userlogin-dropdown div {
 		}
 
 /* FULLCALENDAR EVENTS */
-    div#create_cal_event_wrapper {
+    #create_cal_event_wrapper {
       display:none;
     }
 		#create_cal_event_form {
