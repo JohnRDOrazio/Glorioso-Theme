@@ -31,7 +31,7 @@ Zend_Loader::loadClass('Zend_Gdata_Calendar');
   //$user = '';
   //$pass = '';
   $service = Zend_Gdata_Calendar::AUTH_SERVICE_NAME; // predefined service name for calendar
-  $tzOffset="+00";
+  $tzOffset="+02"; // what the heck does this depend on? +02 works for me with gcal timezone = +01 and server timezone = +01...
   $client = Zend_Gdata_ClientLogin::getHttpClient($user,$pass,$service);
 
   $gdataCal = new Zend_Gdata_Calendar($client);
