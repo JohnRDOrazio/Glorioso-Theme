@@ -63,6 +63,7 @@ echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_ta
 	echo "\t<meta name=\"ROBOTS\" content=\"INDEX, FOLLOW\" $close_tag>\n";
 	echo "\t<meta name=\"REVISIT-AFTER\" content=\"1 DAYS\" $close_tag>\n";
 	echo "\t<meta name=\"RATING\" content=\"GENERAL\" $close_tag>\n";
+	// Se il javascript non è abilitato, almeno c'è qui un foglio css di default...
   echo $_THEME_CFG['use_jqueryui'] ? "<link href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{$_THEME_CFG['jqueryui_default']}/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\"/>" : "";
 	//GOOGLE WEBMASTER TOOLS:
 	echo "\t<meta name=\"google-site-verification\" content=\"{$_THEME_CFG['webmastertoolscode']}\" $close_tag>\n";
@@ -72,7 +73,9 @@ echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_ta
 	if (file_exists ( "themes/{$_FN['theme']}/header.php" )) //aggiunte personalizzate per l'header
 		include ( "themes/{$_FN['theme']}/header.php" );
 		
-	// Se il javascript non è abilitato, almeno c'è qui un foglio css di default...
+  $_THEME_CFG['googlefonts'] = str_replace("'", '', $_THEME_CFG['googlefonts']);
+  $_THEME_CFG['googlefonts'] = str_replace('"', '', $_THEME_CFG['googlefonts']);
+  $googlefonts = explode(',',$_THEME_CFG['googlefonts']);
 
 	IncludeCss ( $close_tag );
 	
@@ -149,7 +152,7 @@ if($_THEME_CFG['use_jsapi'] == 1) {
 
   echo "google.setOnLoadCallback(function() { ";
 
-  echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: [ 'IM Fell DW Pica SC', 'Reenie Beanie' ] }});" : "";      
+  echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: ['".implode("','",$googlefonts)."'] }});" : "";      
   echo ($_THEME_CFG['use_gfc']==1) ? "google.friendconnect.container.setParentUrl('/');
                                       google.friendconnect.container.loadOpenSocialApi({
                                           site: '{$_THEME_CFG["gfc_site"]}',
@@ -193,7 +196,7 @@ else{
 	echo ($_THEME_CFG['use_chromeframe']==1) ? "<!--[if IE]>\n<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js\"></script>\n<style>\n .chromeFrameInstallDefaultStyle { width: 100%; border: 5px solid blue; } \n</style>\n<div id=\"prompt\">\n<!-- if IE without GCF, prompt goes here -->\n</div>\n    <script type=\"text/javascript\">\n window.attachEvent(\"onload\", function() { CFInstall.check({ mode: \"inline\", node: \"prompt\" }); });\n </script>\n<![endif]-->" : "";
 
   echo "<script type='text/javascript'>";
-  echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: [ 'IM Fell DW Pica SC', 'Reenie Beanie' ] }});" : "";      
+  echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: ['".implode("','",$googlefonts)."'] }});" : "";      
   echo ($_THEME_CFG['use_gfc']==1) ? "google.friendconnect.container.setParentUrl('/');
                                       google.friendconnect.container.loadOpenSocialApi({
                                           site: '".$_THEME_CFG["gfc_site"]."',
