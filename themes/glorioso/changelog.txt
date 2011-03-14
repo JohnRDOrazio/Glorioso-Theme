@@ -7,3 +7,9 @@ January 2011:
 February 2011:
 ->php browser detection for conditional html5 support
 ->fixed some bugs
+March 2011:
+->fixed some bugs
+->restored calendar event creation functionality for news administrators when connected to a Google Calendar
+->calendar event creation now uses jquery-ui styling
+->html5 date and time inputs on calendar event creation for capable browsers
+->fancy range control added to calendar event creation to avoid invalid ranges, for both html5 inputs and xhtml11 inputs
