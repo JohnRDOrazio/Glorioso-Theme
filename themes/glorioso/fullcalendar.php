@@ -39,7 +39,7 @@ function fillselectoptions($vals,$min=false,$max=false){
     <tr><td><label for="fc_ev_startDate">COMINCIA:</label></td><td>
 <?php
 if($htmlver['htmlversion']=="html5"){ 
-  echo "<input type='date' name='fc_ev_startDate' id='fc_ev_startDate' value='' />";
+  echo "<input type='date' name='fc_ev_startDate' id='fc_ev_startDate' value='' class='datepicker' />";
 }
 else{
   echo "<input type='text' name='fc_ev_startDate' id='fc_ev_startDate' value='' class='datepicker' />";
@@ -53,7 +53,7 @@ if($htmlver['htmlversion']=="html5"){
 }
 else{
   echo "<select name='fc_ev_startTime' id='fc_ev_startTime'>";
-  echo fillselectoptions($selectvals,false,"04:00");
+  echo fillselectoptions($selectvals);
   echo "</select>";
 }
 ?>    
@@ -61,7 +61,7 @@ else{
   <tr><td><label for="fc_ev_endDate">FINISCE:</label></td><td>
 <?php
 if($htmlver['htmlversion']=="html5"){ 
-  echo "<input type='date' name='fc_ev_endDate' id='fc_ev_endDate' value='' />";
+  echo "<input type='date' name='fc_ev_endDate' id='fc_ev_endDate' value='' class='datepicker' />";
 }
 else{
   echo "<input type='text' name='fc_ev_endDate' id='fc_ev_endDate' value='' class='datepicker' />";
