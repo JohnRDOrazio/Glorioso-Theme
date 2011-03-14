@@ -679,8 +679,14 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
   
         if($("input#fc_ev_startTime").length!=0){  // if html5
 
-          $("#fc_ev_startDate").blur(function(){ $("#fc_ev_endDate").attr("min",$(this).val()); });
-          $("#fc_ev_endDate").blur(function(){ $("#fc_ev_startDate").attr("max",$(this).val()); });
+          $("#fc_ev_startDate").blur(function(){ 
+            $("#fc_ev_endDate").attr("min",$(this).val());
+            $("#fc_ev_endDate").datepicker("option","minDate",$(this).val()); 
+          });
+          $("#fc_ev_endDate").blur(function(){ 
+            $("#fc_ev_startDate").attr("max",$(this).val()); 
+            $("#fc_ev_startDate").datepicker("option","maxDate",$(this).val()); 
+          });
 
           $("#fc_ev_endTime").focus(function(){
             if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
@@ -694,7 +700,7 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
             }
             else{ $(this).removeAttr("max"); }
           });
-   
+  
         }
         
         if($("select#fc_ev_startTime").length!=0){ // if xhtml11  
