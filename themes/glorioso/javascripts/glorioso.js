@@ -683,18 +683,18 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
           $("#fc_ev_endDate").blur(function(){ $("#fc_ev_startDate").attr("max",$(this).val()); });
 
           $("#fc_ev_endTime").focus(function(){
-            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
+            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
               $(this).attr("min",$("#fc_ev_startTime").val());
             }
             else{ $(this).removeAttr("min"); }
           });
           $("#fc_ev_startTime").focus(function(){
-            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
+            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
               $(this).attr("max",$("#fc_ev_endTime").val());
             }
             else{ $(this).removeAttr("max"); }
           });
-  
+   
         }
         
         if($("select#fc_ev_startTime").length!=0){ // if xhtml11  
