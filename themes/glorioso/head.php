@@ -52,7 +52,7 @@ switch($_FN['lang']){
 echo "\t".$htmlver['metachromeframe']."\n";
 echo "\t".$htmlver['metacharset']."\n";	
 echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
-echo $_THEME_CF["use_messlive"]==1 ? "<meta name=\"search.app\" content=\"WindowsLive\"/>" : "";
+echo $_THEME_CFG["use_messlive"]==1 ? "<meta name=\"search.app\" content=\"WindowsLive\"/>" : "";
 echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta http-equiv=\"EXPIRES\" content=\"0\" $close_tag>\n";
 	echo "\t<meta name=\"DISTRIBUTION\" content=\"GLOBAL\" $close_tag>\n";
