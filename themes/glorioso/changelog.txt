@@ -16,3 +16,4 @@ March 2011:
 ->implemented loading google webfonts as indicated in theme configuration (comma separated list)
 ->for google friend connect login, if there is a talkgadget on the page user will also be signed in to talkgadget
 ->added select dropdown in configuration to choose the default jquery-ui theme among those currently available on the google cdn
+->updated the Zend Framework to the latest version
