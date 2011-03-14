@@ -776,8 +776,7 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
 	}
 });
 
-//$(".fc-sun .fc-content").addClass("ui-highlight");
-//I can't quite seem to figure out how to change the text color on sundays
+$(".fc-sun").css({color:"DarkRed"});
 
 $("#gloriosocal").click(function(){
   $('#calendarviewer').dialog('open');
