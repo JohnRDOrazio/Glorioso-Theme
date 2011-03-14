@@ -48,7 +48,7 @@ switch($_FN['lang']){
 }
 //config.php
 include ("themes/{$_FN['theme']}/config.php");
-define("_THEME_VER", 1);
+define("_THEME_VER", "1.9");
 
 function showmotd()
 {
