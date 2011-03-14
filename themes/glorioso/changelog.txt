@@ -13,3 +13,5 @@ March 2011:
 ->calendar event creation now uses jquery-ui styling
 ->html5 date and time inputs on calendar event creation for capable browsers
 ->fancy range control added to calendar event creation to avoid invalid ranges, for both html5 inputs and xhtml11 inputs
+->implemented loading google webfonts as indicated in theme configuration (comma separated list)
+->for google friend connect login, if there is a talkgadget on the page user will also be signed in to talkgadget
