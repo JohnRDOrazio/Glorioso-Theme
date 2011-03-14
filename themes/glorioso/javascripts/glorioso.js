@@ -670,30 +670,77 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
     $.datepicker.setDefaults($.datepicker.regional['']);
     $(".datepicker","#create_cal_event").datepicker('option', $.extend($.datepicker.regional['it']));    
     $('#calendarviewer').dialog("option","buttons",{
-		"Aggiorna": function() {
-			$('#calendarviewer').fullCalendar('refetchEvents');
-			$('#calendarviewer').fullCalendar('rerenderEvents');
-			},
-		"Aggiungi evento": function() {
-			$("#create_cal_event_wrapper").dialog("open");
-      $("#fc_ev_startDate").blur(function(){
-        $("#fc_ev_endDate").attr("min",$(this).val());
-      });      
-      $("#fc_ev_endDate").blur(function(){
-        $("#fc_ev_startDate").attr("max",$(this).val());
-      });      
-      $("#fc_ev_endTime").focus(function(){
-        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
-          $(this).attr("min",$("#fc_ev_startTime").val());
+  		"Aggiorna": function() {
+  			$('#calendarviewer').fullCalendar('refetchEvents');
+  			$('#calendarviewer').fullCalendar('rerenderEvents');
+  			},
+  		"Aggiungi evento": function() {
+  			$("#create_cal_event_wrapper").dialog("open");
+  
+        if($("input#fc_ev_startTime").length!=0){  // if html5
+
+          $("#fc_ev_startDate").blur(function(){ $("#fc_ev_endDate").attr("min",$(this).val()); });
+          $("#fc_ev_endDate").blur(function(){ $("#fc_ev_startDate").attr("max",$(this).val()); });
+
+          $("#fc_ev_endTime").focus(function(){
+            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
+              $(this).attr("min",$("#fc_ev_startTime").val());
+            }
+            else{ $(this).removeAttr("min"); }
+          });
+          $("#fc_ev_startTime").focus(function(){
+            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
+              $(this).attr("max",$("#fc_ev_endTime").val());
+            }
+            else{ $(this).removeAttr("max"); }
+          });
+  
         }
-        else{ $(this).removeAttr("min"); }
-      });
-      $("#fc_ev_startTime").focus(function(){
-        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val()){
-          $(this).attr("max",$("#fc_ev_endTime").val());
+        
+        if($("select#fc_ev_startTime").length!=0){ // if xhtml11  
+  
+          $("#fc_ev_endTime").change(function(){
+            currentvalue = $("#fc_ev_startTime").val();
+            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
+              maximumvalue = $(this).val();
+              $.ajax({
+                type: "POST",
+                url: "/themes/glorioso/ajax/fillselectoptions.php",
+                data: {maxval:maximumvalue,selected:currentvalue},
+                success: function(data){ $("#fc_ev_startTime").children().remove().end().append(data).val(currentvalue); }
+              });
+            }        
+            else{
+              $.ajax({
+                type: "POST",
+                url: "/themes/glorioso/ajax/fillselectoptions.php",
+                data: {selected:currentvalue},
+                success: function(data){ $("#fc_ev_startTime").children().remove().end().append(data).val(currentvalue); }
+              });
+            }
+          });
+          $("#fc_ev_startTime").change(function(){
+            currentvalue = $("#fc_ev_endTime").val();
+            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
+              minimumvalue = $(this).val();
+              $.ajax({
+                type: "POST",
+                url: "/themes/glorioso/ajax/fillselectoptions.php",
+                data: {minval:minimumvalue,selected:currentvalue},
+                success: function(data){ $("#fc_ev_endTime").children().remove().end().append(data).val(currentvalue); }
+              });
+            }
+            else{
+              $.ajax({
+                type: "POST",
+                url: "/themes/glorioso/ajax/fillselectoptions.php",
+                data: {selected:currentvalue},
+                success: function(data){ $("#fc_ev_endTime").children().remove().end().append(data).val(currentvalue); }
+              });
+            }
+          });
         }
-        else{ $(this).removeAttr("max"); }
-      });
+                   
 			}
 		});
     $("#create_cal_event_wrapper").dialog({
@@ -722,7 +769,6 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
     });
 	}
 });
-
 
 //$(".fc-sun .fc-content").addClass("ui-highlight");
 //I can't quite seem to figure out how to change the text color on sundays
