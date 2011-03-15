@@ -524,6 +524,49 @@ $("div#userlogin").toggle(
 				]
 			});
 /* TURN THEMESWITCHER DIV INTO THEMESWITCHER */
+switch($("#current_langset").val()){
+  case "en":
+    swtheme = "Switch Theme";
+    btnpretext = "Theme: ";
+    msg = "Glorioso Theme Message";
+    msgbdy = "A new theme has been applied.";
+    break;
+  case "it":
+    swtheme = "Cambia Tema";
+    btnpretext = "Tema: ";
+    msg = "Messaggio Tema Glorioso";
+    msgbdy = "E' stato applicato un nuovo Tema.";
+    break;
+  case "fr":
+    swtheme = "Changer le Thème";
+    btnpretext = "Thème: ";
+    msg = "Message Theme Glorioso";
+    msgbdy = "Un nouveau Thème a été appliqué.";
+    break;
+  case "de":
+    swtheme = "Schalter Thema";
+    btnpretext = "Thema: ";
+    msg = "Nachricht Thema Glorioso";
+    msgbdy = "Ein neues Thema wurde übernommen.";
+    break;
+  case "es":
+    swtheme = "Cambiar el Tema";
+    btnpretext = "Tema: ";
+    msg = "Mensaje Tema Glorioso";
+    msgbdy = "Un nuevo tema se ha aplicado.";
+    break;
+  case "ru":
+    swtheme = "Переключатель тему";
+    btnpretext = "тему: ";
+    msg = "Сообщение тема Glorioso";
+    msgbdy = "новая тема была применена.";
+    break;
+  default:
+    swtheme = "Switch Theme";
+    btnpretext = "Theme: ";
+    msg = "Glorioso Theme Message";
+    msgbdy = "A new theme has been applied.";
+}
 	$('#gloriosothemeswitcher').themeswitcher();
 /****************************************************************
 * 					MENU NAVIGATIONAL / SECTION AJAX LOAD SCRIPTS  			*
