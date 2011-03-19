@@ -172,10 +172,6 @@ img { border: 0px; }
 	height:5px;
 }
 
-#userlogin-dropdown div {
-  cursor: pointer;
-}
-
 
 /***************************
 * CSS FOR BACKGROUND IMAGE *
@@ -511,14 +507,6 @@ body .ru .ui-selectmenu-item-icon { width:32px;height:22px;background: url(image
   position:relative;
 }
 
-#userlogin-dropdown div {
-  padding:3px;
-}
-.userloginspan {
-  border-bottom: inset 2px LightGray;
-}
-
-
 /* Google Fonts */
 #toptitle {
   font-family:'IM Fell DW Pica SC';
@@ -583,3 +571,19 @@ body .ru .ui-selectmenu-item-icon { width:32px;height:22px;background: url(image
 		#ui-datepicker-div {
         	z-index: 500;
     	}
+
+#userlogin {
+  position:relative;
+  float:right;
+  width:200px;
+  padding:5px;
+  z-index:999;
+}
+#dropdown-shadow { display:none; position:absolute; }
+#userlogin-dropdown {
+  display:none;
+  position:absolute;
+}
+#flatnuxlogin { padding:10px;border-width:0px 1px;border-style:inset;border-color:Orange; }
+#opensociallogin { padding:10px;border-width:0px 1px;border-style:inset;border-color:Orange;text-align:center; }
+#gfc-button { cursor:pointer; }
