@@ -27,6 +27,11 @@ function fillselectoptions($vals,$min=false,$max=false){
 //funzioni per le news
 $sctnews = find_section("news");
 require_once ('sections/' . $sctnews . '/functions.php');
+if(!function_exists("is_news_admin"){
+     function is_news_admin(){
+          return is_news_administrator();
+     }
+}
 ?>
 
 <!-- CALENDAR (GOOGLE) -->
