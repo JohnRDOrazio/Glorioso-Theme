@@ -1,29 +1,7 @@
 <?php
 
 global $_THEME_CFG,$htmlver;
-// define iso-coded lang parameters
-switch($_FN['lang']){
-  case "it":
-    define("_FN_LANG","it-IT");
-    break;
-  case "en":
-    define("_FN_LANG","en-US");
-    break;
-  case "de":
-    define("_FN_LANG","de-DE");
-    break;
-  case "es":
-    define("_FN_LANG","es-ES");
-    break;
-  case "fr":
-    define("_FN_LANG","fr-FR");
-    break;
-  case "ru":
-    define("_FN_LANG","ru-RU");
-    break;
-  default:
-    define("_FN_LANG","it-IT");
-}
+require_once("themes/glorioso/languages/{$_FN['lang']}.php");
 
 /************************************************************
 *         START TO BUILD DOCUMENT                           *
