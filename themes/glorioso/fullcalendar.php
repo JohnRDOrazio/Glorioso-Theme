@@ -24,11 +24,16 @@ function fillselectoptions($vals,$min=false,$max=false){
   while($i=array_shift($vals)){ $str .= "<option>{$i}</option>"; }
   return $str;
 }
+//funzioni per le news
+$sctnews = find_section("news");
+require_once ('sections/' . $sctnews . '/functions.php');
 ?>
 
 <!-- CALENDAR (GOOGLE) -->
 <div id="calendarviewer" title="CALENDARIO DEGLI EVENTI - <?php echo $_FN['sitename'] ?>"></div>
 <!-- </div> -->
+
+<?php if (is_news_admin()) { ?>
 <div id="create_cal_event_wrapper" title="CREA UN NUOVO EVENTO">
 <div id="create_cal_event_form" class="ui-corner-bottom ui-corner-tr">
 <form id="create_cal_event" method="" action="">
@@ -39,10 +44,10 @@ function fillselectoptions($vals,$min=false,$max=false){
     <tr><td><label for="fc_ev_startDate">COMINCIA:</label></td><td>
 <?php
 if($htmlver['htmlversion']=="html5"){ 
-  echo "<input type='date' name='fc_ev_startDate' id='fc_ev_startDate' value='' class='datepicker' />";
+  echo "<input type='date' name='fc_ev_startDate' id='fc_ev_startDate' class='datepicker' />";
 }
 else{
-  echo "<input type='text' name='fc_ev_startDate' id='fc_ev_startDate' value='' class='datepicker' />";
+  echo "<input type='text' name='fc_ev_startDate' id='fc_ev_startDate' class='datepicker' />";
 }
 ?>
     </td></tr>
@@ -61,10 +66,10 @@ else{
   <tr><td><label for="fc_ev_endDate">FINISCE:</label></td><td>
 <?php
 if($htmlver['htmlversion']=="html5"){ 
-  echo "<input type='date' name='fc_ev_endDate' id='fc_ev_endDate' value='' class='datepicker' />";
+  echo "<input type='date' name='fc_ev_endDate' id='fc_ev_endDate' class='datepicker' />";
 }
 else{
-  echo "<input type='text' name='fc_ev_endDate' id='fc_ev_endDate' value='' class='datepicker' />";
+  echo "<input type='text' name='fc_ev_endDate' id='fc_ev_endDate' class='datepicker' />";
 }
 ?>
   </td></tr>
@@ -93,8 +98,5 @@ else{
 </form>
 </div>
 </div>
+<?php } ?>
 <!-- END CALENDAR -->
-<div style="display:none;">
-<span>DEBUG INFORMATION:</span>
-<div id="debug" style="position:fixed;top:50%;left:50%;margin-top:-50px;margin-left:-40%;border:2px inset Red;padding:5px;margin:5px;height:100px;width:80%;background:LightGray;"></div>
-</div>
