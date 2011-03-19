@@ -132,51 +132,78 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 	else { 
 		echo "<div style='float:left;'>"._BENVENUTO."<span id=\"span_username\"> "._GUEST." </span>!</div>";
   ?>
-  <div id="userlogin-wrapper" style="float:right;">
-	    <div id="userlogin" class="ui-corner-all ui-state-default" style="position:absolute;margin-left:-210px;margin-top:-5px;width:200px;padding:5px;z-index:9998;">
-        <div id="login-span-wrapper">
-          <span id="login-span">LOGIN</span>
-          <?php if ($_THEME_CFG['use_fb']==1){ ?>
-          <img src="images/social/logo-facebook-small.png" style="width:16px;margin-left:10px;" title="<?php echo _FB_LOGIN ?>" />
-          <?php }
-                if ($_THEME_CFG['use_gfc']==1){ ?>
-          <img src="images/social/google_logo.png" style="width:16px;margin-left:10px;" title="<?php echo _GFC_LOGIN ?>" />
-          <?php } 
-                if ($_THEME_CFG['use_messlive']==1){ ?>
-          <img src="images/social/windowsLiveLogo.png" style="width:16px;margin-left:10px;" title="<?php echo _MESSLIVE_LOGIN ?>" />
-          <?php }
-          ?>
-          <span style="float:right;" class="ui-icon ui-icon-carat-1-s"></span>
-        </div>
-        <div id="userlogin-dropdown" class="ui-corner-all" style="display:none;">
-      	  <!-- link to site login page -->
-          <div id='flatnuxlogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FN_LOGIN ?>' rel="<?php echo find_section('login')?>">
-            <a href="<?php echo $loginurl ?>"><span class="ui-icon ui-icon-power" style="float:left;"></span><?php echo _LOGIN ?></a>
-          </div>
-      		<?php if ($_THEME_CFG['use_fb']==1){ ?>
-          <!-- facebook login button -->		
-      		  <div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FB_LOGIN ?>'>
-      		    <img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
-      		  </div>    
-          <?php } ?>
-      		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
-          <!-- google friend connect button-->
-            <div id='gfc-button' class='jqtooltip-dx ui-corner-all' title='<?php echo _GFC_LOGIN ?>'></div>
-            <script type="text/javascript">
-              google.friendconnect.renderSignInButton({ "id":"gfc-button", "style":"long", "text":"<?php echo _GFC_LOGIN_BTN ?>" });
-            </script>
-          <?php } ?>
-          <?php if ($_THEME_CFG['use_messlive']==1){ ?>
-          <!-- messenger live login button -->    
-            <div id='messlivelogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _MESSLIVE_LOGIN ?>'>
-              <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted" /> 
-            </div>    
-          <?php } ?>
-          <!--  Registration button  --> 
-      	  <?php if ( $_FN['enable_registration'] == 1 ) {  ?>
-      		<div class="jqtooltip-dx ui-corner-all" title="<?php echo _FN_REGISTER ?>">
-            <span class="ui-icon ui-icon-star" style="float:left;"></span><a href="<?php echo $urlregistrazione ?>"><?php echo fn_i18n("_REGORA"); ?></a>
-          </div>
+   <div id="userlogin" class="ui-corner-all ui-state-default">
+    <div id="login-span-wrapper">
+      <span id="login-span">LOGIN</span>
+      <?php if ($_THEME_CFG['use_fb']==1){ ?>
+      <img src="images/social/logo-facebook-small.png" style="width:16px;margin-left:10px;" title="<?php echo _FB_LOGIN ?>" />
+      <?php }
+            if ($_THEME_CFG['use_gfc']==1){ ?>
+      <img src="images/social/google_logo.png" style="width:16px;margin-left:10px;" title="<?php echo _GFC_LOGIN ?>" />
+      <?php } 
+            if ($_THEME_CFG['use_messlive']==1){ ?>
+      <img src="images/social/windowsLiveLogo.png" style="width:16px;margin-left:10px;" title="<?php echo _MESSLIVE_LOGIN ?>" />
+      <?php }
+      ?>
+      <span style="float:right;" class="ui-icon ui-icon-carat-1-s"></span>
+    </div>
+    <div id="dropdown-shadow" class="ui-widget-shadow"></div>
+    <div id="userlogin-dropdown" class="ui-corner-bottom ui-state-default">
+  	  <!-- site login -->
+      <div id='flatnuxlogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FN_LOGIN ?>'>        
+        <form action="?mod=login" method="post">
+          <input type="hidden" name="op" value="login" />
+          <input type="hidden" name="from" value="<?php	echo $_FN['mod']?>" /> 
+          <fieldset>
+            <legend class="ui-corner-all" style="border:1px inset Orange;">
+              <span class="ui-icon ui-icon-person" style="float:left;"></span>
+              <?php	echo fn_i18n("_LOGIN")?>
+            </legend>
+            <label for="username"><?php	echo fn_i18n("_NOMEUTENTE")?>: </label><input type="text" name="nome" id="username" /><br />
+            <label for="password"><?php	echo fn_i18n("_PASSWORD")?>: </label><input type="password" name="logpassword" id="password" /><br />
+            <?php
+            	if ( $_FN['remember_login'] == 1 )
+            	{
+            		echo "\n<div style=\"margin:1em;\"><label for=\"rememberlogin\">" . fn_i18n("_REMEMBERLOGIN") . "</label>";
+            		echo "\n<input type=\"checkbox\" name=\"rememberlogin\" id=\"rememberlogin\" /><br />";
+            		echo "\n</div>";
+            	}
+            	else
+            		echo "<br />";
+            ?>
+            <button type="submit"><?php	echo fn_i18n("_LOGIN")?></button>
+            <!--  Registration button  --> 
+        	  <?php if ( $_FN['enable_registration'] == 1 ) {  ?>
+        		<button type="button" id="flatnuxregistration" style="float:right;" class="jqtooltip-dx" title="<?php echo _FN_REGISTER ?>" onclick="location.href='<?php echo $urlregistrazione ?>'">
+              <span class="ui-icon ui-icon-star" style="float:left;"></span>
+              <?php echo fn_i18n("_REGORA"); ?>
+            </button>
+        	  <?php } ?>
+          </fieldset>
+        </form>
+      </div>
+ 		  <div style="text-align:center;margin:10px 0px;" class="ui-widget-header"> - OPPURE - </div>
+      <div id="opensociallogin" class="ui-corner-all">
+      <?php if ($_THEME_CFG['use_fb']==1){ ?>
+      <!-- facebook login button -->		
+  		  <div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FB_LOGIN ?>'>
+  		    <img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
+  		  </div>    
+      <?php } ?>
+  		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
+      <!-- google friend connect button-->
+        <div id='gfc-button' class='jqtooltip-dx ui-widget-header ui-corner-all' title='<?php echo _GFC_LOGIN ?>'><?php echo _GFC_LOGIN ?> - requestSignIn method</div>
+        <div id='gfc-button2' class='jqtooltip-dx' title='<?php echo _GFC_LOGIN ?>'></div>
+      <?php } ?>
+      <?php if ($_THEME_CFG['use_messlive']==1){ ?>
+      <!-- messenger live login button -->    
+        <div id='messlivelogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _MESSLIVE_LOGIN ?>'>
+          <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted"></wl:signin> 
+        </div>    
+      <?php } ?>
+      </div><!-- END OPENSOCIAL LOGIN -->
+    </div> <!-- END USERLOGIN-DROPDOWN -->
+  </div> <!-- END USERLOGIN -->
       	  <?php } ?>
         </div> <!-- END USERLOGIN-DROPDOWN -->
       </div> <!-- END USERLOGIN -->
