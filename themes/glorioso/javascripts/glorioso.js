@@ -825,7 +825,7 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
 $(".fc-sun").css({color:"DarkRed"});
 
 $("#gloriosocal").click(function(){
-  $('#calendarviewer').dialog('open');
+  $('#calendarviewer').dialog('option','position','top').dialog("open"); 
   $('#calendarviewer').fullCalendar('render');
   return false;
   });
