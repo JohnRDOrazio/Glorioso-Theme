@@ -147,7 +147,8 @@ if($_THEME_CFG['use_jsapi'] == 1) {
                                                   else{ window.top.location.href = 'index.php?mod=login&op=logout'; }
                                                   }
                                               }
-                                        });" : "";
+                                        });
+                                        google.friendconnect.renderSignInButton({ \"id\":\"gfc-button\", \"style\":\"long\", \"text\":\""._GFC_LOGIN_BTN."\" });" : "";
   
   echo "});";
 	echo "</script>";
