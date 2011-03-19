@@ -1,29 +1,7 @@
 <?php
 
 global $_THEME_CFG,$htmlver;
-// define iso-coded lang parameters
-switch($_FN['lang']){
-  case "it":
-    define("_FN_LANG","it-IT");
-    break;
-  case "en":
-    define("_FN_LANG","en-US");
-    break;
-  case "de":
-    define("_FN_LANG","de-DE");
-    break;
-  case "es":
-    define("_FN_LANG","es-ES");
-    break;
-  case "fr":
-    define("_FN_LANG","fr-FR");
-    break;
-  case "ru":
-    define("_FN_LANG","ru-RU");
-    break;
-  default:
-    define("_FN_LANG","it-IT");
-}
+require_once("themes/glorioso/languages/{$_FN['lang']}.php");
 
 /************************************************************
 *         START TO BUILD DOCUMENT                           *
@@ -52,7 +30,7 @@ switch($_FN['lang']){
 echo "\t".$htmlver['metachromeframe']."\n";
 echo "\t".$htmlver['metacharset']."\n";	
 echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
-echo $_THEME_CF["use_messlive"]==1 ? "<meta name=\"search.app\" content=\"WindowsLive\"/>" : "";
+echo $_THEME_CFG["use_messlive"]==1 ? "<meta name=\"search.app\" content=\"WindowsLive\"/>" : "";
 echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta http-equiv=\"EXPIRES\" content=\"0\" $close_tag>\n";
 	echo "\t<meta name=\"DISTRIBUTION\" content=\"GLOBAL\" $close_tag>\n";

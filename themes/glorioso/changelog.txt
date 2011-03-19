@@ -7,3 +7,13 @@ January 2011:
 February 2011:
 ->php browser detection for conditional html5 support
 ->fixed some bugs
+March 2011:
+->fixed some bugs
+->restored calendar event creation functionality for news administrators when connected to a Google Calendar
+->calendar event creation now uses jquery-ui styling
+->html5 date and time inputs on calendar event creation for capable browsers
+->fancy range control added to calendar event creation to avoid invalid ranges, for both html5 inputs and xhtml11 inputs
+->implemented loading google webfonts as indicated in theme configuration (comma separated list)
+->for google friend connect login, if there is a talkgadget on the page user will also be signed in to talkgadget
+->added select dropdown in configuration to choose the default jquery-ui theme among those currently available on the google cdn
+->updated the Zend Framework to the latest version
