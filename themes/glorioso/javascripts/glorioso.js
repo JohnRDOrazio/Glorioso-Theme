@@ -437,9 +437,6 @@ $("#THEME_CFG").click(function(){
 });
 
 /* LOGIN / LOGOUT FUNCTIONALITY */
-$("div#flatnuxlogin").click(function(){
-   location.href = $(this).find("a").attr("href");
-});
 if ($("div#facebooklogin").length!=0){
   $("div#facebooklogin").click(function(){
     FB.login(function(response) {
@@ -473,11 +470,13 @@ if ($("span#fb_logout").length!=0){
     FB.logout(function(response) { location.href='index.php?mod=login&op=logout'; });
   });
 }
+/*
 if ($("div#gfc-button").length!=0){
   $("div#gfc-button").click(function(){
     google.friendconnect.requestSignIn();
   });
 }
+*/
 if ($("span#gfc_logout").length!=0){
   $("span#gfc_logout").click(function(){
     if($("div#logoutmsg").length==0){
@@ -493,24 +492,28 @@ if ($("span#gfc_logout").length!=0){
     google.friendconnect.requestSignOut();
   });
 }
-$("div#userlogin").hover(function(){
-  $(this).toggleClass("ui-state-hover");
-});
-$("div#userlogin-dropdown div").hover(function(){
-  $(this).toggleClass("ui-state-hover");
-});
-$("div#userlogin").click(function(){
-  $("div#userlogin-dropdown").slideToggle();
-  $("div#login-span-wrapper").toggleClass("userloginspan");
-});
-$("div#userlogin").toggle(
-  function(){
-    $(this).animate({"margin-top":"-20px"})
+usrlogheight = $("#userlogin").outerHeight()+3;
+usrlogwidth = $("#userlogin").outerWidth()-2;
+usrlogxy = $("#userlogin").offset();
+usrlogdropheight = $("#userlogin-dropdown").outerHeight();
+$("#userlogin-dropdown").css({top:usrlogheight,left:-1,width:usrlogwidth});
+$("#dropdown-shadow").css({top:usrlogheight+10,left:-1,width:usrlogwidth,height:usrlogdropheight});
+
+$("#userlogin").hover(function(elem){  
+  el = this;
+  $(el).removeClass("ui-corner-all").addClass("ui-corner-top").add("#userlogin-dropdown").toggleClass("ui-state-hover");  
+  $(el).find(".ui-icon-carat-1-s").removeClass("ui-icon-carat-1-s").addClass("ui-icon-carat-1-n").css({cursor:"pointer"}).click(function(){ 
+    $("#userlogin-dropdown").add("#dropdown-shadow").slideUp();
+    $(el).removeClass("ui-corner-top").addClass("ui-corner-all");
+    $(this).removeClass("ui-icon-carat-1-n").addClass("ui-icon-carat-1-s"); 
+    });
+  $("#userlogin-dropdown").add("#dropdown-shadow").slideDown();
   },
-  function(){
-    $(this).animate({"margin-top":"-5px"})
+  function(elem){
+    $(this).add("#userlogin-dropdown").toggleClass("ui-state-hover");
   }
 );
+
 /* TURN THE LANGUAGE SELECT INTO A JQUERY-UI STYLE DROPDOWN USING THE SELECTMENU PLUGIN*/
 	$('select#select_langs').selectmenu({
 				style:'dropdown',
