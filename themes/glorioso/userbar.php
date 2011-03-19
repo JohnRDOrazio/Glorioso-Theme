@@ -204,10 +204,6 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
       </div><!-- END OPENSOCIAL LOGIN -->
     </div> <!-- END USERLOGIN-DROPDOWN -->
   </div> <!-- END USERLOGIN -->
-      	  <?php } ?>
-        </div> <!-- END USERLOGIN-DROPDOWN -->
-      </div> <!-- END USERLOGIN -->
-  </div> <!-- END USERLOGIN-WRAPPER DIV -->
 <?php
     } 
 /*********************** END NOT LOGGED IN ***********************/
