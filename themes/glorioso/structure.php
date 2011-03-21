@@ -47,7 +47,7 @@ if ($_THEME_CFG['use_fb']==1){
 
   (function() {
     var e = document.createElement('script');
-    e.src = document.location.protocol + '//connect.facebook.net/"._FN_LANG."/all.js';
+    e.src = document.location.protocol + '//connect.facebook.net/"._FB_LOCALE."/all.js';
     e.async = true;
     document.getElementById('fb-root').appendChild(e);
   }());
