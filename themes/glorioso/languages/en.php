@@ -3,6 +3,7 @@
     define("_GFC_LOGIN_BTN","Sign in with Google");
     define("_GFC_LOGIN","Sign in to {$_FN['sitename']} with Google Friend Connect");
     define("_GFC_LOGOUT","Sign out from {$_FN['sitename']} and from Google Friend Connect");
+    define("_FB_LOCALE","en_EN");
     define("_FB_LOGIN","Sign in to {$_FN['sitename']} with Facebook Connect");
     define("_FB_LOGOUT","Sign out from {$_FN['sitename']} and from Facebook");
     define("_MESSLIVE_LOGIN","Sign in to {$_FN['sitename']} with Messenger Live Connect");
