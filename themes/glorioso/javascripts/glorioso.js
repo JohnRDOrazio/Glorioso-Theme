@@ -685,13 +685,18 @@ $('#calendarviewer').fullCalendar({
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
 gcalfeedurl = $("#gcal-feed").val();
 if(gcalfeedurl!=""){
-  $("#calendarviewer").fullCalendar( 'addEventSource', $.fullCalendar.gcalFeed(gcalfeedurl,
-          {
-            className:       'gcal-event',
-            editable:        true,
-            currentTimezone: 'Europe/Rome'
-          }
-    ));
+  gcalfeedurl = gcalfeedurl.split(";");
+  colorlist = ["#00CC66","#0000CC","#FF66FF","#6666FF","#99CCFF","#FFCCFF","#FFCC99"];
+  for(var i in gcalfeedurl){
+    $("#calendarviewer").fullCalendar( 'addEventSource', $.fullCalendar.gcalFeed(gcalfeedurl[i],
+            {
+              className:       'gcal-event'+i,
+              editable:        true,
+              currentTimezone: 'Europe/Rome',
+              color: colorlist[i]
+            }
+      ));
+  }
 }
 
 
