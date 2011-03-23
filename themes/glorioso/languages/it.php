@@ -3,7 +3,7 @@
     define("_GFC_LOGIN_BTN","Accedi con Google");
     define("_GFC_LOGIN","Accedi a {$_FN['sitename']} con Google");
     define("_GFC_LOGOUT","Esci da {$_FN['sitename']} e da Google Friend Connect");
-    define("_FB_LANG","it_IT");
+    define("_FB_LOCALE","it_IT");
     define("_FB_LOGIN","Accedi a {$_FN['sitename']} con Facebook Connect");
     define("_FB_LOGOUT","Esci da {$_FN['sitename']} e da Facebook");
     define("_MESSLIVE_LOGIN","Accedi a {$_FN['sitename']} con Messenger Live Connect");
