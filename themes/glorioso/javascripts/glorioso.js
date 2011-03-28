@@ -568,7 +568,7 @@ switch($("#current_langset").val()){
     msg = "Glorioso Theme Message";
     msgbdy = "A new theme has been applied.";
 }
-	$('#gloriosothemeswitcher').themeswitcher({initialText:swtheme,buttonPreText:btnpretext,onSelect: function(){$('<div id="effect" class="ui-widget-content ui-corner-all" style="display:none;position:absolute;height:100px;width:200px;top:50%;margin-top:-50px;left:50%;margin-left:-100px;text-align:center;"><h3 class="ui-widget-header ui-corner-all">'+msg+'</h3><p>'+msgbody+'</p></div>').appendTo('body').fadeIn(1000).fadeTo(1000,1).fadeOut(1000,function(){ $(this).remove(); }); }});
+	$('#gloriosothemeswitcher').themeswitcher({initialText:swtheme,buttonPreText:btnpretext,onSelect: function(){$('<div id="effect" class="ui-widget-content ui-corner-all" style="display:none;position:absolute;height:100px;width:200px;top:50%;margin-top:-50px;left:50%;margin-left:-100px;text-align:center;"><h3 class="ui-widget-header ui-corner-all">'+msg+'</h3><p>'+msgbdy+'</p></div>').appendTo('body').fadeIn(1000).fadeTo(1000,1).fadeOut(1000,function(){ $(this).remove(); }); }});
 
 /****************************************************************
 * 					MENU NAVIGATIONAL / SECTION AJAX LOAD SCRIPTS  			*
