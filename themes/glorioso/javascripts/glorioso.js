@@ -622,6 +622,7 @@ currenttimestamp=currenttimestamp*1000;
 $("#clock").clock({"timestamp":currenttimestamp, "langSet":currentlangset});
 
 // CALENDARIO
+hgt=Math.floor($(window).height()*.90);
 $('#calendarviewer').fullCalendar({
     header: {
             left: 'prev,next today',
@@ -675,6 +676,7 @@ $('#calendarviewer').fullCalendar({
 		aspectRatio: 2.5
 }).dialog({
   	width: 500,
+        height: hgt,
   	modal: true,
   	autoOpen: false,
   	show: {effect:'fade',speed:3000},
