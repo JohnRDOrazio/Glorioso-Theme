@@ -678,7 +678,8 @@ $('#calendarviewer').fullCalendar({
   	modal: true,
   	autoOpen: false,
   	show: {effect:'fade',speed:3000},
-  	hide: {effect:'explode',speed:1000}
+  	hide: {effect:'explode',speed:1000},
+        resize: function(event, ui) { $('#calendarviewer').fullCalendar('render'); }
 });
 
 /* SE E' IMPOSTATO UN FEED DI GOOGLE CALENDAR */
