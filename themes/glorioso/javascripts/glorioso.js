@@ -639,7 +639,7 @@ $('#calendarviewer').fullCalendar({
     allDayText: 'tutto il giorno',
    	axisFormat: 'H:mm',
     titleFormat: {
-                 month: "MMM '&#039;'yy",                             // September 2009
+                 month: "MMMM yyyy",                             // September 2009
                  week: "d [MMM] ['&#039;'yy]{ '&#8211;' d MMM '&#039;'yy}", // Sep 7 - 13 2009
                  day: "ddd d MMM '&#039;'yy"                  // Tuesday, Sep 8, 2009
                  },
