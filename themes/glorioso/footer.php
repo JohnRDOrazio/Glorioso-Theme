@@ -5,7 +5,7 @@ if ( strpos(strtolower($_SERVER['SCRIPT_NAME']),strtolower(basename(__FILE__))) 
 	}
 	?>
   <div id="validate-icons">
-    <a class="validate-icon flatnux" href="http://flatnux.sourceforge.net"></a>
+    <a class="validate-icon flatnux" href="http://flatnux.altervista.org" title="<?php $flatver = get_fn_version(); echo $flatver; ?>"></a>
     <a class="validate-icon html" href="http://validator.w3.org/check/referer"></a>
     <a class="validate-icon css" href="http://jigsaw.w3.org/css-validator/check/referer"></a>
     <a class="validate-icon rss" href="<?php echo $_FN['datadir']?>/<?php	echo $_FN['lang']?>/backend.xml"></a>
