@@ -703,105 +703,9 @@ if(gcalfeedurl!=""){
 
 
 /* SE L'UTENTE E' AMMINISTRATORE DELLE NEWS, ALLORA PUO' INSERIRE EVENTI */
-$.get("themes/glorioso/ajax/ajax_fc.php",function(data){
-  data = $.trim(data);
-  if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
-    $("#fc_ev_startDate.datepicker","#create_cal_event").datepicker({
-                                                  changeYear: true,
-                                                  changeMonth: true,
-                                                  dateFormat: 'yy-mm-dd',
-                                                  yearRange: '-10:+3',
-                                                  onSelect: function(dateText, inst){ $("#fc_ev_endDate").datepicker("option","minDate",dateText) }
-                                              });
-    $("#fc_ev_endDate.datepicker","#create_cal_event").datepicker({
-                                                  changeYear: true,
-                                                  changeMonth: true,
-                                                  dateFormat: 'yy-mm-dd',
-                                                  yearRange: '-10:+3',
-                                                  onSelect: function(dateText, inst){ $("#fc_ev_startDate").datepicker("option","maxDate",dateText) }
-                                              });
-    $.datepicker.setDefaults($.datepicker.regional['']);
-    $(".datepicker","#create_cal_event").datepicker('option', $.extend($.datepicker.regional['it']));    
-    $('#calendarviewer').dialog("option","buttons",{
-  		"Aggiorna": function() {
-  			$('#calendarviewer').fullCalendar('refetchEvents');
-  			$('#calendarviewer').fullCalendar('rerenderEvents');
-  			},
-  		"Aggiungi evento": function() {
-  			$("#create_cal_event_wrapper").dialog("open");
-  
-        if($("input#fc_ev_startTime").length!=0){  // if html5
-
-          $("#fc_ev_endDate").focus(function(){ 
-            $(this).attr("min",$("#fc_ev_startDate").val());
-            $(this).datepicker("option","minDate",$("#fc_ev_startDate").val()); 
-          });
-          $("#fc_ev_startDate").focus(function(){ 
-            $(this).attr("max",$("#fc_ev_endDate").val()); 
-            $(this).datepicker("option","maxDate",$("#fc_ev_endDate").val()); 
-          });
-
-          $("#fc_ev_endTime").focus(function(){
-            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
-              $(this).attr("min",$("#fc_ev_startTime").val());
-            }
-            else{ $(this).removeAttr("min"); }
-          });
-          $("#fc_ev_startTime").focus(function(){
-            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
-              $(this).attr("max",$("#fc_ev_endTime").val());
-            }
-            else{ $(this).removeAttr("max"); }
-          });
-  
-        }
-        
-        if($("select#fc_ev_startTime").length!=0){ // if xhtml11  
-  
-          $("#fc_ev_endTime").change(function(){
-            currentvalue = $("#fc_ev_startTime").val();
-            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
-              maximumvalue = $(this).val();
-              $.ajax({
-                type: "POST",
-                url: "/themes/glorioso/ajax/fillselectoptions.php",
-                data: {maxval:maximumvalue,selected:currentvalue},
-                success: function(data){ $("#fc_ev_startTime").children().remove().end().append(data).val(currentvalue); }
-              });
-            }        
-            else{
-              $.ajax({
-                type: "POST",
-                url: "/themes/glorioso/ajax/fillselectoptions.php",
-                data: {selected:currentvalue},
-                success: function(data){ $("#fc_ev_startTime").children().remove().end().append(data).val(currentvalue); }
-              });
-            }
-          });
-          $("#fc_ev_startTime").change(function(){
-            currentvalue = $("#fc_ev_endTime").val();
-            if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
-              minimumvalue = $(this).val();
-              $.ajax({
-                type: "POST",
-                url: "/themes/glorioso/ajax/fillselectoptions.php",
-                data: {minval:minimumvalue,selected:currentvalue},
-                success: function(data){ $("#fc_ev_endTime").children().remove().end().append(data).val(currentvalue); }
-              });
-            }
-            else{
-              $.ajax({
-                type: "POST",
-                url: "/themes/glorioso/ajax/fillselectoptions.php",
-                data: {selected:currentvalue},
-                success: function(data){ $("#fc_ev_endTime").children().remove().end().append(data).val(currentvalue); }
-              });
-            }
-          });
-        }
-                   
-			}
-		});
+// if user is news administrator then create_cal_event_wrapper will exist;
+// in such a case apply jquery-UI formatting and automation to it and its elements
+if($("#create_cal_event_wrapper").length!=0){
     $("#create_cal_event_wrapper").dialog({
 					width: 600,
           modal: true,
@@ -826,6 +730,107 @@ $.get("themes/glorioso/ajax/ajax_fc.php",function(data){
             "Annulla":function(){$(this).dialog("close");}
           }      
     });
+    $("#fc_ev_startDate.datepicker","#create_cal_event").datepicker({
+                                                  changeYear: true,
+                                                  changeMonth: true,
+                                                  dateFormat: 'yy-mm-dd',
+                                                  yearRange: '-10:+3',
+                                                  onSelect: function(dateText, inst){ $("#fc_ev_endDate").datepicker("option","minDate",dateText) }
+                                              });
+    $("#fc_ev_endDate.datepicker","#create_cal_event").datepicker({
+                                                  changeYear: true,
+                                                  changeMonth: true,
+                                                  dateFormat: 'yy-mm-dd',
+                                                  yearRange: '-10:+3',
+                                                  onSelect: function(dateText, inst){ $("#fc_ev_startDate").datepicker("option","maxDate",dateText) }
+                                              });
+    $.datepicker.setDefaults($.datepicker.regional['']);
+    $(".datepicker","#create_cal_event").datepicker('option', $.extend($.datepicker.regional['it']));    
+    // if html5 is being used (determined by php), then we will have an {input type=time|date} element for time|date
+    if($("input#fc_ev_startTime").length!=0){  
+
+      $("#fc_ev_endDate").focus(function(){ 
+        $(this).attr("min",$("#fc_ev_startDate").val());
+        $(this).datepicker("option","minDate",$("#fc_ev_startDate").val()); 
+      });
+      $("#fc_ev_startDate").focus(function(){ 
+        $(this).attr("max",$("#fc_ev_endDate").val()); 
+        $(this).datepicker("option","maxDate",$("#fc_ev_endDate").val()); 
+      });
+
+      $("#fc_ev_endTime").focus(function(){
+        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
+          $(this).attr("min",$("#fc_ev_startTime").val());
+        }
+        else{ $(this).removeAttr("min"); }
+      });
+      $("#fc_ev_startTime").focus(function(){
+        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
+          $(this).attr("max",$("#fc_ev_endTime").val());
+        }
+        else{ $(this).removeAttr("max"); }
+      });
+    }
+    // if xhtml11 is being used (determined by php), then we will have a {select} element for time|date
+    if($("select#fc_ev_startTime").length!=0){  
+      $("#fc_ev_endTime").change(function(){
+        currentvalue = $("#fc_ev_startTime").val();
+        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
+          maximumvalue = $(this).val();
+          $.ajax({
+            type: "POST",
+            url: "/themes/glorioso/ajax/fillselectoptions.php",
+            data: {maxval:maximumvalue,selected:currentvalue},
+            success: function(data){ $("#fc_ev_startTime").children().remove().end().append(data).val(currentvalue); }
+          });
+        }        
+        else{
+          $.ajax({
+            type: "POST",
+            url: "/themes/glorioso/ajax/fillselectoptions.php",
+            data: {selected:currentvalue},
+            success: function(data){ $("#fc_ev_startTime").children().remove().end().append(data).val(currentvalue); }
+          });
+        }
+      });
+      $("#fc_ev_startTime").change(function(){
+        currentvalue = $("#fc_ev_endTime").val();
+        if($("#fc_ev_endDate").val() == $("#fc_ev_startDate").val() && $("#fc_ev_endDate").val()!=""){
+          minimumvalue = $(this).val();
+          $.ajax({
+            type: "POST",
+            url: "/themes/glorioso/ajax/fillselectoptions.php",
+            data: {minval:minimumvalue,selected:currentvalue},
+            success: function(data){ $("#fc_ev_endTime").children().remove().end().append(data).val(currentvalue); }
+          });
+        }
+        else{
+          $.ajax({
+            type: "POST",
+            url: "/themes/glorioso/ajax/fillselectoptions.php",
+            data: {selected:currentvalue},
+            success: function(data){ $("#fc_ev_endTime").children().remove().end().append(data).val(currentvalue); }
+          });
+        }
+      });
+    }
+}
+// end jquery-UI formatting and automation of create_cal_event_wrapper elements
+
+// md5 verification if user really is news admin
+// if so then add administrative buttons to calendar dialog
+$.get("themes/glorioso/ajax/ajax_fc.php",function(data){
+  data = $.trim(data);
+  if(MD5(data)=="cf4b1a648e5405fba687ee67934725e2"){ 
+    $('#calendarviewer').dialog("option","buttons",{
+  		"Aggiorna": function() {
+  			$('#calendarviewer').fullCalendar('refetchEvents');
+  			$('#calendarviewer').fullCalendar('rerenderEvents');
+  			},
+  		"Aggiungi evento": function() {
+  			$("#create_cal_event_wrapper").dialog("open");  
+        }                			
+		});
 	}
 });
 
