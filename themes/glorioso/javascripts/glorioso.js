@@ -121,7 +121,92 @@ $.fn.themeswitcher = function(settings){
 
 	//markup 
 	var button = $('<a href="#" class="jquery-ui-themeswitcher-trigger"><span class="jquery-ui-themeswitcher-icon"></span><span class="jquery-ui-themeswitcher-title">'+ options.initialText +'</span></a>');
-	var switcherpane = $('<div class="jquery-ui-themeswitcher"><div id="themeGallery">	<ul>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_ui_light.png" alt="UI Lightness" title="UI Lightness" />			<span class="themeName">UI lightness</span>		</a></li>				<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-darkness/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_ui_dark.png" alt="UI Darkness" title="UI Darkness" />			<span class="themeName">UI darkness</span>		</a></li>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_smoothness.png" alt="Smoothness" title="Smoothness" />			<span class="themeName">Smoothness</span>		</a></li>							<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_start_menu.png" alt="Start" title="Start" />			<span class="themeName">Start</span>		</a></li>				<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_windoze.png" alt="Redmond" title="Redmond" />			<span class="themeName">Redmond</span>		</a></li>						<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/sunny/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_sunny.png" alt="Sunny" title="Sunny" />			<span class="themeName">Sunny</span>		</a></li>						<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/overcast/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_overcast.png" alt="Overcast" title="Overcast" />			<span class="themeName">Overcast</span>				</a></li>						<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/le-frog/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_le_frog.png" alt="Le Frog" title="Le Frog" />			<span class="themeName">Le Frog</span>		</a></li>								<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_flick.png" alt="Flick" title="Flick" />			<span class="themeName">Flick</span>				</a></li>				<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/pepper-grinder/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_pepper_grinder.png" alt="Pepper Grinder" title="Pepper Grinder" />			<span class="themeName">Pepper Grinder</span>				</a></li>								<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/eggplant/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_eggplant.png" alt="Eggplant" title="Eggplant" />			<span class="themeName">Eggplant</span>				</a></li>								<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/dark-hive/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_dark_hive.png" alt="Dark Hive" title="Dark Hive" />			<span class="themeName">Dark Hive</span>		</a></li>										<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/cupertino/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_cupertino.png" alt="Cupertino" title="Cupertino" />			<span class="themeName">Cupertino</span>				</a></li>				<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/south-street/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_south_street.png" alt="South St" title="South St" />			<span class="themeName">South Street</span>				</a></li>		<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/blitzer/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_blitzer.png" alt="Blitzer" title="Blitzer" />			<span class="themeName">Blitzer</span>		</a></li>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/humanity/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_humanity.png" alt="Humanity" title="Humanity" />			<span class="themeName">Humanity</span>		</a></li>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/hot-sneaks/jquery-ui.css">		<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_hot_sneaks.png" alt="Hot Sneaks" title="Hot Sneaks" />			<span class="themeName">Hot sneaks</span>		</a></li>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/excite-bike/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_excite_bike.png" alt="Excite Bike" title="Excite Bike" />			<span class="themeName">Excite Bike</span>			</a></li>		<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/vader/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_black_matte.png" alt="Vader" title="Vader" />			<span class="themeName">Vader</span>			</a></li>				<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/dot-luv/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_dot_luv.png" alt="Dot Luv" title="Dot Luv" />			<span class="themeName">Dot Luv</span>			</a></li>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/mint-choc/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_mint_choco.png" alt="Mint Choc" title="Mint Choc" />			<span class="themeName">Mint Choc</span>		</a></li>		<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/black-tie/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_black_tie.png" alt="Black Tie" title="Black Tie" />			<span class="themeName">Black Tie</span>		</a></li>		<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/trontastic/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_trontastic.png" alt="Trontastic" title="Trontastic" />			<span class="themeName">Trontastic</span>			</a></li>			<li><a href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/swanky-purse/jquery-ui.css">			<img src="http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_swanky_purse.png" alt="Swanky Purse" title="Swanky Purse" />			<span class="themeName">Swanky Purse</span>			</a></li>	</ul></div></div>').find('div').removeAttr('id');
+	var ui_themes = [
+    {themeName:"Base",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_smoothness.png"},
+    {themeName:"Black Tie",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/black-tie/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_black_tie.png"},
+    {themeName:"Blitzer",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/blitzer/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_blitzer.png"},
+    {themeName:"Cupertino",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/cupertino/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_cupertino.png"},
+    {themeName:"Dark Hive",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/dark-hive/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_dark_hive.png"},
+    {themeName:"Dot Luv",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/dot-luv/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_dot_luv.png"},
+    {themeName:"Eggplant",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/eggplant/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_eggplant.png"},
+    {themeName:"Excite Bike",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/excite-bike/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_excite_bike.png"},
+    {themeName:"Flick",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_flick.png"},
+    {themeName:"Hot Sneaks",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/hot-sneaks/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_hot_sneaks.png"},
+    {themeName:"Humanity",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/humanity/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_humanity.png"},
+    {themeName:"Le Frog",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/le-frog/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_le_frog.png"},
+    {themeName:"Mint Choc",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/mint-choc/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_mint_choco.png"},
+    {themeName:"Overcast",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/overcast/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_overcast.png"},
+    {themeName:"Pepper Grinder",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/pepper-grinder/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_pepper_grinder.png"},
+    {themeName:"Redmond",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_windoze.png"},
+    {themeName:"Smoothness",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_smoothness.png"},
+    {themeName:"South Street",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/south-street/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_south_street.png"},
+    {themeName:"Start",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/start/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_start_menu.png"},
+    {themeName:"Sunny",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/sunny/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_sunny.png"},
+    {themeName:"Swanky Purse",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/swanky-purse/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_swanky_purse.png"},
+    {themeName:"Trontastic",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/trontastic/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_trontastic.png"},
+    {themeName:"UI Darkness",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-darkness/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_ui_dark.png"},
+    {themeName:"UI Lightness",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_ui_light.png"},
+    {themeName:"Vader",
+     url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/vader/jquery-ui.css",
+     thumb:"http://static.jquery.com/ui/themeroller/images/themeGallery/theme_30_black_matte.png"},
+  ];
+  ul_string = '<div class="jquery-ui-themeswitcher"><div id="themeGallery"><ul>';
+  numthemes = ui_themes.length;
+  for(i=0;i<ui_themes.length;i++){
+    ul_string += '<li><a href="'+ui_themes[i].url+'">';
+    ul_string += '<img src="'+ui_themes[i].thumb+'" alt="'+ui_themes[i].themeName+'" title="'+ui_themes[i].themeName+'" />';
+    ul_string += '<span class="themeName">'+ui_themes[i].themeName+'</span></a></li>';  
+  }
+  ul_string += '</ul></div></div>';
+	var switcherpane = $(ul_string).find('div').removeAttr('id');
 	
 	//button events
 	button.click(
