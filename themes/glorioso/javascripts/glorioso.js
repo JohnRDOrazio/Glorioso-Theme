@@ -379,7 +379,10 @@ $.fn.themeswitcher = function(settings){
 	switcherpane.hide();
 	if( $.cookie(options.cookieName) || options.loadTheme ){
 		var themeName = $.cookie(options.cookieName) || options.loadTheme;
-		switcherpane.find('a:contains('+ themeName +')').trigger('click');
+		mylink = switcherpane.find('a:contains('+ themeName +')');
+		updateCSS( $(mylink).attr('href') );
+		button.find('.jquery-ui-themeswitcher-title').text( options.buttonPreText + themeName );
+		$.cookie(options.cookieName, themeName);
 	}
 
 	return this;
