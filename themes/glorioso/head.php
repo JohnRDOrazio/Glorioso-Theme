@@ -1,5 +1,10 @@
 <?php
 
+if(file_exists("themes/glorioso/firstinstall")){ 
+  Header("Location: /themes/glorioso/install.php");
+  exit;
+}
+
 global $_THEME_CFG,$htmlver;
 require_once("themes/glorioso/languages/{$_FN['lang']}.php");
 
