@@ -14,12 +14,22 @@ if(!file_exists("themes/glorioso/firstinstall")){ die("Theme already installed!"
 
 if ( file_exists("themes/glorioso/config.php") ){	require_once "themes/glorioso/config.php"; }
 //else { copy("themes/glorioso/include/config.install.php","themes/glorioso/config.php"); }  
-$files = glob("themes/glorioso/config.php*.bak~");
+$files = glob("themes/glorioso/config.php*.bak*");
 if(count($files) > 0 && $files[0]!=""){
+  //$res = "Found a backup configuration file.<br>";
   if(count($files)==1){ require_once($files[0]); }
-  if(count($files)>1){ natsort($files); require_once($files[0]); }
+  if(count($files)>1){ 
+    //$res .= "Found multiple backup configuration files. Now sorting. <br>";
+    natsort($files);
+    $files = array_reverse($files);
+    //$res .= "First file sorted: ".$files[0]."<br>"; 
+    //$res .= "Second file sorted: ".$files[1]."<br><br>"; 
+    require_once($files[0]); 
+  }
 } 
-
+else{
+  //$res = "No backup configuration files found. Result of search: ".$files."<br>";
+}
 $bodycolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['bodycolor']!="") ? "background-color: #".$_THEME_CFG['bodycolor'].";" : "";
 $centercolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['center_column_color']!="") ? "background-color: #".$_THEME_CFG['center_column_color'].";" : "";
 $leftcolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['left_column_color']!="") ? "background-color: #".$_THEME_CFG['left_column_color'].";" : "";
@@ -632,6 +642,7 @@ if( !isset($_GET["step"]) || (isset($_GET["step"])&&$_GET["step"]==1) ){
 ?>
   <div id="install" title="Glorioso Theme Installation => Step 1: Please choose your layout">
     <div id="contents">
+      <?php //echo $res; ?>
       <span>Welcome to the Glorioso Theme installation wizard. This installation process will walk you step by step through the configuration and customization of your theme.</span><hr>
       <form method="POST" action="/themes/glorioso/install.php?step=2">
         <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
