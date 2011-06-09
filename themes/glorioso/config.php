@@ -2,7 +2,9 @@
 
 
 /* Inizializza l'array delle variabili di configurazione */
-$_THEME_CFG = Array();
+if(!isset($_THEME_CFG)&&!is_array($_THEME_CFG)){
+  $_THEME_CFG = Array();
+}
 
 /* Site Appearance */
 
