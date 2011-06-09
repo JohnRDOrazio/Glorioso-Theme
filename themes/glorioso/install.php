@@ -17,14 +17,16 @@ if ( file_exists("themes/glorioso/config.php") ){	require_once "themes/glorioso/
 $files = glob("themes/glorioso/config.php*.bak*");
 if(count($files) > 0 && $files[0]!=""){
   //$res = "Found a backup configuration file.<br>";
-  if(count($files)==1){ require_once($files[0]); }
+  if(count($files)==1){ 
+    require_once($files[0]); 
+  }
   if(count($files)>1){ 
     //$res .= "Found multiple backup configuration files. Now sorting. <br>";
     natsort($files);
     $files = array_reverse($files);
     //$res .= "First file sorted: ".$files[0]."<br>"; 
     //$res .= "Second file sorted: ".$files[1]."<br><br>"; 
-    require_once($files[0]); 
+    require_once($files[0]);
   }
 } 
 else{
@@ -1320,6 +1322,10 @@ else{
 
     case 7:
       unlink("themes/glorioso/firstinstall");
+      foreach($files as $file){
+        unlink($file);
+      } 
+
 ?>
       <div id="install" title="Glorioso Theme Installation => Step 7: Congratulazioni">
         <div id="contents">
