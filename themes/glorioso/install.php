@@ -10,9 +10,7 @@ if(!isadmin()){
   header("Location: ../../index.php");
   exit();
 }
-if(file_exists("/themes/glorioso/firstinstall"))
-  unlink("/themes/glorioso/firstinstall");
-else{ die("Theme already installed!"); }
+if(!file_exists("themes/glorioso/firstinstall")){ die("Theme already installed!"); }
 
 if ( file_exists("themes/glorioso/config.php") ){	require_once "themes/glorioso/config.php"; }
 //else { copy("themes/glorioso/include/config.install.php","themes/glorioso/config.php"); }  
@@ -1310,6 +1308,7 @@ else{
 <?php   break;
 
     case 7:
+      unlink("themes/glorioso/firstinstall");
 ?>
       <div id="install" title="Glorioso Theme Installation => Step 7: Congratulazioni">
         <div id="contents">
