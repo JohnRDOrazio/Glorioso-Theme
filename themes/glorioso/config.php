@@ -18,6 +18,9 @@ $_THEME_CFG['leftcolwidth'] = "200";
 #[it]Larghezza colonna destra (px)
 #[en]Right column width (%)
 $_THEME_CFG['rightcolwidth'] = "150";
+#[it]Invertire userbar e pagetop {1=SI,0=NO}
+#[en]Invert userbar and pagetop {1=YES,0=NO}
+$_THEME_CFG['invertpagetop'] = 0;
 #[it]Visualizza il menu verticale a sinistra {1=SI,0=NO}
 #[en]View vertical menu on the left {1=YES,0=NO}
 $_THEME_CFG['showmenuleft'] = 1;
