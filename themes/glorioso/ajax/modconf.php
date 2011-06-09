@@ -10,6 +10,31 @@
 				echo fn_i18n("_NONPUOI");
 				return;
 			}
+      if(!function_exists("xmldb_encode_preg_replace2nd")){
+        function xmldb_encode_preg_replace2nd($str)
+        {
+        	$str = str_replace("\\", "\\\\", $str);
+        	$str = str_replace('$', '\\$', $str);
+        	return $str;
+        }
+      }
+      if(!function_exists("xmldb_encode_preg")){
+        function xmldb_encode_preg($str)
+        {
+        	$str = str_replace('\\', '\\\\', $str);
+        	$str = str_replace('/', '\\/', $str);
+        	$str = str_replace('(', '\\(', $str);
+        	$str = str_replace(')', '\\)', $str);
+        	$str = str_replace('^', '\\^', $str);
+        	$str = str_replace('$', '\\$', $str);
+        	$str = str_replace('*', '\\*', $str);
+        	$str = str_replace('+', '\\+', $str);
+        	$str = str_replace('?', '\\?', $str);
+        	$str = str_replace('[', '\\[', $str);
+        	$str = str_replace(']', '\\]', $str);
+        	return $str;
+        }      
+      }
 
 			$conf_file = null;
 			if ( isset($_POST['conf_file']) )
