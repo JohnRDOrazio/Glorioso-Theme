@@ -10,31 +10,6 @@
 				echo fn_i18n("_NONPUOI");
 				return;
 			}
-      if(!function_exists("xmldb_encode_preg_replace2nd")){
-        function xmldb_encode_preg_replace2nd($str)
-        {
-        	$str = str_replace("\\", "\\\\", $str);
-        	$str = str_replace('$', '\\$', $str);
-        	return $str;
-        }
-      }
-      if(!function_exists("xmldb_encode_preg")){
-        function xmldb_encode_preg($str)
-        {
-        	$str = str_replace('\\', '\\\\', $str);
-        	$str = str_replace('/', '\\/', $str);
-        	$str = str_replace('(', '\\(', $str);
-        	$str = str_replace(')', '\\)', $str);
-        	$str = str_replace('^', '\\^', $str);
-        	$str = str_replace('$', '\\$', $str);
-        	$str = str_replace('*', '\\*', $str);
-        	$str = str_replace('+', '\\+', $str);
-        	$str = str_replace('?', '\\?', $str);
-        	$str = str_replace('[', '\\[', $str);
-        	$str = str_replace(']', '\\]', $str);
-        	return $str;
-        }      
-      }
 
 			$conf_file = null;
 			if ( isset($_POST['conf_file']) )
@@ -44,28 +19,29 @@
 				$conf_file = strippostpslashes($_GET['conf_file']);
 			$fd = file($conf_file);
 
-			$j = 0;
-			$new_file = "";
 			// scansione file alla ricerca delle variabili
-			for ( $i = 0; $i < count($fd); $i++ )
-			{
-				$postvar = str_replace('$', '\$', str_replace("[", "\[", str_replace("]", "\]", strippostpslashes($_POST["conf_field$j"]))));
-				if ( preg_match('/^' . $postvar . "./s", $fd[$i]) )
-				{
-					$oldvalue = xmldb_encode_preg(strippostpslashes($_POST["conf_value_old$j"]));
-					$newvalue = xmldb_encode_preg_replace2nd(strippostpslashes($_POST["conf_value$j"]));
-					if ( $oldvalue == "" )
-						$new_file .= preg_replace('/=(.*?)("")/s', '=${1}"' . $newvalue . '"', $fd[$i]);
-					else
-						$new_file .= preg_replace('/=(.*?)(' . $oldvalue . ')/s', '=${1}' . $newvalue, $fd[$i]);
-					if ( $j < ($_POST['conf_num'] - 1) )
-						$j++;
-				}
-				else
-				{
-					$new_file .= $fd[$i];
-				}
-			}
+      for ( $j = 0; $j < $_POST['conf_num']; $j++ ){
+  
+  
+  			for ( $i = 0; $i < count($fd); $i++ ){
+  				$postvar = str_replace('$', '\$', str_replace("[", "\[", str_replace("]", "\]", strippostpslashes($_POST["conf_field$j"]))));
+  				if ( preg_match('/^' . $postvar . "./s", $fd[$i]) ){
+  					$oldvalue = xmldb_encode_preg(strippostpslashes($_POST["conf_value_old$j"]));
+  					$newvalue = xmldb_encode_preg_replace2nd(strippostpslashes($_POST["conf_value$j"]));
+            if ( $oldvalue == "" ){
+  						$fd[$i] = preg_replace('/=(.*?)("")/s', '=${1}"' . $newvalue . '"', $fd[$i]);
+              break;
+            }
+  					else{
+  						$fd[$i] = preg_replace('/=(.*?)(' . $oldvalue . ')/s', '=${1}' . $newvalue, $fd[$i]);
+              break;
+            }
+  				}
+  			}
+  
+  
+      }
+      $new_file = implode("\n",$fd);
 			/* 		dprint_r($_POST);
 			  dprint_xml($new_file); */
 			$fd = fopen(stripslashes($conf_file), "wb");
