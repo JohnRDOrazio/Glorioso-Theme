@@ -128,60 +128,43 @@ $(document).ready(function(){
 /**********************************************/
   if (isset($_GET['stato']) && $_GET['stato'] == 'esistente' ){
 ?> 
-<br /><br />
 <div style="text-align:center;">
-  <span>Ti stai registrando a <?php echo $_FN["sitename"] ?> attraverso <?php echo $_GET["container"] ?>.</span><br />
-  <span>Vedo che c&apos;è già un account con lo stesso tuo username &apos;<?php echo $_GET['username']; ?>&apos;.</span><br />
-  <span>Se l&apos;account utente sul sito è tuo, puoi collegarlo con l&apos;account appena creato attraverso <?php echo $_GET["container"] ?></span><br />
-  <span>semplicemente inserendo la password:</span>
+  <span>Ti stai registrando a <?php echo $_FN["sitename"] ?> attraverso <?php echo $_GET["container"] ?>.
+  C&apos;è già un account sul sito con lo stesso tuo username &apos;<?php echo $_GET['username']; ?>&apos;.
+  Se l&apos;account utente sul sito è tuo, puoi collegarlo con l&apos;account appena creato attraverso <?php echo $_GET["container"] ?>
+  semplicemente inserendo la password:</span>
 </div>
 <div style="margin:15px;padding:10px;border:ridge 2px LightGray;">
   <form id="existandsameusername" name="existandsameusername" action="index.php?spec=existandsameusername" method="post">
   <div id="msg" style="text-align:center;color:#FF0000;"></div>
-    <span>Devi immettere la password del tuo account esistente:</span><br /><br />
     <table>
-      <tr><td colspan=2><input type="hidden" id="username" name="username" value="<?php echo $_GET['username']; ?>" /></td></tr>
       <tr>
-        <td><label for="password">Password: </label></td>
-        <td><input type="password" name="password" id="password" /></td>
+        <td><label for="associatewithsame">L'account è mio, devo solo inserire la password</label></td>
+        <td><input type="radio" name="alreadyusername" id="associatewithsame" value="associatewithsame" CHECKED onclick="$('.password').show();$('input#username').attr('DISABLED',true).val('<?php echo $_GET['username']; ?>');" /></td>
       </tr>
       <tr>
+        <td><label for="alternativeusername">Non ho ancora un account, sceglierò un altro username</label></td>
+        <td><input type="radio" name="alreadyusername" id="alternativeusername" value="alternativeusername" onclick="$('.password').hide();$('input#username').attr('DISABLED',false).val('');" /></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:2px groove #FFFFFF;"><label for="associatewithold">Sono già registrato con un altro account, inserirò le credenziali</label></td>
+        <td style="border-bottom:2px groove #FFFFFF;"><input type="radio" name="alreadyusername" id="associatewithold" value="associatewithold" onclick="$('.password').show();$('input#username').attr('DISABLED',false).val('');" /></td>
+      </tr>
+      <tr>
+        <td><label for="username">Username: </label></td>
+        <td><input type="text" name="username" id="username" value="<?php echo $_GET['username']; ?>" DISABLED size=15 /></td>
+      </tr>
+      <tr class="password">
+        <td><label for="password">Password: </label></td>
+        <td><input type="password" name="password" id="password" size=15 /></td>
+      </tr>
+      <tr class="password">
         <td><label for="password2">Verifica password: </label></td>
-        <td><input type="password" name="password2" id="password2" /></td>
+        <td><input type="password" name="password2" id="password2" size=15 /></td>
       </tr>
     </table>
     <div style="text-align:center;"><button>COLLEGA ACCOUNT</button></div>
   </form>	
-</div>
-<div style="text-align:center;">
-  <span>Se invece l&apos;account non è tuo, ma sei già registrato a <?php echo $_FN["sitename"] ?>,</span><br />
-  <span>puoi inserire qui le tue credenziali per collegare l&apos;account di <?php echo $_GET["container"] ?> con l&apos;account già esistente.</span><br />
-  <span>Se invece non hai ancora un account sul sito, dovrai scegliere un altro nome utente</span><br />
-  <span>per completare la registrazione, perché il tuo nome utente di <?php echo $_GET["container"] ?> è già preso da un altro.</span><br />
-  <span>Si prega in tal caso di indicare un nome utente alternativo (non c&apos;è bisogno di una password):</span>
-</div>
-<div style="margin:15px;padding:10px;border:ridge 2px LightGray;">
-  <form name="usernamealreadyexists" id="usernamealreadyexists" action="index.php?spec=usernamealreadyexists" method="post">
-  <div id="msg" style="text-align:center;color:#FF0000;"></div>
-    <input type="radio" name="alreadyusername" id="associatewithold" value="associatewithold" />
-    <input type="radio" name="alreadyusername" id="alternativeusername" value="alternativeusername" />
-      <tr>
-        <td><label for="username">Nome utente: </label></td>
-        <td><input type="text" name="username" id="username" /></td>
-      </tr>
-      <!-- case associate with old -->
-      <tr class="associatewithold" style="display:none;">
-        <td><label for="password">Password: </label></td>
-        <td><input type="password" name="password" id="password" /></td>
-      </tr>
-      <tr class="associatewithold" style="display:none;">
-        <td><label for="password2">Verifica password: </label></td>
-        <td><input type="password" name="password2" id="password2" /></td>
-      </tr>
-    <!-- end case associate with old -->
-    </table>
-    <div style="text-align:center;display:none;"><button type="submit"></button></div>
-  </form>
 </div>
 <?php
   }
