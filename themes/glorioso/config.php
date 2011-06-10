@@ -2,7 +2,7 @@
 
 
 /* Inizializza l'array delle variabili di configurazione */
-if(!isset($_THEME_CFG)&&!is_array($_THEME_CFG)){
+if(!isset($_THEME_CFG)||!is_array($_THEME_CFG)){
   $_THEME_CFG = Array();
 }
 

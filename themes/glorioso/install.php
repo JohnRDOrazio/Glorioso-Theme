@@ -11,37 +11,116 @@ if(!isadmin()){
   exit();
 }
 if(!file_exists("themes/glorioso/firstinstall")){ die("Theme already installed!"); }
+if(!file_exists("themes/glorioso/tracksave.php")){
+  $fd = fopen("themes/glorioso/tracksave.php",'w') or die('Cannot create file');
+  $data = "<"."?php ";
+  $data .= "if(!isset($"."saved)||!is_array($"."saved)){ $"."saved = Array(); } \n";
+  $data .= "$"."saved['step1'] = false; \n";
+  $data .= "$"."saved['step2'] = false; \n";
+  $data .= "$"."saved['step3'] = false; \n";
+  $data .= "$"."saved['step4'] = false; \n";
+  $data .= "$"."saved['step5'] = false; \n";
+  $data .= "$"."saved['step6'] = false; \n";
+  $data.="?".">";
+  fwrite($fd,$data);
+  fclose($fd);
+  require_once "themes/glorioso/tracksave.php";
+}
+else{ require_once "themes/glorioso/tracksave.php"; }
 
-if ( file_exists("themes/glorioso/config.php") ){	require_once "themes/glorioso/config.php"; }
-//else { copy("themes/glorioso/include/config.install.php","themes/glorioso/config.php"); }  
+require_once "themes/glorioso/config.php";
+$default = $_THEME_CFG;
+
 $files = glob("themes/glorioso/config.php*.bak*");
 if(count($files) > 0 && $files[0]!=""){
-  //$res = "Found a backup configuration file.<br>";
-  if(count($files)==1){ 
-    require_once($files[0]); 
-  }
   if(count($files)>1){ 
-    //$res .= "Found multiple backup configuration files. Now sorting. <br>";
     natsort($files);
     $files = array_reverse($files);
-    //$res .= "First file sorted: ".$files[0]."<br>"; 
-    //$res .= "Second file sorted: ".$files[1]."<br><br>"; 
-    require_once($files[0]);
   }
+  $bakfile = $files[0]; 
 } 
-else{
-  //$res = "No backup configuration files found. Result of search: ".$files."<br>";
+// requiring the bakfile will overwrite all theme_cfg values
+if(isset($bakfile)){ 
+  require_once $bakfile ; 
+}  
+
+// for each step, use the most recent saved values up to the previous step, and not the backed up values
+if(!isset($_GET["step"])||isset($_GET["step"])&&$_GET["step"]>=1&&$saved["step1"]){    //for every step after step 1, load the 5 values from step 1
+  $_THEME_CFG["invertpagetop"] = $default["invertpagetop"];
+  $_THEME_CFG["rightcolwidth"] = $default["rightcolwidth"];
+  $_THEME_CFG["leftcolwidth"] = $default["leftcolwidth"];
+  $_THEME_CFG["showblocksright"] = $default["showblocksright"];
+  $_THEME_CFG["showblocksleft"] = $default["showblocksleft"];
 }
-$bodycolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['bodycolor']!="") ? "background-color: #".$_THEME_CFG['bodycolor'].";" : "";
-$centercolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['center_column_color']!="") ? "background-color: #".$_THEME_CFG['center_column_color'].";" : "";
-$leftcolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['left_column_color']!="") ? "background-color: #".$_THEME_CFG['left_column_color'].";" : "";
-$rightcolor = (isset($_GET["step"])&&$_GET["step"]>2&&$_THEME_CFG['right_column_color']!="") ? "background-color: #".$_THEME_CFG['right_column_color'].";" : "";
-if(isset($_GET["step"])&&$_GET["step"]>2){
-  $backimage = $_THEME_CFG['backimage']!="" ? "background-image: url(".$_THEME_CFG['backimage'].");" : "";
-  $backimagerepeat = $_THEME_CFG['backimage_repeat']!="" ? "background-repeat: ".$_THEME_CFG['backimage_repeat'].";" : "";
-  $backimageattach = $_THEME_CFG['backimage_attachment']!="" ? "background-attachment: ".$_THEME_CFG['backimage_attachment'].";" : "";
-  //$fullpagebackimage
+if(isset($_GET["step"])&&$_GET["step"]>=2&&$saved["step2"]){    //for every step after step 2, load the 7 values from step 2
+  $_THEME_CFG["showmenuleft"] = $default["showmenuleft"];
+  $_THEME_CFG["showmenuright"] = $default["showmenuright"];
+  $_THEME_CFG["show_top_horizontal_menu"] = $default["show_top_horizontal_menu"];
+  $_THEME_CFG["show_bottom_horizontal_menu"] = $default["show_bottom_horizontal_menu"];
+  $_THEME_CFG["show_subsections_in_section"] = $default["show_subsections_in_section"];
+  $_THEME_CFG["show_icons"] = $default["show_icons"];
+  $_THEME_CFG["max_size_icons"] = $default["max_size_icons"];
 }
+if(isset($_GET["step"])&&$_GET["step"]>=3&&$saved["step3"]){    //for every step after step 3, load the 8 values from step 3
+  $_THEME_CFG["bodycolor"] = $default["bodycolor"];
+  $_THEME_CFG["center_column_color"] = $default["center_column_color"];
+  $_THEME_CFG["right_column_color"] = $default["right_column_color"];
+  $_THEME_CFG["left_column_color"] = $default["left_column_color"];
+  $_THEME_CFG["full_page_backimage"] = $default["full_page_backimage"];
+  $_THEME_CFG["backimage"] = $default["backimage"];
+  $_THEME_CFG["backimage_repeat"] = $default["backimage_repeat"];
+  $_THEME_CFG["backimage_attachment"] = $default["backimage_attachment"];
+}
+if(isset($_GET["step"])&&$_GET["step"]>=4&&$saved["step4"]){    //for every step after step 4, load the 16 values from step 4
+  $_THEME_CFG["use_jsapi"] = $default["use_jsapi"];
+  $_THEME_CFG["jsapi_key"] = $default["jsapi_key"];
+  $_THEME_CFG["use_jquery"] = $default["use_jquery"];
+  $_THEME_CFG["use_jqueryui"] = $default["use_jqueryui"];
+  $_THEME_CFG["jqueryui_default"] = $default["jqueryui_default"];
+  $_THEME_CFG["use_jqtools_lcl"] = $default["use_jqtools_lcl"];
+  $_THEME_CFG["use_prototype"] = $default["use_prototype"];
+  $_THEME_CFG["use_scriptaculous"] = $default["use_scriptaculous"];
+  $_THEME_CFG["use_mootools"] = $default["use_mootools"];
+  $_THEME_CFG["use_dojo"] = $default["use_dojo"];
+  $_THEME_CFG["use_swfobject"] = $default["use_swfobject"];
+  $_THEME_CFG["use_yui"] = $default["use_yui"];
+  $_THEME_CFG["use_extcore"] = $default["use_extcore"];
+  $_THEME_CFG["use_chromeframe"] = $default["use_chromeframe"];
+  $_THEME_CFG["use_1pixeloutaudioplayer"] = $default["use_1pixeloutaudioplayer"];
+  $_THEME_CFG["notuse_webtoolkitMD5"] = $default["notuse_webtoolkitMD5"];
+}
+if(isset($_GET["step"])&&$_GET["step"]>=5&&$saved["step5"]){    //7
+  $_THEME_CFG["use_webfont"] = $default["use_webfont"];
+  $_THEME_CFG["googlefonts"] = $default["googlefonts"];
+  $_THEME_CFG["use_gan"] = $default["use_gan"];
+  $_THEME_CFG["gan_account"] = $default["gan_account"];
+  $_THEME_CFG["gcal_feed"] = $default["gcal_feed"];
+  $_THEME_CFG["gaccount_user"] = $default["gaccount_user"];
+  $_THEME_CFG["gaccount_pass"] = $default["gaccount_pass"];
+}
+if(isset($_GET["step"])&&$_GET["step"]>=6&&$saved["step6"]){    //20
+  $_THEME_CFG["use_gfc"] = $default["use_gfc"];
+  $_THEME_CFG["gfc_site"] = $default["gfc_site"];
+  $_THEME_CFG["gfc_social"] = $default["gfc_social"];
+  $_THEME_CFG["use_fb"] = $default["use_fb"];
+  $_THEME_CFG["fb_api_key"] = $default["fb_api_key"];
+  $_THEME_CFG["fb_secret"] = $default["fb_secret"];
+  $_THEME_CFG["fb_app_id"] = $default["fb_app_id"];
+  $_THEME_CFG["fb_gid"] = $default["fb_gid"];
+  $_THEME_CFG["use_messlive"] = $default["use_messlive"];
+  $_THEME_CFG["messlive_app_id"] = $default["messlive_app_id"];
+  $_THEME_CFG["messlive_secret"] = $default["messlive_secret"];
+  $_THEME_CFG["use_google"] = $default["use_google"];
+  $_THEME_CFG["google_key"] = $default["google_key"];
+  $_THEME_CFG["google_secret"] = $default["google_secret"];
+  $_THEME_CFG["use_orkut"] = $default["use_orkut"];
+  $_THEME_CFG["use_hi5"] = $default["use_hi5"];
+  $_THEME_CFG["use_myspace"] = $default["use_myspace"];
+  $_THEME_CFG["use_netlog"] = $default["use_netlog"];
+  $_THEME_CFG["use_partuza"] = $default["use_partuza"];
+  $_THEME_CFG["use_plaxo"] = $default["use_plaxo"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -415,13 +494,18 @@ function togglemenu(el){
       if( $(this).height() > winheight){ $(this).height(winheight); }
     } });
     $("#install").dialog("open");
+
     $("button:submit").click(function(){
       data = $(this).parents("form").serialize();
       href = $(this).parents("form").attr("action");
       //console.log("DATA: "+data);
       //console.log("HREF: "+href);
       $.post("/themes/glorioso/ajax/modconf.php",data,function(){
-        location.href = href;
+        step = parseInt(href.substring(href.length-1))-1;
+        $.post("/themes/glorioso/ajax/tracksave.php","step="+step,function(response){
+          //console.log(response);
+          location.href = href;
+        });
       });
       return false;
     });
@@ -600,6 +684,13 @@ function togglemenu(el){
 </head>
 <?php
   if(isset($_GET["step"])&&$_GET["step"]>2){
+    $bodycolor = ($_THEME_CFG['bodycolor']!="") ? "background-color: #".$_THEME_CFG['bodycolor'].";" : "";
+    $centercolor = ($_THEME_CFG['center_column_color']!="") ? "background-color: #".$_THEME_CFG['center_column_color'].";" : "";
+    $leftcolor = ($_THEME_CFG['left_column_color']!="") ? "background-color: #".$_THEME_CFG['left_column_color'].";" : "";
+    $rightcolor = ($_THEME_CFG['right_column_color']!="") ? "background-color: #".$_THEME_CFG['right_column_color'].";" : "";
+    $backimage = $_THEME_CFG['backimage']!="" ? "background-image: url(".$_THEME_CFG['backimage'].");" : "";
+    $backimagerepeat = $_THEME_CFG['backimage_repeat']!="" ? "background-repeat: ".$_THEME_CFG['backimage_repeat'].";" : "";
+    $backimageattach = $_THEME_CFG['backimage_attachment']!="" ? "background-attachment: ".$_THEME_CFG['backimage_attachment'].";" : "";
     echo ($_THEME_CFG['full_page_backimage']==1) ? "<body style=\"{$bodycolor}\" ><img class=\"bg\" src=\"{$_THEME_CFG['backimage']}\" />" : "<body style=\"".$bodycolor.$backimage.$backimagerepeat.$backimageattach."\">";
   }
   else{
@@ -1322,6 +1413,7 @@ else{
 
     case 7:
       unlink("themes/glorioso/firstinstall");
+      unlink("themes/glorioso/tracksave.php");
       foreach($files as $file){
         unlink($file);
       } 

@@ -41,7 +41,7 @@
   
   
       }
-      $new_file = implode("\n",$fd);
+      $new_file = implode("",$fd);
 			/* 		dprint_r($_POST);
 			  dprint_xml($new_file); */
 			$fd = fopen(stripslashes($conf_file), "wb");
