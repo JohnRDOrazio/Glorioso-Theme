@@ -121,8 +121,8 @@ img { border: 0px; }
 	clear:both;
 	top: 50%;
 	left: 50%;
-	width:760;
-	height:520;
+	width:760px;
+	height:520px;
 	margin-left:-380px;
 	margin-top:-260px;
 	display:none;
@@ -536,28 +536,28 @@ body .ru .ui-selectmenu-item-icon { width:32px;height:22px;background: url(image
     	width:40px;
     }
     .jqclock { text-align:center; } 
-		.clockdate {
+	.clockdate {
       text-align:center;
       clear:both;
-      color: DarkRed;
-			font-weight: bold;
-			font-size: 14px;
-			display: block;
-		}
-		.clocktime {
-			border:White 1px inset;
+      color: #8B0000;
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      }
+	.clocktime {
+	  border:White 1px inset;
       text-align:center;
       clear:both;
       color: #F0F0F0;
-			font-size:16px;
-			font-family: "Courier New", Courier, monospace;
-			font-weight:bold;
-			text-align:center;
-			background:#969696;
-			width:60%;
+	  font-size:16px;
+	  font-family: "Courier New", Courier, monospace;
+	  font-weight:bold;
+	  text-align:center;
+	  background:#969696;
+	  width:60%;
       margin: 0 auto;
-			text-shadow: #6374AB 2px -2px 2px;
-			display: block;
+	  text-shadow: #6374AB 2px -2px 2px;
+	  display: block;
 		}
 
 /* FULLCALENDAR EVENTS */
