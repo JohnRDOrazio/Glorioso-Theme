@@ -912,15 +912,15 @@ else{
               </tr>
               <tr class="newsection">
                 <td><span>Load jQuery: </span><input type="hidden" name="conf_field2" value="$_THEME_CFG['use_jquery']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['use_jquery'] ?>><a href="http://docs.jquery.com/Main_Page">Documentation</a></td>
-                <td><label for="usejqueryyes">YES</label><input type="radio" id="usejsapiyes" name="conf_value2" value=1 DISABLED <?php echo ($_THEME_CFG['use_jquery']==1) ? "CHECKED" : "" ?>>
-                    <label for="usejqueryno">NO</label><input type="radio" id="usejsapino" name="conf_value2" value=0 DISABLED <?php echo ($_THEME_CFG['use_jquery']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usejqueryyes">YES</label><input type="radio" id="usejsapiyes" name="conf_value2" value=1 READONLY <?php echo ($_THEME_CFG['use_jquery']==1) ? "CHECKED" : "" ?>>
+                    <label for="usejqueryno">NO</label><input type="radio" id="usejsapino" name="conf_value2" value=0 READONLY <?php echo ($_THEME_CFG['use_jquery']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="This theme is built completely on jquery for the time being. It would break if you turn off jquery." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
               <tr>
                 <td><span>Load jQuery-UI: </span><input type="hidden" name="conf_field3" value="$_THEME_CFG['use_jqueryui']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['use_jqueryui'] ?>><a href="http://jqueryui.com/demos/">Documentation</a></td>
-                <td><label for="usejqueryuiyes">YES</label><input type="radio" id="usejqueryuiyes" name="conf_value3" value=1 DISABLED <?php echo ($_THEME_CFG['use_jqueryui']==1) ? "CHECKED" : "" ?>>
-                    <label for="usejqueryuino">NO</label><input type="radio" id="usejqueryuino" name="conf_value3" value=0 DISABLED <?php echo ($_THEME_CFG['use_jqueryui']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usejqueryuiyes">YES</label><input type="radio" id="usejqueryuiyes" name="conf_value3" value=1 READONLY <?php echo ($_THEME_CFG['use_jqueryui']==1) ? "CHECKED" : "" ?>>
+                    <label for="usejqueryuino">NO</label><input type="radio" id="usejqueryuino" name="conf_value3" value=0 READONLY <?php echo ($_THEME_CFG['use_jqueryui']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="This theme is built completely on jquery User Interface for the time being. It would break if you turn off jquery User Interface." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
@@ -1324,8 +1324,8 @@ else{
                 <td>
                   <span style="font-weight:bold;">Use Messenger Live Connect: </span><input type="hidden" name="conf_field8" value="$_THEME_CFG['use_messlive']"><input type="hidden" name="conf_value_old8" value=<?php echo $_THEME_CFG['use_messlive'] ?>><a href="http://msdn.microsoft.com/en-us/library/ff749458.aspx">Documentation</a>
                 </td>
-                <td><label for="usemessliveyes">YES</label><input type="radio" id="usemessliveyes" name="conf_value8" value=1 DISABLED <?php echo ($_THEME_CFG['use_messlive']==1) ? "CHECKED" : "" ?>>
-                    <label for="usemessliveno">NO</label><input type="radio" id="usemessliveno" name="conf_value8" value=0 DISABLED <?php echo ($_THEME_CFG['use_messlive']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usemessliveyes">YES</label><input type="radio" id="usemessliveyes" name="conf_value8" value=1 READONLY <?php echo ($_THEME_CFG['use_messlive']==1) ? "CHECKED" : "" ?>>
+                    <label for="usemessliveno">NO</label><input type="radio" id="usemessliveno" name="conf_value8" value=0 READONLY <?php echo ($_THEME_CFG['use_messlive']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Messenger Live Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
@@ -1346,8 +1346,8 @@ else{
                     <br>
                     <span style="color:Green;font-style:italic;">Register your Domain with Google: </span><a href="https://www.google.com/accounts/ManageDomains">https://www.google.com/accounts/ManageDomains</a>
                 </td>
-                <td><label for="usegoogleyes">YES</label><input type="radio" id="usegoogleyes" name="conf_value11" value=1 DISABLED <?php echo ($_THEME_CFG['use_google']==1) ? "CHECKED" : "" ?>>
-                    <label for="usegoogleno">NO</label><input type="radio" id="usegoogleno" name="conf_value11" value=0 DISABLED <?php echo ($_THEME_CFG['use_google']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usegoogleyes">YES</label><input type="radio" id="usegoogleyes" name="conf_value11" value=1 READONLY <?php echo ($_THEME_CFG['use_google']==1) ? "CHECKED" : "" ?>>
+                    <label for="usegoogleno">NO</label><input type="radio" id="usegoogleno" name="conf_value11" value=0 READONLY <?php echo ($_THEME_CFG['use_google']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="You can let your users use their google accounts to login to / register with your site. This doesn't have social aspects to it but will let your users use different google services on your website." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
@@ -1363,43 +1363,43 @@ else{
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use Orkut Connect: </span><input type="hidden" name="conf_field14" value="$_THEME_CFG['use_orkut']"><input type="hidden" name="conf_value_old15" value=<?php echo $_THEME_CFG['use_orkut'] ?>><a href="http://www.orkut.com/html/en-US/developer.terms.html">Orkut Developer Terms of Service</a></td>
-                <td><label for="useorkutyes">YES</label><input type="radio" id="usemessliveyes" name="conf_value14" value=1 DISABLED <?php echo ($_THEME_CFG['use_orkut']==1) ? "CHECKED" : "" ?>>
-                    <label for="useorkutno">NO</label><input type="radio" id="usemessliveno" name="conf_value14" value=0 DISABLED <?php echo ($_THEME_CFG['use_orkut']==0) ? "CHECKED" : "" ?>>
+                <td><label for="useorkutyes">YES</label><input type="radio" id="usemessliveyes" name="conf_value14" value=1 READONLY <?php echo ($_THEME_CFG['use_orkut']==1) ? "CHECKED" : "" ?>>
+                    <label for="useorkutno">NO</label><input type="radio" id="usemessliveno" name="conf_value14" value=0 READONLY <?php echo ($_THEME_CFG['use_orkut']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Orkut Connect will give even more social opportunity to your website, you will be able to let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use hi5 Connect: </span><input type="hidden" name="conf_field15" value="$_THEME_CFG['use_hi5']"><input type="hidden" name="conf_value_old15" value=<?php echo $_THEME_CFG['use_hi5'] ?>><a href="http://www.hi5networks.com/developer/getstarted.html">hi5 Developer</a></td>
-                <td><label for="usehi5yes">YES</label><input type="radio" id="usehi5yes" name="conf_value15" value=1 DISABLED <?php echo ($_THEME_CFG['use_hi5']==1) ? "CHECKED" : "" ?>>
-                    <label for="usehi5no">NO</label><input type="radio" id="usehi5no" name="conf_value15" value=0 DISABLED <?php echo ($_THEME_CFG['use_hi5']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usehi5yes">YES</label><input type="radio" id="usehi5yes" name="conf_value15" value=1 READONLY <?php echo ($_THEME_CFG['use_hi5']==1) ? "CHECKED" : "" ?>>
+                    <label for="usehi5no">NO</label><input type="radio" id="usehi5no" name="conf_value15" value=0 READONLY <?php echo ($_THEME_CFG['use_hi5']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="hi5 Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use mySpace Connect: </span><input type="hidden" name="conf_field16" value="$_THEME_CFG['use_myspace']"><input type="hidden" name="conf_value_old16" value=<?php echo $_THEME_CFG['use_myspace'] ?>><a href="http://developer.myspace.com/wordpress/">mySpace Developer</a></td>
-                <td><label for="usemyspaceyes">YES</label><input type="radio" id="usemyspaceyes" name="conf_value16" value=1 DISABLED <?php echo ($_THEME_CFG['use_myspace']==1) ? "CHECKED" : "" ?>>
-                    <label for="usemyspaceno">NO</label><input type="radio" id="usemyspaceno" name="conf_value16" value=0 DISABLED <?php echo ($_THEME_CFG['use_myspace']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usemyspaceyes">YES</label><input type="radio" id="usemyspaceyes" name="conf_value16" value=1 READONLY <?php echo ($_THEME_CFG['use_myspace']==1) ? "CHECKED" : "" ?>>
+                    <label for="usemyspaceno">NO</label><input type="radio" id="usemyspaceno" name="conf_value16" value=0 READONLY <?php echo ($_THEME_CFG['use_myspace']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="mySpace Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use Netlog Connect: </span><input type="hidden" name="conf_field17" value="$_THEME_CFG['use_netlog']"><input type="hidden" name="conf_value_old17" value=<?php echo $_THEME_CFG['use_netlog'] ?>><a href="http://en.netlog.com/go/developer">Documentation</a></td>
-                <td><label for="usenetlogyes">YES</label><input type="radio" id="usenetlogyes" name="conf_value17" value=1 DISABLED <?php echo ($_THEME_CFG['use_netlog']==1) ? "CHECKED" : "" ?>>
-                    <label for="usenetlogno">NO</label><input type="radio" id="usenetlogno" name="conf_value17" value=0 DISABLED <?php echo ($_THEME_CFG['use_netlog']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usenetlogyes">YES</label><input type="radio" id="usenetlogyes" name="conf_value17" value=1 READONLY <?php echo ($_THEME_CFG['use_netlog']==1) ? "CHECKED" : "" ?>>
+                    <label for="usenetlogno">NO</label><input type="radio" id="usenetlogno" name="conf_value17" value=0 READONLY <?php echo ($_THEME_CFG['use_netlog']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Netlog Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use Partuza Connect: </span><input type="hidden" name="conf_field18" value="$_THEME_CFG['use_partuza']"><input type="hidden" name="conf_value_old18" value=<?php echo $_THEME_CFG['use_partuza'] ?>><a href="http://www.developerfusion.com/project/64373/partuza/">Partuza Developer</a></td>
-                <td><label for="usepartuzayes">YES</label><input type="radio" id="usepartuzayes" name="conf_value18" value=1 DISABLED <?php echo ($_THEME_CFG['use_partuza']==1) ? "CHECKED" : "" ?>>
-                    <label for="usepartuzano">NO</label><input type="radio" id="usepartuzano" name="conf_value18" value=0 DISABLED <?php echo ($_THEME_CFG['use_partuza']==0) ? "CHECKED" : "" ?>>
+                <td><label for="usepartuzayes">YES</label><input type="radio" id="usepartuzayes" name="conf_value18" value=1 READONLY <?php echo ($_THEME_CFG['use_partuza']==1) ? "CHECKED" : "" ?>>
+                    <label for="usepartuzano">NO</label><input type="radio" id="usepartuzano" name="conf_value18" value=0 READONLY <?php echo ($_THEME_CFG['use_partuza']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Partuza Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use Plaxo Connect: </span><input type="hidden" name="conf_field19" value="$_THEME_CFG['use_plaxo']"><input type="hidden" name="conf_value_old19" value=<?php echo $_THEME_CFG['use_plaxo'] ?>><a href="http://www.plaxo.com/api">Documentation</a></td>
-                <td><label for="useplaxoyes">YES</label><input type="radio" id="useplaxoyes" name="conf_value19" value=1 DISABLED <?php echo ($_THEME_CFG['use_plaxo']==1) ? "CHECKED" : "" ?>>
-                    <label for="useplaxono">NO</label><input type="radio" id="useplaxono" name="conf_value19" value=0 DISABLED <?php echo ($_THEME_CFG['use_plaxo']==0) ? "CHECKED" : "" ?>>
+                <td><label for="useplaxoyes">YES</label><input type="radio" id="useplaxoyes" name="conf_value19" value=1 READONLY <?php echo ($_THEME_CFG['use_plaxo']==1) ? "CHECKED" : "" ?>>
+                    <label for="useplaxono">NO</label><input type="radio" id="useplaxono" name="conf_value19" value=0 READONLY <?php echo ($_THEME_CFG['use_plaxo']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Plaxo Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
