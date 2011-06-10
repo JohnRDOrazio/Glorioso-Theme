@@ -130,24 +130,26 @@ if ($_THEME_CFG['use_fb']==1){
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'existandsameusername'){
-      $result = registersocialuser("fb",$_GET['spec'],$_FB['uid'],$_FB['me'],$_FB['userInfo'][0]->username);
-      if($result=="updated"){ 
-        fn_login($_FB['userInfo'][0]->username); ?>
-        <script type="text/javascript">opensocialregistration({stato:"collegato",container:"Facebook"});</script>
-      <?php
+      if($_POST['alreadyusername']=="associatewithsame"){
+        $result = registersocialuser("fb",$_GET['spec'],$_FB['uid'],$_FB['me'],$_FB['userInfo'][0]->username);
+        if($result=="updated"){ 
+          fn_login($_FB['userInfo'][0]->username); ?>
+          <script type="text/javascript">opensocialregistration({stato:"collegato",container:"Facebook"});</script>
+        <?php
+        }
       }
-    }
-    if(isset($_GET['spec']) && $_GET['spec'] == 'usernamealreadyexists' ){
-      $result = registersocialuser("fb",$_POST['alreadyusername'],$_FB['uid'],$_FB['me'],$_POST['username']);
-      if($_POST['alreadyusername']=="associatewithold"&&$result=="updated"){ 
-        fn_login($_POST['username']); ?>
-        <script type="text/javascript">opensocialregistration({stato:"linkedtoold",container:"Facebook"});</script>
-      <?php
-      }
-      elseif($_POST['alreadyusername']=="alternativeusername"&&$result=="created"){ 
-        fn_login($_POST['username']); ?>
-        <script type="text/javascript">opensocialregistration({stato:"altuser",container:"Facebook"});</script>
-      <?php
+      elseif($_POST['alreadyusername']=="associatewithold"||$_POST['alreadyusername']=="alternativeusername"){
+        $result = registersocialuser("fb",$_POST['alreadyusername'],$_FB['uid'],$_FB['me'],$_POST['username']);
+        if($result=="updated"){ 
+          fn_login($_POST['username']); ?>
+          <script type="text/javascript">opensocialregistration({stato:"linkedtoold",container:"Facebook"});</script>
+        <?php
+        }
+        elseif($result=="created"){ 
+          fn_login($_POST['username']); ?>
+          <script type="text/javascript">opensocialregistration({stato:"altuser",container:"Facebook"});</script>
+        <?php
+        }
       }
     }
     if(isset($_GET['spec']) && $_GET['spec'] == 'linkoldaccount' ){
