@@ -14,11 +14,11 @@ require_once("themes/glorioso/languages/{$_FN['lang']}.php");
 
 	// start HTML headers
 	$xmlns = "xmlns=\"http://www.w3.org/1999/xhtml\"";
-  $xmlns_fb = "xmlns:fb=\"http://www.facebook.com/2008/fbml\"";
+ 	$xmlns_fb = "xmlns:fb=\"http://www.facebook.com/2008/fbml\"";
 	$xmlns_wl = "xmlns:wl=\"http://apis.live.net/js/2010\"";
 	$htmlver = theme_doctype(_CHARSET);  // will give HTML5 for browsers that support it, otherwise XHTML 1.1. Defined in theme.php.
 	$close_tag = $htmlver['closetag'];
-  echo $htmlver['doctype']."\n";
+ 	echo $htmlver['doctype']."\n";
 	echo "<html $xmlns $xmlns_fb $xmlns_wl lang=\""._FN_LANG."\">\n";
 	echo "<head>\n";
 	$sitename = $_FN['sitetitle'] ;
@@ -32,11 +32,11 @@ require_once("themes/glorioso/languages/{$_FN['lang']}.php");
 	if (file_exists ( "sections/" . $_FN['vmod'] . "/sethead.php" ))
 		include ( "sections/" . $_FN['vmod'] . "/sethead.php" );
 	echo "\t<title>{$_FN['sitetitle']}</title>\n";
-echo "\t".$htmlver['metachromeframe']."\n";
-echo "\t".$htmlver['metacharset']."\n";	
-echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
-echo $_THEME_CFG["use_messlive"]==1 ? "<meta name=\"search.app\" content=\"WindowsLive\"/>" : "";
-echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
+	echo "\t".$htmlver['metachromeframe']."\n";
+	echo "\t".$htmlver['metacharset']."\n";	
+	echo "\t<meta http-equiv=\"Content-Language\" content=\""._FN_LANG."\" $close_tag>\n";
+	echo $_THEME_CFG["use_messlive"]==1 ? "<meta name=\"search.app\" content=\"WindowsLive\"/>" : "";
+	echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta http-equiv=\"EXPIRES\" content=\"0\" $close_tag>\n";
 	echo "\t<meta name=\"DISTRIBUTION\" content=\"GLOBAL\" $close_tag>\n";
 	echo "\t<meta name=\"AUTHOR\" content=\"{$_FN['sitename']}\" $close_tag>\n";
@@ -48,11 +48,11 @@ echo "\t<meta name=\"RESOURCE-TYPE\" content=\"DOCUMENT\" $close_tag>\n";
 	echo "\t<meta name=\"REVISIT-AFTER\" content=\"1 DAYS\" $close_tag>\n";
 	echo "\t<meta name=\"RATING\" content=\"GENERAL\" $close_tag>\n";
 	// Se il javascript non è abilitato, almeno c'è qui un foglio css di default...
-  echo $_THEME_CFG['use_jqueryui'] ? "<link href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{$_THEME_CFG['jqueryui_default']}/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\"/>" : "";
+  	echo $_THEME_CFG['use_jqueryui'] ? "<link href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{$_THEME_CFG['jqueryui_default']}/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\"/>" : "";
 	//GOOGLE WEBMASTER TOOLS:
 	echo "\t<meta name=\"google-site-verification\" content=\"{$_THEME_CFG['webmastertoolscode']}\" $close_tag>\n";
 	echo "\t<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\" $close_tag>\n";
-  if (file_exists ( "" . $_FN['datadir'] . "/{$_FN['lang']}/backend.xml" ))
+  	if (file_exists ( "" . $_FN['datadir'] . "/{$_FN['lang']}/backend.xml" ))
 		echo "\t<link rel=\"alternate\" type=\"application/rss+xml\" title=\"{$_FN['sitename']}\" href=\"{$_FN['siteurl']}{$_FN['datadir']}/{$_FN['lang']}/backend.xml\" $close_tag>\n";
 	if (file_exists ( "themes/{$_FN['theme']}/header.php" )) //aggiunte personalizzate per l'header
 		include ( "themes/{$_FN['theme']}/header.php" );
@@ -113,10 +113,10 @@ if($_THEME_CFG['use_jsapi'] == 1) {
 	echo ($_THEME_CFG['use_jquery']==1) ? "google.load(\"jquery\", \"1\");" : "";	
 	/* jQuery-UI */
 	echo ($_THEME_CFG['use_jqueryui']==1) ? "google.load(\"jqueryui\", \"1\");" : "";	
-  /* Google Friend Connect Javascript API */
-  echo ($_THEME_CFG['use_gfc']==1) ? "google.load(\"friendconnect\", \"0.8\", {'base_domain':'www.google.com'});" : "";
-  /* Google Font API WebFont Loader */
-  echo ($_THEME_CFG['use_webfont']==1) ? "google.load(\"webfont\", \"1\");" : "";
+	/* Google Friend Connect Javascript API */
+	echo ($_THEME_CFG['use_gfc']==1) ? "google.load(\"friendconnect\", \"0.8\", {'base_domain':'www.google.com'});" : "";
+	/* Google Font API WebFont Loader */
+	echo ($_THEME_CFG['use_webfont']==1) ? "google.load(\"webfont\", \"1\");" : "";
 	/* Prototype */
 	echo ($_THEME_CFG['use_prototype']==1) ? "google.load(\"prototype\", \"1\");" : "";	
 	/* script.aculo.us *** N.B. script.aculo.us depends on prototype. Prototype must be called first. */
@@ -134,10 +134,10 @@ if($_THEME_CFG['use_jsapi'] == 1) {
 	/* Chrome Frame */
 	echo ($_THEME_CFG['use_chromeframe']==1) ? "google.load(\"chrome-frame\", \"1\");" : "";
 
-  echo "google.setOnLoadCallback(function() { ";
+	echo "google.setOnLoadCallback(function() { ";
 
-  echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: ['".implode("','",$googlefonts)."'] }});" : "";      
-  echo ($_THEME_CFG['use_gfc']==1) ? "google.friendconnect.container.setParentUrl('/');
+	echo ($_THEME_CFG['use_webfont']==1) ?  "WebFont.load({ google: { families: ['".implode("','",$googlefonts)."'] }});" : "";      
+	echo ($_THEME_CFG['use_gfc']==1) ? "google.friendconnect.container.setParentUrl('/');
                                       google.friendconnect.container.loadOpenSocialApi({
                                           site: '{$_THEME_CFG["gfc_site"]}',
                                           onload: function(securityToken) {
@@ -155,7 +155,7 @@ if($_THEME_CFG['use_jsapi'] == 1) {
                                         });
                                         google.friendconnect.renderSignInButton({ \"id\":\"gfc-button\", \"style\":\"long\", \"text\":\""._GFC_LOGIN_BTN."\" });" : "";
   
-  echo "});";
+	echo "});";
 	echo "</script>";
 	/* END OF GOOGLE JAVASCRIPT LOADER API */
 }
@@ -167,10 +167,10 @@ if($_THEME_CFG['use_jsapi'] == 1) {
 	* dal repository di google direttamente: 	  *
 	********************************************/
 else{		
-  echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n" : "";
-  echo ($_THEME_CFG['use_jqueryui']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js\"></script>\n" : "";
-  echo ($_THEME_CFG['use_webfont']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js\"></script>\n" : "";
-  echo ($_THEME_CFG['use_gfc']==1) ? "<script type=\"text/javascript\" src=\"http://www.google.com/friendconnect/script/friendconnect.js\"></script>\n" : "";
+	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n" : "";
+	echo ($_THEME_CFG['use_jqueryui']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js\"></script>\n" : "";
+	echo ($_THEME_CFG['use_webfont']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js\"></script>\n" : "";
+	echo ($_THEME_CFG['use_gfc']==1) ? "<script type=\"text/javascript\" src=\"http://www.google.com/friendconnect/script/friendconnect.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_prototype']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/prototype/1/prototype.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_scriptaculous']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/scriptaculous/1/scriptaculous.js\"></script>\n" : "";	
 	echo ($_THEME_CFG['use_mootools']==1) ? "<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/mootools/1/mootools-yui-compressed.js\"></script>\n" : "";
@@ -217,8 +217,12 @@ else{
 	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery-tools-min.js\"></script>\n" : "";
 	echo ($_THEME_CFG['use_1pixeloutaudioplayer']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/1pixeloutplayer/audio-player.js\"></script>\n" : "";
 	echo ($_THEME_CFG['notuse_webtoolkitMD5']==0) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/webtoolkit.md5.js\"></script>\n" : "";
-  echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery.address-1.3.2.min.js\"></script>\n" : "";
-  echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/glorioso.js\"></script>" : "";
+	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/jquery.address-1.3.2.min.js\"></script>\n" : "";
+	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/{$_FN['theme']}/javascripts/glorioso.js\"></script>" : "";
+	/* LOAD THEMESWITCHER SCRIPT */
+	echo ($_THEME_CFG['use_jquery']==1&&$_THEME_CFG['use_jqueryui']==1) ? "<script type=\"text/javascript\" src=\"themes/glorioso/javascripts/themeswitcher.js\"></script>" : "";
+	/* LOAD COOKIE SCRIPT */
+	echo ($_THEME_CFG['use_jquery']==1) ? "<script type=\"text/javascript\" src=\"themes/glorioso/javascripts/cookie.js\"></script>" : "";
 
 	/* Messenger Live Connect */
 	echo ($_THEME_CFG['use_messlive']==1) ? "<script type=\"text/javascript\" src=\"http://js.live.net/4.1/loader.js\"></script>" : "";
