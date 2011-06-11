@@ -44,8 +44,14 @@ if(isset($bakfile)){
   require_once $bakfile ; 
 }  
 
+$hlite = "background-color:#FF99FF;";
 // for each step, use the most recent saved values up to the previous step, and not the backed up values
 if(!isset($_GET["step"])||isset($_GET["step"])&&$_GET["step"]>=1&&$saved["step1"]){    //for every step after step 1, load the 5 values from step 1
+  $invertpagetopstyle = ($_THEME_CFG["invertpagetop"] != $default["invertpagetop"]) ? $hlite : "";
+  $rightcolwidthstyle = ($_THEME_CFG["rightcolwidth"] != $default["rightcolwidth"]) ? $hlite : "";
+  $leftcolwidthstyle = ($_THEME_CFG["leftcolwidth"] != $default["leftcolwidth"]) ? $hlite : "";
+  $showblocksrightstyle = ($_THEME_CFG["showblocksright"] != $default["showblocksright"]) ? $hlite : "";
+  $showblocksleftstyle = ($_THEME_CFG["showblocksleft"] != $default["showblocksleft"]) ? $hlite : "";
   $_THEME_CFG["invertpagetop"] = $default["invertpagetop"];
   $_THEME_CFG["rightcolwidth"] = $default["rightcolwidth"];
   $_THEME_CFG["leftcolwidth"] = $default["leftcolwidth"];
@@ -53,6 +59,13 @@ if(!isset($_GET["step"])||isset($_GET["step"])&&$_GET["step"]>=1&&$saved["step1"
   $_THEME_CFG["showblocksleft"] = $default["showblocksleft"];
 }
 if(isset($_GET["step"])&&$_GET["step"]>=2&&$saved["step2"]){    //for every step after step 2, load the 7 values from step 2
+  $showmenuleftstyle = ($_THEME_CFG["showmenuleft"] != $default["showmenuleft"]) ? $hlite : "";
+  $showmenurightstyle = ($_THEME_CFG["showmenuright"] != $default["showmenuright"]) ? $hlite : "";
+  $showtophorizontalmenustyle = ($_THEME_CFG["show_top_horizontal_menu"] != $default["show_top_horizontal_menu"]) ? $hlite : "";
+  $showbottomhorizontalmenustyle = ($_THEME_CFG["show_bottom_horizontal_menu"] != $default["show_bottom_horizontal_menu"]) ? $hlite : "";
+  $showsubsectionsinsectionstyle = ($_THEME_CFG["show_subsections_in_section"] != $default["show_subsections_in_section"]) ? $hlite : "";
+  $showiconsstyle = ($_THEME_CFG["show_icons"] != $default["show_icons"]) ? $hlite : "";
+  $maxsizeicons = ($_THEME_CFG["max_size_icons"] != $default["max_size_icons"]) ? $hlite : "";
   $_THEME_CFG["showmenuleft"] = $default["showmenuleft"];
   $_THEME_CFG["showmenuright"] = $default["showmenuright"];
   $_THEME_CFG["show_top_horizontal_menu"] = $default["show_top_horizontal_menu"];
@@ -62,6 +75,14 @@ if(isset($_GET["step"])&&$_GET["step"]>=2&&$saved["step2"]){    //for every step
   $_THEME_CFG["max_size_icons"] = $default["max_size_icons"];
 }
 if(isset($_GET["step"])&&$_GET["step"]>=3&&$saved["step3"]){    //for every step after step 3, load the 8 values from step 3
+  $bodycolorstyle = ($_THEME_CFG["bodycolor"] != $default["bodycolor"]) ? $hlite : "";
+  $centercolumncolorstyle = ($_THEME_CFG["center_column_color"] != $default["center_column_color"]) ? $hlite : "";
+  $rightcolumncolorstyle = ($_THEME_CFG["right_column_color"] != $default["right_column_color"]) ? $hlite : "";
+  $leftcolumncolorstyle = ($_THEME_CFG["left_column_color"] != $default["left_column_color"]) ? $hlite : "";
+  $fullpagebackimagestyle = ($_THEME_CFG["full_page_backimage"] != $default["full_page_backimage"]) ? $hlite : "";
+  $backimagestyle = ($_THEME_CFG["backimage"] != $default["backimage"]) ? $hlite : "";
+  $backimagerepeatstyle = ($_THEME_CFG["backimage_repeat"] != $default["backimage_repeat"]) ? $hlite : "";
+  $backimageattachmentstyle = ($_THEME_CFG["backimage_attachment"] != $default["backimage_attachment"]) ? $hlite : "";
   $_THEME_CFG["bodycolor"] = $default["bodycolor"];
   $_THEME_CFG["center_column_color"] = $default["center_column_color"];
   $_THEME_CFG["right_column_color"] = $default["right_column_color"];
@@ -72,6 +93,22 @@ if(isset($_GET["step"])&&$_GET["step"]>=3&&$saved["step3"]){    //for every step
   $_THEME_CFG["backimage_attachment"] = $default["backimage_attachment"];
 }
 if(isset($_GET["step"])&&$_GET["step"]>=4&&$saved["step4"]){    //for every step after step 4, load the 16 values from step 4
+  $usejsapistyle = ($_THEME_CFG["use_jsapi"] != $default["use_jsapi"]) ? $hlite : "";
+  $jsapikeystyle = ($_THEME_CFG["jsapi_key"] != $default["jsapi_key"]) ? $hlite : "";
+  $usejquerystyle = ($_THEME_CFG["use_jquery"] != $default["use_jquery"]) ? $hlite : "";
+  $usejqueryuistyle = ($_THEME_CFG["use_jqueryui"] != $default["use_jqueryui"]) ? $hlite : "";
+  $jqueryuidefaultstyle = ($_THEME_CFG["jqueryui_default"] != $default["jqueryui_default"]) ? $hlite : "";
+  $usejqtoolslclstyle = ($_THEME_CFG["use_jqtools_lcl"] != $default["use_jqtools_lcl"]) ? $hlite : "";
+  $useprototypestyle = ($_THEME_CFG["use_prototype"] != $default["use_prototype"]) ? $hlite : "";
+  $usescriptaculousstyle = ($_THEME_CFG["use_scriptaculous"] != $default["use_scriptaculous"]) ? $hlite : "";
+  $usemootoolsstyle = ($_THEME_CFG["use_mootools"] != $default["use_mootools"]) ? $hlite : "";
+  $usedojostyle = ($_THEME_CFG["use_dojo"] != $default["use_dojo"]) ? $hlite : "";
+  $useswfobjectstyle = ($_THEME_CFG["use_swfobject"] != $default["use_swfobject"]) ? $hlite : "";
+  $useyuistyle = ($_THEME_CFG["use_yui"] != $default["use_yui"]) ? $hlite : "";
+  $useextcorestyle = ($_THEME_CFG["use_extcore"] != $default["use_extcore"]) ? $hlite : "";
+  $usechromeframestyle = ($_THEME_CFG["use_chromeframe"] != $default["use_chromeframe"]) ? $hlite : "";
+  $use1pixeloutaudioplayerstyle = ($_THEME_CFG["use_1pixeloutaudioplayer"] != $default["use_1pixeloutaudioplayer"]) ? $hlite : "";
+  $notusewebtoolkitmd5style = ($_THEME_CFG["notuse_webtoolkitMD5"] != $default["notuse_webtoolkitMD5"]) ? $hlite : "";
   $_THEME_CFG["use_jsapi"] = $default["use_jsapi"];
   $_THEME_CFG["jsapi_key"] = $default["jsapi_key"];
   $_THEME_CFG["use_jquery"] = $default["use_jquery"];
@@ -313,6 +350,7 @@ if(isset($_GET["step"])&&$_GET["step"]>=6&&$saved["step6"]){    //20
     text-align: left;
     padding: 2px 10px;
     vertical-align: top;
+    background-color: transparent;
   }
   td img {
     vertical-align: middle;
@@ -499,13 +537,13 @@ function togglemenu(el){
     $("button:submit").click(function(){
       data = $(this).parents("form").serialize();
       href = $(this).parents("form").attr("action");
-      //console.log("DATA: "+data);
-      //console.log("HREF: "+href);
+      console.log("DATA: "+data);
+      console.log("HREF: "+href);
       $.post("/themes/glorioso/ajax/modconf.php",data,function(){
         step = parseInt(href.substring(href.length-1))-1;
         $.post("/themes/glorioso/ajax/tracksave.php","step="+step,function(response){
-          //console.log(response);
-          location.href = href;
+          console.log("RESPONSE: "+response);
+          //location.href = href;
         });
       });
       return false;
@@ -841,33 +879,33 @@ else{
           <form method="POST" action="/themes/glorioso/install.php?step=4">
             <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
             <table>
-              <tr>
+              <tr style="<?php echo $bodycolorstyle ?>">
                 <td><label for="bodycolor">Color of document body: </label><input type="hidden" name="conf_field0" value="$_THEME_CFG['bodycolor']"><input type="hidden" name="conf_value_old0" value=<?php echo $_THEME_CFG['bodycolor'] ?>></td>
                 <td><input type="color" id="bodycolor" name="conf_value0" value="<?php echo ($_THEME_CFG['bodycolor']!="" ? $_THEME_CFG['bodycolor'] : "") ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $centercolumncolorstyle ?>">
                 <td><label for="centercolor">Color of center column: </label><input type="hidden" name="conf_field5" value="$_THEME_CFG['center_column_color']"><input type="hidden" name="conf_value_old5" value=<?php echo $_THEME_CFG['center_column_color'] ?>></td>
                 <td><input type="color" id="centercolor" name="conf_value5" value="<?php echo ($_THEME_CFG['center_column_color']!="" ? $_THEME_CFG['center_column_color'] : "") ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $leftcolumncolorstyle ?>">
                 <td><label for="leftcolor">Color of left column: </label><input type="hidden" name="conf_field6" value="$_THEME_CFG['left_column_color']"><input type="hidden" name="conf_value_old6" value=<?php echo $_THEME_CFG['left_column_color'] ?>></td>
                 <td><input type="color" id="leftcolor" name="conf_value6" value="<?php echo ($_THEME_CFG['left_column_color']!="" ? $_THEME_CFG['left_column_color'] : "") ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $rightcolumncolorstyle ?>">
                 <td><label for="rightcolor">Color of right column: </label><input type="hidden" name="conf_field7" value="$_THEME_CFG['right_column_color']"><input type="hidden" name="conf_value_old7" value=<?php echo $_THEME_CFG['right_column_color'] ?>></td>
                 <td><input type="color" id="rightcolor" name="conf_value7" value="<?php echo ($_THEME_CFG['right_column_color']!="" ? $_THEME_CFG['right_column_color'] : "") ?>"></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $backimagestyle ?>">
                 <td><label for="backimage">Background image: </label><input type="hidden" name="conf_field1" value="$_THEME_CFG['backimage']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['backimage'] ?>></td>
                 <td><input type="text" name="conf_value1" id="backimage" value="<?php echo $_THEME_CFG['backimage'] ?>" placeholder="none" oninput="if($(this).val()!=''&&$('input[name=conf_value2]:checked').val()==0){$('select#backimage-repeat').add('select#backimage-attach').attr('DISABLED',false);$(this).next('img').attr('src',$(this).val());$('body').css({'background-image':'url('+$(this).val()+')'}) }else if($(this).val()!=''&&$('input[name=conf_value2]:checked').val()==1){$('select#backimage-repeat').add('select#backimage-attach').attr('DISABLED',true);$('img.bg').attr('src',$(this).val());$(this).next('img').attr('src',$(this).val());}else if($(this).val()==''&&$('input[name=conf_value2]:checked').val()==0){$('body').css({'background-image':''});$(this).next('img').attr('src','');$('select#backimage-repeat').add('select#backimage-attach').attr('DISABLED',true);}else if($(this).val()==''&&$('input[name=conf_value2]:checked').val()==1){$('img.bg').attr('src','');$(this).next('img').attr('src','');$('select#backimage-repeat').add('select#backimage-attach').attr('DISABLED',true);}" ><img src="<?php echo $_THEME_CFG['backimage'] ?>" alt="image" style="height:32px;border:1px solid #FFFFFF;">
                     <button type='button' onclick="window.open('/glorioso_filemanager.php?opener=backimage&filemanager_editor=yup&onchange=1&dir=themes/glorioso/images/&changeEl=bodybgimage','filemanager','toolbar=1,location=1,directories=0,status=0 ,menubar=0,scrollbars=1,resizable=1,width=640,height=480');">Scegli altro file</button></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $fullpagebackimagestyle ?>">
                 <td><span>Fullpage background image: </span><input type="hidden" name="conf_field2" value="$_THEME_CFG['full_page_backimage']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['full_page_backimage'] ?>></td>
                 <td><label for="fullpagebackimgyes">YES</label><input type="radio" id="fullpagebackimgyes" name="conf_value2" value=1 <?php echo ($_THEME_CFG['full_page_backimage']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="fullpagebackimgno">NO</label><input type="radio" id="fullpagebackimgno" name="conf_value2" value=0 <?php echo ($_THEME_CFG['full_page_backimage']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $backimagerepeatstyle ?>">
                 <td><label for="backimage-repeat">Background image repeat: </label><input type="hidden" name="conf_field3" value="$_THEME_CFG['backimage_repeat']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['backimage_repeat'] ?>></td>
                 <td><select id="backimage-repeat" name="conf_value3" <?php echo $_THEME_CFG['backimage']=="" ? "DISABLED" : "" ?> onchange="$('body').css({'background-repeat':$(this).val()});">
                       <option value="" <?php echo $_THEME_CFG['backimage_repeat'] == "" ? "SELECTED" : "" ?>></option>
@@ -877,7 +915,7 @@ else{
                       <option value="repeat-y" <?php echo $_THEME_CFG['backimage_repeat'] == "repeat-y" ? "SELECTED" : "" ?>>repeat-y</option>
                     </select></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $backimageattachmentstyle ?>">
                 <td><label for="backimage-attach">Background image attachment: </label><input type="hidden" name="conf_field4" value="$_THEME_CFG['backimage_attachment']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['backimage_attachment'] ?>></td>
                 <td><select id="backimage-attach" name="conf_value4" <?php echo $_THEME_CFG['backimage']=="" ? "DISABLED" : "" ?> onchange="$('body').css({'background-attachment':$(this).val()})">
                       <option value="" <?php echo $_THEME_CFG['backimage_attachment'] == "" ? "SELECTED" : "" ?>></option>
