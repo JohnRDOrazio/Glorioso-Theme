@@ -1286,7 +1286,7 @@ else{
               </tr>
               <tr>
                 <td><label for="gfcsite" style="font-weight:bold;">Google Friend Connect Site ID: </label><br />
-                    <span style="color:Green;font-style:italic;">Obtain a key: </span><a href="http://code.google.com/apis/loader/signup.html">http://code.google.com/apis/loader/signup.html</a>
+                    <span style="color:Green;font-style:italic;">Obtain a key: </span><a href="http://www.google.com/friendconnect/admin/site/setup">http://www.google.com/friendconnect/admin/site/setup</a>
                     <input type="hidden" name="conf_field1" value="$_THEME_CFG['gfc_site']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['gfc_site'] ?>></td>
                 <td><input type="text" name="conf_value1" id="gfcsite" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['gfc_site'] ?>"></td>
               </tr>
