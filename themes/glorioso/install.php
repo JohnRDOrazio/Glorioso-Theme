@@ -353,6 +353,7 @@ if(isset($_GET["step"])&&$_GET["step"]>=6&&$saved["step6"]){    //20
   	position: fixed;
   	top: 0;
   	left: 0;
+  	z-index: -1;
   }
   
   @media screen and (max-width: 1024px){
@@ -725,6 +726,11 @@ function togglemenu(el){
       </div>
     </div>
     <div id="footer" style="clear:both;">FOOTER</div>
+    <?php 
+      $src = "images/install/gfcbar.jpg";
+      $vis = $_THEME_CFG["gfc_social"]=="" ? "display:none;" : "";
+      echo (isset($_GET['step'])&&$_GET['step']>5) ? "<img id=\"gfcsocial\" style=\"position:absolute;bottom:0px;left:0px;width:100%;$vis\" src=\"$src\">" : ""; 
+    ?>
   </div>
 
 
@@ -1287,7 +1293,7 @@ else{
               <tr>
                 <td><label for="gfcsocial" style="font-weight:bold;">Unique ID for Social Bar (empty for none): </label><br />
                     <input type="hidden" name="conf_field2" value="$_THEME_CFG['gfc_social']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['gfc_social'] ?>></td>
-                <td><input type="text" name="conf_value2" id="gfcsocial" placeholder="div-xxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['gfc_social'] ?>"></td>
+                <td><input type="text" name="conf_value2" id="gfcsocial" placeholder="div-xxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['gfc_social'] ?>" onchange="$(this).val()=='' ? $('#gfcsocial').hide() : $('#gfcsocial').show();"></td>
               </tr>
               <tr class="newsection">
                 <td><span style="font-weight:bold;">Use Facebook Connect: </span><input type="hidden" name="conf_field3" value="$_THEME_CFG['use_fb']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['use_fb'] ?>><a href="https://developers.facebook.com/docs/guides/web/">Documentation</a></td>
