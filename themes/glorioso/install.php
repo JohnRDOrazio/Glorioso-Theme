@@ -44,14 +44,9 @@ if(isset($bakfile)){
   require_once $bakfile ; 
 }  
 
-$hlite = "background-color:#FF99FF;";
 // for each step, use the most recent saved values up to the previous step, and not the backed up values
-if(!isset($_GET["step"])||isset($_GET["step"])&&$_GET["step"]>=1&&$saved["step1"]){    //for every step after step 1, load the 5 values from step 1
-  $invertpagetopstyle = ($_THEME_CFG["invertpagetop"] != $default["invertpagetop"]) ? $hlite : "";
-  $rightcolwidthstyle = ($_THEME_CFG["rightcolwidth"] != $default["rightcolwidth"]) ? $hlite : "";
-  $leftcolwidthstyle = ($_THEME_CFG["leftcolwidth"] != $default["leftcolwidth"]) ? $hlite : "";
-  $showblocksrightstyle = ($_THEME_CFG["showblocksright"] != $default["showblocksright"]) ? $hlite : "";
-  $showblocksleftstyle = ($_THEME_CFG["showblocksleft"] != $default["showblocksleft"]) ? $hlite : "";
+// In fact after a save, the corresponding keys in the "default" array no longer represent the default values but the newly saved values...
+if(!isset($_GET["step"])||isset($_GET["step"])&&$_GET["step"]>=1&&$saved["step1"]){    //for every step after step 1, load the 5 values from step 1  
   $_THEME_CFG["invertpagetop"] = $default["invertpagetop"];
   $_THEME_CFG["rightcolwidth"] = $default["rightcolwidth"];
   $_THEME_CFG["leftcolwidth"] = $default["leftcolwidth"];
@@ -59,13 +54,6 @@ if(!isset($_GET["step"])||isset($_GET["step"])&&$_GET["step"]>=1&&$saved["step1"
   $_THEME_CFG["showblocksleft"] = $default["showblocksleft"];
 }
 if(isset($_GET["step"])&&$_GET["step"]>=2&&$saved["step2"]){    //for every step after step 2, load the 7 values from step 2
-  $showmenuleftstyle = ($_THEME_CFG["showmenuleft"] != $default["showmenuleft"]) ? $hlite : "";
-  $showmenurightstyle = ($_THEME_CFG["showmenuright"] != $default["showmenuright"]) ? $hlite : "";
-  $showtophorizontalmenustyle = ($_THEME_CFG["show_top_horizontal_menu"] != $default["show_top_horizontal_menu"]) ? $hlite : "";
-  $showbottomhorizontalmenustyle = ($_THEME_CFG["show_bottom_horizontal_menu"] != $default["show_bottom_horizontal_menu"]) ? $hlite : "";
-  $showsubsectionsinsectionstyle = ($_THEME_CFG["show_subsections_in_section"] != $default["show_subsections_in_section"]) ? $hlite : "";
-  $showiconsstyle = ($_THEME_CFG["show_icons"] != $default["show_icons"]) ? $hlite : "";
-  $maxsizeicons = ($_THEME_CFG["max_size_icons"] != $default["max_size_icons"]) ? $hlite : "";
   $_THEME_CFG["showmenuleft"] = $default["showmenuleft"];
   $_THEME_CFG["showmenuright"] = $default["showmenuright"];
   $_THEME_CFG["show_top_horizontal_menu"] = $default["show_top_horizontal_menu"];
@@ -75,40 +63,17 @@ if(isset($_GET["step"])&&$_GET["step"]>=2&&$saved["step2"]){    //for every step
   $_THEME_CFG["max_size_icons"] = $default["max_size_icons"];
 }
 if(isset($_GET["step"])&&$_GET["step"]>=3&&$saved["step3"]){    //for every step after step 3, load the 8 values from step 3
-  $bodycolorstyle = ($_THEME_CFG["bodycolor"] != $default["bodycolor"]) ? $hlite : "";
-  $centercolumncolorstyle = ($_THEME_CFG["center_column_color"] != $default["center_column_color"]) ? $hlite : "";
-  $rightcolumncolorstyle = ($_THEME_CFG["right_column_color"] != $default["right_column_color"]) ? $hlite : "";
-  $leftcolumncolorstyle = ($_THEME_CFG["left_column_color"] != $default["left_column_color"]) ? $hlite : "";
-  $fullpagebackimagestyle = ($_THEME_CFG["full_page_backimage"] != $default["full_page_backimage"]) ? $hlite : "";
-  $backimagestyle = ($_THEME_CFG["backimage"] != $default["backimage"]) ? $hlite : "";
-  $backimagerepeatstyle = ($_THEME_CFG["backimage_repeat"] != $default["backimage_repeat"]) ? $hlite : "";
-  $backimageattachmentstyle = ($_THEME_CFG["backimage_attachment"] != $default["backimage_attachment"]) ? $hlite : "";
   $_THEME_CFG["bodycolor"] = $default["bodycolor"];
   $_THEME_CFG["center_column_color"] = $default["center_column_color"];
   $_THEME_CFG["right_column_color"] = $default["right_column_color"];
   $_THEME_CFG["left_column_color"] = $default["left_column_color"];
   $_THEME_CFG["full_page_backimage"] = $default["full_page_backimage"];
+  //$temp = $_THEME_CFG["backimage"]; // delete this after testing!
   $_THEME_CFG["backimage"] = $default["backimage"];
   $_THEME_CFG["backimage_repeat"] = $default["backimage_repeat"];
   $_THEME_CFG["backimage_attachment"] = $default["backimage_attachment"];
 }
 if(isset($_GET["step"])&&$_GET["step"]>=4&&$saved["step4"]){    //for every step after step 4, load the 16 values from step 4
-  $usejsapistyle = ($_THEME_CFG["use_jsapi"] != $default["use_jsapi"]) ? $hlite : "";
-  $jsapikeystyle = ($_THEME_CFG["jsapi_key"] != $default["jsapi_key"]) ? $hlite : "";
-  $usejquerystyle = ($_THEME_CFG["use_jquery"] != $default["use_jquery"]) ? $hlite : "";
-  $usejqueryuistyle = ($_THEME_CFG["use_jqueryui"] != $default["use_jqueryui"]) ? $hlite : "";
-  $jqueryuidefaultstyle = ($_THEME_CFG["jqueryui_default"] != $default["jqueryui_default"]) ? $hlite : "";
-  $usejqtoolslclstyle = ($_THEME_CFG["use_jqtools_lcl"] != $default["use_jqtools_lcl"]) ? $hlite : "";
-  $useprototypestyle = ($_THEME_CFG["use_prototype"] != $default["use_prototype"]) ? $hlite : "";
-  $usescriptaculousstyle = ($_THEME_CFG["use_scriptaculous"] != $default["use_scriptaculous"]) ? $hlite : "";
-  $usemootoolsstyle = ($_THEME_CFG["use_mootools"] != $default["use_mootools"]) ? $hlite : "";
-  $usedojostyle = ($_THEME_CFG["use_dojo"] != $default["use_dojo"]) ? $hlite : "";
-  $useswfobjectstyle = ($_THEME_CFG["use_swfobject"] != $default["use_swfobject"]) ? $hlite : "";
-  $useyuistyle = ($_THEME_CFG["use_yui"] != $default["use_yui"]) ? $hlite : "";
-  $useextcorestyle = ($_THEME_CFG["use_extcore"] != $default["use_extcore"]) ? $hlite : "";
-  $usechromeframestyle = ($_THEME_CFG["use_chromeframe"] != $default["use_chromeframe"]) ? $hlite : "";
-  $use1pixeloutaudioplayerstyle = ($_THEME_CFG["use_1pixeloutaudioplayer"] != $default["use_1pixeloutaudioplayer"]) ? $hlite : "";
-  $notusewebtoolkitmd5style = ($_THEME_CFG["notuse_webtoolkitMD5"] != $default["notuse_webtoolkitMD5"]) ? $hlite : "";
   $_THEME_CFG["use_jsapi"] = $default["use_jsapi"];
   $_THEME_CFG["jsapi_key"] = $default["jsapi_key"];
   $_THEME_CFG["use_jquery"] = $default["use_jquery"];
@@ -157,6 +122,72 @@ if(isset($_GET["step"])&&$_GET["step"]>=6&&$saved["step6"]){    //20
   $_THEME_CFG["use_partuza"] = $default["use_partuza"];
   $_THEME_CFG["use_plaxo"] = $default["use_plaxo"];
 }
+// create background highlight for settings that are different than the default values (mostly because there are previously saved personalized settings)
+// the highlighting indicates that the settings need to be saved in order to be kept, otherwise they will revert to the new default settings!
+$hlite = "background-color:#FF99FF;";
+  $invertpagetopstyle = ($_THEME_CFG["invertpagetop"] != $default["invertpagetop"]) ? $hlite : "";
+  $rightcolwidthstyle = ($_THEME_CFG["rightcolwidth"] != $default["rightcolwidth"]) ? $hlite : "";
+  $leftcolwidthstyle = ($_THEME_CFG["leftcolwidth"] != $default["leftcolwidth"]) ? $hlite : "";
+  $showblocksrightstyle = ($_THEME_CFG["showblocksright"] != $default["showblocksright"]) ? $hlite : "";
+  $showblocksleftstyle = ($_THEME_CFG["showblocksleft"] != $default["showblocksleft"]) ? $hlite : "";
+  $showmenuleftstyle = ($_THEME_CFG["showmenuleft"] != $default["showmenuleft"]) ? $hlite : "";
+  $showmenurightstyle = ($_THEME_CFG["showmenuright"] != $default["showmenuright"]) ? $hlite : "";
+  $showtophorizontalmenustyle = ($_THEME_CFG["show_top_horizontal_menu"] != $default["show_top_horizontal_menu"]) ? $hlite : "";
+  $showbottomhorizontalmenustyle = ($_THEME_CFG["show_bottom_horizontal_menu"] != $default["show_bottom_horizontal_menu"]) ? $hlite : "";
+  $showsubsectionsinsectionstyle = ($_THEME_CFG["show_subsections_in_section"] != $default["show_subsections_in_section"]) ? $hlite : "";
+  $showiconsstyle = ($_THEME_CFG["show_icons"] != $default["show_icons"]) ? $hlite : "";
+  $maxsizeicons = ($_THEME_CFG["max_size_icons"] != $default["max_size_icons"]) ? $hlite : "";
+  $bodycolorstyle = ($_THEME_CFG["bodycolor"] != $default["bodycolor"]) ? $hlite : "";
+  $centercolumncolorstyle = ($_THEME_CFG["center_column_color"] != $default["center_column_color"]) ? $hlite : "";
+  $rightcolumncolorstyle = ($_THEME_CFG["right_column_color"] != $default["right_column_color"]) ? $hlite : "";
+  $leftcolumncolorstyle = ($_THEME_CFG["left_column_color"] != $default["left_column_color"]) ? $hlite : "";
+  $fullpagebackimagestyle = ($_THEME_CFG["full_page_backimage"] != $default["full_page_backimage"]) ? $hlite : "";
+  $backimagestyle = ($_THEME_CFG["backimage"] != $default["backimage"]) ? $hlite : "";
+  $backimagerepeatstyle = ($_THEME_CFG["backimage_repeat"] != $default["backimage_repeat"]) ? $hlite : "";
+  $backimageattachmentstyle = ($_THEME_CFG["backimage_attachment"] != $default["backimage_attachment"]) ? $hlite : "";
+  $usejsapistyle = ($_THEME_CFG["use_jsapi"] != $default["use_jsapi"]) ? $hlite : "";
+  $jsapikeystyle = ($_THEME_CFG["jsapi_key"] != $default["jsapi_key"]) ? $hlite : "";
+  $usejquerystyle = ($_THEME_CFG["use_jquery"] != $default["use_jquery"]) ? $hlite : "";
+  $usejqueryuistyle = ($_THEME_CFG["use_jqueryui"] != $default["use_jqueryui"]) ? $hlite : "";
+  $jqueryuidefaultstyle = ($_THEME_CFG["jqueryui_default"] != $default["jqueryui_default"]) ? $hlite : "";
+  $usejqtoolslclstyle = ($_THEME_CFG["use_jqtools_lcl"] != $default["use_jqtools_lcl"]) ? $hlite : "";
+  $useprototypestyle = ($_THEME_CFG["use_prototype"] != $default["use_prototype"]) ? $hlite : "";
+  $usescriptaculousstyle = ($_THEME_CFG["use_scriptaculous"] != $default["use_scriptaculous"]) ? $hlite : "";
+  $usemootoolsstyle = ($_THEME_CFG["use_mootools"] != $default["use_mootools"]) ? $hlite : "";
+  $usedojostyle = ($_THEME_CFG["use_dojo"] != $default["use_dojo"]) ? $hlite : "";
+  $useswfobjectstyle = ($_THEME_CFG["use_swfobject"] != $default["use_swfobject"]) ? $hlite : "";
+  $useyuistyle = ($_THEME_CFG["use_yui"] != $default["use_yui"]) ? $hlite : "";
+  $useextcorestyle = ($_THEME_CFG["use_extcore"] != $default["use_extcore"]) ? $hlite : "";
+  $usechromeframestyle = ($_THEME_CFG["use_chromeframe"] != $default["use_chromeframe"]) ? $hlite : "";
+  $use1pixeloutaudioplayerstyle = ($_THEME_CFG["use_1pixeloutaudioplayer"] != $default["use_1pixeloutaudioplayer"]) ? $hlite : "";
+  $notusewebtoolkitmd5style = ($_THEME_CFG["notuse_webtoolkitMD5"] != $default["notuse_webtoolkitMD5"]) ? $hlite : "";
+  $usewebfontstyle = ($_THEME_CFG["use_webfont"] != $default["use_webfont"]) ? $hlite : "";
+  $googlefontsstyle = ($_THEME_CFG["googlefonts"] != $default["googlefonts"]) ? $hlite : "";
+  $useganstyle = ($_THEME_CFG["use_gan"] != $default["use_gan"]) ? $hlite : "";
+  $ganaccountstyle = ($_THEME_CFG["gan_account"] != $default["gan_account"]) ? $hlite : "";
+  $gcalfeedstyle = ($_THEME_CFG["gcal_feed"] != $default["gcal_feed"]) ? $hlite : "";
+  $gaccountuserstyle = ($_THEME_CFG["gaccount_user"] != $default["gaccount_user"]) ? $hlite : "";
+  $gaccountpassstyle = ($_THEME_CFG["gaccount_pass"] != $default["gaccount_pass"]) ? $hlite : "";
+  $usegfcstyle = ($_THEME_CFG["use_gfc"] != $default["use_gfc"]) ? $hlite : "";
+  $gfcsitestyle = ($_THEME_CFG["gfc_site"] != $default["gfc_site"]) ? $hlite : "";
+  $gfcsocialstyle = ($_THEME_CFG["gfc_social"] != $default["gfc_social"]) ? $hlite : "";
+  $usefbstyle = ($_THEME_CFG["use_fb"] != $default["use_fb"]) ? $hlite : "";
+  $fbapikeystyle = ($_THEME_CFG["fb_api_key"] != $default["fb_api_key"]) ? $hlite : "";
+  $fbsecretstyle = ($_THEME_CFG["fb_secret"] != $default["fb_secret"]) ? $hlite : "";
+  $fbappidstyle = ($_THEME_CFG["fb_app_id"] != $default["fb_app_id"]) ? $hlite : "";
+  $fbgidstyle = ($_THEME_CFG["fb_gid"] != $default["fb_gid"]) ? $hlite : "";
+  $usemesslivestyle = ($_THEME_CFG["use_messlive"] != $default["use_messlive"]) ? $hlite : "";
+  $messliveappidstyle = ($_THEME_CFG["messlive_app_id"] != $default["messlive_app_id"]) ? $hlite : "";
+  $messlivesecretstyle = ($_THEME_CFG["messlive_secret"] != $default["messlive_secret"]) ? $hlite : "";
+  $usegooglestyle = ($_THEME_CFG["use_google"] != $default["use_google"]) ? $hlite : "";
+  $googlekeystyle = ($_THEME_CFG["google_key"] != $default["google_key"]) ? $hlite : "";
+  $googlesecretstyle = ($_THEME_CFG["google_secret"] != $default["google_secret"]) ? $hlite : "";
+  $useorkutstyle = ($_THEME_CFG["use_orkut"] != $default["use_orkut"]) ? $hlite : "";
+  $usehi5style = ($_THEME_CFG["use_hi5"] != $default["use_hi5"]) ? $hlite : "";
+  $usemyspacestyle = ($_THEME_CFG["use_myspace"] != $default["use_myspace"]) ? $hlite : "";
+  $usenetlogstyle = ($_THEME_CFG["use_netlog"] != $default["use_netlog"]) ? $hlite : "";
+  $usepartuzastyle = ($_THEME_CFG["use_partuza"] != $default["use_partuza"]) ? $hlite : "";
+  $useplaxostyle = ($_THEME_CFG["use_plaxo"] != $default["use_plaxo"]) ? $hlite : "";
 
 ?>
 
@@ -537,13 +568,13 @@ function togglemenu(el){
     $("button:submit").click(function(){
       data = $(this).parents("form").serialize();
       href = $(this).parents("form").attr("action");
-      console.log("DATA: "+data);
-      console.log("HREF: "+href);
+      //console.log("DATA: "+data);
+      //console.log("HREF: "+href);
       $.post("/themes/glorioso/ajax/modconf.php",data,function(){
         step = parseInt(href.substring(href.length-1))-1;
         $.post("/themes/glorioso/ajax/tracksave.php","step="+step,function(response){
-          console.log("RESPONSE: "+response);
-          //location.href = href;
+          //console.log("RESPONSE: "+response);
+          location.href = href;
         });
       });
       return false;
@@ -775,7 +806,7 @@ function togglemenu(el){
 
 
 <?php
-if( !isset($_GET["step"]) || (isset($_GET["step"])&&$_GET["step"]==1) ){ 
+if( !isset($_GET["step"]) || ((isset($_GET["step"])&&$_GET["step"]==1)) ){ 
 ?>
   <div id="install" title="Glorioso Theme Installation => Step 1: Please choose your layout">
     <div id="contents">
@@ -784,26 +815,26 @@ if( !isset($_GET["step"]) || (isset($_GET["step"])&&$_GET["step"]==1) ){
       <form method="POST" action="/themes/glorioso/install.php?step=2">
         <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
         <table>
-          <tr>
+          <tr style="<?php echo $invertpagetopstyle ?>">
             <td><span>Invertire TOP &lt;-&gt; USERBAR: </span><input type="hidden" name="conf_field0" value="$_THEME_CFG['invertpagetop']"><input type="hidden" name="conf_value_old0" value=<?php echo $_THEME_CFG['invertpagetop'] ?>></td>
             <td><label for="invertireyes">YES</label><input type="radio" id="invertireyes" name="conf_value0" value=1 <?php echo ($_THEME_CFG['invertpagetop']==1) ? "CHECKED" : "" ?> onclick="invert(this);">
                 <label for="invertireno">NO</label><input type="radio" id="invertireno" name="conf_value0" value=0 <?php echo ($_THEME_CFG['invertpagetop']==0) ? "CHECKED" : "" ?> onclick="invert(this);"></td>
           </tr>
-          <tr>
+          <tr style="<?php echo $showblocksleftstyle ?>">
             <td><span>Visualizza i blocchi a sinistra: </span><input type="hidden" name="conf_field1" value="$_THEME_CFG['showblocksleft']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['showblocksleft'] ?>></td>
             <td><label for="showblocksleftyes">YES</label><input type="radio" id="showblocksleftyes" name="conf_value1" value=1 <?php echo ($_THEME_CFG['showblocksleft']==1) ? "CHECKED" : "" ?> onclick="blocks(this);">
                 <label for="showblocksleftno">NO</label><input type="radio" id="showblocksleftno" name="conf_value1" value=0 <?php echo ($_THEME_CFG['showblocksleft']==0) ? "CHECKED" : "" ?> onclick="blocks(this);"></td>
           </tr>
-          <tr>
+          <tr style="<?php echo $leftcolwidthstyle ?>">
             <td><label for="leftcolwidth">Larghezza colonna sinistra: </label><input type="hidden" name="conf_field2" value="$_THEME_CFG['leftcolwidth']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['leftcolwidth'] ?>></td>
             <td><input type="number" id="leftcolwidth" name="conf_value2" min=0 value=<?php echo $_THEME_CFG['leftcolwidth'] ?> oninput="updatepreview(this);"> (in px)</td>
           </tr>
-          <tr>
+          <tr style="<?php echo $showblocksrightstyle ?>">
             <td><span>Visualizza i blocchi a destra: </span><input type="hidden" name="conf_field3" value="$_THEME_CFG['showblocksright']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['showblocksright'] ?>></td>
             <td><label for="showblocksrightyes">YES</label><input type="radio" id="showblocksrightyes" name="conf_value3" value=1 <?php echo ($_THEME_CFG['showblocksright']==1) ? "CHECKED" : "" ?> onclick="blocks(this);">
                 <label for="showblocksrightno">NO</label><input type="radio" id="showblocksrightno" name="conf_value3" value=0 <?php echo ($_THEME_CFG['showblocksright']==0) ? "CHECKED" : "" ?> onclick="blocks(this);"></td>
           </tr>
-          <tr>
+          <tr style="<?php echo $rightcolwidthstyle ?>">
             <td><label for="rightcolwidth">Larghezza colonna destra: </label><input type="hidden" name="conf_field4" value="$_THEME_CFG['rightcolwidth']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['rightcolwidth'] ?>></td>
             <td><input type="number" id="rightcolwidth" name="conf_value4" min=0 value=<?php echo $_THEME_CFG['rightcolwidth'] ?> oninput="updatepreview(this);"> (in px)</td>
           </tr>
@@ -827,37 +858,37 @@ else{
           <form method="POST" action="/themes/glorioso/install.php?step=3">
             <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
             <table>
-              <tr>
+              <tr style="<?php echo $showmenuleftstyle ?>">
                 <td><span>Show vertical menu in left column: </span><input type="hidden" name="conf_field0" value="$_THEME_CFG['showmenuleft']"><input type="hidden" name="conf_value_old0" value=<?php echo $_THEME_CFG['showmenuleft'] ?>></td>
                 <td><label for="showmenuleftyes">YES</label><input type="radio" id="showmenuleftyes" name="conf_value0" value=1 <?php echo ($_THEME_CFG['showmenuleft']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="showmenuleftno">NO</label><input type="radio" id="showmenuleftno" name="conf_value0" value=0 <?php echo ($_THEME_CFG['showmenuleft']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $showmenurightstyle ?>">
                 <td><span>Show vertical menu in right column: </span><input type="hidden" name="conf_field1" value="$_THEME_CFG['showmenuright']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['showblocksleft'] ?>></td>
                 <td><label for="showmenurightyes">YES</label><input type="radio" id="showmenurightyes" name="conf_value1" value=1 <?php echo ($_THEME_CFG['showmenuright']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="showmenurightno">NO</label><input type="radio" id="showmenurightno" name="conf_value1" value=0 <?php echo ($_THEME_CFG['showmenuright']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $showtophorizontalmenustyle ?>">
                 <td><span>Show horizontal menu above sections: </span><input type="hidden" name="conf_field2" value="$_THEME_CFG['show_top_horizontal_menu']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['show_top_horizontal_menu'] ?>></td>
                 <td><label for="showmenutopyes">YES</label><input type="radio" id="showmenutopyes" name="conf_value2" value=1 <?php echo ($_THEME_CFG['show_top_horizontal_menu']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="showmenutopno">NO</label><input type="radio" id="showmenutopno" name="conf_value2" value=0 <?php echo ($_THEME_CFG['show_top_horizontal_menu']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $showbottomhorizontalmenustyle ?>">
                 <td><span>Show horizontal menu below sections: </span><input type="hidden" name="conf_field3" value="$_THEME_CFG['show_bottom_horizontal_menu']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['show_bottom_horizontal_menu'] ?>></td>
                 <td><label for="showmenubottomyes">YES</label><input type="radio" id="showmenubottomyes" name="conf_value3" value=1 <?php echo ($_THEME_CFG['show_bottom_horizontal_menu']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="showmenubottomno">NO</label><input type="radio" id="showmenubottomno" name="conf_value3" value=0 <?php echo ($_THEME_CFG['show_bottom_horizontal_menu']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $showsubsectionsinsectionstyle ?>">
                 <td><span>Show subsections in section: </span><input type="hidden" name="conf_field4" value="$_THEME_CFG['show_subsections_in_section']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['show_subsections_in_section'] ?>></td>
                 <td><label for="showsubsectionsyes">YES</label><input type="radio" id="showsubsectionsyes" name="conf_value4" value=1 <?php echo ($_THEME_CFG['show_subsections_in_section']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="showsubsectionsno">NO</label><input type="radio" id="showsubsectionsno" name="conf_value4" value=0 <?php echo ($_THEME_CFG['show_subsections_in_section']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $showsectioniconsstyle ?>">
                 <td><span>Show personalized section icons: </span><input type="hidden" name="conf_field5" value="$_THEME_CFG['show_icons']"><input type="hidden" name="conf_value_old5" value=<?php echo $_THEME_CFG['show_icons'] ?>></td>
                 <td><label for="showsectioniconsyes">YES</label><input type="radio" id="showsectioniconsyes" name="conf_value5" value=1 <?php echo ($_THEME_CFG['show_icons']==1) ? "CHECKED" : "" ?> onclick="togglemenu(this);">
                     <label for="showsectioniconsno">NO</label><input type="radio" id="showsectioniconsno" name="conf_value5" value=0 <?php echo ($_THEME_CFG['show_icons']==0) ? "CHECKED" : "" ?> onclick="togglemenu(this);"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $maxwidthiconsstyle ?>">
                 <td><label for="maxwidthicons">Maximum icon display width: </label><input type="hidden" name="conf_field6" value="$_THEME_CFG['max_size_icons']"><input type="hidden" name="conf_value_old6" value=<?php echo $_THEME_CFG['max_size_icons'] ?>></td>
                 <td><input type="number" id="maxwidthicons" name="conf_value6" min=8 max=128 value=<?php echo $_THEME_CFG['max_size_icons'] ?> > (in px)</td>
               </tr>
@@ -908,9 +939,8 @@ else{
               <tr style="<?php echo $backimagerepeatstyle ?>">
                 <td><label for="backimage-repeat">Background image repeat: </label><input type="hidden" name="conf_field3" value="$_THEME_CFG['backimage_repeat']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['backimage_repeat'] ?>></td>
                 <td><select id="backimage-repeat" name="conf_value3" <?php echo $_THEME_CFG['backimage']=="" ? "DISABLED" : "" ?> onchange="$('body').css({'background-repeat':$(this).val()});">
-                      <option value="" <?php echo $_THEME_CFG['backimage_repeat'] == "" ? "SELECTED" : "" ?>></option>
-                      <option value="no-repeat" <?php echo $_THEME_CFG['backimage_repeat'] == "no-repeat" ? "SELECTED" : "" ?>>no-repeat</option>
                       <option value="repeat" <?php echo $_THEME_CFG['backimage_repeat'] == "repeat" ? "SELECTED" : "" ?>>repeat</option>
+                      <option value="no-repeat" <?php echo $_THEME_CFG['backimage_repeat'] == "no-repeat" ? "SELECTED" : "" ?>>no-repeat</option>
                       <option value="repeat-x" <?php echo $_THEME_CFG['backimage_repeat'] == "repeat-x" ? "SELECTED" : "" ?>>repeat-x</option>
                       <option value="repeat-y" <?php echo $_THEME_CFG['backimage_repeat'] == "repeat-y" ? "SELECTED" : "" ?>>repeat-y</option>
                     </select></td>
@@ -918,9 +948,8 @@ else{
               <tr style="<?php echo $backimageattachmentstyle ?>">
                 <td><label for="backimage-attach">Background image attachment: </label><input type="hidden" name="conf_field4" value="$_THEME_CFG['backimage_attachment']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['backimage_attachment'] ?>></td>
                 <td><select id="backimage-attach" name="conf_value4" <?php echo $_THEME_CFG['backimage']=="" ? "DISABLED" : "" ?> onchange="$('body').css({'background-attachment':$(this).val()})">
-                      <option value="" <?php echo $_THEME_CFG['backimage_attachment'] == "" ? "SELECTED" : "" ?>></option>
-                      <option value="fixed" <?php echo $_THEME_CFG['backimage_attachment'] == "fixed" ? "SELECTED" : "" ?>>fixed</option>
                       <option value="scroll" <?php echo $_THEME_CFG['backimage_attachment'] == "scroll" ? "SELECTED" : "" ?>>scroll</option>
+                      <option value="fixed" <?php echo $_THEME_CFG['backimage_attachment'] == "fixed" ? "SELECTED" : "" ?>>fixed</option>
                     </select></td>
               </tr>
             </table>
@@ -940,7 +969,7 @@ else{
           <form method="POST" action="/themes/glorioso/install.php?step=5">
             <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
             <table>
-              <tr>
+              <tr style="<?php echo $usejsapistyle ?>">
                 <td><span style="font-weight:bold;">Use Google jsAPI to load libraries: </span><br />
                     <span style="color:Green;font-style:italic;">More info: </span><a href="http://code.google.com/apis/loader/">http://code.google.com/apis/loader/</a><input type="hidden" name="conf_field0" value="$_THEME_CFG['use_jsapi']"><input type="hidden" name="conf_value_old0" value=<?php echo $_THEME_CFG['use_jsapi'] ?>></td>
                 <td><label for="usejsapiyes">YES</label><input type="radio" id="usejsapiyes" name="conf_value0" value=1 <?php echo ($_THEME_CFG['use_jsapi']==1) ? "CHECKED" : "" ?>>
@@ -948,74 +977,74 @@ else{
                     <img class="tooltip" title="It is recommended to use the google javascript loader to load the required libraries (jquery, jquery-UI). This will require obtaining a key. The jsAPI loader gives great flexibility in loading different libraries and scripts, and opens the possibility for using further google services such as SEARCH, MAPS, etc." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $jsapikeystyle ?>">
                 <td><label for="jsapikey" style="font-weight:bold;">Google jsAPI consumer key: </label><br />
                     <span style="color:Green;font-style:italic;">Obtain a key: </span><a href="http://code.google.com/apis/loader/signup.html">http://code.google.com/apis/loader/signup.html</a>
                     <input type="hidden" name="conf_field1" value="$_THEME_CFG['jsapi_key']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['jsapi_key'] ?>></td>
                 <td><textarea name="conf_value1" id="jsapikey" placeholder="jsapi key" cols="50" rows="3" style="font-family: Palatino Linotype;font-size: 0.8em;"><?php echo $_THEME_CFG['jsapi_key'] ?></textarea></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usejquerystyle ?>">
                 <td><span>Load jQuery: </span><input type="hidden" name="conf_field2" value="$_THEME_CFG['use_jquery']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['use_jquery'] ?>><a href="http://docs.jquery.com/Main_Page">Documentation</a></td>
                 <td><label for="usejqueryyes">YES</label><input type="radio" id="usejsapiyes" name="conf_value2" value=1 READONLY <?php echo ($_THEME_CFG['use_jquery']==1) ? "CHECKED" : "" ?>>
                     <label for="usejqueryno">NO</label><input type="radio" id="usejsapino" name="conf_value2" value=0 READONLY <?php echo ($_THEME_CFG['use_jquery']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="This theme is built completely on jquery for the time being. It would break if you turn off jquery." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $usejqueryuistyle ?>">
                 <td><span>Load jQuery-UI: </span><input type="hidden" name="conf_field3" value="$_THEME_CFG['use_jqueryui']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['use_jqueryui'] ?>><a href="http://jqueryui.com/demos/">Documentation</a></td>
                 <td><label for="usejqueryuiyes">YES</label><input type="radio" id="usejqueryuiyes" name="conf_value3" value=1 READONLY <?php echo ($_THEME_CFG['use_jqueryui']==1) ? "CHECKED" : "" ?>>
                     <label for="usejqueryuino">NO</label><input type="radio" id="usejqueryuino" name="conf_value3" value=0 READONLY <?php echo ($_THEME_CFG['use_jqueryui']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="This theme is built completely on jquery User Interface for the time being. It would break if you turn off jquery User Interface." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $jqueryuidefault ?>">
                 <td><label for="jqueryui_default">Default jQuery-UI Theme: </label><input type="hidden" name="conf_field4" value="$_THEME_CFG['jqueryui_default']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['jqueryui_default'] ?>></td>
                 <td><div id="themeswitcher" class="step4"></div><input type="hidden" id="jqueryui_default" name="conf_value4" value="<?php echo $_THEME_CFG['jqueryui_default'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $usejqtoolslclstyle ?>">
                 <td><span>Load jQuery Tools (partial version from local): </span><input type="hidden" name="conf_field5" value="$_THEME_CFG['use_jqtools_lcl']"><input type="hidden" name="conf_value_old5" value=<?php echo $_THEME_CFG['use_jqtools_lcl'] ?>></td>
                 <td><label for="usejqtoolsyes">YES</label><input type="radio" id="usejqtoolsyes" name="conf_value5" value=1 <?php echo ($_THEME_CFG['use_jqtools_lcl']==1) ? "CHECKED" : "" ?>>
                     <label for="usejqtoolsno">NO</label><input type="radio" id="usejqtoolsno" name="conf_value5" value=0 <?php echo ($_THEME_CFG['use_jqtools_lcl']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="The theme uses jquery Tools tooltips (you are reading from one right now, isn't it nice?). But this can be turned off if you prefer. It does not load the full jquery Tools library because the jquery Tools Tabs conflict with jquery-UI Tabs. You would have to load a partial version of jquery-UI in order to load the full jquery Tools library." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $useswfobjectstyle ?>">
                 <td><label for="useswfobject">Load swfobject </label><input type="hidden" name="conf_field10" value="$_THEME_CFG['use_swfobject']"><input type="hidden" name="conf_value_old10" value=<?php echo $_THEME_CFG['use_swfobject'] ?>><a href="http://code.google.com/p/swfobject/wiki/documentation">Documentation</a></td>
                 <td><input type="checkbox" id="useswfobject" <?php echo ($_THEME_CFG['use_swfobject']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value10" value=<?php echo $_THEME_CFG['use_swfobject'] ?>><img class="tooltip" title="Easily embed flash content into your website using swfobject!" alt="?" src="images/question_mark.png"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $use1pixeloutaudioplayerstyle ?>">
                 <td><label for="use1pixeloutaudioplayer">Load 1pixeloutaudioplayer </label><input type="hidden" name="conf_field14" value="$_THEME_CFG['use_1pixeloutaudioplayer']"><input type="hidden" name="conf_value_old14" value=<?php echo $_THEME_CFG['use_1pixeloutaudioplayer'] ?>><a href="http://www.1pixelout.net/category/audio-player/">Crediti</a></td>
                 <td><input type="checkbox" id="use1pixeloutaudioplayer" <?php echo ($_THEME_CFG['use_1pixeloutaudioplayer']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value14" value=<?php echo $_THEME_CFG['use_1pixeloutaudioplayer'] ?>><img class="tooltip" title="Easily embed audio content into your website using this dandy audio player!" alt="?" src="images/question_mark.png"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $usechromeframestyle ?>">
                 <td><label for="usechromeframe">Load ChromeFrame </label><input type="hidden" name="conf_field13" value="$_THEME_CFG['use_chromeframe']"><input type="hidden" name="conf_value_old13" value=<?php echo $_THEME_CFG['use_chromeframe'] ?>></td>
                 <td><input type="checkbox" id="usechromeframe" <?php echo ($_THEME_CFG['use_chromeframe']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value13" value=<?php echo $_THEME_CFG['use_chromeframe'] ?>><img class="tooltip" title="Is your website not working correctly in Internet Explorer? Try turning on Google Chrome Frame! It will prompt your users to download the chromeframe component for internet explorer so that they will see your website as they would in the Google Chrome Browser!" alt="?" src="images/question_mark.png"></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $useprototypestyle ?>">
                 <td><label for="useprototype">Load Prototype </label><input type="hidden" name="conf_field6" value="$_THEME_CFG['use_prototype']"><input type="hidden" name="conf_value_old6" value=<?php echo $_THEME_CFG['use_prototype'] ?>></td>
                 <td><input type="checkbox" id="useprototype" <?php echo ($_THEME_CFG['use_prototype']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value6" value=<?php echo $_THEME_CFG['use_prototype'] ?>></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $usescriptaculousstyle ?>">
                 <td><label for="usescriptaculous">Load Scriptaculous </label><input type="hidden" name="conf_field7" value="$_THEME_CFG['use_scriptaculous']"><input type="hidden" name="conf_value_old7" value=<?php echo $_THEME_CFG['use_scriptaculous'] ?>></td>
                 <td><input type="checkbox" id="usescriptaculous" <?php echo ($_THEME_CFG['use_scriptaculous']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value7" value=<?php echo $_THEME_CFG['use_scriptaculous'] ?>></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $usemootoolsstyle ?>">
                 <td><label for="usemootools">Load Mootools </label><input type="hidden" name="conf_field8" value="$_THEME_CFG['use_mootools']"><input type="hidden" name="conf_value_old8" value=<?php echo $_THEME_CFG['use_jsapi'] ?>></td>
                 <td><input type="checkbox" id="usemootools" <?php echo ($_THEME_CFG['use_mootools']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value8" value=<?php echo $_THEME_CFG['use_prototype'] ?>></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $usedojostyle ?>">
                 <td><label for="usedojo">Load Dojo </label><input type="hidden" name="conf_field9" value="$_THEME_CFG['use_dojo']"><input type="hidden" name="conf_value_old9" value=<?php echo $_THEME_CFG['use_dojo'] ?>></td>
                 <td><input type="checkbox" id="usedojo" <?php echo ($_THEME_CFG['use_dojo']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value9" value=<?php echo $_THEME_CFG['use_dojo'] ?>></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $useyuistyle ?>">
                 <td><label for="useyui">Load YUI </label><input type="hidden" name="conf_field11" value="$_THEME_CFG['use_yui']"><input type="hidden" name="conf_value_old11" value=<?php echo $_THEME_CFG['use_yui'] ?>></td>
                 <td><input type="checkbox" id="useyui" <?php echo ($_THEME_CFG['use_yui']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value11" value=<?php echo $_THEME_CFG['use_yui'] ?>></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $useextcorestyle ?>">
                 <td><label for="useextcore">Load extcore </label><input type="hidden" name="conf_field12" value="$_THEME_CFG['use_extcore']"><input type="hidden" name="conf_value_old12" value=<?php echo $_THEME_CFG['use_extcore'] ?>></td>
                 <td><input type="checkbox" id="useextcore" <?php echo ($_THEME_CFG['use_extcore']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value12" value=<?php echo $_THEME_CFG['use_extcore'] ?>></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $notusewebtoolkitmd5style ?>">
                 <td><label for="notusewebtoolkitMD5" style="color:Red;">Disable webtoolkitMD5 (NOT RECOMMENDED!)</label><input type="hidden" name="conf_field15" value="$_THEME_CFG['notuse_webtoolkitMD5']"><input type="hidden" name="conf_value_old15" value=<?php echo $_THEME_CFG['notuse_webtoolkitMD5'] ?>></td>
                 <td><input type="checkbox" id="notusewebtoolkitMD5" <?php echo ($_THEME_CFG['notuse_webtoolkitMD5']==1) ? "CHECKED" : "" ?>><input type="hidden" name="conf_value15" value=<?php echo $_THEME_CFG['notuse_webtoolkitMD5'] ?>><img class="tooltip" title="It is not recommended to disable webtoolkit MD5. It permits you to encrypt any sensible data that you may need to transfer with javascript. The Glorioso Theme uses this component when using ajax requests to check if the current user has news administration permissions for adding events to the event calendar." alt="?" src="images/question_mark.png"></td>
               </tr>
@@ -1035,7 +1064,7 @@ else{
           <form method="POST" action="/themes/glorioso/install.php?step=6">
             <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
             <table>
-              <tr>
+              <tr style="<?php echo $useganstyle ?>">
                 <td><span style="font-weight:bold;">Use Google Analytics: </span><br />
                     <span style="color:Green;font-style:italic;">More info: </span><a href="http://www.google.com/intl/it/analytics/">http://www.google.com/intl/it/analytics/</a><input type="hidden" name="conf_field0" value="$_THEME_CFG['use_gan']"><input type="hidden" name="conf_value_old0" value=<?php echo $_THEME_CFG['use_gan'] ?>></td>
                 <td><label for="useganyes">YES</label><input type="radio" id="useganyes" name="conf_value0" value=1 <?php echo ($_THEME_CFG['use_gan']==1) ? "CHECKED" : "" ?>>
@@ -1043,13 +1072,13 @@ else{
                     <img class="tooltip" title="It can be useful to activate google analytics from theme configuration, so that you can be sure that it will not be overwritten by Flatnux CMS updates or by theme updates." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $ganaccountstyle ?>">
                 <td><label for="gan_account" style="font-weight:bold;">Google Analytics code associated with this domain: </label><br />
                     <span style="color:Green;font-style:italic;">Obtain a key: </span><a href="https://www.google.com/analytics/settings/add_profile">https://www.google.com/analytics/settings/add_profile</a>
                     <input type="hidden" name="conf_field1" value="$_THEME_CFG['gan_account']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['gan_account'] ?>></td>
                 <td><input type="text" name="conf_value1" id="gan_account" placeholder="UA-xxxxxxx-x" style="font-family: Palatino Linotype;font-size: 0.8em;" value="<?php echo $_THEME_CFG['gan_account'] ?>"></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $gcalfeedstyle ?>">
                 <td><label for="gcal_feed" style="font-weight:bold;">Use Google Calendar (semicolon separated list of Calendar feeds): </label>
                     <img class="tooltip" title="You can add Google Calendar feeds to the event calendar included on the theme userbar (arshaw's jquery fullcalendar)." alt="?" src="images/question_mark.png">
                     <br />
@@ -1057,15 +1086,15 @@ else{
                     <input type="hidden" name="conf_field2" value="$_THEME_CFG['gcal_feed']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['gcal_feed'] ?>></td>
                 <td><textarea name="conf_value2" id="gcal_feed" placeholder="e.g. http://www.google.com/calendar/feeds/GOOGLEUSERNAME%40gmail.com/public/basic" cols="50" rows="3" style="font-family: Palatino Linotype;font-size: 0.8em;"><?php echo $_THEME_CFG['gcal_feed'] ?></textarea></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $gaccountuserstyle ?>">
                 <td><label for="gaccount_user">Google Account Username: </label><input type="hidden" name="conf_field3" value="$_THEME_CFG['gaccount_user']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['gaccount_user'] ?>></td>
                 <td><input type="text" name="conf_value3" id="gaccount_user" value="<?php echo $_THEME_CFG['gaccount_user'] ?>" placeholder="username"><img class="tooltip" title="Q. Why does theme configuration ask for google username and password? &lt;br&gt; A. If you want to be able to write events to the google calendar that you want to associate to your application, the glorioso theme needs to have the credentials to do so. It will keep your information safe and will not use your google credentials on your behalf without your direct knowledge or intervention." alt="?" src="images/question_mark.png">
               </tr>
-              <tr>
+              <tr style="<?php echo $gaccountpassstyle ?>">
                 <td><label for="gaccount_pass">Google Account Password: </label><input type="hidden" name="conf_field4" value="$_THEME_CFG['gaccount_pass']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['gaccount_pass'] ?>></td>
                 <td><input type="password" name="conf_value4" id="gaccount_pass" value="<?php echo $_THEME_CFG['gaccount_pass'] ?>" placeholder="password"><img class="tooltip" title="Q. Why does theme configuration ask for google username and password? &lt;br&gt; A. If you want to be able to write events to the google calendar that you want to associate to your application, the glorioso theme needs to have the credentials to do so. It will keep your information safe and will not use your google credentials on your behalf without your direct knowledge or intervention." alt="?" src="images/question_mark.png">
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usewebfontstyle ?>">
                 <td><span style="font-weight:bold;">Use Google Webfonts: </span><br />
                     <span style="color:Green;font-style:italic;">More info: </span><a href="http://www.google.com/webfonts">http://www.google.com/webfonts</a><input type="hidden" name="conf_field5" value="$_THEME_CFG['use_webfont']"><input type="hidden" name="conf_value_old5" value=<?php echo $_THEME_CFG['use_webfont'] ?>></td>
                 <td><label for="usewebfontsyes">YES</label><input type="radio" id="usewebfontsyes" name="conf_value5" value=1 <?php echo ($_THEME_CFG['use_webfont']==1) ? "CHECKED" : "" ?>>
@@ -1073,7 +1102,7 @@ else{
                     <img class="tooltip" title="Q. Ok so once I&#39;ve added open fonts to my theme configuration, how do I use them? &lt;br&gt; A. Easy. In your css, whether inline or from a stylesheet, you can apply the font to page elements using the &#39;font-family&#39; rule&#44; just as you would any other font&#58;&lt;br&gt;&#60;span style&#61;&#39;font&#45;family&#58;Aclonica&#59;&#39;&#62; &#46;test&#123;font&#45;family&#58;&#39;Aclonica&#39;&#125;" alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $googlefontsstyle ?>">
                 <td><label for="googlefonts">Comma separated string of fonts to load:</label><input type="hidden" name="conf_field6" value="$_THEME_CFG['googlefonts']"><input type="hidden" name="conf_value_old6" value="<?php echo $_THEME_CFG['googlefonts'] ?>"></td>
                 <td><textarea name="conf_value6" id="googlefonts" placeholder="e.g. IM Fell DW Pica SC,Reenie Beanie,Cabin Sketch:bold" cols="50" rows="3" style="font-family: Palatino Linotype;font-size: 0.8em;"><?php echo $_THEME_CFG['googlefonts'] ?></textarea></td>
               </tr>
@@ -1314,7 +1343,7 @@ else{
           <form method="POST" action="/themes/glorioso/install.php?step=7">
             <input type="hidden" name="conf_file"	value="themes/glorioso/config.php">
             <table>
-              <tr>
+              <tr style="<?php echo $usegfcstyle ?>">
                 <td><span style="font-weight:bold;">Use Google Friend Connect: </span><br />
                     <span style="color:Green;font-style:italic;">More info: </span><a href="http://www.google.com/friendconnect/">http://www.google.com/friendconnect/</a><input type="hidden" name="conf_field0" value="$_THEME_CFG['use_gfc']"><input type="hidden" name="conf_value_old0" value=<?php echo $_THEME_CFG['use_gfc'] ?>></td>
                 <td><label for="usegfcyes">YES</label><input type="radio" id="usegfcyes" name="conf_value0" value=1 <?php echo ($_THEME_CFG['use_gfc']==1) ? "CHECKED" : "" ?>>
@@ -1322,41 +1351,41 @@ else{
                     <img class="tooltip" title="This will load the javascript API (recommended)" alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $gfcsitestyle ?>">
                 <td><label for="gfcsite" style="font-weight:bold;">Google Friend Connect Site ID: </label><br />
                     <span style="color:Green;font-style:italic;">Obtain a key: </span><a href="http://www.google.com/friendconnect/admin/site/setup">http://www.google.com/friendconnect/admin/site/setup</a>
                     <input type="hidden" name="conf_field1" value="$_THEME_CFG['gfc_site']"><input type="hidden" name="conf_value_old1" value=<?php echo $_THEME_CFG['gfc_site'] ?>></td>
                 <td><input type="text" name="conf_value1" id="gfcsite" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['gfc_site'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $gfcsocialstyle ?>">
                 <td><label for="gfcsocial" style="font-weight:bold;">Unique ID for Social Bar (empty for none): </label><br />
                     <input type="hidden" name="conf_field2" value="$_THEME_CFG['gfc_social']"><input type="hidden" name="conf_value_old2" value=<?php echo $_THEME_CFG['gfc_social'] ?>></td>
                 <td><input type="text" name="conf_value2" id="gfcsocial" placeholder="div-xxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['gfc_social'] ?>" onchange="$(this).val()=='' ? $('#gfcsocial').hide() : $('#gfcsocial').show();"></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usefbstyle ?>">
                 <td><span style="font-weight:bold;">Use Facebook Connect: </span><input type="hidden" name="conf_field3" value="$_THEME_CFG['use_fb']"><input type="hidden" name="conf_value_old3" value=<?php echo $_THEME_CFG['use_fb'] ?>><a href="https://developers.facebook.com/docs/guides/web/">Documentation</a></td>
                 <td><label for="usefbyes">YES</label><input type="radio" id="usefbyes" name="conf_value3" value=1 <?php echo ($_THEME_CFG['use_fb']==1) ? "CHECKED" : "" ?>>
                     <label for="usefbno">NO</label><input type="radio" id="usefbno" name="conf_value3" value=0 <?php echo ($_THEME_CFG['use_fb']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Facebook Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $fbappidstyle ?>">
                 <td><label for="fbappid" style="font-weight:bold;">Facebook Application ID: </label><br />
                     <span style="color:Green;font-style:italic;">Create an application: </span><a href="https://www.facebook.com/developers/">https://www.facebook.com/developers/</a>
                     <input type="hidden" name="conf_field6" value="$_THEME_CFG['fb_app_id']"><input type="hidden" name="conf_value_old6" value=<?php echo $_THEME_CFG['fb_app_id'] ?>></td>
                 <td><input type="text" name="conf_value6" id="fbappid" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=20 value="<?php echo $_THEME_CFG['fb_app_id'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $fbapikeystyle ?>">
                 <td><label for="fbapikey" style="font-weight:bold;">Facebook Connect Consumer Key: </label><br />
                     <input type="hidden" name="conf_field4" value="$_THEME_CFG['fb_api_key']"><input type="hidden" name="conf_value_old4" value=<?php echo $_THEME_CFG['fb_api_key'] ?>></td>
                 <td><input type="text" name="conf_value4" id="fbapikey" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=40 value="<?php echo $_THEME_CFG['fb_api_key'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $fbsecretstyle ?>">
                 <td><label for="fbsecret" style="font-weight:bold;">Facebook Connect Consumer Secret: </label><br />
                     <input type="hidden" name="conf_field5" value="$_THEME_CFG['fb_secret']"><input type="hidden" name="conf_value_old5" value=<?php echo $_THEME_CFG['fb_secret'] ?>></td>
                 <td><input type="text" name="conf_value5" id="fbsecret" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=40 value="<?php echo $_THEME_CFG['fb_secret'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $fbgidstyle ?>">
                 <td><label for="fbgid" style="font-weight:bold;">Connect Site Wall to a Facebook Group Wall (indicate group ID): </label><br />
                     <input type="hidden" name="conf_field7" value="$_THEME_CFG['fb_gid']"><input type="hidden" name="conf_value_old7" value=<?php echo $_THEME_CFG['fb_gid'] ?>></td>
                 <td><input type="text" name="conf_value7" id="fbgid" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=20 value="<?php echo $_THEME_CFG['fb_gid'] ?>"></td>
@@ -1364,7 +1393,7 @@ else{
               <tr class="newsection">
                 <td colspan=2 style="text-align:center;font-style:italic;">Contenitori sociali ancora da implementare:</td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usemesslivestyle ?>">
                 <td>
                   <span style="font-weight:bold;">Use Messenger Live Connect: </span><input type="hidden" name="conf_field8" value="$_THEME_CFG['use_messlive']"><input type="hidden" name="conf_value_old8" value=<?php echo $_THEME_CFG['use_messlive'] ?>><a href="http://msdn.microsoft.com/en-us/library/ff749458.aspx">Documentation</a>
                 </td>
@@ -1373,19 +1402,19 @@ else{
                     <img class="tooltip" title="Messenger Live Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $messliveappidstyle ?>">
                 <td><label for="messliveappid" style="font-weight:bold;">Messenger Live Application ID: </label><br />
                     <span style="color:Green;font-style:italic;">Obtain app ID: </span><a href="http://msdn.microsoft.com/en-us/library/ff751474.aspx">http://msdn.microsoft.com/en-us/library/ff751474.aspx</a>
                     <input type="hidden" name="conf_field9" value="$_THEME_CFG['messlive_app_id']"><input type="hidden" name="conf_value_old9" value=<?php echo $_THEME_CFG['messlive_app_id'] ?>></td>
                 <td><input type="text" name="conf_value9" id="messliveappid" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=20 value="<?php echo $_THEME_CFG['messlive_app_id'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $messlivesecretstyle ?>">
                 <td><label for="messlivesecret" style="font-weight:bold;">Messenger Live Consumer Secret: </label><br />
                     <span style="color:Green;font-style:italic;">Obtain consumer secret: </span><a href="http://msdn.microsoft.com/en-us/library/ff751474.aspx">http://msdn.microsoft.com/en-us/library/ff751474.aspx</a>
                     <input type="hidden" name="conf_field10" value="$_THEME_CFG['messlive_secret']"><input type="hidden" name="conf_value_old10" value=<?php echo $_THEME_CFG['messlive_secret'] ?>></td>
                 <td><input type="text" name="conf_value10" id="messlivesecret" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=40 value="<?php echo $_THEME_CFG['messlive_secret'] ?>"></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usegooglestyle ?>">
                 <td><span style="font-weight:bold;">Use Google OpenID: </span><input type="hidden" name="conf_field11" value="$_THEME_CFG['use_google']"><input type="hidden" name="conf_value_old11" value=<?php echo $_THEME_CFG['use_google'] ?>><a href="http://code.google.com/apis/accounts/docs/RegistrationForWebAppsAuto.html">Documentation</a>
                     <br>
                     <span style="color:Green;font-style:italic;">Register your Domain with Google: </span><a href="https://www.google.com/accounts/ManageDomains">https://www.google.com/accounts/ManageDomains</a>
@@ -1395,52 +1424,52 @@ else{
                     <img class="tooltip" title="You can let your users use their google accounts to login to / register with your site. This doesn't have social aspects to it but will let your users use different google services on your website." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr>
+              <tr style="<?php echo $googlekeystyle ?>">
                 <td><label for="googlekey" style="font-weight:bold;">Domain registered with Google: </label><br />
                     <input type="hidden" name="conf_field12" value="$_THEME_CFG['google_key']"><input type="hidden" name="conf_value_old12" value=<?php echo $_THEME_CFG['google_key'] ?>></td>
                 <td><input type="text" name="conf_value12" id="googlekey" placeholder="<?php echo $_FN['siteurl'] ?>" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['google_key'] ?>"></td>
               </tr>
-              <tr>
+              <tr style="<?php echo $googlesecretstyle ?>">
                 <td><label for="googlesecret" style="font-weight:bold;">Google Consumer Secret for your Domain: </label><br />
                     <input type="hidden" name="conf_field13" value="$_THEME_CFG['google_secret']"><input type="hidden" name="conf_value_old13" value=<?php echo $_THEME_CFG['google_secret'] ?>></td>
                 <td><input type="text" name="conf_value13" id="googlesecret" placeholder="xxxxxxxxxxxxxxxxxxxx" style="font-family: Palatino Linotype;font-size: 0.8em;" size=30 value="<?php echo $_THEME_CFG['google_secret'] ?>"></td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $useorkutstyle ?>">
                 <td><span style="font-weight:bold;">Use Orkut Connect: </span><input type="hidden" name="conf_field14" value="$_THEME_CFG['use_orkut']"><input type="hidden" name="conf_value_old15" value=<?php echo $_THEME_CFG['use_orkut'] ?>><a href="http://www.orkut.com/html/en-US/developer.terms.html">Orkut Developer Terms of Service</a></td>
                 <td><label for="useorkutyes">YES</label><input type="radio" id="usemessliveyes" name="conf_value14" value=1 READONLY <?php echo ($_THEME_CFG['use_orkut']==1) ? "CHECKED" : "" ?>>
                     <label for="useorkutno">NO</label><input type="radio" id="usemessliveno" name="conf_value14" value=0 READONLY <?php echo ($_THEME_CFG['use_orkut']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Orkut Connect will give even more social opportunity to your website, you will be able to let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usehi5style ?>">
                 <td><span style="font-weight:bold;">Use hi5 Connect: </span><input type="hidden" name="conf_field15" value="$_THEME_CFG['use_hi5']"><input type="hidden" name="conf_value_old15" value=<?php echo $_THEME_CFG['use_hi5'] ?>><a href="http://www.hi5networks.com/developer/getstarted.html">hi5 Developer</a></td>
                 <td><label for="usehi5yes">YES</label><input type="radio" id="usehi5yes" name="conf_value15" value=1 READONLY <?php echo ($_THEME_CFG['use_hi5']==1) ? "CHECKED" : "" ?>>
                     <label for="usehi5no">NO</label><input type="radio" id="usehi5no" name="conf_value15" value=0 READONLY <?php echo ($_THEME_CFG['use_hi5']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="hi5 Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usemyspacestyle ?>">
                 <td><span style="font-weight:bold;">Use mySpace Connect: </span><input type="hidden" name="conf_field16" value="$_THEME_CFG['use_myspace']"><input type="hidden" name="conf_value_old16" value=<?php echo $_THEME_CFG['use_myspace'] ?>><a href="http://developer.myspace.com/wordpress/">mySpace Developer</a></td>
                 <td><label for="usemyspaceyes">YES</label><input type="radio" id="usemyspaceyes" name="conf_value16" value=1 READONLY <?php echo ($_THEME_CFG['use_myspace']==1) ? "CHECKED" : "" ?>>
                     <label for="usemyspaceno">NO</label><input type="radio" id="usemyspaceno" name="conf_value16" value=0 READONLY <?php echo ($_THEME_CFG['use_myspace']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="mySpace Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usenetlogstyle ?>">
                 <td><span style="font-weight:bold;">Use Netlog Connect: </span><input type="hidden" name="conf_field17" value="$_THEME_CFG['use_netlog']"><input type="hidden" name="conf_value_old17" value=<?php echo $_THEME_CFG['use_netlog'] ?>><a href="http://en.netlog.com/go/developer">Documentation</a></td>
                 <td><label for="usenetlogyes">YES</label><input type="radio" id="usenetlogyes" name="conf_value17" value=1 READONLY <?php echo ($_THEME_CFG['use_netlog']==1) ? "CHECKED" : "" ?>>
                     <label for="usenetlogno">NO</label><input type="radio" id="usenetlogno" name="conf_value17" value=0 READONLY <?php echo ($_THEME_CFG['use_netlog']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Netlog Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $usepartuzastyle ?>">
                 <td><span style="font-weight:bold;">Use Partuza Connect: </span><input type="hidden" name="conf_field18" value="$_THEME_CFG['use_partuza']"><input type="hidden" name="conf_value_old18" value=<?php echo $_THEME_CFG['use_partuza'] ?>><a href="http://www.developerfusion.com/project/64373/partuza/">Partuza Developer</a></td>
                 <td><label for="usepartuzayes">YES</label><input type="radio" id="usepartuzayes" name="conf_value18" value=1 READONLY <?php echo ($_THEME_CFG['use_partuza']==1) ? "CHECKED" : "" ?>>
                     <label for="usepartuzano">NO</label><input type="radio" id="usepartuzano" name="conf_value18" value=0 READONLY <?php echo ($_THEME_CFG['use_partuza']==0) ? "CHECKED" : "" ?>>
                     <img class="tooltip" title="Partuza Connect will give even more social opportunity to your website, you will be able to create a feed wall on your website, let your users interact with your website with comments and likes, and let them interact with each other." alt="?" src="images/question_mark.png">
                 </td>
               </tr>
-              <tr class="newsection">
+              <tr class="newsection" style="<?php echo $useplaxostyle ?>">
                 <td><span style="font-weight:bold;">Use Plaxo Connect: </span><input type="hidden" name="conf_field19" value="$_THEME_CFG['use_plaxo']"><input type="hidden" name="conf_value_old19" value=<?php echo $_THEME_CFG['use_plaxo'] ?>><a href="http://www.plaxo.com/api">Documentation</a></td>
                 <td><label for="useplaxoyes">YES</label><input type="radio" id="useplaxoyes" name="conf_value19" value=1 READONLY <?php echo ($_THEME_CFG['use_plaxo']==1) ? "CHECKED" : "" ?>>
                     <label for="useplaxono">NO</label><input type="radio" id="useplaxono" name="conf_value19" value=0 READONLY <?php echo ($_THEME_CFG['use_plaxo']==0) ? "CHECKED" : "" ?>>
