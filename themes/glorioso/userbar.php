@@ -25,9 +25,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
       $MP_section=find_section("FlatMP");
       if($MP_section!=''){     
         // importo i file necessari
-        include_once("sections/$MP_section/mp_config.php");
         include_once("sections/$MP_section/mp_functions.php");
-        //include("config.php");
         // verifica l'esistenza della cartella mailboxes altrimenti la crea
         if (!file_exists($_FN['datadir']."/mailboxes"))
         	mkdir($_FN['datadir']."/mailboxes");
@@ -40,7 +38,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
     // visualizzo i messaggi privati non letti	
     if($MP_section!=''){     
       if((user_can_view_section($MP_section))) {
-      		switch ( mp_count($_FN['user']) ) {
+      		switch ( mp_count($_FN['user'],$_FN['datadir']) ) {
             case 0:
               $mp_imgsrc = "images/mp/mail.png";
               break;
@@ -74,10 +72,10 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
             case 10:
               $mp_imgsrc = "images/mp/mail10.png";
               break;
-            case (mp_count($_FN['user']) > 10):
+            case (mp_count($_FN['user'],$_FN['datadir']) > 10):
               $mp_imgsrc = "images/mp/mail10+.png";   
           }
-      		echo "<div style='float:left;margin-left:15px;'><a href=\"index.php?mod=".$MP_section."\"><img id='MPimg' class='jqtooltip-dx' style='width:32px;' src='".$mp_imgsrc."' title='"._MP." ".mp_count($_FN['user'])." "._NOREADMP."' /></a></div>";
+      		echo "<div style='float:left;margin-left:15px;'><a href=\"index.php?mod=".$MP_section."\"><img id='MPimg' class='jqtooltip-dx' style='width:32px;' src='".$mp_imgsrc."' title='"._MP." ".mp_count($_FN['user'],$_FN['datadir'])." "._NOREADMP."' /></a></div>";
           }
       else
       		echo _LOGINMP;
