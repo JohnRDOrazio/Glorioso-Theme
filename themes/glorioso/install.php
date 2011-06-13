@@ -568,13 +568,13 @@ function togglemenu(el){
     $("button:submit").click(function(){
       data = $(this).parents("form").serialize();
       href = $(this).parents("form").attr("action");
-      console.log("DATA: "+data);
-      console.log("HREF: "+href);
+      //console.log("DATA: "+data);
+      //console.log("HREF: "+href);
       $.post("/themes/glorioso/ajax/modconf.php",data,function(){
         step = parseInt(href.substring(href.length-1))-1;
         $.post("/themes/glorioso/ajax/tracksave.php","step="+step,function(response){
-          console.log("RESPONSE: "+response);
-          //location.href = href;
+          //console.log("RESPONSE: "+response);
+          location.href = href;
         });
       });
       return false;
