@@ -463,30 +463,30 @@ function FN_OpenNews($title)
 	$i++;
 	if ($_THEME_CFG['align_news_horizontal'] == 1)
 	{
-		if ($i % 2 == 0)
-			echo "<div style=\"float:right;width:49%;overflow:auto;padding:1px;\">";
+		if ($i % 2 == 1)
+  		echo "<div style=\"float:left;width:49%;overflow:auto;padding:4px;clear:both;\">";
 		else
-			echo "<div style=\"float:left;width:49%;overflow:auto;padding:1px;\">";
+		  echo "<div style=\"float:left;width:49%;overflow:auto;padding:4px;\">";
 	}
-	else
-		echo "<br />";
-	echo "<div class=\"ui-widget ui-widget-content ui-corner-all\">
-	    <div class=\"ui-widget-header ui-corner-top\">$title</div>";
+//	else
+//		echo "<br />";
+	echo "<div class=\"ui-widget ui-corner-top ui-widget-content flatnux-block\">
+	    <div class=\"ui-widget-header ui-corner-top flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span><h3>$title</h3></div><div class=\"flatnux-block-content\">";
 }
 function FN_CloseNews()
 {
 	global $_THEME_CFG;
-	echo "</div>";
+	echo "</div></div>";
 	if ($_THEME_CFG['align_news_horizontal'] == 1)
 		echo "</div>";
 }
 function OpenTableTitle($title)
 {
-	echo "<div class=\"ui-widget-content ui-corner-all\"><div class=\"ui-widget-header ui-corner-top\">$title</div>";
+	echo "<div class=\"ui-widget-content ui-corner-all\" style=\"padding:10px;\"><div class=\"ui-widget-header ui-corner-all\" style=\"padding-left: 10px;\"><h3>$title</h3></div><div style=\"padding:10px;\">";
 }
 function CloseTableTitle()
 {
-	echo "</div>";
+	echo "</div></div>";
 }
 function OpenTable($optionalclass="") // tables with no headers
 {
