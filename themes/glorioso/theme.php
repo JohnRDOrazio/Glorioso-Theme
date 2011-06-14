@@ -471,7 +471,7 @@ function FN_OpenNews($title)
 //	else
 //		echo "<br />";
 	echo "<div class=\"ui-widget ui-corner-top ui-widget-content flatnux-block\">
-	    <div class=\"ui-widget-header ui-corner-top flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span><h3>$title</h3></div><div class=\"flatnux-block-content\">";
+	    <div class=\"ui-widget-header ui-corner-all flatnux-block-header\"><span class=\"ui-icon ui-icon-minusthick collapsable\"></span><h3>$title</h3></div><div class=\"flatnux-block-content\">";
 }
 function FN_CloseNews()
 {
