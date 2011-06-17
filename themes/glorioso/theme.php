@@ -107,7 +107,7 @@ function create_menu()
 			if($imagesize[0]>$_THEME_CFG['max_size_icons']){
 				$css_size="height:{$_THEME_CFG['max_size_icons']}px;";
 				}
-			echo "<div class=\"fg-button ui-state-default $css_class ui-priority-primary ui-corner-top\" style=\"height:{$_THEME_CFG['max_size_icons']}px;\"><a $href $accesskey title=\"\"><img alt='$title' style='{$css_size}vertical-align:middle;' src=\"$imagesrc\" />$title</a></div>\n";
+			echo "<div class=\"fg-button ui-state-default $css_class ui-priority-primary ui-corner-top\" style=\"height:{$_THEME_CFG['max_size_icons']}px;\"><a $href $accesskey title=\"\"><img alt='$title' style='{$css_size}vertical-align:middle;padding-right:10px;' src=\"$imagesrc\" />$title</a></div>\n";
 			}
 		else {
 			echo "<div class=\"fg-button ui-state-default $css_class ui-priority-primary ui-corner-left\"><a $href $accesskey title=\"\">$title</a></div>\n";
@@ -169,7 +169,7 @@ function printsection2($path, $recursive=true, $btn_crn_css="", $xval=1)
 			if($imagesize[0]>$_THEME_CFG['max_size_icons']){
 				$css_size="height:{$_THEME_CFG['max_size_icons']}px;";
 				}
-			$title = "<img alt='$title' style='{$css_size}vertical-align:middle;' src='$iconasezione' />".$title;
+			$title = "<img alt='$title' style='{$css_size}vertical-align:middle;padding-right:10px;' src='$iconasezione' />".$title;
 			$btn_height = "height:{$_THEME_CFG['max_size_icons']}px;";
 			}
 			echo "<div style=\"{$btn_height}{$btn_style}\" class=\"fg-button ui-state-default $css_class ui-priority-primary $btn_crn_css\"><a $href $accesskey title=\"$link\">$title</a></div>\n";
