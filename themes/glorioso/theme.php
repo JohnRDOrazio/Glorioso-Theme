@@ -153,7 +153,7 @@ function printsection2($path, $recursive=true, $btn_crn_css="", $xval=1)
 		if ( $slevel > 1 )	{
 			$_THEME_CFG['max_size_icons']==$_THEME_CFG['max_size_icons']-($slevel*2);
 			$btn_width = 100 - ($slevel*10);
-			$btn_font_size = 10 - ($slevel-1);
+			$btn_font_size = 10 - (($slevel-1)*2);
 			$btn_style = "width:$btn_width%;margin:0 auto;font-size:.{$btn_font_size}em;";
 			}
 		if($_THEME_CFG['show_icons']==1){
