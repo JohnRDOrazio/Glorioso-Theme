@@ -1,6 +1,6 @@
 <?php
 
-if(file_exists("themes/glorioso/firstinstall")){ 
+if(file_exists("themes/glorioso/firstinstall")&&is_admin()){ 
   Header("Location: /themes/glorioso/install.php");
   exit;
 }
