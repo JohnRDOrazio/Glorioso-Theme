@@ -34,7 +34,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
         	mp_first($_FN['user'],$_FN['admin']);
       }
 		/* DO IL BENVENUTO */
-		echo "<div style='float:left;'>"._BENVENUTO."<span id=\"span_username\"> ".$_FN['user']." </span>!</div>";
+		echo "<div style="float:left;">"._BENVENUTO."<span id=\"span_username\"> ".$_FN['user']." </span>!</div>";
     // visualizzo i messaggi privati non letti	
     if($MP_section!=''){     
       if((user_can_view_section($MP_section))) {
@@ -75,7 +75,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
             case (mp_count($_FN['user'],$_FN['datadir']) > 10):
               $mp_imgsrc = "images/mp/mail10+.png";   
           }
-      		echo "<div style='float:left;margin-left:15px;'><a href=\"index.php?mod=".$MP_section."\"><img id='MPimg' class='jqtooltip-dx' style='width:32px;' src='".$mp_imgsrc."' title='"._MP." ".mp_count($_FN['user'],$_FN['datadir'])." "._NOREADMP."' /></a></div>";
+      		echo "<div style=\"float:left;margin-left:15px;\"><a href=\"index.php?mod=".$MP_section."\"><img id=\"MPimg\" class=\"jqtooltip-dx\" style=\"width:32px;\" src=\"".$mp_imgsrc."\" title=\""._MP." ".mp_count($_FN['user'],$_FN['datadir'])." "._NOREADMP."\" /></a></div>";
           }
       else
       		echo _LOGINMP;
@@ -85,35 +85,35 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 	<div id="userdetails" style="float:right;" class="fg-buttonset fg-buttonset-single ui-helper-clearfix">
 	<?php
       // profile button
-			echo "<div id='userprofile' class='jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-priority-primary ui-corner-left' onclick='location.href=\"{$_FN['self']}?mod=login&amp;opmod=profile\"' title='"._VIEW_USERPROFILE."'>";      
-      echo "<span class='ui-icon ui-icon-person'></span></div>";
+			echo "<div id=\"userprofile\" class=\"jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-priority-primary ui-corner-left\" onclick=\"location.href='{$_FN['self']}?mod=login&amp;opmod=profile'\" title=\""._VIEW_USERPROFILE."\">";      
+      echo "<span class=\"ui-icon ui-icon-person\"></span></div>";
 	    //if logged in with facebook connect, show facebook logout (which also logs out of the site)
 			if ($_THEME_CFG['use_fb']==1&&$_FB['me']){ 
 	?>
-				<span id="fb_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _FB_LOGOUT ?>' >
+				<span id="fb_logout" class="jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right" title="<?php echo _FB_LOGOUT ?>" >
 					<img id="fb_logout_image" src="images/social/fb_logout.png" alt="Connect" />
 				</span>				
 	<?php }
 	    elseif ($_THEME_CFG['use_gfc']==1&&$_GFC['session']){
   ?>
-				<span id="gfc_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _GFC_LOGOUT ?>' >
+				<span id="gfc_logout" class="jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right" title="<?php echo _GFC_LOGOUT ?>" >
 					<img src="images/social/google_logo.png" alt="Connect" width=16 />
 					Logout
 				</span>
   <?php }
       elseif ($_THEME_CFG['use_messlive']==1&&$_MESSLIVE['session']){
   ?>
-        <span id="messlive_logout" class='jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right' title='<?php echo _MESSLIVE_LOGOUT ?>' >
+        <span id="messlive_logout" class="jqtooltip-dx fg-button ui-state-default ui-priority-primary ui-corner-right" title="<?php echo _MESSLIVE_LOGOUT ?>" >
           <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted" />
         </span>
      <?php }
       //else if user is only logged into the site and not to facebook connect, show flatnux logout
       else {  ?>
-		    	<div class='jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-state-active ui-priority-primary ui-corner-right' title='<?php echo _FN_LOGOUT ?>'><span class="ui-icon ui-icon-power"></span><a href="<?php echo $logouturl ?>"><?php echo _LOGOUT ?></a></div>
+		    	<div class="jqtooltip-dx fg-button fg-button-icon-left ui-state-default ui-state-active ui-priority-primary ui-corner-right" title="<?php echo _FN_LOGOUT ?>"><span class="ui-icon ui-icon-power"></span><a href="<?php echo $logouturl ?>"><?php echo _LOGOUT ?></a></div>
 	<?php } ?>
 	</div><!-- END USERDETAILS BUTTONSET -->
 <?php
-    echo "<div style='clear:both;'>";
+    echo "<div style=\"clear:both;\">";
     //-disegno la barra del livello ->
 		$level = getlevel($_FN['user']);
 			echo "<div id=\"USERPAN_LEVEL\" class=\"jqtooltip-dx\" title=\"".fn_i18n("_LEVEL") . " ". $level ."&lt;br /&gt;Fai parte dei seguenti gruppi: ". $groups[0]['group'] ."\" style=\"float:left;text-align:center;margin:.2em 15px;vertical-align:middle;border:ridge 1px White;padding:0px 3px 3px 3px;\">";
@@ -128,7 +128,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
 /*********************** END LOGGED IN USER **********************/
 /*********************** START NOT LOGGED IN *********************/
 	else { 
-		echo "<div style='float:left;'>"._BENVENUTO."<span id=\"span_username\"> "._GUEST." </span>!</div>";
+		echo "<div style=\"float:left;\">"._BENVENUTO."<span id=\"span_username\"> "._GUEST." </span>!</div>";
   ?>
    <div id="userlogin" class="ui-corner-all ui-state-default">
     <div id="login-span-wrapper">
@@ -148,7 +148,7 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
     <div id="dropdown-shadow" class="ui-widget-shadow"></div>
     <div id="userlogin-dropdown" class="ui-corner-bottom ui-state-default">
   	  <!-- site login -->
-      <div id='flatnuxlogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FN_LOGIN ?>'>        
+      <div id="flatnuxlogin" class="jqtooltip-dx ui-corner-all" title="<?php echo _FN_LOGIN ?>">        
         <form action="?mod=login" method="post">
           <input type="hidden" name="op" value="login" />
           <input type="hidden" name="from" value="<?php	echo $_FN['mod']?>" /> 
@@ -184,18 +184,18 @@ $urlregistrazione = $_FN["self"]."?mod=login&amp;op=vis_reg";
       <div id="opensociallogin" class="ui-corner-all">
       <?php if ($_THEME_CFG['use_fb']==1){ ?>
       <!-- facebook login button -->		
-  		  <div id='facebooklogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _FB_LOGIN ?>'>
+  		  <div id="facebooklogin" class="jqtooltip-dx ui-corner-all" title="<?php echo _FB_LOGIN ?>">
   		    <img src="images/social/fb_login-button.png" alt="Facebook Login" /> 
   		  </div>    
       <?php } ?>
   		<?php if ($_THEME_CFG['use_gfc']==1){ ?>
       <!-- google friend connect button-->
-        <div id='gfc-button' class='jqtooltip-dx ui-widget-header ui-corner-all' title='<?php echo _GFC_LOGIN ?>'><?php echo _GFC_LOGIN ?> - requestSignIn method</div>
-        <div id='gfc-button2' class='jqtooltip-dx' title='<?php echo _GFC_LOGIN ?>'></div>
+        <div id="gfc-button" class="jqtooltip-dx ui-widget-header ui-corner-all" title="<?php echo _GFC_LOGIN ?>"><?php echo _GFC_LOGIN ?> - requestSignIn method</div>
+        <div id="gfc-button2" class="jqtooltip-dx" title="<?php echo _GFC_LOGIN ?>"></div>
       <?php } ?>
       <?php if ($_THEME_CFG['use_messlive']==1){ ?>
       <!-- messenger live login button -->    
-        <div id='messlivelogin' class='jqtooltip-dx ui-corner-all' title='<?php echo _MESSLIVE_LOGIN ?>'>
+        <div id="messlivelogin" class="jqtooltip-dx ui-corner-all" title="<?php echo _MESSLIVE_LOGIN ?>">
           <wl:signin signed-in-text="Sign Out" signed-out-text="Sign In" on-signin="signInCompleted" on-signout="signOutCompleted"></wl:signin> 
         </div>    
       <?php } ?>
