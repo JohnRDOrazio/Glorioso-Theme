@@ -124,7 +124,7 @@ if ($_THEME_CFG['use_gan']==1){   ?>
   })();
 </script>
 <?php } ?>
-<div id='theme_edit_dialog'></div>
+<div id="theme_edit_dialog"></div>
 <div id="loading">
   <span>Attendere prego...</span>
   <br />
