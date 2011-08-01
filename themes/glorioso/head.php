@@ -48,7 +48,7 @@ require_once("themes/glorioso/languages/{$_FN['lang']}.php");
 	echo "\t<meta name=\"REVISIT-AFTER\" content=\"1 DAYS\" $close_tag>\n";
 	echo "\t<meta name=\"RATING\" content=\"GENERAL\" $close_tag>\n";
 	// Se il javascript non è abilitato, almeno c'è qui un foglio css di default...
-  	echo $_THEME_CFG['use_jqueryui'] ? "<link href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{$_THEME_CFG['jqueryui_default']}/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\"/>" : "";
+  	echo $_THEME_CFG['use_jqueryui'] ? "\t<link href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{$_THEME_CFG['jqueryui_default']}/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\" />\n" : "";
 	//GOOGLE WEBMASTER TOOLS:
 	echo "\t<meta name=\"google-site-verification\" content=\"{$_THEME_CFG['webmastertoolscode']}\" $close_tag>\n";
 	echo "\t<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\" $close_tag>\n";
